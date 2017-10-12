@@ -1,0 +1,135 @@
+﻿@model IEnumerable<Misitu.Licensing.Dto.AllocatedPlotView>
+
+
+@{
+    ViewBag.ActiveMenu = "Harvest Licensing";
+    ViewBag.Title = "Allocated Plots";
+}
+
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">Bill</div>
+        <div class="widget-icons pull-right">
+            <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+            <a href="#" class="wclose"><i class="icon-remove"></i></a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="widget-content">
+        <div class="padd invoice">
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <h4>@ViewBag.Dealer.Name</h4>
+                    <p>
+                       @ViewBag.Dealer.Address
+                    </p>
+                    <p>
+                        @ViewBag.Dealer.Phone,  @ViewBag.Dealer.Email
+                    </p>
+                </div>
+
+
+                <div class="col-md-4">                   
+                    <p>
+                       
+                        Date : @DateTime.Now<br>
+                        Account No : 4290293203
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <hr />
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayName("Plot")
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Trees)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Volume)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Loyality)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TFF)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.LMDA)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CESS)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.VAT)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TP)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TOTAL)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           @foreach (var item in Model)
+                           {
+                            <tr>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Trees)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Volume)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Loyality)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TFF)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LMDA)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CESS)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.VAT)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TP)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TOTAL)
+                                </td>
+
+                            </tr>
+                           }
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="widget-foot">
+            <a href="@Url.Action("Bill","PlotAllocation", new { Id = ViewBag.Dealer.Id})" class="btn btn-default pull-right">Create & Print Bill</a>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>  

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Misitu.FinancialYears.Dto.FinancialYearDto>
+
+
+@{
+    ViewBag.ActiveMenu = "Setup"; //The menu item will be active for this page.
+    ViewBag.Title = "Financial Year";
+}
+
+
+        <div class="widget">
+            <div class="widget-head">
+                <div class="pull-left">All</div>
+                <div class="widget-icons pull-right">
+                    <a href="@Url.Action("Create")">
+                        <small class="text-info"><i class="icon-plus"></i> Create New</small>
+                    </a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="widget-content">
+                <div class="padd">
+                    <table class="table">
+                        <thead>
+                        <tr>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IsActive)
+                            </th>
+                            <th></th>
+                        </tr>
+                      </thead>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @if (item.IsActive == true)
+                                    {
+                                        <span class="label-success"><i class="icon-ok"></i> Activated</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="label-danger"><i class="icon-remove"> </i>  Diactivated</span>
+                                    }
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                    @if (item.IsActive == false)
+                                    {
+                                          <text>@Html.ActionLink("Activate", "Activate", new { id = item.Id }) |</text>
+                                    }
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                    </div>
+                </div>
+            </div>
+      
+

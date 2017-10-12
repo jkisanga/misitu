@@ -1,0 +1,70 @@
+﻿@model Misitu.PlotScalling.Dto.CreateCompartmentInput
+@{
+    ViewBag.ActiveMenu = "Plot Scalling"; //The menu item will be active for this page.
+    ViewBag.Title = "Compartments";
+}
+
+@using (Html.BeginForm("Talling", "Compartments", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="widget-content">
+        <div class="padd">
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+               
+                    <div class="widget">
+                        <div class="widget-head">
+                            <div class="pull-left">Compartiment Name : <u> @ViewBag.Compartment.Name</u> : TARIFF No  [ @ViewBag.Compartment.TariffNumber ]<small style="color:orangered">[Choose specific file for this compartiment]</small></div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="widget-content">
+                            <div class="padd">
+
+                                <div class="form quick-post">
+                                    <!-- Edit profile form (not working)-->
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            @Html.Label("Specie Category", htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-4">
+
+                                                @Html.DropDownList("SpecieCategoryId", null, " ", new { @class = "form-control", @required = "required" })
+                                            </div>
+                                            </div>
+
+                                            <!-- Title -->
+                                            <div class="form-group">
+                                                <label class="control-label col-lg-3" for="title">Excel</label>
+                                                <div class="col-lg-9">
+                                                    <input type="file" name="file" class="form-control">
+                                                    <input type="hidden" name="CompartmentId" value="@ViewBag.Compartment.Id" />
+                                                    <input type="hidden" name="TariffNumber" value="@ViewBag.Compartment.TariffNumber" />
+                                                </div>
+                                            </div>
+                                           
+                                            <!-- Cateogry -->
+                                            <!-- Buttons -->
+                                            <div class="widget-foot">
+                                                <a href="@Url.Action("Index","Plots",new { Id = ViewBag.Compartment.Id})" class="btn btn-default">Back</a>
+                                                <input type="submit" value="Add" class="pull-right btn btn-primary" />
+                                                <div class="clearfix"></div>
+                                            </div>
+</form>
+                                </div>
+
+
+                            <div class="widget-foot">
+                                <!-- Footer goes here -->
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+               
+
+            </div>
+        </div>
+        
+    </div>
+}
+
+    

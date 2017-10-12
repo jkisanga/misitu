@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Misitu.Registration.Dto.CandidateDto>
+
+@{
+    ViewBag.ActiveMenu = "Registration"; //The menu item will be active for this page.
+    ViewBag.Title = "Candidates";
+}
+
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">Selected Dealers</div>
+        <div class="widget-icons pull-right">
+            <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+            <a href="#" class="wclose"><i class="icon-remove"></i></a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="widget-content">
+        <div class="padd">
+            <p class="pull-right">
+
+                <a href="@Url.Action("Create")" class="btn btn-primary"><i class="icon-upload-alt"></i> Upload New Selected Candidates</a>
+            </p>
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Adress)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AllocatedCubicMetres)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Species)
+                        </th>
+
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+            {
+                    <tbody>
+                        <tr>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Adress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Phone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AllocatedCubicMetres)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Species)
+                            </td>
+
+                            <td>
+                                <a href="@Url.Action("Register", "Candidates", new { id = item.Id })" class="btn btn-info btn-sm"><i class="icon-ok"></i> Register</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+
+            </table>
+        </div>
+</div>
+    </div>
+
+

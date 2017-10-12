@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Misitu.PlotScalling.Dto.CompartmentDto>
+
+@{
+    ViewBag.ActiveMenu = "Plot Scalling"; //The menu item will be active for this page.
+    ViewBag.Title = "Compartments";
+}
+
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">List of Compartments</div>
+        
+        <div class="clearfix"></div>
+    </div>
+    <div class="widget-content">
+        <div class="padd">
+           
+            <table class="table table-bordered table-responsive table-hover">
+                <thead>
+                    <tr>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            Range
+                        </th>
+
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Species)
+                        </th>
+
+                        <th>
+                            Age (Year)
+                        </th>
+                        <th>
+                            Area (Ha)
+                        </th>
+                        <th>
+                            Volume (CMB)
+                        </th>
+
+                        <th>
+                            @Html.DisplayName("Tariff No")
+                        </th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Range.Name)
+                        </td>
+                      
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Species)
+                        </td>
+                       
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Age)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Area)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EstimatedVolume)
+                        </td>
+                       
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TariffNumber)
+                        </td>
+                        <td>
+                          @*  @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |*@
+                           @* @Html.ActionLink("Details", "Details", new { id = item.Id }) |*@
+                            @Html.ActionLink("Talling", "Talling", "Compartments", new { id = item.Id }, null)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            </div>
+        </div>
+    </div>

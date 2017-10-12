@@ -1,0 +1,114 @@
+﻿@model IEnumerable<Misitu.PlotScalling.PlotDto>
+
+@{
+    ViewBag.ActiveMenu = "Plot Scalling"; //The menu item will be active for this page.
+    ViewBag.Title = "Plots Allocation";
+}
+
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">Compartment Name : @ViewBag.Compartment.Name </div>
+        
+        <div class="clearfix"></div>
+    </div>
+        <div class="widget-content">
+            <div class="padd">
+                <div class="form-horizontal">
+
+                        <div class="col-md-12">
+                            <table class="table table-bordered table-responsive table-hover">
+                                <thead>
+                                    <tr>
+
+                                        <th>
+                                            Plot
+                                        </th>
+                                        <th>
+                                            No of Trees
+                                        </th>
+                                        <th>
+                                            Volume [CMB]
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Loyality)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.TFF)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.LMDA)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CESS)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.VAT)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.TP)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.TOTAL)
+                                        </th>
+                                        <th>
+                                            Action
+                                        </th>
+
+                                    </tr>
+                                </thead>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Trees)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Volume)
+                                        </td>
+                                        <td>
+                                            @String.Format("{0:#,###0.00}", item.Loyality)
+                                        </td>
+                                        <td>
+                                            @String.Format("{0:#,###0.00}", item.TFF)
+                                        </td>
+                                        <td>
+                                            @String.Format("{0:#,###0.00}", item.LMDA)
+                                        </td>
+                                        <td>
+                                            @String.Format("{0:#,###0.00}", item.CESS)
+                                        </td>
+                                        <td>
+                                            @String.Format("{0:#,###0.00}", item.VAT)
+                                        </td>
+                                        <td>
+                                            @String.Format("{0:#,###0.00}", item.TP)
+                                        </td>
+                                        <td>
+                                            @String.Format("{0:#,###0.00}", item.TOTAL)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Details", "PlotDetails", "Compartments", new { id = item.Id }, null)
+                                        </td>
+
+                                    </tr>
+                                }
+
+                            </table>
+                        </div>
+                    </div>
+            </div>
+            <div class="widget-foot">
+                <a href="@Url.Action("Tallied","Compartments")" class="btn btn-default">Back</a>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    
+</div>
+
+
