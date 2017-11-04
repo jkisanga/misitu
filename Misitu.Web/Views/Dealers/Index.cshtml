@@ -23,7 +23,7 @@
                     <tr>
 
                         <th>
-                            @Html.DisplayNameFor(model => model.SerialNumber)
+                            @Html.DisplayName("S/N")
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.Name)
@@ -39,16 +39,10 @@
                         </th>
 
                         <th>
-                            @Html.DisplayNameFor(model => model.RegisteredDate)
+                            @Html.DisplayName("Registered Date")
                         </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.TIN)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.BusinessLicense)
-                        </th>
-
-                        <th></th>
+                        
+                        <th>@Html.DisplayName("Action")</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -76,12 +70,7 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.RegisteredDate)
                             </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.TIN)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.BusinessLicense)
-                            </td>
+                            
 
                             <td>
                                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

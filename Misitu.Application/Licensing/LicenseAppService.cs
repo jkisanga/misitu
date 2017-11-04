@@ -9,6 +9,7 @@ using Abp.Domain.Repositories;
 using Misitu.FinancialYears;
 using Abp.UI;
 using Abp.AutoMapper;
+using Misitu.Billing;
 
 namespace Misitu.Licensing
 {
@@ -16,12 +17,16 @@ namespace Misitu.Licensing
     {
         private readonly IRepository<License> _licenseRepository;
         private readonly IRepository<FinancialYear> _financialYearRepository;
+        private readonly IRepository<Bill> _billRepository;
 
         public LicenseAppService(IRepository<License> licenseRepository,
-            IRepository<FinancialYear> financialYearRepository)
+            IRepository<FinancialYear> financialYearRepository,
+               IRepository<Bill> billRepository
+            )
         {
             _licenseRepository = licenseRepository;
             _financialYearRepository = financialYearRepository;
+            _billRepository = billRepository;
         }
 
         public async Task ConfirmPayment(LicenseDto input, string PaymentReference)
@@ -84,24 +89,28 @@ namespace Misitu.Licensing
 
         public List<LicenseDto> GetLicenses(FinancialYearDto FinancialYear)
         {
-            var licenses = _licenseRepository
-           .GetAll()
-           .Where(p => p.FinancialYearId == FinancialYear.Id)
-           .Where(p => p.ReceiptNumber != null)
-           .OrderBy(p => p.PaidDate)
-           .ToList();
+            var licenses = (from l in _licenseRepository.GetAll()
+                            join item in _billRepository.GetAll() on l.BillId equals item.Id
+                            where item.PaidAmount > 0
+                            where item.PaidDate != null
+                            where l.FinancialYearId == FinancialYear.Id
+
+                            orderby l.IssuedDate
+                            select l).ToList();
 
             return new List<LicenseDto>(licenses.MapTo<List<LicenseDto>>());
         }
 
         public List<LicenseDto> GetPendingLicenses(FinancialYearDto FinancialYear)
         {
-            var licenses = _licenseRepository
-             .GetAll()
-             .Where(p => p.FinancialYearId == FinancialYear.Id)
-             .Where(p => p.ReceiptNumber == null)
-             .OrderBy(p => p.IssuedDate)
-             .ToList();
+            var licenses = (from l in _licenseRepository.GetAll()
+                            join item in _billRepository.GetAll() on l.BillId equals item.Id
+                            where item.PaidAmount == 0
+                            where item.PaidDate == null
+                            where l.FinancialYearId == FinancialYear.Id
+
+                            orderby l.IssuedDate select l).ToList();
+           
 
             return new List<LicenseDto>(licenses.MapTo<List<LicenseDto>>());
         }

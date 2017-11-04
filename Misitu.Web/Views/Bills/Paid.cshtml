@@ -23,7 +23,10 @@
                             @Html.DisplayName("Bill Holder")
                         </th>
                         <th>
-                            @Html.DisplayName("Station")
+                            @Html.DisplayName("Control Number")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Billed Amount")
                         </th>
                         <th>
                             @Html.DisplayName("Paid Amount")
@@ -44,7 +47,10 @@
                             @Html.DisplayFor(modelItem => item.Dealer.Name)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Station.Name)
+                            @Html.DisplayFor(modelItem => item.ControlNumber)
+                        </td>
+                        <td>
+                            @String.Format("{0:#,###0.00}", item.BillAmount)
                         </td>
                        
                         <td>

@@ -20,7 +20,7 @@
                     <tr>
 
                         <th>
-                            @Html.DisplayNameFor(model => model.SerialNumber)
+                            @Html.DisplayName("S/N")
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.Name)
@@ -34,15 +34,8 @@
                         <th>
                             @Html.DisplayNameFor(model => model.Phone)
                         </th>
-
-                        <th>
-                            @Html.DisplayNameFor(model => model.TIN)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.BusinessLicense)
-                        </th>
-
-                        <th>Action</th>
+                       
+                        <th>@Html.DisplayName("Action")</th>
                     </tr>
                 </thead>
 
@@ -65,13 +58,7 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Phone)
                         </td>
-                                            
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TIN)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.BusinessLicense)
-                        </td>
+                    
 
                         <td>
                             @Html.ActionLink("View Certificate", "RegCertViewer", new { id = item.Id })                      

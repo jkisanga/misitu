@@ -37,8 +37,12 @@ namespace Misitu.Billing
 
         int GetTotalMonthPendingBillsByStation(StationDto Station, FinancialYearDto FinancialYear);
 
-        List<double> GetTotalBillsAmountByStation(StationDto Station, FinancialYearDto FinancialYear);
+        List<double> GetTotalPendingBillsAmountByStation(StationDto Station, FinancialYearDto FinancialYear);
 
-        List<double> GetTotalMonthBillsAmountByStation(StationDto Station, FinancialYearDto FinancialYear);
+        List<double> GetTotalPendingMonthBillsAmountByStation(StationDto Station, FinancialYearDto FinancialYear);
+
+        List<double> GetTotalPaymentsAmountByStation(StationDto Station, FinancialYearDto FinancialYear);
+
+        List<double> GetTotalMonthPaymentsAmountByStation(StationDto Station, FinancialYearDto FinancialYear);
     }
 }

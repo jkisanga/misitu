@@ -6,6 +6,7 @@ using Misitu.Licensing;
 using Misitu.Licensing.Dto;
 using Misitu.PlotScalling;
 using Misitu.Registration;
+using Misitu.RevenueSources;
 using Misitu.Users;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,7 @@ namespace Misitu.Web.Controllers
         private readonly IFinancialYearAppService _financialYearAppService;
         private readonly IBillItemAppService _billItemAppService;
         private readonly LicenseAppService _licenseAppService;
+        private readonly IRevenueSourceAppService _revenueSourceAppService;
 
         public PlotAllocationController(
             IAllocatedPlotAppService allocatedPlotAppService,
@@ -36,7 +38,8 @@ namespace Misitu.Web.Controllers
             IUserAppService userAppService,
             IFinancialYearAppService financialYearAppService,
             IBillItemAppService billItemAppService,
-            LicenseAppService licenseAppService
+            LicenseAppService licenseAppService,
+             IRevenueSourceAppService revenueSourceAppService
             )
         {
             _allocatedPlotAppService = allocatedPlotAppService;
@@ -47,6 +50,7 @@ namespace Misitu.Web.Controllers
             _financialYearAppService = financialYearAppService;
             _billItemAppService = billItemAppService;
             _licenseAppService = licenseAppService;
+            _revenueSourceAppService = revenueSourceAppService;
         }
 
         // GET: PlotAllocation
@@ -54,78 +58,78 @@ namespace Misitu.Web.Controllers
         {
             var dealer = _dealerAppService.GetDealer(id);
             var allocatedPlots = _allocatedPlotAppService.GetAllocatedPlotsByDealer(dealer);
-
+            var sources = _revenueSourceAppService.GetRevenueResources().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Description });
+            ViewBag.RevenueSourceId = sources;
             ViewBag.Dealer = dealer;
-            return View(allocatedPlots);
+            ViewBag.Plots = allocatedPlots;
+            return View();
         }
 
-        // GET: PlotAllocation/Details/5
-        public ActionResult Bill(int id)
+
+        [HttpPost]
+        public ActionResult Bill(int id, CreateBillInput billInput, int RevenueSourceId)
         {
-           try
+            var dealer = _dealerAppService.GetDealer(id);
+
+
+            if (dealer != null)
             {
-                // TODO: Add insert logic here
+                var revenue = _revenueSourceAppService.GetRevenueResource(RevenueSourceId);
+                var items = _allocatedPlotAppService.GetAllocatedPlotsByDealer(dealer);
+                var user = _userAppService.GetLoggedInUser();
+                var Fyear = _financialYearAppService.GetActiveFinancialYear();
 
-                var dealer = _dealerAppService.GetDealer(id);
-                if(dealer != null)
+                //Dealer Registration Bill
+
+                int bill = _billAppService.CreateBill(billInput);
+                if (bill > 0)
                 {
-                    var items = _allocatedPlotAppService.GetAllocatedPlotsByDealer(dealer);
-                    var user = _userAppService.GetLoggedInUser();
-                    var Fyear = _financialYearAppService.GetActiveFinancialYear();
-
-                    var billInput = new CreateBillInput
+                    foreach (var item in items)
                     {
-                        DealerId = dealer.Id,
-                        StationId = user.StationId,
-                        FinancialYearId = Fyear.Id,
-                        IssuedDate = DateTime.Now
-                    };
-
-                    int bill = _billAppService.CreateBill(billInput);// Create and Save Bill
-                    if (bill > 0)
-                    {
-                        //Get Bill Items
-                        foreach (var bilIitem in items)
-                        {
-                            var item = new CreateBillItemInput
-                            {
-                                BillId = bill,
-                                Description = bilIitem.Name,
-                                Loyality = bilIitem.Loyality,
-                                TFF = bilIitem.TFF,
-                                LMDA = bilIitem.LMDA,
-                                CESS = bilIitem.CESS,
-                                VAT = bilIitem.VAT,
-                                TP = bilIitem.TP,                                
-                                Total = bilIitem.TOTAL
-                            };
-
-                            _billItemAppService.CreateBillItem(item);//Save Bill Items
-                         
-                        }
-
-                        var License = new CreateLicenseInput
+                        var billItem = new CreateBillItemInput
                         {
                             BillId = bill,
-                            FinancialYearId = Fyear.Id,
-                            StationId = user.StationId,
-                            IssuedDate = DateTime.Now
-
+                            RevenueResourceId = RevenueSourceId,
+                            Description = revenue.Description,
+                            Loyality = item.Loyality,
+                            TFF = item.TFF,
+                            LMDA = item.LMDA,
+                            CESS = item.CESS,
+                            VAT = item.VAT,
+                            TP = item.TP,
+                            Total = item.TOTAL
                         };
 
-                        _licenseAppService.CreateLicense(License);// Create Licence under pending status
-                    }
-                    return RedirectToAction("Tallied","Compartments");
-                }
+                        _billItemAppService.CreateBillItem(billItem);
 
-                return RedirectToAction("Index", new { id = id});
-            }
-            catch(Exception ex)
-            {
-                throw new Exception(ex.ToString());
-                //return RedirectToAction("Index", new { id = id });
-            }
+                    }
+                    var License = new CreateLicenseInput
+                    {
+                        BillId = bill,
+                        FinancialYearId = Fyear.Id,
+                        StationId = user.StationId,
+                        IssuedDate = DateTime.Now
+
+                    };
+
+                  _licenseAppService.CreateLicense(License);// Create Licence under pending status
+
+                    return RedirectToAction("ApplicationBill", "PlotAllocation", new { id = bill });
+                }
+             
         }
+
+            return RedirectToAction("Index", new { id = id });
+        }
+
+        public ActionResult ApplicationBill(int id)
+        {
+            var bill = _billAppService.GetBill(id);
+
+            return View(bill);
+        }
+
+
 
         // GET: PlotAllocation/Create
         public ActionResult Create()

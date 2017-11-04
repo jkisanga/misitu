@@ -167,6 +167,7 @@
     <Compile Include="FinancialYears\IFinancialYearAppService.cs" />
     <Compile Include="Layout\Dto\BillDashboard.cs" />
     <Compile Include="Layout\Dto\HeaderDto.cs" />
+    <Compile Include="Layout\Dto\PaymentsDashboard.cs" />
     <Compile Include="Layout\Dto\RegistrationDashboard.cs" />
     <Compile Include="Licensing\AllocatedPlotAppService.cs" />
     <Compile Include="Licensing\Dto\AllocatedPlotDto.cs" />

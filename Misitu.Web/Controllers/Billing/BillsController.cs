@@ -69,8 +69,8 @@ namespace Misitu.Web.Controllers.Billing
                 Paid = _billAppService.GetTotalPaidBillsByStation(_stationAppService.GetStation(userInfo.StationId), finacialYear),
                 PaidPerMonth = _billAppService.GetTotalMonthBillsByStation(_stationAppService.GetStation(userInfo.StationId), finacialYear),
                 PendingPerMonth = _billAppService.GetTotalMonthPendingBillsByStation(_stationAppService.GetStation(userInfo.StationId), finacialYear),
-                TotalCollection = _billAppService.GetTotalBillsAmountByStation(_stationAppService.GetStation(userInfo.StationId), finacialYear).Sum(),
-                CollectionPerMonth = _billAppService.GetTotalMonthBillsAmountByStation(_stationAppService.GetStation(userInfo.StationId), finacialYear).Sum()
+                TotalCollection = _billAppService.GetTotalPendingBillsAmountByStation(_stationAppService.GetStation(userInfo.StationId), finacialYear).Sum(),
+                CollectionPerMonth = _billAppService.GetTotalPendingMonthBillsAmountByStation(_stationAppService.GetStation(userInfo.StationId), finacialYear).Sum()
             };
 
             return View(Dashboard);
@@ -214,16 +214,12 @@ namespace Misitu.Web.Controllers.Billing
 
             if(bill != null)
             {
-
-                if (bill.BillAmount == Amount)
-                {
-                    _billAppService.ConfirmBill(bill, Amount);
-                }
-                else
-                {
-                    throw new UserFriendlyException("Billed amount and payed amount do not match");
-                }             
-               
+                _billAppService.ConfirmBill(bill, Amount);
+            
+            }
+            else
+            {
+                throw new UserFriendlyException("Enter the paid amount");
             }
             return RedirectToAction("Index");
         }

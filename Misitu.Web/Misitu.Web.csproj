@@ -27,6 +27,7 @@
     <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -635,6 +636,7 @@
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\LicenseController.cs" />
     <Compile Include="Controllers\MisituControllerBase.cs" />
+    <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\PlotAllocationController.cs" />
     <Compile Include="Controllers\PlotScalling\CompartmentsController.cs" />
     <Compile Include="Controllers\PlotScalling\HarvestingPlanController.cs" />
@@ -783,6 +785,11 @@
     <Content Include="Views\Compartments\TalledSummary.cshtml" />
     <Content Include="Views\Compartments\TalliedCompartments.cshtml" />
     <Content Include="Views\Compartments\Talling.cshtml" />
+    <Content Include="Views\PlotAllocation\ApplicationBill.cshtml" />
+    <Content Include="Views\Payments\Dashboard.cshtml" />
+    <Content Include="Views\Payments\Paid.cshtml" />
+    <Content Include="Views\Payments\Index.cshtml" />
+    <Content Include="Views\Payments\Confirm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -8,6 +8,9 @@
     <text name="Dashboard" value="Dashboard" />
     <text name="Registration" value="Registration" />
     <text name="Billing" value="Billing" />
+    <text name="Payments" value="Payments" />
+    <text name="PendingPayments" value="Pending Payments" />
+    <text name="SuccessfulPayments" value="Successful Payments" />
     <text name="Setup" value="Setup" />
     <text name="PlotScalling" value="Plot Scalling" />    
     <text name="HarvestLicensing" value="Harvest Licensing" />

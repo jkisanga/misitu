@@ -57,8 +57,32 @@
                                     </tr>
                                 </thead>
 
+                                @{
+                                    int trees = 0;
+                                    double total = 0;
+                                    double volume = 0;
+                                    double loyality = 0;
+                                    double lmda = 0;
+                                    double cess = 0;
+                                    double vat = 0;
+                                    double tff = 0;
+                                    double tp = 0;
+
+
+                                }
+
                                 @foreach (var item in Model)
                                 {
+                                    trees = trees + item.Trees;
+                                    total = total + item.TOTAL;
+                                    volume = volume + item.Volume;
+                                    loyality = loyality + item.Loyality;
+                                    lmda = lmda + item.LMDA;
+                                    cess = cess + item.CESS;
+                                    vat = vat + item.VAT;
+                                    tff = tff + item.TFF;
+                                    tp = tp + item.TP;
+
                                     <tr>
                                         
 
@@ -98,8 +122,23 @@
 
                                     </tr>
                                 }
-
+                                <tfoot>
+                                    <tr>
+                                        <th>TOTAL</th>
+                                        <th> @String.Format("{0:0}", trees)</th>
+                                        <th>@String.Format("{0:#,###0.00}", volume)</th>
+                                        <th>@String.Format("{0:#,###0.00}", loyality)</th>
+                                        <th>@String.Format("{0:#,###0.00}", tff)</th>
+                                        <th>@String.Format("{0:#,###0.00}", lmda)</th>
+                                        <th>@String.Format("{0:#,###0.00}", cess)</th>
+                                        <th>@String.Format("{0:#,###0.00}", vat)</th>
+                                        <th>@String.Format("{0:#,###0.00}", tp)</th>
+                                        <th>@String.Format("{0:#,###0.00}", total)</th>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
                             </table>
+                          
                         </div>
                     </div>
             </div>

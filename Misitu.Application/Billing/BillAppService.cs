@@ -91,7 +91,7 @@ namespace Misitu.Billing
               .GetAll()
               .Where(p => p.PaidAmount == 0)
               .Where(p => p.FinancialYearId == FinancialYear.Id)
-              .OrderBy(p => p.IssuedDate)
+              .OrderByDescending(p => p.IssuedDate)
               .ToList();
 
             return new List<BillDto>(bills.MapTo<List<BillDto>>());
@@ -103,7 +103,7 @@ namespace Misitu.Billing
             .GetAll()
             .Where(p => p.PaidAmount > 0)
             .Where(p => p.FinancialYearId == FinancialYear.Id)
-            .OrderBy(p => p.IssuedDate)
+            .OrderByDescending(p => p.IssuedDate)
             .ToList();
 
             return new List<BillDto>(bills.MapTo<List<BillDto>>());
@@ -124,7 +124,7 @@ namespace Misitu.Billing
 
             if(bill != null)
             {
-                if(bill.BillAmount == PaidAmount)
+                if(bill.BillAmount <= PaidAmount)
                 {
                     bill.PaidDate = DateTime.Now;
                     bill.PaidAmount = PaidAmount;
@@ -132,7 +132,7 @@ namespace Misitu.Billing
                 }
                 else
                 {
-                    throw new UserFriendlyException("Billed amount and payed amount do not match");
+                    throw new UserFriendlyException("Confirmed amount is less than billed amount!");
                 }
                
             }
@@ -200,10 +200,10 @@ namespace Misitu.Billing
             return bills;
         }
 
-       public  List<double> GetTotalBillsAmountByStation(StationDto Station, FinancialYearDto FinancialYear)
+       public  List<double> GetTotalPendingBillsAmountByStation(StationDto Station, FinancialYearDto FinancialYear)
         {
             var bills = _billRepository.GetAll()
-                    .Where(p => p.PaidAmount > 0)
+                    .Where(p => p.PaidAmount == 0)
                     .Where(p => p.FinancialYearId == FinancialYear.Id)
                     .Where(p => p.StationId == Station.Id)
                     .Select(p => p.BillAmount)
@@ -211,10 +211,10 @@ namespace Misitu.Billing
             return bills;
         }
 
-        public List<double> GetTotalMonthBillsAmountByStation(StationDto Station, FinancialYearDto FinancialYear)
+        public List<double> GetTotalPendingMonthBillsAmountByStation(StationDto Station, FinancialYearDto FinancialYear)
         {
             var bills = _billRepository.GetAll()
-                    .Where(p => p.PaidAmount > 0)
+                    .Where(p => p.PaidAmount == 0)
                     .Where(p => p.FinancialYearId == FinancialYear.Id)
                     .Where(p => p.StationId == Station.Id)
                      .Where(x => x.IssuedDate.Month == DateTime.Today.Month && x.IssuedDate.Year == DateTime.Today.Year)
@@ -246,6 +246,30 @@ namespace Misitu.Billing
                        };   
 
             return new List<BillPrint>(bill.MapTo<List<BillPrint>>()); ;
+        }
+
+
+        public List<double> GetTotalPaymentsAmountByStation(StationDto Station, FinancialYearDto FinancialYear)
+        {
+            var bills = _billRepository.GetAll()
+                    .Where(p => p.PaidAmount > 0)
+                    .Where(p => p.FinancialYearId == FinancialYear.Id)
+                    .Where(p => p.StationId == Station.Id)
+                    .Select(p => p.PaidAmount)
+                    .ToList();
+            return bills;
+        }
+
+        public List<double> GetTotalMonthPaymentsAmountByStation(StationDto Station, FinancialYearDto FinancialYear)
+        {
+            var bills = _billRepository.GetAll()
+                    .Where(p => p.PaidAmount > 0)
+                    .Where(p => p.FinancialYearId == FinancialYear.Id)
+                    .Where(p => p.StationId == Station.Id)
+                     .Where(x => x.IssuedDate.Month == DateTime.Today.Month && x.IssuedDate.Year == DateTime.Today.Year)
+                    .Select(p => p.PaidAmount)
+                    .ToList();
+            return bills;
         }
     }
 }

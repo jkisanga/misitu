@@ -23,13 +23,10 @@
                     <tr>
 
                         <th>
-                            @Html.DisplayNameFor(model => model.Name)
+                            @Html.DisplayName("Compartment")
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Range.Name)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.FinancialYear.Name)
+                            @Html.DisplayName("Range")
                         </th>
 
                         <th>
@@ -46,10 +43,7 @@
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.EstimatedVolume)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Season)
-                        </th>
+                        </th>                      
                         <th>
                             @Html.DisplayName("Tariff Number")
                         </th>
@@ -67,10 +61,7 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Range.Name)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FinancialYear.Name)
-                        </td>
-                      
+                                           
                         <td>
                             @Html.DisplayFor(modelItem => item.Species)
                         </td>
@@ -86,9 +77,7 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.EstimatedVolume)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Season)
-                        </td>
+                      
                         <td>
                             @Html.DisplayFor(modelItem => item.TariffNumber)
                         </td>

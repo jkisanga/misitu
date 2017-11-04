@@ -102,6 +102,7 @@ namespace Misitu.Licensing
                          join allocated in _allocatedPlotRepository.GetAll() on plot.Id equals allocated.PlotId
                          where allocated.DealerId == dealer.Id
                          where allocated.FinancialYearId == current.Id
+                         where plot.IsAllocated == true
                          where allocated.IsPaid == false
                          orderby plot.Name
                          group sheet by sheet.PlotId into g

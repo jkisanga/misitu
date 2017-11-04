@@ -140,7 +140,7 @@ namespace Misitu.Web
                       new MenuItemDefinition(
                     "Billing",
                     new LocalizableString("Billing", "Misitu"),
-                    icon: "icon-money",
+                    icon: "icon-table",
                      url: "/Bills/Dashboard"
                     ).AddItem(
                         new MenuItemDefinition(
@@ -168,6 +168,34 @@ namespace Misitu.Web
                             "Paid Bills",
                             new LocalizableString("PaidBills", "Misitu"),
                             url: "/Bills/Paid",
+                            icon: "icon-th"
+                            )
+                    )
+                 ).AddItem(
+                      new MenuItemDefinition(
+                    "Payments",
+                    new LocalizableString("Payments", "Misitu"),
+                    icon: "icon-money",
+                     url: "/Payments/Dashboard"
+                    ).AddItem(
+                        new MenuItemDefinition(
+                            "Dashboard",
+                            new LocalizableString("Dashboard", "Misitu"),
+                            url: "/Payments/Dashboard",
+                            icon: "icon-desktop"
+                            )
+                   ).AddItem(
+                        new MenuItemDefinition(
+                            "Pending Payments",
+                            new LocalizableString("PendingPayments", "Misitu"),
+                            url: "/Payments",
+                            icon: "icon-th"
+                            )
+                    ).AddItem(
+                        new MenuItemDefinition(
+                            "Successful Payments",
+                            new LocalizableString("SuccessfulPayments", "Misitu"),
+                            url: "/Payments/Paid",
                             icon: "icon-th"
                             )
                     )

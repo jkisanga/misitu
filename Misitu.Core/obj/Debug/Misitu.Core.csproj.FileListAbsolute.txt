@@ -78,3 +78,4 @@ C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Core\bin\Deb
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Core\obj\Debug\Misitu.Core.dll
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Core\obj\Debug\Misitu.Core.pdb
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Core\obj\Debug\Misitu.Core.csprojResolveAssemblyReference.cache
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Core\obj\Debug\Misitu.Core.csproj.CoreCompileInputs.cache
