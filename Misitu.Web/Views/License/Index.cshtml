@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Misitu.Licensing.Dto.LicenseDto>
+﻿@model IEnumerable<Misitu.Licensing.Dto.LicenseView>
 
 @{
     ViewBag.ActiveMenu = "Harvest Licensing";
@@ -21,16 +21,19 @@
                     <tr>
 
                         <th>
-                            @Html.DisplayNameFor(model => model.serialNumber)
+                            @Html.DisplayName("Serial Number")
                         </th>
                         <th>
-                            @Html.DisplayName("Station")
+                            @Html.DisplayName("Dealer")
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.PaidDate)
+                            @Html.DisplayName("Description")
                         </th>
                         <th>
-                            @Html.DisplayName("Payment Reference")
+                            @Html.DisplayName("Amount")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Issued Date")
                         </th>
 
                         <th></th>
@@ -41,18 +44,22 @@
                     <tr>
                         
                         <td>
-                            @Html.DisplayFor(modelItem => item.serialNumber)
+                            @Html.DisplayFor(modelItem => item.SerialNumber)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Station.Name)
+                            @Html.DisplayFor(modelItem => item.Dealer)
                         </td>
                        
                         <td>
-                            @Html.DisplayFor(modelItem => item.PaidDate)
+                            @Html.DisplayFor(modelItem => item.Description)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ReceiptNumber)
-                        </td>                       
+                            
+                            @String.Format("{0:#,###0.00}", item.Amount)
+                        </td>  
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IssuedDate)
+                        </td> 
                         <td>
                            
                         </td>

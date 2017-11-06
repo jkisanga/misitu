@@ -10,6 +10,7 @@ using Misitu.FinancialYears;
 using Abp.UI;
 using Abp.AutoMapper;
 using Misitu.Billing;
+using Misitu.Registration;
 
 namespace Misitu.Licensing
 {
@@ -18,15 +19,18 @@ namespace Misitu.Licensing
         private readonly IRepository<License> _licenseRepository;
         private readonly IRepository<FinancialYear> _financialYearRepository;
         private readonly IRepository<Bill> _billRepository;
+        private readonly IRepository<Dealer> _dealerRepository;
 
         public LicenseAppService(IRepository<License> licenseRepository,
             IRepository<FinancialYear> financialYearRepository,
-               IRepository<Bill> billRepository
+               IRepository<Bill> billRepository,
+               IRepository<Dealer> dealerRepository
             )
         {
             _licenseRepository = licenseRepository;
             _financialYearRepository = financialYearRepository;
             _billRepository = billRepository;
+            _dealerRepository = dealerRepository;
         }
 
         public async Task ConfirmPayment(LicenseDto input, string PaymentReference)
@@ -87,32 +91,52 @@ namespace Misitu.Licensing
             return license.MapTo<LicenseDto>();
         }
 
-        public List<LicenseDto> GetLicenses(FinancialYearDto FinancialYear)
+        public List<LicenseView> GetLicenses(FinancialYearDto FinancialYear)
         {
             var licenses = (from l in _licenseRepository.GetAll()
-                            join item in _billRepository.GetAll() on l.BillId equals item.Id
-                            where item.PaidAmount > 0
-                            where item.PaidDate != null
+                            join bill in _billRepository.GetAll() on l.BillId equals bill.Id
+                            join dealer in _dealerRepository.GetAll() on bill.DealerId equals dealer.Id
+                            where bill.PaidAmount > 0
+                            where bill.PaidDate != null
                             where l.FinancialYearId == FinancialYear.Id
 
                             orderby l.IssuedDate
-                            select l).ToList();
+                            select new LicenseView{
 
-            return new List<LicenseDto>(licenses.MapTo<List<LicenseDto>>());
+                                    SerialNumber = l.serialNumber,
+                                    Dealer = dealer.Name,
+                                    Description = bill.Description,
+                                    Amount = bill.PaidAmount,
+                                    IssuedDate = l.IssuedDate
+
+                            }).ToList();
+
+            return new List<LicenseView>(licenses.MapTo<List<LicenseView>>());
         }
 
-        public List<LicenseDto> GetPendingLicenses(FinancialYearDto FinancialYear)
+        public List<LicenseView> GetPendingLicenses(FinancialYearDto FinancialYear)
         {
             var licenses = (from l in _licenseRepository.GetAll()
-                            join item in _billRepository.GetAll() on l.BillId equals item.Id
-                            where item.PaidAmount == 0
-                            where item.PaidDate == null
+                            join bill in _billRepository.GetAll() on l.BillId equals bill.Id
+                            join dealer in _dealerRepository.GetAll() on bill.DealerId equals dealer.Id
+                            where bill.PaidAmount == 0
+                            where bill.PaidDate == null
                             where l.FinancialYearId == FinancialYear.Id
 
-                            orderby l.IssuedDate select l).ToList();
+                            orderby l.IssuedDate
+                            select new LicenseView
+                            {
+
+                                SerialNumber = l.serialNumber,
+                                Dealer = dealer.Name,
+                                Description = bill.Description,
+                                Amount = bill.BillAmount,
+                                IssuedDate = bill.IssuedDate
+
+                            }).ToList();
            
 
-            return new List<LicenseDto>(licenses.MapTo<List<LicenseDto>>());
+            return new List<LicenseView>(licenses.MapTo<List<LicenseView>>());
         }
 
         public int GetTotalLicenseByStationId(int id)

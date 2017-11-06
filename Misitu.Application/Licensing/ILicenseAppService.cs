@@ -11,9 +11,9 @@ namespace Misitu.Licensing
 {
     public interface ILicenseAppService: IApplicationService
     {
-        List<LicenseDto> GetLicenses(FinancialYearDto FinancialYear);
+        List<LicenseView> GetLicenses(FinancialYearDto FinancialYear);
 
-        List<LicenseDto> GetPendingLicenses(FinancialYearDto FinancialYear);
+        List<LicenseView> GetPendingLicenses(FinancialYearDto FinancialYear);
 
         void CreateLicense(CreateLicenseInput input);
 

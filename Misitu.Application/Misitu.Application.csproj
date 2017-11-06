@@ -175,6 +175,7 @@
     <Compile Include="Licensing\Dto\CreateAllocatedPlotInput.cs" />
     <Compile Include="Licensing\Dto\CreateLicenseInput.cs" />
     <Compile Include="Licensing\Dto\LicenseDto.cs" />
+    <Compile Include="Licensing\Dto\LicenseView.cs" />
     <Compile Include="Licensing\IAllocatedPlotAppService.cs" />
     <Compile Include="Licensing\ILicenseAppService.cs" />
     <Compile Include="Licensing\LicenseAppService.cs" />
