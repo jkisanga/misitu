@@ -16,6 +16,8 @@
 
         public const string Pages_Billing = "Pages.Billing";
 
+        public const string Pages_Payments = "Pages.Payments";
+
         public const string Pages_Transit_Passes = "Pages.TransitPasses";
 
 

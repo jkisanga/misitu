@@ -20,6 +20,7 @@ namespace Misitu.Authorization
             var scalling = pages.CreateChildPermission(PermissionNames.Pages_Plot_Scalling, L("PlotScalling"));
             var licensing = pages.CreateChildPermission(PermissionNames.Pages_Harvest_Licensing, L("HarvestLicensing"));
             var billing = pages.CreateChildPermission(PermissionNames.Pages_Billing, L("Billing"));
+            var payments = pages.CreateChildPermission(PermissionNames.Pages_Payments, L("Payments"));
             var tp = pages.CreateChildPermission(PermissionNames.Pages_Transit_Passes, L("TransitPasses"));
 
             //Host permissions

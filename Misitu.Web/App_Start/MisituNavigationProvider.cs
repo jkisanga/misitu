@@ -28,7 +28,9 @@ namespace Misitu.Web
                     "Registration",
                     L("Registration"),
                     url: "/dealers/Dashboard",
-                    icon: "icon-user"
+                    icon: "icon-user",
+                    requiresAuthentication: true,
+                    requiredPermissionName: "Pages.Registration"
                     ).AddItem(
                         new MenuItemDefinition(
                             "Dashboard",
@@ -71,7 +73,9 @@ namespace Misitu.Web
                     "Plot Scalling",
                     new LocalizableString("PlotScalling", "Misitu"),
                       url: "/Compartments/Dashboard",
-                    icon: "icon-pencil"
+                    icon: "icon-pencil",
+                    requiresAuthentication: true,
+                    requiredPermissionName: "Pages.PlotScalling"
                     ).AddItem(
                         new MenuItemDefinition(
                             "Dashboard",
@@ -106,7 +110,9 @@ namespace Misitu.Web
                     "Harvest Licensing",
                     new LocalizableString("HarvestLicensing", "Misitu"),
                         url: "/License/Dashboard",
-                        icon: "icon-file-text"
+                        icon: "icon-file-text",
+                          requiresAuthentication: true,
+                    requiredPermissionName: "Pages.HarvestLicensing"
                     ).AddItem(
                         new MenuItemDefinition(
                             "Dashboard",
@@ -141,7 +147,9 @@ namespace Misitu.Web
                     "Billing",
                     new LocalizableString("Billing", "Misitu"),
                     icon: "icon-table",
-                     url: "/Bills/Dashboard"
+                     url: "/Bills/Dashboard",
+                      requiresAuthentication: true,
+                    requiredPermissionName: "Pages.Billing"
                     ).AddItem(
                         new MenuItemDefinition(
                             "Dashboard",
@@ -176,7 +184,9 @@ namespace Misitu.Web
                     "Payments",
                     new LocalizableString("Payments", "Misitu"),
                     icon: "icon-money",
-                     url: "/Payments/Dashboard"
+                     url: "/Payments/Dashboard",
+                      requiresAuthentication: true,
+                    requiredPermissionName: "Pages.Payments"
                     ).AddItem(
                         new MenuItemDefinition(
                             "Dashboard",
