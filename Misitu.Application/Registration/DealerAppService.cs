@@ -62,7 +62,7 @@ namespace Misitu.Registration
                    
                 };
 
-                var existingDealer = _dealerRepository.FirstOrDefault(p => p.Name == input.Name);
+                var existingDealer = _dealerRepository.FirstOrDefault(p => p.Name == input.Name && p.FinancialYearId == current.Id);
                 if (existingDealer == null)
                 {
                     var dealerId =  _dealerRepository.InsertAndGetId(dealer);
@@ -70,7 +70,7 @@ namespace Misitu.Registration
                 }
                 else
                 {
-                    throw new UserFriendlyException("There is already a Compartment with given name");
+                    throw new UserFriendlyException("There is already a Dealer with given name");
                 }
             }
             else

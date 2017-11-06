@@ -15,7 +15,7 @@ namespace Misitu.PlotScalling
         List<PlotDto> GetPlotsByCompartment(int id);
 
         List<PlotDto> GetTalliedPlotsByCompartment(int id);
-       
+
         int CreatePlot(CreatePlotInput input);
 
         PlotDto GetPlot(int id);

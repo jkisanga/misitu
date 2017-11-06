@@ -79,9 +79,30 @@ namespace Misitu.PlotScalling
 
         public List<PlotDto> GetPlotsByCompartment(int id)
         {
-         
+            var plots = (from sheet in _tallySheetRepository.GetAll()
+                         join plot in _plotRepository.GetAll() on sheet.PlotId equals plot.Id
+                         where plot.CompartmentId == id
+                         orderby plot.Name
+                         group sheet by sheet.PlotId into g
+                         select new PlotDto
+                         {
+                             Id = g.Key,
+                             isAllocated = g.Select( x => x.Plot.IsAllocated).FirstOrDefault(),
+                             CompartmentId = id,
+                             Name = g.Select(x => x.Plot.Name).FirstOrDefault(),
+                             Trees = g.Sum(t => t.TreesNumber),
+                             Volume = g.Sum(t => t.Volume),
+                             Loyality = g.Sum(t => t.Loyality),
+                             TFF = g.Sum(t => t.TFF),
+                             LMDA = g.Sum(t => t.LMDA),
+                             CESS = g.Sum(t => t.CESS),
+                             VAT = g.Sum(t => t.VAT),
+                             TP = g.Sum(t => t.TP),
+                             TOTAL = g.Sum(t => t.TOTAL)
+                         }
 
-            var plots = _plotRepository.GetAllList(p => p.CompartmentId == id).OrderBy(p => p.Name).ToList();
+                            ).ToList();
+
             return new List<PlotDto>(plots.MapTo<List<PlotDto>>());
         }
 

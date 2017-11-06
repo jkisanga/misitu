@@ -264,7 +264,7 @@ namespace Misitu.Web.Controllers.PlotScalling
         {
           //  var finacialYear = _financialYearAppService.GetActiveFinancialYear();
             var compartment = _compartmentAppService.GetCompartment(id);
-            var plots = _plotAppService.GetTalliedPlotsByCompartment(id);
+            var plots = _plotAppService.GetPlotsByCompartment(id);
 
             ViewBag.Compartment = compartment;
             return View(plots);

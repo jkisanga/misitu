@@ -131,8 +131,12 @@ namespace Misitu.PlotScalling
 
         public List<CompartmentDto> GetCompartments()
         {
+            //get current active financial year;
+            var current = _financialYearRepository.FirstOrDefault(c => c.IsActive == true);
+
             var compartments = _compartmentRepository
               .GetAll()
+              .Where(p => p.FinancialYearId == current.Id)
               .OrderBy(p => p.Name)
               .ToList();
 

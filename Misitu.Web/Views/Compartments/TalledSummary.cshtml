@@ -24,6 +24,9 @@
                                             Plot
                                         </th>
                                         <th>
+                                            Status
+                                        </th>
+                                        <th>
                                             No of Trees
                                         </th>
                                         <th>
@@ -90,6 +93,17 @@
                                             @Html.DisplayFor(modelItem => item.Name)
                                         </td>
                                         <td>
+                                           @{ if (item.isAllocated)
+                                               {
+                                               <label class="label-success"> Allocated</label>
+                                               }
+                                               else
+                                               {
+                                                <label class="label-warning"> Unllocated</label>
+                                               }
+                                        }
+                                        </td>
+                                        <td>
                                             @Html.DisplayFor(modelItem => item.Trees)
                                         </td>
                                         <td>
@@ -124,7 +138,7 @@
                                 }
                                 <tfoot>
                                     <tr>
-                                        <th>TOTAL</th>
+                                        <th colspan="2">TOTAL</th>
                                         <th> @String.Format("{0:0}", trees)</th>
                                         <th>@String.Format("{0:#,###0.00}", volume)</th>
                                         <th>@String.Format("{0:#,###0.00}", loyality)</th>

@@ -16,6 +16,7 @@ namespace Misitu.PlotScalling
         [Required]
         public virtual int CompartmentId { get; set; }
         [Required]
+        public virtual  Boolean isAllocated { get; set; }
         public virtual string Name { get; set; }
         public virtual int Trees { get; set; }
         public virtual double Volume { get; set; }

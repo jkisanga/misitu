@@ -214,7 +214,9 @@ namespace Misitu.Web
                     "Transit Passes",
                     new LocalizableString("TransitPasses", "Misitu"),
                     icon: "icon-truck",
-                     url: "/TransitPass/Dashboard"
+                     url: "/TransitPass/Dashboard",
+                       requiresAuthentication: true,
+                    requiredPermissionName: "Pages.TransitPasses"
                     ).AddItem(
                         new MenuItemDefinition(
                             "Dashboard",
@@ -228,7 +230,9 @@ namespace Misitu.Web
                     "Setup",
                     new LocalizableString("Setup", "Misitu"),
                     icon: "icon-gear",
-                     url: "/Users"
+                     url: "/Users",
+                      requiresAuthentication: true,
+                    requiredPermissionName: "Pages.Setup"
                     ).AddItem(
                         new MenuItemDefinition(
                             "Users",

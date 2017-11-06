@@ -139,7 +139,7 @@ namespace Misitu.Web.Controllers
 
         // POST: PlotAllocation/Create
         [HttpPost]
-        public  ActionResult Create(int DealerId, int[] PlotId)
+        public  ActionResult Create(int DealerId,int CompartmentId, int[] PlotId)
         {
             try
             {
@@ -167,14 +167,15 @@ namespace Misitu.Web.Controllers
                 {
                     ModelState.AddModelError("", "Make sure Dealer and Plot are selected");
 
-                    return RedirectToAction("Tallied","Compartments");
+                    return RedirectToAction("Tallied", "Plots", new { Id = CompartmentId });
                 }
 
               
             }
             catch
             {
-                return View();
+                ModelState.AddModelError("", "Make sure Dealer and Plot are selected");
+                return RedirectToAction("Tallied","Plots", new { Id = CompartmentId });
             }
         }
 
