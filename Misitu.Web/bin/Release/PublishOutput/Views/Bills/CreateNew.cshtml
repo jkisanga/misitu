@@ -1,0 +1,211 @@
+﻿@model Misitu.Billing.Dto.CreateBillInput
+
+@{
+    ViewBag.ActiveMenu = "Billing"; //The menu item will be active for this page.
+    ViewBag.Title = "Billing";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "form1" }))
+{
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">New Bill</div>
+        <div class="widget-icons pull-right">
+            <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    
+            <div class="widget-content">
+                <div class="padd">
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+                            @Html.Label("Dealers", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.DropDownList("DealerId", null, " ", new { @class = "form-control" })
+                                @Html.ValidationMessage("DealerId", "", new { @class = "text-danger" })
+                            </div>
+
+                            @Html.Label("Bill Description", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Description,"", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Currency", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.DropDownListFor(model => model.Currency, new List<SelectListItem>
+                                { new SelectListItem{Text="TZS", Value="TZS",Selected =true },
+                                    new SelectListItem{Text="USD", Value="USD"}}, new { @class = "form-control" })
+
+                                @Html.ValidationMessage("Currency", "", new { @class = "text-danger" })
+                            </div>         
+                            @Html.Label("Expired Date", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                <div id="datetimepicker1" class="input-append">
+                                    @Html.TextBox("ExpiredDate", null, new { @class = "form-control dtpicker" })
+                                    <span class="add-on">
+                                        <i data-time-icon="icon-time" data-date-icon="icon-calendar" class="btn btn-info btn-lg"></i>
+                                    </span>
+                                    @Html.ValidationMessage("ExpiredDate", "", new { @class = "text-danger" })
+                                 </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        
+            </div>
+
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">Bill Items [ <i class="text-info">
+    You may Add more than one item revenue sources
+</i> ]</div>
+       
+        <div class="widget-icons pull-right">
+            <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>       
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="widget-content">
+            <div class="padd">
+                <a class="btn btn-success" onclick="addMoreRows(this.form);">
+                    <i class="icon-plus-sign"> Add More</i>
+
+                </a>
+                <div id="screen"></div>
+                <div id="obj"></div>
+
+                <div class="form-horizontal" id="addedRows">
+                    <div class="form-group" id="rowId">
+                        <label class="control-label col-md-2">Revenue Source</label>
+                        <div class="col-md-3">
+                            <select name="sources[]" class="form-control">
+                                @foreach (var source in ViewBag.choices)
+                                {
+                                    <option value="@source.Id">@source.Description</option>                                      
+                                }
+                            </select>
+                                                
+                        </div>
+
+                        <label class="control-label col-md-2">Amount</label>
+                        <div class="col-md-3">
+                            <input type="text" name="Amount[]" class="form-control amount" />
+                        </div>
+                    </div>
+
+                   
+                    </div>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-md-offset-4">Total</label>
+                        <div class="col-md-3">
+                            <input type="text" name="total" class="form-control" id="total" />
+                        </div>
+                    </div>
+                </div>
+              
+
+
+            </div>
+            <div class="widget-foot">
+                <a href="@Url.Action("Dashboard", "Bills")" class="btn btn-default">Back</a>
+                <button type="submit" id="submit" class="pull-right btn btn-primary">Submit</button>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+</div>
+}
+
+
+
+@section scripts
+{
+<script type="text/javascript">
+
+    var rowCount = 1;
+    function addMoreRows(frm) {
+        rowCount++;
+
+        var choices =  @Html.Raw(Json.Encode(@ViewBag.choices));
+
+        var selectHTML = "";
+        selectHTML = "<select name='sources[]' class='form-control'>";
+
+        for (i = 0; i < choices.length; i = i + 1) {
+            selectHTML += "<option value='" + choices[i].Id + "'>" + choices[i].Description + "</option>";
+        }
+        selectHTML += "</select>";
+   
+        var recRow = '<div class="form-group" id="rowCount' + rowCount + '"><label class="control-label col-md-2">Revenue Source</label><div  class="col-md-3">' + selectHTML + '</div><label class="control-label col-md-2">Amount</label><div class="col-md-3"><input class="form-control amount" name="Amount[]" type="text"/></div><a class="btn btn-danger col-md-1" href="javascript:void(0);" onclick="removeRow(' + rowCount + ');"><i class="icon-trash"></i></a></div> ';
+        jQuery('#addedRows').append(recRow);
+
+
+    }
+
+    function removeRow(removeNum) {
+        jQuery('#rowCount'+removeNum).remove();
+        currentItems();
+    }
+
+    function currentItems(){
+        var sum = 0;
+        $(".amount").each(function () {
+            if (!isNaN(this.value) && this.value.length != 0) {
+                sum += parseFloat(this.value);
+            }else{
+                swal("Enter only numbers!")
+            }
+        });
+        $('#total').val(sum);
+    }
+
+    $("#addedRows").on("change", ".amount", function () {    // <-- Only changed this line
+        var sum = 0;
+        $(".amount").each(function () {
+            if (!isNaN(this.value) && this.value.length != 0) {
+                sum += parseFloat(this.value);
+            }else{
+                swal("Enter only numbers!")
+            }
+        });
+        $('#total').val(sum);
+    }); 
+
+   
+    $("#form1").on("submit", function (e) {
+
+        // prevent the default form-post
+        e.preventDefault();
+        var form = $("#form1").serialize();
+      
+        $.ajax({
+            type: 'POST',
+            url: "@Url.Action("Create", "Bills")",
+            data: form,
+            dataType: 'json',
+            success: function (data) {
+
+                if (data.result == "Error") {
+                    swal(data.message);
+                }  
+                window.location.href = data;
+
+            }
+        });
+
+
+    });
+
+</script>
+    }
+
+
+

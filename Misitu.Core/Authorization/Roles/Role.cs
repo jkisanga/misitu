@@ -7,6 +7,8 @@ namespace Misitu.Authorization.Roles
     {
         //Can add application specific role properties here
 
+        public const int MaxDescriptionLength = 5000;
+
         public Role()
         {
 

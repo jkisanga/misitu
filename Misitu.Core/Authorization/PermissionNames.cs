@@ -6,6 +6,8 @@
 
         public const string Pages_Setup = "Pages.Setup";
 
+        public const string Pages_Roles = "Pages.Roles";
+
         public const string Pages_Setup_Tenants = "Pages.Setup.Tenants";
 
         public const string Pages_Registration = "Pages.Registration";

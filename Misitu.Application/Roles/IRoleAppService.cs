@@ -1,11 +1,12 @@
 ﻿using System.Threading.Tasks;
 using Abp.Application.Services;
+using Abp.Application.Services.Dto;
 using Misitu.Roles.Dto;
 
 namespace Misitu.Roles
 {
-    public interface IRoleAppService : IApplicationService
+    public interface IRoleAppService : IAsyncCrudAppService<RoleDto, int, PagedResultRequestDto, CreateRoleDto, RoleDto>
     {
-        Task UpdateRolePermissions(UpdateRolePermissionsInput input);
+        Task<ListResultDto<PermissionDto>> GetAllPermissions();
     }
 }

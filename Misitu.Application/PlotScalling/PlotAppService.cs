@@ -35,8 +35,8 @@ namespace Misitu.PlotScalling
                 CompartmentId = input.CompartmentId
             };
 
-            var existingPlot = _plotRepository.FirstOrDefault(p => p.Name == input.Name && p.CompartmentId == input.CompartmentId);
-            if (existingPlot == null)
+          
+            if (_plotRepository.FirstOrDefault(p => p.Name == input.Name && p.CompartmentId == input.CompartmentId) == null)
             {
                 // _plotRepository.InsertAndGetId(plot);
 

@@ -1,0 +1,78 @@
+﻿
+@using Abp.Authorization.Users
+@using Abp.Web.Mvc.Extensions
+@model Misitu.Users.Dto.CreateUserInput
+
+@{
+    ViewBag.ActiveMenu = "Setup"; //The menu item will be active for this page.
+    ViewBag.Title = "Users";
+}
+
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left"><span>@L("CreateNewUser")</span></div>
+        <div class="clearfix"></div>
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="widget-content">
+            <div class="padd">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-1">@L("Name")</label>
+                        <div class="col-md-5">
+                        <input type="text" name="Name" class="form-control" required maxlength="@Misitu.Users.User.MaxNameLength">
+                        </div>
+
+                        <label class="col-md-1">@L("Surname")</label>
+                        <div class="col-md-5">
+                            <input type="text" name="Surname" class="form-control" required maxlength="@Misitu.Users.User.MaxSurnameLength">
+                            </div>
+                        </div>
+                    <div class="form-group">
+                        <label class="col-md-1">@L("UserName")</label>
+                        <div class="col-md-5">
+                            <input class="form-control" type="text" name="UserName" required maxlength="@AbpUserBase.MaxUserNameLength" minlength="2">
+                        </div>
+                       
+                        <label class="col-md-1">@L("EmailAddress")</label>
+                        <div class="col-md-5">
+                            <input type="email" name="EmailAddress" class="form-control" maxlength="@AbpUserBase.MaxEmailAddressLength">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-1">Roles</label>
+                        <div class="col-md-5">
+
+                            @Html.DropDownList("Roles", null, " ", new { @class = "form-control", required= "required", Multiple = "multiple" })
+
+                        </div>
+                        <label class="col-md-1">Station</label>
+                        <div class="col-md-5">
+
+                            @Html.DropDownList("StationId", null, " ", new { @class = "form-control", required = "required" })
+                            @Html.ValidationMessageFor(model => model.StationId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                                    
+                    <div class="form-group">
+                       
+                        <div class="checkbox col-md-5 col-md-offset-1">
+                            <label>
+                                <input type="checkbox" name="IsActive" value="true" checked="checked"> @L("IsActive")
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="widget-foot">
+                <button type="button" class="btn btn-default" data-dismiss="modal">@L("Cancel")</button>
+                <button type="submit" class="btn btn-primary blue pull-right"><i class="fa fa-save"></i> <span>@L("Save")</span></button>
+            </div>
+        </div>
+    }
+</div>
+

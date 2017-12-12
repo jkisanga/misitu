@@ -7,6 +7,7 @@ using Misitu.Stations;
 using System.Linq;
 using Misitu.Users.Dto;
 using Misitu.Authorization.Roles;
+using Abp.Application.Services.Dto;
 
 namespace Misitu.Web.Controllers
 {
@@ -56,6 +57,18 @@ namespace Misitu.Web.Controllers
                 ViewBag.Roles = roles;
                 return View();
             }
+        }
+
+        public async Task<ActionResult> EditUserModal(int Id)
+        {
+            var user =  _userAppService.Get(Id);
+            var roles = (await _userAppService.GetRoles()).Items;
+            var model = new EditUserDto
+            {
+                User = user,
+                Roles = roles
+            };
+            return View("_EditUserModal", model);
         }
     }
 }

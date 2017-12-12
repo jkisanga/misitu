@@ -1,0 +1,146 @@
+﻿@model Misitu.PlotScalling.Dto.CreateTallySheetInput
+
+@{
+    ViewBag.ActiveMenu = "Plot Scalling"; //The menu item will be active for this page.
+    ViewBag.Title = "Compartment Name : [" +  ViewBag.Compartment.Name + " ] Plot : " + @ViewBag.Plot.Name ;
+}
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">Data Summary for >> Compartment Name : [ @ViewBag.Compartment.Name ] Plot : [ @ViewBag.Plot.Name ]  </div>
+
+        <div class="clearfix"></div>
+    </div>
+    <div class="widget-content">
+        <div class="padd">
+
+            <table class="table table-bordered table-responsive table-hover">
+                <thead>
+                    <tr>
+
+                        <th>
+                            @Html.DisplayName("DBH")
+                        </th>
+                        <th>
+                            @Html.DisplayName("No. of Trees")
+                        </th>
+
+                        <th>
+                            @Html.DisplayName("Amount")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Volume")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Loyality")
+                        </th>
+                        <th>
+                            @Html.DisplayName("TFF")
+                        </th>
+                        <th>
+                            @Html.DisplayName("LMDA")
+                        </th>
+                        <th>
+                            @Html.DisplayName("CESS")
+                        </th>
+                        <th>
+                            @Html.DisplayName("VAT")
+                        </th>
+                        <th>
+                            @Html.DisplayName("TP")
+                        </th>
+                        <th>
+                            @Html.DisplayName("TOTAL")
+                        </th>
+
+                    </tr>
+                </thead>
+                @{
+                    int trees = 0;
+                    double total = 0;
+                    double volume = 0;
+                    double loyality = 0;
+                    double lmda = 0;
+                    double cess = 0;
+                    double vat = 0;
+                    double tff = 0;
+                    double tp = 0;
+
+
+                }
+                @foreach (var item in ViewBag.Sheets)
+                {
+                    trees = trees + item.TreesNumber;
+                    total = total + item.TOTAL;
+                    volume = volume + item.Volume;
+                    loyality = loyality + item.Loyality;
+                    lmda = lmda + item.LMDA;
+                    cess = cess + item.CESS;
+                    vat = vat + item.VAT;
+                    tff = tff + item.TFF;
+                    tp = tp + item.TP;
+
+                    <tr>
+
+                        <td>
+                            @item.DBH
+                        </td>
+                        <td>
+                            @item.TreesNumber
+                        </td>
+
+                        <td>
+                            @item.GnAmount
+                        </td>
+                        <td>
+                            @item.Volume
+                        </td>
+                        <td>
+                            @String.Format("{0:#,###0.00}", item.Loyality)
+                        </td>
+                        <td>
+                            @String.Format("{0:#,###0.00}", item.TFF)
+                        </td>
+                        <td>
+                            @String.Format("{0:#,###0.00}", item.LMDA)
+                        </td>
+                        <td>
+                            @String.Format("{0:#,###0.00}", item.CESS)
+                        </td>
+                        <td>
+                            @String.Format("{0:#,###0.00}", item.VAT)
+                        </td>
+                        <td>
+                            @String.Format("{0:#,###0.00}", item.TP)
+                        </td>
+                        <td>
+                            @String.Format("{0:#,###0.00}", item.TOTAL)
+                        </td>
+                        
+                    </tr>
+                }
+                <tfoot>
+                    <tr>
+                        <th>TOTAL</th>
+                        <th> @String.Format("{0:0}", trees)</th>
+                        <td></td>
+                        <th>@String.Format("{0:#,###0.00}", volume)</th>
+                        <th>@String.Format("{0:#,###0.00}", loyality)</th>
+                        <th>@String.Format("{0:#,###0.00}", tff)</th>
+                        <th>@String.Format("{0:#,###0.00}", lmda)</th>
+                        <th>@String.Format("{0:#,###0.00}", cess)</th>
+                        <th>@String.Format("{0:#,###0.00}", vat)</th>
+                        <th>@String.Format("{0:#,###0.00}", tp)</th>
+                        <th>@String.Format("{0:0.00}", total)</th>
+                        <td></td>
+                    </tr>
+                </tfoot>
+
+            </table>
+
+
+        </div>
+    </div>
+</div>
+
+
+

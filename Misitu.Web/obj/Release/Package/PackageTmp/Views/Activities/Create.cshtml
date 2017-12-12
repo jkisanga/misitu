@@ -1,0 +1,63 @@
+﻿@model Misitu.Activities.CreateActivityInput
+
+
+@{
+    ViewBag.ActiveMenu = "Setup"; //The menu item will be active for this page.
+    ViewBag.Title = "Activities";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="widget">
+        <div class="widget-head">
+            <div class="pull-left">New Activity</div>
+            <div class="widget-icons pull-right">
+                <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+
+        <div class="widget-content">
+            <div class="padd">
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Fee, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.Fee, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Fee, "", new { @class = "text-danger" })
+                        </div>
+
+                        @Html.Label("Registration Fee", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.RegistrationFee, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.RegistrationFee, "", new { @class = "text-danger" })
+                        </div>
+                    </div>              
+                </div>
+                </div>
+            <div class="widget-foot">  
+                <a href="@Url.Action("Index")" class="pull-left btn btn-default">
+                    <i class="icon-backward"></i> Back
+                </a>
+                <button type="submit" class="pull-right btn btn-primary"><i class="icon-save"></i> Save</button>
+                <div class="clearfix"></div>
+            </div>
+            </div>
+        </div>
+                }
+
+             

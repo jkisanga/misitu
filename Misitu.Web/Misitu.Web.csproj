@@ -567,6 +567,7 @@
     <Content Include="Datasets\Misitu.xss">
       <DependentUpon>Misitu.xsd</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -613,6 +614,7 @@
     <Content Include="Views\Account\Register.js" />
     <Content Include="Views\Tenants\Index.js" />
     <Content Include="Views\Users\Index.js" />
+    <Content Include="Views\Users\_EditUserModal.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -790,6 +792,7 @@
     <Content Include="Views\Payments\Paid.cshtml" />
     <Content Include="Views\Payments\Index.cshtml" />
     <Content Include="Views\Payments\Confirm.cshtml" />
+    <Content Include="Views\Users\_EditUserModal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.ActiveMenu = "Transit Passes"; //The menu item will be active for this page.
+    ViewBag.Title = "Transit Passes";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="well">
+                <h2>848 Tsh</h2>
+                <p>Issued</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="well">
+                <h2>848 Tsh</h2>
+                <p>Checked </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="well">
+                <h2>883 Tsh</h2>
+                <p>Expired </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+       
+
+        <div class="col-md-6">
+            <div class="widget">
+
+                <div class="widget-head">
+                    <div class="pull-left">Transit Passes Monthly  Status</div>
+                    <div class="widget-icons pull-right">
+                        <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="widget-content">
+                    <div class="padd">
+
+                        <ul class="current-status">
+                            <li>
+                                <span id="status1"></span> <span class="bold">Issued : 200</span>
+                            </li>
+                            <li>
+                                <span id="status2"></span> <span class="bold">Expired : 145</span>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Pie chart ends -->
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+$(function () {
+
+    /* Registration Pie Chart */
+
+    var data = [];
+    var series = Math.floor(Math.random() * 10) + 1;
+    for (var i = 0; i < series; i++) {
+        data[i] = { label: "Series" + (i + 1), data: Math.floor(Math.random() * 100) + 1 }
+    }
+
+    $.plot('#chart', data, {
+        series: {
+            pie: {
+                show: true,
+                radius: 1,
+                label: {
+                    show: true,
+                    radius: 3 / 4,
+                    formatter: function (label, series) {
+                        return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">' + label + '<br/>' + Math.round(series.percent) + '%</div>';
+                    },
+                    background: { opacity: 0 }
+                }
+            }
+        },
+        legend: {
+            show: false
+        }
+    });
+
+/* Pie chart ends */
+
+});
+
+
+    </script>
+}

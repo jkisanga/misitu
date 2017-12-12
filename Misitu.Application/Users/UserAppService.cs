@@ -11,6 +11,9 @@ using System;
 using Misitu.Stations;
 using Abp.Auditing;
 using Misitu.Stations.Dto;
+using Misitu.Roles.Dto;
+using Misitu.Authorization.Roles;
+using System.Linq;
 
 namespace Misitu.Users
 {
@@ -22,11 +25,17 @@ namespace Misitu.Users
         private readonly IRepository<User, long> _userRepository;
         private readonly IRepository<Statiton> _stationRepository;
         private readonly IPermissionManager _permissionManager;
+        private readonly IRepository<Role> _roleRepository;
+        private readonly UserManager _userManager;
 
-        public UserAppService(IRepository<User, long> userRepository, IPermissionManager permissionManager, IRepository<Statiton> stationRepository)
+        public UserAppService(IRepository<User, long> userRepository, UserManager userManager, IPermissionManager permissionManager,
+              IRepository<Role> roleRepository,
+              IRepository<Statiton> stationRepository)
         {
             _userRepository = userRepository;
             _permissionManager = permissionManager;
+            _userManager = userManager;
+            _roleRepository = roleRepository;
             _stationRepository = stationRepository;
         }
 
@@ -72,6 +81,14 @@ namespace Misitu.Users
             }
         }
 
+        public UserDto Get(int id)
+        {
+            var user = _userRepository.Get(id);
+           
+
+            return user.MapTo<UserDto>();
+        }
+
         public UserDto GetLoggedInUser()
         {
             var loginUser = _userRepository.FirstOrDefault(Convert.ToInt32(AbpSession.UserId));
@@ -94,5 +111,12 @@ namespace Misitu.Users
             return output;
         }
 
+        public async Task<ListResultDto<RoleDto>> GetRoles()
+        {
+            var roles = await _roleRepository.GetAllListAsync();
+            return new ListResultDto<RoleDto>(ObjectMapper.Map<List<RoleDto>>(roles));
+        }
+
+      
     }
 }

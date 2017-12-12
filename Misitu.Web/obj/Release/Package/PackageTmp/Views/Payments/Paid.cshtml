@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Misitu.Billing.Dto.BillDto>
+
+@{
+    ViewBag.ActiveMenu = "Payments"; //The menu item will be active for this page.
+    ViewBag.Title = "Payments";
+}
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">Successful Payments</div>
+        <div class="widget-icons pull-right">
+            <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+            <a href="#" class="wclose"><i class="icon-remove"></i></a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="widget-content">
+        <div class="padd">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+
+                        <th>
+                            @Html.DisplayName("Payer")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Control Number")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Billed Amount")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Paid Amount")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Paid Date")
+                        </th>
+
+
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dealer.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ControlNumber)
+                        </td>
+                        <td>
+                            @String.Format("{0:#,###0.00}", item.BillAmount)
+                        </td>
+
+                        <td>
+                            @String.Format("{0:#,###0.00}", item.PaidAmount)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PaidDate)
+                        </td>
+
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

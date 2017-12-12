@@ -1,0 +1,85 @@
+@using System.Threading
+@using System.Web.Optimization
+@using Abp.Timing
+@using Abp.Web.Mvc.Extensions
+@{
+    SetAntiForgeryCookie();
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <!-- Title and other stuffs -->
+    <title>Login - TFMIS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <!-- Stylesheets -->
+    @Styles.Render("~/Bundles/template/login/css")
+
+
+    <!-- HTML5 Support for IE -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shim.js"></script>
+    <![endif]-->
+    <!-- Favicon -->
+
+   
+    <!-- View specific styles -->
+    @RenderSection("styles", required: false)
+
+</head>
+
+<body>
+    <!-- Form area -->
+    <div class="admin-form">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+			<div class="text-center">
+				<img src="~/Images/tfs.png" />
+			</div>
+                    <!-- Widget starts -->
+                    <div class="widget worange">
+                        <!-- Widget head -->
+                        <div class="widget-head text-center">
+                            <i class="icon-lock"></i> TFS-MIS
+                        </div>
+
+                        <div class="widget-content">
+                            <div class="padd">
+
+                                @RenderBody()
+
+                            </div>
+                        </div>
+
+                        <div class="widget-foot text-center">
+                           <p> TFS-MIS &copy; @DateTime.Now.Year All Rights Reserved (TFS)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap and necessary plugins -->
+    @Scripts.Render("~/Bundles/template/login/js")
+    @Scripts.Render("~/Bundles/vendor/js/bottom")
+
+
+
+    <!-- View specific scripts -->
+    @RenderSection("scripts", required: false)
+
+
+
+</body>
+
+</html>

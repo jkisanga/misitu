@@ -212,6 +212,9 @@
     <Compile Include="RevenueSources\Dto\RevenueSourcesDto.cs" />
     <Compile Include="RevenueSources\IRevenueSourceAppService.cs" />
     <Compile Include="RevenueSources\RevenueSourceAppService.cs" />
+    <Compile Include="Roles\Dto\CreateRoleDto.cs" />
+    <Compile Include="Roles\Dto\PermissionDto.cs" />
+    <Compile Include="Roles\Dto\RoleDto.cs" />
     <Compile Include="Species\Dto\CreateSpecieCategoryInput.cs" />
     <Compile Include="Species\Dto\CreateSpecieInput.cs" />
     <Compile Include="Species\Dto\SpecieCategoryDto.cs" />
@@ -247,6 +250,7 @@
     <Compile Include="Tariffs\ITariffAppService.cs" />
     <Compile Include="Tariffs\TariffAppService.cs" />
     <Compile Include="Users\Dto\CreateUserInput.cs" />
+    <Compile Include="Users\Dto\EditUserDto.cs" />
     <Compile Include="Users\Dto\UserDto.cs" />
     <Compile Include="Users\Dto\UserLoginDto.cs" />
     <Compile Include="Users\IUserAppService.cs" />

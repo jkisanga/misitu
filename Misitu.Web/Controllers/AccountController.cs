@@ -262,6 +262,7 @@ namespace Misitu.Web.Controllers
 
                 //Save user
                 CheckErrors(await _userManager.CreateAsync(user));
+                
                 await _unitOfWorkManager.Current.SaveChangesAsync();
 
                 //Directly login if possible
@@ -304,6 +305,8 @@ namespace Misitu.Web.Controllers
                 return View("Register", model);
             }
         }
+
+      
 
         #endregion
 

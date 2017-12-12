@@ -162,97 +162,71 @@ namespace Misitu.Web.Controllers.PlotScalling
         [HttpPost]
         public ActionResult Talling(int CompartmentId,int SpecieCategoryId, int TariffNumber, HttpPostedFileBase file)
         {
-
-            if (file != null && file.ContentLength > 0)
+            try
             {
-                //ExcelDataReader works on binary excel file
-                Stream stream = file.InputStream;
-                
-                //We need to written the Interface.
-                IExcelDataReader reader = null;
-                if (file.FileName.EndsWith(".xls"))
+
+                if (file != null && file.ContentLength > 0)
                 {
-                    //reads the excel file with .xls extension
-                   
-                    reader = ExcelReaderFactory.CreateBinaryReader(stream);
-                   
-                }
-                else if (file.FileName.EndsWith(".xlsx"))
-                {
-                    //reads excel file with .xlsx extension
-                    reader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+                    //ExcelDataReader works on binary excel file
+                    Stream stream = file.InputStream;
 
-                    
-                }
-                else
-                {
-                    //Shows error if uploaded file is not Excel file
-                    ModelState.AddModelError("File", "This file format is not supported");
-                    return View();
-                }
-
-                List<String> sheetNames = new List<String>();
-                int plotId;
-
-                //Loop through data sheet
-                while (reader.Read())
-                {
+                    var reader = string.Equals(Path.GetExtension(file.FileName), ".xls") ? ExcelReaderFactory.CreateBinaryReader(stream)
+                        : ExcelReaderFactory.CreateOpenXmlReader(stream);
 
 
-                    CreatePlotInput input = new CreatePlotInput();
-                    CreateTallySheetInput tallyInput = new CreateTallySheetInput();
+                    int plotId;
 
-
-                    input.CompartmentId = CompartmentId;
-                    input.Name = reader.Name;
-
-                    plotId = _plotAppService.CreatePlot(input);
-
-                    tallyInput.PlotId = plotId;
-                    tallyInput.SpecieCategoryId = SpecieCategoryId;
-                    tallyInput.TariffNumber = TariffNumber;
-
-
-                    //treats the first row of excel file as Coluymn Names
-                    reader.IsFirstRowAsColumnNames = true;
-                    //Adding reader data to DataSet()
-                    DataSet result1 = reader.AsDataSet();
-                    reader.Close();
-                    //Sending result data to database
-
-                    _tallySheetAppService.UploadTallySheet(tallyInput, result1.Tables[reader.Name]) ;
-
-                    while (reader.NextResult())
+                    //Loop through data sheet
+                    do
                     {
-                        try
+                        while (reader.Read())
                         {
+
+
+                            CreatePlotInput input = new CreatePlotInput();
+                            CreateTallySheetInput tallyInput = new CreateTallySheetInput();
+
+
                             input.CompartmentId = CompartmentId;
                             input.Name = reader.Name;
+
+                            string name =reader.Name;
+
                             plotId = _plotAppService.CreatePlot(input);
 
                             tallyInput.PlotId = plotId;
                             tallyInput.SpecieCategoryId = SpecieCategoryId;
                             tallyInput.TariffNumber = TariffNumber;
 
+
+                            //treats the first row of excel file as Coluymn Names
+                            reader.IsFirstRowAsColumnNames = true;
+                            //Adding reader data to DataSet()
+                            DataSet result1 = reader.AsDataSet();
+
+                            //Sending result data to database
+
                             _tallySheetAppService.UploadTallySheet(tallyInput, result1.Tables[reader.Name]);
+                            reader.Close();
+
+
                         }
-                        catch(Exception ex)
-                        {
-                            throw new UserFriendlyException(ex + "Error in sheet"+ reader);
-                        }
-                      
-                    }
-                    reader.Close();
+                    } while (reader.NextResult());
+
+
+
+                    return RedirectToAction("Index");
                 }
 
-
-                return RedirectToAction("Index");
+                else
+                {
+                    ModelState.AddModelError("File", "Please upload your file");
+                    return RedirectToAction("Index");
+                }
             }
-
-            else
+            catch(Exception  ex)
             {
-                ModelState.AddModelError("File", "Please upload your file");
-                return RedirectToAction("Index");
+                throw new Exception(ex.Message);
             }
 
 

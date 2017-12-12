@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Misitu.Users.Dto;
+using Misitu.Roles.Dto;
 
 namespace Misitu.Users
 {
@@ -18,5 +19,9 @@ namespace Misitu.Users
         UserLoginDto GetUserLogidInInfo();
 
         UserDto GetLoggedInUser();
+
+        UserDto Get(int id);
+
+        Task<ListResultDto<RoleDto>> GetRoles();
     }
 }

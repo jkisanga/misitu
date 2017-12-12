@@ -1,0 +1,8 @@
+﻿@model Misitu.PlotScalling.Dto.HarvestingPlanDto
+
+@if (Model != null)
+{
+    <a href="@Url.Action("Download","HarvestingPlan",new { id = Model.Id })"> <i class="icon-download-alt"></i> Harvesting Plan</a>
+}
+
+   
