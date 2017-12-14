@@ -793,6 +793,7 @@
     <Content Include="Views\Payments\Index.cshtml" />
     <Content Include="Views\Payments\Confirm.cshtml" />
     <Content Include="Views\Users\_EditUserModal.cshtml" />
+    <Content Include="Views\RevenueSources\SubRevenue.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

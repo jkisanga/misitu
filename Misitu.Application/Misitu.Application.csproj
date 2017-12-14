@@ -208,10 +208,14 @@
     <Compile Include="Registration\ICandidateAppService.cs" />
     <Compile Include="Registration\IDealerActivityAppService.cs" />
     <Compile Include="Registration\IDealerAppService.cs" />
+    <Compile Include="RevenueSources\Dto\CreateRefSubRevenueSourcesInput.cs" />
     <Compile Include="RevenueSources\Dto\CreateRevenueSourcesInput.cs" />
     <Compile Include="RevenueSources\Dto\RevenueSourcesDto.cs" />
+    <Compile Include="RevenueSources\IRefSubRevenueSourceAppService.cs" />
     <Compile Include="RevenueSources\IRevenueSourceAppService.cs" />
+    <Compile Include="RevenueSources\RefSubRevenueSourceAppService.cs" />
     <Compile Include="RevenueSources\RevenueSourceAppService.cs" />
+    <Compile Include="RevenueSources\Dto\RefSubRevenueSourcesDto.cs" />
     <Compile Include="Roles\Dto\CreateRoleDto.cs" />
     <Compile Include="Roles\Dto\PermissionDto.cs" />
     <Compile Include="Roles\Dto\RoleDto.cs" />

@@ -61,6 +61,9 @@ namespace Misitu.EntityFramework
         public virtual IDbSet<LicenseCategory> LicenseCategories { get; set; }
         public virtual IDbSet<License> Licenses { get; set; }
 
+        public virtual IDbSet<RefSubRevenueSource> RefSubRevenueSources { get; set; }
+        
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

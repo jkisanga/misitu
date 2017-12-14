@@ -113,6 +113,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\Activity.cs" />
+    <Compile Include="Applicants\ExportImport\ForestProduceExportPermit.cs" />
+    <Compile Include="Applicants\ExportImport\ForestProduceImportPermit.cs" />
+    <Compile Include="Applicants\ExportImport\ForestProduceInspection.cs" />
+    <Compile Include="Applicants\ExportImport\PermitExportGrandedTimber.cs" />
+    <Compile Include="Applicants\ForestProduce\ForestProduceHarvestLicense.cs" />
+    <Compile Include="Applicants\ForestProduce\ForestProduceIndustryPermitRegistration.cs" />
+    <Compile Include="Applicants\ForestProduce\ForestProduceTranstPass.cs" />
+    <Compile Include="Applicants\ForestProduce\GrandTimberCertificate.cs" />
+    <Compile Include="Applicants\Honey\ApiaryBeeProduceExportRegistration.cs" />
+    <Compile Include="Applicants\Honey\ApiaryBeeProduceImportRegistration.cs" />
+    <Compile Include="Applicants\Honey\ApiaryBeeProduceRegistration.cs" />
+    <Compile Include="Applicants\Applicant.cs" />
+    <Compile Include="Applicants\ApplicantActivity.cs" />
+    <Compile Include="Applicants\ForestProduce\ForestProduceRegistration.cs" />
+    <Compile Include="Applicants\Honey\ApiaryBeeTransitPass.cs" />
+    <Compile Include="Applicants\Honey\SanitaryCertificateRegistration.cs" />
+    <Compile Include="Applicants\GenericTranstPass\GenericTranstPass.cs" />
     <Compile Include="Billing\Bill.cs" />
     <Compile Include="Billing\BillItem.cs" />
     <Compile Include="Divisions\Division.cs" />
@@ -143,10 +160,14 @@
     <Compile Include="Authorization\Roles\RoleManager.cs" />
     <Compile Include="Authorization\Roles\RoleStore.cs" />
     <Compile Include="Ranges\Range.cs" />
+    <Compile Include="RefereneceTables\RefApplicantType.cs" />
+    <Compile Include="RefereneceTables\RefIdentityType.cs" />
+    <Compile Include="Regions\District.cs" />
     <Compile Include="Regions\Region.cs" />
     <Compile Include="Registration\Candidate.cs" />
     <Compile Include="Registration\Dealer.cs" />
     <Compile Include="Registration\DealerActivity.cs" />
+    <Compile Include="RevenueSources\RefSubRevenueSource.cs" />
     <Compile Include="RevenueSources\RevenueSource.cs" />
     <Compile Include="Species\Specie.cs" />
     <Compile Include="Species\SpecieCategory.cs" />
@@ -194,6 +215,7 @@
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

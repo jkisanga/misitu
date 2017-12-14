@@ -154,6 +154,10 @@
     <Compile Include="Migrations\201708110333065_Update_Activity_Table.Designer.cs">
       <DependentUpon>201708110333065_Update_Activity_Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712140717315_Add_sub_Revenue.cs" />
+    <Compile Include="Migrations\201712140717315_Add_sub_Revenue.Designer.cs">
+      <DependentUpon>201712140717315_Add_sub_Revenue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\DefaultGNCreatot.cs" />
@@ -188,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708110333065_Update_Activity_Table.resx">
       <DependentUpon>201708110333065_Update_Activity_Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712140717315_Add_sub_Revenue.resx">
+      <DependentUpon>201712140717315_Add_sub_Revenue.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
