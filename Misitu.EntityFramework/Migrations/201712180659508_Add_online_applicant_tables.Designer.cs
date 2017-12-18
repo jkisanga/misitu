@@ -7,13 +7,13 @@ namespace Misitu.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Add_Online_application_tables : IMigrationMetadata
+    public sealed partial class Add_online_applicant_tables : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Add_Online_application_tables));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Add_online_applicant_tables));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712160642131_Add_Online_application_tables"; }
+            get { return "201712180659508_Add_online_applicant_tables"; }
         }
         
         string IMigrationMetadata.Source

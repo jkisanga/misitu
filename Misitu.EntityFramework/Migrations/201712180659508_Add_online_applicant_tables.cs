@@ -5,7 +5,7 @@ namespace Misitu.Migrations
     using System.Data.Entity.Infrastructure.Annotations;
     using System.Data.Entity.Migrations;
     
-    public partial class Add_Online_application_tables : DbMigration
+    public partial class Add_online_applicant_tables : DbMigration
     {
         public override void Up()
         {
@@ -44,6 +44,29 @@ namespace Misitu.Migrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.FinancialYears", t => t.FinancialYearId, cascadeDelete: true)
                 .Index(t => t.FinancialYearId);
+            
+            CreateTable(
+                "dbo.Districts",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        RegionId = c.Int(nullable: false),
+                        Name = c.String(nullable: false),
+                        IsDeleted = c.Boolean(nullable: false),
+                        DeleterUserId = c.Long(),
+                        DeletionTime = c.DateTime(),
+                        LastModificationTime = c.DateTime(),
+                        LastModifierUserId = c.Long(),
+                        CreationTime = c.DateTime(nullable: false),
+                        CreatorUserId = c.Long(),
+                    },
+                annotations: new Dictionary<string, object>
+                {
+                    { "DynamicFilter_District_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
+                })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Regions", t => t.RegionId, cascadeDelete: true)
+                .Index(t => t.RegionId);
             
             CreateTable(
                 "dbo.ForestProduceAppliedSpecieCategories",
@@ -123,35 +146,12 @@ namespace Misitu.Migrations
                     { "DynamicFilter_ForestProduceRegistration_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
                 })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Applicants", t => t.ApplicantId, cascadeDelete: true)
-                .ForeignKey("dbo.Districts", t => t.DistrictId, cascadeDelete: true)
-                .ForeignKey("dbo.FinancialYears", t => t.FinancialYearId, cascadeDelete: true)
+                .ForeignKey("dbo.Applicants", t => t.ApplicantId)
+                .ForeignKey("dbo.Districts", t => t.DistrictId)
+                .ForeignKey("dbo.FinancialYears", t => t.FinancialYearId)
                 .Index(t => t.ApplicantId)
                 .Index(t => t.FinancialYearId)
                 .Index(t => t.DistrictId);
-            
-            CreateTable(
-                "dbo.Districts",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        RegionId = c.Int(nullable: false),
-                        Name = c.String(nullable: false),
-                        IsDeleted = c.Boolean(nullable: false),
-                        DeleterUserId = c.Long(),
-                        DeletionTime = c.DateTime(),
-                        LastModificationTime = c.DateTime(),
-                        LastModifierUserId = c.Long(),
-                        CreationTime = c.DateTime(nullable: false),
-                        CreatorUserId = c.Long(),
-                    },
-                annotations: new Dictionary<string, object>
-                {
-                    { "DynamicFilter_District_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
-                })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Regions", t => t.RegionId, cascadeDelete: true)
-                .Index(t => t.RegionId);
             
             CreateTable(
                 "dbo.RefApplicantTypes",
@@ -183,11 +183,101 @@ namespace Misitu.Migrations
                 })
                 .PrimaryKey(t => t.Id);
             
+          
            
         }
         
         public override void Down()
         {
+            CreateTable(
+                "dbo.DealerActivities",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        DealerId = c.Int(nullable: false),
+                        ActivityId = c.Int(nullable: false),
+                        IsDeleted = c.Boolean(nullable: false),
+                        DeleterUserId = c.Long(),
+                        DeletionTime = c.DateTime(),
+                        LastModificationTime = c.DateTime(),
+                        LastModifierUserId = c.Long(),
+                        CreationTime = c.DateTime(nullable: false),
+                        CreatorUserId = c.Long(),
+                    },
+                annotations: new Dictionary<string, object>
+                {
+                    { "DynamicFilter_DealerActivity_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
+                })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Activities",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Description = c.String(nullable: false),
+                        Fee = c.Double(nullable: false),
+                        RegistrationFee = c.Double(nullable: false),
+                        IsDeleted = c.Boolean(nullable: false),
+                        DeleterUserId = c.Long(),
+                        DeletionTime = c.DateTime(),
+                        LastModificationTime = c.DateTime(),
+                        LastModifierUserId = c.Long(),
+                        CreationTime = c.DateTime(nullable: false),
+                        CreatorUserId = c.Long(),
+                    },
+                annotations: new Dictionary<string, object>
+                {
+                    { "DynamicFilter_Activity_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
+                })
+                .PrimaryKey(t => t.Id);
+            
+            DropForeignKey("dbo.ForestProduceAppliedSpecieCategories", "SpecieCategoryId", "dbo.SpecieCategories");
+            DropForeignKey("dbo.ForestProduceAppliedSpecieCategories", "ForestProduceRegistrationId", "dbo.ForestProduceRegistrations");
+            DropForeignKey("dbo.ForestProduceRegistrations", "FinancialYearId", "dbo.FinancialYears");
+            DropForeignKey("dbo.ForestProduceRegistrations", "DistrictId", "dbo.Districts");
+            DropForeignKey("dbo.ForestProduceRegistrations", "ApplicantId", "dbo.Applicants");
+            DropForeignKey("dbo.ForestProduceAppliedSpecieCategories", "FinancialYearId", "dbo.FinancialYears");
+            DropForeignKey("dbo.Districts", "RegionId", "dbo.Regions");
+            DropForeignKey("dbo.Applicants", "FinancialYearId", "dbo.FinancialYears");
+            DropIndex("dbo.ForestProduceRegistrations", new[] { "DistrictId" });
+            DropIndex("dbo.ForestProduceRegistrations", new[] { "FinancialYearId" });
+            DropIndex("dbo.ForestProduceRegistrations", new[] { "ApplicantId" });
+            DropIndex("dbo.ForestProduceAppliedSpecieCategories", new[] { "FinancialYearId" });
+            DropIndex("dbo.ForestProduceAppliedSpecieCategories", new[] { "SpecieCategoryId" });
+            DropIndex("dbo.ForestProduceAppliedSpecieCategories", new[] { "ForestProduceRegistrationId" });
+            DropIndex("dbo.Districts", new[] { "RegionId" });
+            DropIndex("dbo.Applicants", new[] { "FinancialYearId" });
+            DropTable("dbo.RefIdentityTypes",
+                removedAnnotations: new Dictionary<string, object>
+                {
+                    { "DynamicFilter_RefIdentityType_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
+                });
+            DropTable("dbo.RefApplicantTypes");
+            DropTable("dbo.ForestProduceRegistrations",
+                removedAnnotations: new Dictionary<string, object>
+                {
+                    { "DynamicFilter_ForestProduceRegistration_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
+                });
+            DropTable("dbo.ForestProduceAppliedSpecieCategories",
+                removedAnnotations: new Dictionary<string, object>
+                {
+                    { "DynamicFilter_ForestProduceAppliedSpecieCategory_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
+                });
+            DropTable("dbo.Districts",
+                removedAnnotations: new Dictionary<string, object>
+                {
+                    { "DynamicFilter_District_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
+                });
+            DropTable("dbo.Applicants",
+                removedAnnotations: new Dictionary<string, object>
+                {
+                    { "DynamicFilter_Applicant_SoftDelete", "EntityFramework.DynamicFilters.DynamicFilterDefinition" },
+                });
+            CreateIndex("dbo.DealerActivities", "ActivityId");
+            CreateIndex("dbo.DealerActivities", "DealerId");
+            AddForeignKey("dbo.DealerActivities", "DealerId", "dbo.Dealers", "Id", cascadeDelete: true);
+            AddForeignKey("dbo.DealerActivities", "ActivityId", "dbo.Activities", "Id", cascadeDelete: true);
         }
     }
 }
