@@ -21,6 +21,9 @@ using Misitu.GnTreeVolumeRates;
 using Misitu.Licensing;
 using Misitu.Species;
 using Misitu.RevenueSources;
+using Misitu.RefereneceTables;
+using Misitu.Applicants;
+using Misitu.Applicants.ForestProduce;
 
 namespace Misitu.EntityFramework
 {
@@ -32,7 +35,7 @@ namespace Misitu.EntityFramework
         public virtual IDbSet<FinancialYear> FinancialYears { get; set; }
         public virtual IDbSet<Region> Regions { get; set; }
         public virtual IDbSet<Statiton> Stations { get; set; }
-        public virtual IDbSet<Activity> Activities { get; set; }
+        
         public virtual IDbSet<Division> Divisions { get; set; }
         public virtual IDbSet<Range> Ranges { get; set; }
         public virtual IDbSet<Tariff> Tariffs { get; set; }
@@ -44,7 +47,7 @@ namespace Misitu.EntityFramework
         //Registration Tables
         public virtual IDbSet<Candidate> Candidates { get; set; }
         public virtual IDbSet<Dealer> Dealers { get; set; }
-        public virtual IDbSet<DealerActivity> DealerActivities { get; set; }
+       
 
         //Billing
         public virtual IDbSet<Bill> Bills { get; set; }
@@ -62,7 +65,20 @@ namespace Misitu.EntityFramework
         public virtual IDbSet<License> Licenses { get; set; }
 
         public virtual IDbSet<RefSubRevenueSource> RefSubRevenueSources { get; set; }
-        
+
+
+        //Table za Online Application (Cliant Applicantion/Account/Profile)
+        public virtual IDbSet<RefApplicantType> RefApplicantTypes { get; set; }
+        public virtual IDbSet<RefIdentityType> RefIdentityTypes { get; set; }
+       
+       // public virtual IDbSet<RefServiceCategory> RefServiceCategories { get; set; }
+        //public virtual IDbSet<Activity> Activities { get; set; }
+        //public virtual IDbSet<DealerActivity> DealerActivities { get; set; }
+        public virtual IDbSet<Applicant> Applicants { get; set; }
+        public virtual IDbSet<ForestProduceRegistration> ForestProduceRegistrations { get; set; }
+        public virtual IDbSet<ForestProduceAppliedSpecieCategory> ForestProduceAppliedSpecieCategories { get; set; }
+
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -73,6 +89,7 @@ namespace Misitu.EntityFramework
             modelBuilder.Entity<Bill>().HasRequired(i => i.FinancialYear).WithMany().HasForeignKey(k => k.FinancialYearId).WillCascadeOnDelete(false);
             modelBuilder.Entity<AllocatedPlot>().HasRequired(i => i.FinancialYear).WithMany().HasForeignKey(k => k.FinancialYearId).WillCascadeOnDelete(false);
             modelBuilder.Entity<AllocatedPlot>().HasRequired(i => i.Plot).WithMany().HasForeignKey(k => k.PlotId).WillCascadeOnDelete(false);
+            modelBuilder.Entity<ForestProduceRegistration>().HasRequired(i => i.Applicant).WithMany().HasForeignKey(k => k.ApplicantId).WillCascadeOnDelete(false);
 
         }
 

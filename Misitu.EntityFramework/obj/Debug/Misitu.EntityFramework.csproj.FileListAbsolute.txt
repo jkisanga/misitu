@@ -170,11 +170,8 @@ C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramewor
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\bin\Debug\System.Collections.Immutable.xml
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\bin\Debug\System.Linq.Dynamic.Core.xml
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.csprojResolveAssemblyReference.cache
-C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.AbpZero_Initial.resources
-C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.Initial_Tables.resources
-C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.Update_Activity_Table.resources
-C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.csproj.GenerateResource.Cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.csproj.CoreCompileInputs.cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.dll
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.pdb
-C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.Add_sub_Revenue.resources
+C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.Add_Online_application_tables.resources
+C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.csproj.GenerateResource.Cache

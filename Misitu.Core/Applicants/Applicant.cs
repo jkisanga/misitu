@@ -1,4 +1,5 @@
-﻿using Misitu.FinancialYears;
+﻿using Abp.Domain.Entities.Auditing;
+using Misitu.FinancialYears;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,12 +10,13 @@ using System.Threading.Tasks;
 
 namespace Misitu.Applicants
 {
-  public  class Applicant
+  public  class Applicant : FullAuditedEntity
     {
-        public virtual int Id { get; set; }
+        
+       [Required]
+        public virtual int Type { get; set; }
         [Required]
         public virtual string Name { get; set; }
-        public virtual int Type { get; set; }
         [Required]
         public virtual string Adress { get; set; }
         [Phone, Required]

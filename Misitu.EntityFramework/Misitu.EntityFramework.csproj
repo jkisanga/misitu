@@ -142,21 +142,9 @@
   <ItemGroup>
     <Compile Include="EntityFramework\MisituDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\MisituRepositoryBase.cs" />
-    <Compile Include="Migrations\201701271145151_AbpZero_Initial.cs" />
-    <Compile Include="Migrations\201701271145151_AbpZero_Initial.Designer.cs">
-      <DependentUpon>201701271145151_AbpZero_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708100417200_Initial_Tables.cs" />
-    <Compile Include="Migrations\201708100417200_Initial_Tables.Designer.cs">
-      <DependentUpon>201708100417200_Initial_Tables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708110333065_Update_Activity_Table.cs" />
-    <Compile Include="Migrations\201708110333065_Update_Activity_Table.Designer.cs">
-      <DependentUpon>201708110333065_Update_Activity_Table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712140717315_Add_sub_Revenue.cs" />
-    <Compile Include="Migrations\201712140717315_Add_sub_Revenue.Designer.cs">
-      <DependentUpon>201712140717315_Add_sub_Revenue.cs</DependentUpon>
+    <Compile Include="Migrations\201712160642131_Add_Online_application_tables.cs" />
+    <Compile Include="Migrations\201712160642131_Add_Online_application_tables.Designer.cs">
+      <DependentUpon>201712160642131_Add_Online_application_tables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -184,21 +172,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201701271145151_AbpZero_Initial.resx">
-      <DependentUpon>201701271145151_AbpZero_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708100417200_Initial_Tables.resx">
-      <DependentUpon>201708100417200_Initial_Tables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708110333065_Update_Activity_Table.resx">
-      <DependentUpon>201708110333065_Update_Activity_Table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712140717315_Add_sub_Revenue.resx">
-      <DependentUpon>201712140717315_Add_sub_Revenue.cs</DependentUpon>
-    </EmbeddedResource>
+    <Content Include="ReportViewerWebForm.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ReportViewerWebForm.aspx" />
+    <EmbeddedResource Include="Migrations\201712160642131_Add_Online_application_tables.resx">
+      <DependentUpon>201712160642131_Add_Online_application_tables.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
