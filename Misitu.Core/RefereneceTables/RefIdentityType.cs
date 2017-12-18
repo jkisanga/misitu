@@ -10,5 +10,6 @@ namespace Misitu.RefereneceTables
   public  class RefIdentityType : FullAuditedEntity
     {
         public virtual string Name { get; set; }
+
     }
 }

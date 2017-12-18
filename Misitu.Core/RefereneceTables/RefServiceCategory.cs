@@ -11,6 +11,7 @@ namespace Misitu.RefereneceTables
     {
         public virtual string Name { get; set; }
         public virtual string Description { get; set; }
+
        
     }
 }
