@@ -7,6 +7,10 @@ Misitu.Application/obj/
 Misitu.Application/bin/
 *.vs/
 
+Misitu.Application/obj/
+Misitu.Application/bin/
+*.vs/
+
 # User-specific files
 *.suo
 *.user
