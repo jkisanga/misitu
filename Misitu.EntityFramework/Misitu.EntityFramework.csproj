@@ -154,6 +154,14 @@
     <Compile Include="Migrations\201712180705589_Update_ActivityDealer_and_RefServiceCategory_table.Designer.cs">
       <DependentUpon>201712180705589_Update_ActivityDealer_and_RefServiceCategory_table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712190114175_Update_Applicant_Type_table.cs" />
+    <Compile Include="Migrations\201712190114175_Update_Applicant_Type_table.Designer.cs">
+      <DependentUpon>201712190114175_Update_Applicant_Type_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712190126273_update_required_decoration_ref_tables.cs" />
+    <Compile Include="Migrations\201712190126273_update_required_decoration_ref_tables.Designer.cs">
+      <DependentUpon>201712190126273_update_required_decoration_ref_tables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\DefaultGNCreatot.cs" />
@@ -191,6 +199,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712180705589_Update_ActivityDealer_and_RefServiceCategory_table.resx">
       <DependentUpon>201712180705589_Update_ActivityDealer_and_RefServiceCategory_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712190114175_Update_Applicant_Type_table.resx">
+      <DependentUpon>201712190114175_Update_Applicant_Type_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712190126273_update_required_decoration_ref_tables.resx">
+      <DependentUpon>201712190126273_update_required_decoration_ref_tables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

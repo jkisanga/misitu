@@ -11,9 +11,9 @@ namespace Misitu.RefTables.Interface
     public interface IRefApplicationTypeAppService :IApplicationService
     {
 
-        List<RefApplicationTypeDto> GetRefApplications();
+       List<RefApplicationTypeDto> GetRefApplicationTypes();
 
-        Task CreateApplicationType(CreateRefApplicationInput input);
+        Task CreateApplicationTypeAsync(CreateRefApplicationInput input);
 
         RefApplicationTypeDto GetApplicationTypeById(int id);
 

@@ -116,7 +116,6 @@ C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Core\bin\Debug
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Core\bin\Debug\Nito.AsyncEx.Enlightenment.xml
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Core\bin\Debug\System.Collections.Immutable.xml
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Core\bin\Debug\System.Linq.Dynamic.Core.xml
-C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Core\obj\Debug\Misitu.Core.csprojResolveAssemblyReference.cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Core\obj\Debug\Misitu.Core.csproj.CoreCompileInputs.cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Core\obj\Debug\Misitu.Core.dll
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Core\obj\Debug\Misitu.Core.pdb

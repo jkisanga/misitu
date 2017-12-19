@@ -7,6 +7,7 @@ using Abp.Domain.Repositories;
 using Abp.AutoMapper;
 using Abp.UI;
 
+
 namespace Misitu.Divisions
 {
     public class DivisionAppService : MisituAppServiceBase, IDivisionAppService
