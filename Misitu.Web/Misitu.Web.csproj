@@ -808,8 +808,12 @@
     <Content Include="Views\Payments\Index.cshtml" />
     <Content Include="Views\Payments\Confirm.cshtml" />
     <Content Include="Views\Users\_EditUserModal.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\License\_LicenceReportViewer.cshtml" />
     <Content Include="Views\License\LicenceViewer.cshtml" />
+=======
+    <Content Include="Views\RevenueSources\SubRevenue.cshtml" />
+>>>>>>> 4e8c6e758b6790be8a5baafdacca7e38f9604601
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

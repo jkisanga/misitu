@@ -13,10 +13,12 @@ namespace Misitu.Web.Controllers
     {
 
         private readonly IRevenueSourceAppService _revenueSourceAppService;
+        private readonly IRefSubRevenueSourceAppService _refSubRevenueSourceAppService;
 
-        public RevenueSourcesController(IRevenueSourceAppService revenueSourceAppService)
+        public RevenueSourcesController(IRevenueSourceAppService revenueSourceAppService, IRefSubRevenueSourceAppService refSubRevenueSourceAppService)
         {
             _revenueSourceAppService = revenueSourceAppService;
+            _refSubRevenueSourceAppService = refSubRevenueSourceAppService;
         }
         // GET: RevenueSources
         public ActionResult Index()
@@ -90,6 +92,15 @@ namespace Misitu.Web.Controllers
             return RedirectToAction("Index");
         }
 
-    
+
+        public ActionResult SubRevenue(int Id)
+        {
+            var resource = _refSubRevenueSourceAppService.GetRefSubRevenueResources(Id);
+
+            return View(resource);
+        }
+
+
+
     }
 }
