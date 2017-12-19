@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.ActiveMenu = "Payments"; //The menu item will be active for this page.
+    ViewBag.Title = "Payments";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="well">
+                <h2><b>@String.Format("Tzs {0:#,###0.00}", Model.CollectionPerMonth)</b></h2>
+                <p>Monthly Collection <span class="label label-success">@DateTime.Now.ToString("MMM, yyyy")</span></p>
+            </div>
+        </div>
+       
+
+        <div class="col-md-6">
+            <div class="well">
+                <h2><b>@String.Format("Tzs {0:#,###0.00}", Model.TotalCollection)</b></h2>
+                <p>Total Collection </p>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+$(function () {
+
+    /* Registration Pie Chart */
+
+    var data = [];
+    var series = Math.floor(Math.random() * 10) + 1;
+    for (var i = 0; i < series; i++) {
+        data[i] = { label: "Series" + (i + 1), data: Math.floor(Math.random() * 100) + 1 }
+    }
+
+    $.plot('#chart', data, {
+        series: {
+            pie: {
+                show: true,
+                radius: 1,
+                label: {
+                    show: true,
+                    radius: 3 / 4,
+                    formatter: function (label, series) {
+                        return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">' + label + '<br/>' + Math.round(series.percent) + '%</div>';
+                    },
+                    background: { opacity: 0 }
+                }
+            }
+        },
+        legend: {
+            show: false
+        }
+    });
+
+/* Pie chart ends */
+
+});
+
+
+    </script>
+}

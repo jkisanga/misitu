@@ -1,0 +1,116 @@
+﻿@model Misitu.Registration.Dto.CreateDealerInput
+
+@{
+    ViewBag.ActiveMenu = "Registration"; //The menu item will be active for this page.
+    ViewBag.Title = "Dealer";
+}
+
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">New Dealer</div>
+        <div class="widget-icons pull-right">
+            <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    @using (Html.BeginForm("Create", "Dealers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="widget-content">
+            <div class="padd">
+                @Html.AntiForgeryToken()
+
+                @Html.Hidden("CandidateId", (int)ViewBag.Candidate.Id)
+                <div class="form-horizontal">
+
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SerialNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.SerialNumber, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SerialNumber, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.LabelFor(model => model.RegisteredDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            <div id="datetimepicker1" class="input-append">
+                                @Html.TextBoxFor(model => model.RegisteredDate, new { @class = "form-control dtpicker" })
+                                <span class="add-on">
+                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar" class="btn btn-info btn-lg"></i>
+                                </span>
+                                @Html.ValidationMessageFor(model => model.RegisteredDate, "", new { @class = "text-danger" })
+                            </div>
+
+                         
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+
+                            @Html.TextBox("Name", (string)ViewBag.Candidate.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBox("Address", (string)ViewBag.Candidate.Adress, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.TextBox("Email", (string)ViewBag.Candidate.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.TextBox("Phone", (string)ViewBag.Candidate.Phone, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+           
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TIN, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.TIN, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TIN, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="file" id="file" name="tin_file" />                          
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BusinessLicense, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.BusinessLicense, new { htmlAttributes = new { @class = "form-control" } })                       
+                            @Html.ValidationMessageFor(model => model.BusinessLicense, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="file" id="file" name="bl_file" />
+                        </div>                  
+                </div>
+
+            </div>
+            <div class="widget-foot">
+                <input type="submit" value="Save & Continue" class="pull-right btn btn-primary" />
+                <div class="clearfix"></div>
+            </div>
+        </div>
+</div>
+    }
+
+
+
+
+
+
+

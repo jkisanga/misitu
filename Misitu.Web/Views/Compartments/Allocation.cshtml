@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Misitu.PlotScalling.Dto.CompartmentView>
+
+@{
+    ViewBag.Title = "Allocation";
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+           <table>
+               @foreach (var plot in item.plots)
+               {
+                   <tr>
+                       <td>
+                           <input type="checkbox" class="checkbox" name="name[]" value="" />
+                       </td>
+
+                       <td>
+                           @Html.DisplayFor(modelItem => plot.Name)
+                       </td>
+                       <td>
+                           @Html.DisplayFor(modelItem => plot.Trees)
+                       </td>
+                       <td>
+                           @Html.DisplayFor(modelItem => plot.Volume)
+                       </td>
+                       <td>
+                           @String.Format("{0:0.00}", plot.Loyality)
+                       </td>
+                       <td>
+                           @String.Format("{0:0.00}", plot.TFF)
+                       </td>
+                       <td>
+                           @String.Format("{0:0.00}", plot.LMDA)
+                       </td>
+                       <td>
+                           @String.Format("{0:0.00}", plot.CESS)
+                       </td>
+                       <td>
+                           @String.Format("{0:0.00}", plot.VAT)
+                       </td>
+                       <td>
+                           @String.Format("{0:0.00}", plot.TP)
+                       </td>
+                       <td>
+                           @String.Format("{0:0.00}", plot.TOTAL)
+                       </td>
+
+                   </tr>
+               }
+           </table>
+        </td>
+        
+    </tr>
+}
+
+</table>

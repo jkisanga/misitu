@@ -1,0 +1,59 @@
+﻿@model Misitu.PlotScalling.Dto.CreateHarvestingPlanInput
+
+@{
+    ViewBag.ActiveMenu = "Administration"; //The menu item will be active for this page.
+    ViewBag.Title = "Candidates";
+}
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">Selected Dealers</div>
+        <div class="widget-icons pull-right">
+            <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+            <a href="#" class="wclose"><i class="icon-remove"></i></a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="widget-content">
+            <div class="padd">
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.Label("Station", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+
+                            @Html.DropDownList("StationId", null, " ", new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.StationId, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.Label("Select Candidates Sheet", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            <input class="form-control" type="file" id="file" name="file" />
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.Label("Select Candidates Sheet", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            <input class="form-control" type="file" id="file" name="file" />
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="widget-foot">
+                <a href="@Url.Action("Index")" class="btn btn-default">Back</a>
+                <input type="submit" value="Upload" class="pull-right btn btn-primary" />
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    }
+</div>
