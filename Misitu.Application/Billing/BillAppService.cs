@@ -11,7 +11,7 @@ using Abp.AutoMapper;
 using Misitu.Users;
 using Misitu.FinancialYears.Dto;
 using Misitu.Stations.Dto;
-
+using Misitu.Registration;
 
 namespace Misitu.Billing
 {
@@ -20,17 +20,20 @@ namespace Misitu.Billing
     {
 
         private readonly IRepository<Bill> _billRepository;
+        private readonly IRepository<Dealer> _dealerRepository;
         private readonly IRepository<BillItem> _billItemRepository;
         private readonly IRepository<FinancialYear> _financialYearRepository;
         private readonly IRepository<User, long> _userRepository;
 
         public BillAppService(
+            IRepository<Dealer> dealerRepository,
             IRepository<Bill> billRepository,
             IRepository<BillItem> billItemRepository,
             IRepository<FinancialYear> financialYearRepository,
             IRepository<User, long> userRepository
             )
         {
+            _dealerRepository = dealerRepository;
             _billRepository = billRepository;
             _billItemRepository = billItemRepository;
             _financialYearRepository = financialYearRepository;
@@ -238,14 +241,51 @@ namespace Misitu.Billing
                             StationAddress = b.Station.Address,
                             ControlNumber = b.ControlNumber,
                             IssuedDate = b.IssuedDate,
+                            ExpireDate = b.ExpiredDate,
                             BilledAmount = b.BillAmount,
                             Currency = b.Currency,
-                            BillId = item.BillId,
-                            Description = item.Description,
+                           Description = b.Description,
+                           BillId = item.BillId,                        
+                            ItemDescription = item.Description,
                             Amount = item.Total                            
                        };   
 
             return new List<BillPrint>(bill.MapTo<List<BillPrint>>()); ;
+        }
+
+
+        public List<HarvestBill> PrintHarvestBill(int id)
+        {
+            var bill = from b in _billRepository.GetAll()
+                       join item in _billItemRepository.GetAll() on b.Id equals item.BillId
+                       where b.Id == id
+                       select new HarvestBill
+                       {
+                           Id = b.Id,
+                           PayerName = b.Dealer.Name,
+                           PayerAddress = b.Dealer.Address,
+                           PayerPhone = b.Dealer.Phone,
+                           Station = b.Station.Name,
+                           StationAddress = b.Station.Address,
+                           ControlNumber = b.ControlNumber,
+                           IssuedDate = b.IssuedDate,
+                           ExpireDate = b.ExpiredDate,
+                           BilledAmount = b.BillAmount,
+                           Currency = b.Currency,
+                           Description = b.Description,
+                           BillId = item.BillId,
+                           ItemDescription = item.Description,
+                           Royality = item.Loyality,
+                           TFF = item.TFF,
+                           LMDA = item.LMDA,
+                           VAT = item.VAT,
+                           CESS = item.CESS,
+                           TP = item.TP,
+                           Datasheet = item.DataSheet,
+                           Amount = item.Total
+                       };
+
+            return new List<HarvestBill>(bill.MapTo<List<HarvestBill>>()); ;
         }
 
 

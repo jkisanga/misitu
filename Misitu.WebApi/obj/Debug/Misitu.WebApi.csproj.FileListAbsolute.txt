@@ -136,6 +136,3 @@ C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.WebApi\bin\D
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.WebApi\obj\Debug\Misitu.WebApi.csprojResolveAssemblyReference.cache
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.WebApi\obj\Debug\Misitu.WebApi.dll
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.WebApi\obj\Debug\Misitu.WebApi.pdb
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.WebApi\bin\Debug\Misitu.Application.dll.config
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.WebApi\bin\Debug\Misitu.Core.dll.config
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.WebApi\obj\Debug\Misitu.WebApi.csproj.CoreCompileInputs.cache

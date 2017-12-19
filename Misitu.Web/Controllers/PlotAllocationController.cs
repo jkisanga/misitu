@@ -130,6 +130,12 @@ namespace Misitu.Web.Controllers
         }
 
 
+        public ActionResult DealerAllocatedCBM(int id)
+        {
+            double cbm = _dealerAppService.DealerAllocatedCBM(_dealerAppService.GetDealer(id));
+            return Json(cbm, JsonRequestBehavior.AllowGet);
+        }
+
 
         // GET: PlotAllocation/Create
         public ActionResult Create()

@@ -2,6 +2,7 @@
 using Abp.Castle.Logging.Log4Net;
 using Abp.Web;
 using Castle.Facilities.Logging;
+using System.Web.Mvc;
 
 namespace Misitu.Web
 {
@@ -14,6 +15,8 @@ namespace Misitu.Web
             );
 
             base.Application_Start(sender, e);
+
+
         }
     }
 }

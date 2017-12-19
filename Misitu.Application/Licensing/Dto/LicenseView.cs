@@ -8,6 +8,7 @@ namespace Misitu.Licensing.Dto
 {
     public class LicenseView
     {
+        public int Id { get; set; }
         public string SerialNumber { get; set; }
         public string Dealer { get; set; }
 

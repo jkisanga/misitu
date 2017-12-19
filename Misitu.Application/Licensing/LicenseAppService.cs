@@ -19,34 +19,24 @@ namespace Misitu.Licensing
         private readonly IRepository<License> _licenseRepository;
         private readonly IRepository<FinancialYear> _financialYearRepository;
         private readonly IRepository<Bill> _billRepository;
+        private readonly IRepository<BillItem> _billItemRepository;
         private readonly IRepository<Dealer> _dealerRepository;
 
         public LicenseAppService(IRepository<License> licenseRepository,
             IRepository<FinancialYear> financialYearRepository,
                IRepository<Bill> billRepository,
-               IRepository<Dealer> dealerRepository
+               IRepository<Dealer> dealerRepository,
+               IRepository<BillItem> billItemRepository
             )
         {
             _licenseRepository = licenseRepository;
             _financialYearRepository = financialYearRepository;
             _billRepository = billRepository;
             _dealerRepository = dealerRepository;
+            _billItemRepository = billItemRepository;
         }
 
-        public async Task ConfirmPayment(LicenseDto input, string PaymentReference)
-        {
-            var license = _licenseRepository.FirstOrDefault(input.Id);
-            if (license != null)
-            {
-                license.ReceiptNumber = PaymentReference;
-                license.PaidDate = DateTime.Now;
-                await _licenseRepository.UpdateAsync(license);
-            }
-            else
-            {
-                throw new UserFriendlyException("License not Found!");
-            }
-        }
+
 
         public void CreateLicense(CreateLicenseInput input)
         {
@@ -102,12 +92,12 @@ namespace Misitu.Licensing
 
                             orderby l.IssuedDate
                             select new LicenseView{
-
-                                    SerialNumber = l.serialNumber,
-                                    Dealer = dealer.Name,
-                                    Description = bill.Description,
-                                    Amount = bill.PaidAmount,
-                                    IssuedDate = l.IssuedDate
+                                Id = l.Id,
+                                SerialNumber = l.serialNumber,
+                                Dealer = dealer.Name,
+                                Description = bill.Description,
+                                Amount = bill.PaidAmount,
+                                IssuedDate = l.IssuedDate
 
                             }).ToList();
 
@@ -163,5 +153,35 @@ namespace Misitu.Licensing
                 .First();
             return license.MapTo<LicenseDto>();
         }
+
+        public List<LicenceCertDto> PrintLicence(int id)
+        {
+            var licence = from l in _licenseRepository.GetAll()
+                          join b in _billRepository.GetAll() on l.BillId equals b.Id
+                          join item in _billItemRepository.GetAll() on b.Id equals item.BillId
+                       where l.Id == id
+                       select new LicenceCertDto
+                       {
+                           Id = l.Id,
+                           SerialNumber = l.serialNumber,
+                           Name = b.Dealer.Name,
+                           Address = b.Dealer.Address,
+                           Phone = b.Dealer.Phone,
+                           Station = b.Station.Name,
+                           StationAddress = b.Station.Address,
+                           IssuedDate = l.IssuedDate,
+                           ExpireDate = l.ExpiredDate,
+                           Currency = b.Currency,
+                           Description = b.Description,
+                           BillId = item.BillId,
+                           ItemDescription = item.Description,
+                           Royality = item.Loyality,
+                           OtherCharges = item.TFF + item.LMDA+ item.VAT+ item.CESS+ item.TP+ item.DataSheet,
+                           Total = item.Total
+                       };
+
+            return new List<LicenceCertDto>(); 
+        }
+
     }
 }

@@ -22,6 +22,7 @@ namespace Misitu.Licensing
         public virtual DateTime? PaidDate { get; set; }
         public virtual string ReceiptNumber { get; set; }
         public virtual DateTime IssuedDate { get; set; }
+        public virtual DateTime ExpiredDate { get; set; }
         public virtual string IssuedBy { get; set; }
 
         [ForeignKey("StationId")]

@@ -20,8 +20,7 @@ namespace Misitu.Licensing
         LicenseDto GetLicense(int id);
 
         LicenseDto GetLicenseByBill(int billId);
-
-        Task ConfirmPayment(LicenseDto input, string PaymentReference);
+        List<LicenceCertDto> PrintLicence(int id);
 
         Task UpdateLicense(LicenseDto input);
 

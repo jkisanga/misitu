@@ -17,10 +17,12 @@ namespace Misitu.Billing.Dto
         public string StationAddress { get; set; }
         public string Currency { get; set; }
         public DateTime IssuedDate { get; set; }
+        public DateTime ExpireDate { get; set; }
         public double BilledAmount { get; set; }
 
         public int BillId { get; set; }
         public string Description { get; set; }
+        public string ItemDescription { get; set; }
         public double Amount { get; set; }
     }
 

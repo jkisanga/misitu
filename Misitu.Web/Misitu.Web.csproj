@@ -149,6 +149,10 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Downloads\nam_sample_pt1\NAM_Sample_Pt1\bin\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
       <Private>True</Private>
@@ -559,6 +563,15 @@
     <Content Include="Content\themes\macadmin\img\Sorting icons.psd" />
     <Content Include="Content\themes\macadmin\images\Sorting icons.psd" />
     <Content Include="Content\themes\macadmin\font\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\Client\Views\web.config" />
+    <Content Include="Areas\Client\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Client\Views\Dashboard\About.cshtml" />
+    <Content Include="Areas\Client\Views\Dashboard\Contact.cshtml" />
+    <Content Include="Areas\Client\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Client\Views\Shared\Error.cshtml" />
+    <Content Include="Areas\Client\Views\Shared\Lockout.cshtml" />
+    <Content Include="Areas\Client\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Client\Views\Shared\_LoginPartial.cshtml" />
     <None Include="Datasets\Misitu.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -628,6 +641,8 @@
     <Compile Include="App_Start\MisituWebModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
+    <Compile Include="Areas\Client\Controllers\DashboardController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActivitiesController.cs" />
@@ -793,6 +808,8 @@
     <Content Include="Views\Payments\Index.cshtml" />
     <Content Include="Views\Payments\Confirm.cshtml" />
     <Content Include="Views\Users\_EditUserModal.cshtml" />
+    <Content Include="Views\License\_LicenceReportViewer.cshtml" />
+    <Content Include="Views\License\LicenceViewer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -820,6 +837,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Documents\" />
+    <Folder Include="Areas\Client\Models\" />
     <Folder Include="img\" />
   </ItemGroup>
   <ItemGroup>
@@ -835,8 +853,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptHarvestLicence.rdlc" />
     <EmbeddedResource Include="Reports\RegCert.rdlc" />
+    <EmbeddedResource Include="Reports\rptHarvestingBill.rdlc" />
     <EmbeddedResource Include="Reports\rptBill.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
