@@ -27,8 +27,10 @@ namespace Misitu.Registration.Dto
 
         public virtual int StationId { get; set; }
         public virtual int FinancialYearId { get; set; }
-        public virtual string ReceiptNumber { get; set; }
+        public virtual string BillControlNumber { get; set; }
         public virtual double Amount { get; set; }
+        public virtual double AllocatedCubicMetres { get; set; }
+        
         public virtual DateTime RegisteredDate { get; set; }
         public virtual DateTime? IssuedDate { get; set; }
 

@@ -98,6 +98,8 @@ C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Application\
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Application\obj\Debug\Misitu.Application.csprojResolveAssemblyReference.cache
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Application\obj\Debug\Misitu.Application.dll
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Application\obj\Debug\Misitu.Application.pdb
+<<<<<<< HEAD
+=======
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Application\bin\Debug\Misitu.Core.dll.config
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Application\obj\Debug\Misitu.Application.csproj.CoreCompileInputs.cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Application\bin\Debug\Misitu.Application.dll.config
@@ -156,3 +158,4 @@ C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Application\ob
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Application\obj\Debug\Misitu.Application.csproj.CoreCompileInputs.cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Application\obj\Debug\Misitu.Application.dll
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Application\obj\Debug\Misitu.Application.pdb
+>>>>>>> 4e8c6e758b6790be8a5baafdacca7e38f9604601

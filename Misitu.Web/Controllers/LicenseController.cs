@@ -1,4 +1,5 @@
-﻿using Misitu.FinancialYears;
+﻿using Microsoft.Reporting.WebForms;
+using Misitu.FinancialYears;
 using Misitu.Licensing;
 using System;
 using System.Collections.Generic;
@@ -47,76 +48,41 @@ namespace Misitu.Web.Controllers
             return View(Licenses);
         }
 
-        // GET: License/Details/5
-        public ActionResult Details(int id)
+        //View bill in report viewer
+
+        public ActionResult LicenceViewer(int id)
         {
-            return View();
+            var licence = _licenseAppService.GetLicense(id);
+            return View(licence);
+
         }
 
-        // GET: License/Create
-        public ActionResult Create()
+        public ActionResult LicenceReportViewer(int id)
         {
-            return View();
-        }
+            
+            ReportViewer reportViewer = new ReportViewer();
+            reportViewer.ProcessingMode = ProcessingMode.Local;
+            reportViewer.SizeToReportContent = true;
 
-        // POST: License/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
+            reportViewer.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reports\rptHarvestLicence.rdlc";
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+            ReportParameter licenceId = new ReportParameter("LicenceId", id.ToString());
+            reportViewer.LocalReport.SetParameters(new ReportParameter[] { licenceId });
+            reportViewer.LocalReport.DataSources.Clear();
 
-        // GET: License/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("dsHarvestingLicence", _licenseAppService.PrintLicence(id)));
 
-        // POST: License/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
+            reportViewer.LocalReport.Refresh();
+            reportViewer.ProcessingMode = ProcessingMode.Local;
+            reportViewer.Width = 1200;
+            reportViewer.Height = 500;
+            reportViewer.ShowPrintButton = true;
+            reportViewer.ZoomMode = ZoomMode.FullPage;
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+            ViewBag.rptLicence = reportViewer;
+            ViewBag.LicenceId = id;
 
-        // GET: License/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: License/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return PartialView("_LicenceReportViewer");
         }
     }
 }

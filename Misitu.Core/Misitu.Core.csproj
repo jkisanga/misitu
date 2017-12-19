@@ -137,6 +137,7 @@
     <Compile Include="Divisions\Division.cs" />
     <Compile Include="FinancialYears\FinancialYear.cs" />
     <Compile Include="GnTreeVolumeRates\GnTreeVolumeRate.cs" />
+    <Compile Include="Harvesting\HarvestingLog.cs" />
     <Compile Include="Licensing\AllocatedPlot.cs" />
     <Compile Include="Licensing\License.cs" />
     <Compile Include="Licensing\LicenseCategory.cs" />

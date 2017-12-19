@@ -114,6 +114,13 @@ C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramew
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.csproj.GenerateResource.Cache
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.dll
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.pdb
+<<<<<<< HEAD
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.add_cubicMetres_dealer_table.resources
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.add_billControlNumber_dealer_table.resources
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.HarvestingLogs_table.resources
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.add_expiredate_LicenceTable.resources
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.add_aplicant_id_UsersTable.resources
+=======
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\bin\Debug\Misitu.Core.dll.config
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.csproj.CoreCompileInputs.cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\bin\Debug\Misitu.EntityFramework.dll.config
@@ -177,3 +184,4 @@ C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramewor
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.csproj.GenerateResource.Cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.Update_Activity_table.resources
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.Update_ActivityDealer_and_RefServiceCategory_table.resources
+>>>>>>> 4e8c6e758b6790be8a5baafdacca7e38f9604601

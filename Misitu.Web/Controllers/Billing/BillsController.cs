@@ -197,6 +197,33 @@ namespace Misitu.Web.Controllers.Billing
             return PartialView("_BillReportViewer");
         }
 
+        public ActionResult HarvestBillReportViewer(int id)
+        {
+            ReportViewer reportViewer = new ReportViewer();
+            reportViewer.ProcessingMode = ProcessingMode.Local;
+            reportViewer.SizeToReportContent = true;
+
+            reportViewer.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reports\rptHarvestingBill.rdlc";
+
+            ReportParameter billId = new ReportParameter("BillId", id.ToString());
+            reportViewer.LocalReport.SetParameters(new ReportParameter[] { billId });
+            reportViewer.LocalReport.DataSources.Clear();
+
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("dsHarvestBill", _billAppService.PrintHarvestBill(id)));
+
+            reportViewer.LocalReport.Refresh();
+            reportViewer.ProcessingMode = ProcessingMode.Local;
+            reportViewer.Width = 1200;
+            reportViewer.Height = 500;
+            reportViewer.ShowPrintButton = true;
+            reportViewer.ZoomMode = ZoomMode.FullPage;
+
+            ViewBag.rptBill = reportViewer;
+            ViewBag.BillId = id;
+            return PartialView("_BillReportViewer");
+        }
+
+
 
         // GET: Bills/confirm/5
         public ActionResult Confirm(int id)

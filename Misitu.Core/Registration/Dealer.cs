@@ -26,7 +26,7 @@ namespace Misitu.Registration
 
         public virtual int StationId { get; set; }
         public virtual int FinancialYearId { get; set; } 
-        public virtual string ReceiptNumber { get; set; }
+        public virtual string BillControlNumber { get; set; }
         public virtual double Amount { get; set; }
         public virtual DateTime RegisteredDate { get; set; }
         public virtual DateTime? IssuedDate { get; set; }
@@ -34,6 +34,7 @@ namespace Misitu.Registration
         public virtual string TIN { get; set; }
         public virtual string BusinessLicense { get; set; }
         public virtual string PaymentReferenceNumber { get; set; }
+        public virtual double AllocatedCubicMetres { get; set; }
         public virtual string PrintedBy { get; set; }
 
         [ForeignKey("StationId")]

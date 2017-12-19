@@ -21,14 +21,15 @@ namespace Misitu.Registration
 
         DealerDto GetDealer(int id);
 
-
         List<RegistrationCertDto> PrintDealer(int id);
 
-        Task ConfirmPayment(DealerDto input, string PaymentReference);
+        void UpdateBillControlNumber(DealerDto input, string BillControlNumber);
 
         Task UpdateDealer(DealerDto input);
 
         Task DeleteDealerAsync(DealerDto input);
+
+        double DealerAllocatedCBM(DealerDto input);
 
         int GetTotalDealerByStationId(StationDto Station, FinancialYearDto FinancialYear);
 
@@ -40,6 +41,6 @@ namespace Misitu.Registration
 
         List< double> GetTotalDealerFeesByStation(StationDto Station, FinancialYearDto FinancialYear);
 
-       List< double> GetTotalMonthDealerFeesByStation(StationDto Station, FinancialYearDto FinancialYear);
+        List< double> GetTotalMonthDealerFeesByStation(StationDto Station, FinancialYearDto FinancialYear);
     }
 }

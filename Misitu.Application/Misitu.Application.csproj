@@ -155,6 +155,7 @@
     <Compile Include="Billing\Dto\BillPrint.cs" />
     <Compile Include="Billing\Dto\CreateBillInput.cs" />
     <Compile Include="Billing\Dto\CreateBillItemInput.cs" />
+    <Compile Include="Billing\Dto\HarvestBill.cs" />
     <Compile Include="Billing\IBillAppService.cs" />
     <Compile Include="Billing\IBillItemAppService.cs" />
     <Compile Include="Divisions\Dto\CreateDivisionInput.cs" />
@@ -174,6 +175,7 @@
     <Compile Include="Licensing\Dto\AllocatedPlotView.cs" />
     <Compile Include="Licensing\Dto\CreateAllocatedPlotInput.cs" />
     <Compile Include="Licensing\Dto\CreateLicenseInput.cs" />
+    <Compile Include="Licensing\Dto\LicenceCertDto.cs" />
     <Compile Include="Licensing\Dto\LicenseDto.cs" />
     <Compile Include="Licensing\Dto\LicenseView.cs" />
     <Compile Include="Licensing\IAllocatedPlotAppService.cs" />

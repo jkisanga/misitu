@@ -84,11 +84,16 @@
                         <tbody>
                             @{
                                 double total = 0;
-                                
+                                double volume = 0;
+                                double trees = 0;
+                                string description;
+
                             }
                            @foreach (var item in ViewBag.Plots)
                            {
                                total = total + item.TOTAL;
+                               volume = volume + item.Volume;
+                               trees = trees + item.Trees;
                             <tr>
 
                                 <td>
@@ -124,6 +129,10 @@
 
                             </tr>
                            }
+                            @{
+                                description = "Total Volume allocated is " + volume + "cbm, with " + trees+" number of trees";
+
+                            }
                         </tbody>
                     </table>
 
@@ -148,44 +157,50 @@
                 <div class="padd">
                     <div class="form-horizontal">
                         <div class="form-group">
-                            <label class="control-label col-md-2">Revenue Source</label>
-                            <div class="col-md-4">
-                                <input type="hidden" name="DealerId" value="@ViewBag.Dealer.Id" />
-                                @Html.DropDownList("RevenueSourceId", null, new { @class = "form-control col-md-6" })
+                            <label class="control-label col-md-2">Description</label>
+                            <div class="col-md-10">
+                                <input type="text" name="Description" value="@description" readonly class="form-control amount" />
                             </div>
+                            </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Revenue Source</label>
+                                    <div class="col-md-4">
+                                        <input type="hidden" name="DealerId" value="@ViewBag.Dealer.Id" />
+                                        @Html.DropDownList("RevenueSourceId", null, new { @class = "form-control col-md-6" })
+                                    </div>
 
-                            <label class="control-label col-md-2">Billed Amount</label>
-                            <div class="col-md-4">
-                                <input type="text" name="BillAmount" value="@total" readonly class="form-control amount" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            @Html.Label("Currency", htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-4">
-                                @Html.DropDownList("Currency", new List<SelectListItem>
+                                    <label class="control-label col-md-2">Billed Amount</label>
+                                    <div class="col-md-4">
+                                        <input type="text" name="BillAmount" value="@total" readonly class="form-control amount" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.Label("Currency", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-4">
+                                        @Html.DropDownList("Currency", new List<SelectListItem>
                                 { new SelectListItem{Text="TZS", Value="TZS",Selected =true },
                                     new SelectListItem{Text="USD", Value="USD"}}, new { @class = "form-control" })
 
-                                @Html.ValidationMessage("Currency", "", new { @class = "text-danger" })
-                            </div>
-                            @Html.Label("Expired Date", htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-4">
-                                <div id="datetimepicker1" class="input-append">
-                                    @Html.TextBox("ExpiredDate", null, new { @class = "form-control dtpicker" })
-                                    <span class="add-on">
-                                        <i data-time-icon="icon-time" data-date-icon="icon-calendar" class="btn btn-info btn-lg"></i>
-                                    </span>
-                                    @Html.ValidationMessage("ExpiredDate", "", new { @class = "text-danger" })
+                                        @Html.ValidationMessage("Currency", "", new { @class = "text-danger" })
+                                    </div>
+                                    @Html.Label("Expired Date", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-4">
+                                        <div id="datetimepicker1" class="input-append">
+                                            @Html.TextBox("ExpiredDate", null, new { @class = "form-control dtpicker" })
+                                            <span class="add-on">
+                                                <i data-time-icon="icon-time" data-date-icon="icon-calendar" class="btn btn-info btn-lg"></i>
+                                            </span>
+                                            @Html.ValidationMessage("ExpiredDate", "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="widget-foot">
+                            <button type="submit" id="submit" class="pull-right btn btn-primary">Create Bill</button>
+                            <div class="clearfix"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="widget-foot">
-                    <button type="submit" id="submit" class="pull-right btn btn-primary">Create Bill</button>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
         </div>
 
     }

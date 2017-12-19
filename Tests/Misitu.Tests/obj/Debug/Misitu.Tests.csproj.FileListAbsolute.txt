@@ -80,6 +80,8 @@ C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\obj\Debug\Misitu.Tests.csprojResolveAssemblyReference.cache
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\obj\Debug\Misitu.Tests.dll
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\obj\Debug\Misitu.Tests.pdb
+<<<<<<< HEAD
+=======
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\bin\Debug\Misitu.Application.dll.config
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\bin\Debug\Misitu.Core.dll.config
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\bin\Debug\Misitu.EntityFramework.dll.config
@@ -170,3 +172,4 @@ C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Tests\Misitu.Tests\ob
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Tests\Misitu.Tests\obj\Debug\Misitu.Tests.csproj.CoreCompileInputs.cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Tests\Misitu.Tests\obj\Debug\Misitu.Tests.dll
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Tests\Misitu.Tests\obj\Debug\Misitu.Tests.pdb
+>>>>>>> 4e8c6e758b6790be8a5baafdacca7e38f9604601
