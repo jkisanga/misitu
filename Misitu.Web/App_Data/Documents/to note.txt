@@ -1,6 +1,0 @@
--controller extends misituControllerbase
--abpMVCAuthorise (Authorization)
--Logging
--User management(Roles,permissions)
--SerialNumbers(Registration and License Cerificate)
-
