@@ -61,7 +61,7 @@
                             @Html.DisplayFor(modelItem => item.IssuedDate)
                         </td> 
                         <td>
-                           
+                            <a href="@Url.Action("LicenceViewer", "License",new { id = item.Id})" class="pull-right btn btn-default">Print Preview</a>
                         </td>
                     </tr>
                 }

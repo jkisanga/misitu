@@ -63,15 +63,20 @@
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-4">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-1" })
+                        <div class="col-md-3">
                             @Html.TextBox("Email", (string)ViewBag.Candidate.Email, new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                         </div>
-                        @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-4">
+                        @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-1" })
+                        <div class="col-md-3">
                             @Html.TextBox("Phone", (string)ViewBag.Candidate.Phone, new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.Label("Allocated CBM", htmlAttributes: new { @class = "control-label col-md-1" })
+                        <div class="col-md-2">
+                            @Html.TextBox("AllocatedCubicMetres", (double)ViewBag.Candidate.AllocatedCubicMetres, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.AllocatedCubicMetres, "", new { @class = "text-danger" })
                         </div>
                     </div>
 

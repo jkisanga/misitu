@@ -147,6 +147,12 @@
     <Compile Include="Activities\Dto\CreateActivityInput.cs" />
     <Compile Include="Activities\Dto\ActivityDto.cs" />
     <Compile Include="Activities\IActivityAppService.cs" />
+    <Compile Include="Applicants\Dto\ApplicantDto.cs" />
+    <Compile Include="Applicants\Dto\CreateInput.cs" />
+    <Compile Include="Applicants\Dto\ForestProduce\ForestProduceAppliedForest.cs" />
+    <Compile Include="Applicants\Dto\ForestProduce\ForestProduceAppliedSpecieCategory.cs" />
+    <Compile Include="Applicants\Dto\ForestProduce\ForestProduceRegistration.cs" />
+    <Compile Include="Applicants\Interface\ForestProduce\IApplicant.cs" />
     <Compile Include="Billing\BillAppService.cs" />
     <Compile Include="Billing\BillItemAppService.cs" />
     <Compile Include="Billing\Dto\BillDto.cs" />
@@ -155,6 +161,7 @@
     <Compile Include="Billing\Dto\BillPrint.cs" />
     <Compile Include="Billing\Dto\CreateBillInput.cs" />
     <Compile Include="Billing\Dto\CreateBillItemInput.cs" />
+    <Compile Include="Billing\Dto\HarvestBill.cs" />
     <Compile Include="Billing\IBillAppService.cs" />
     <Compile Include="Billing\IBillItemAppService.cs" />
     <Compile Include="Divisions\Dto\CreateDivisionInput.cs" />
@@ -174,6 +181,7 @@
     <Compile Include="Licensing\Dto\AllocatedPlotView.cs" />
     <Compile Include="Licensing\Dto\CreateAllocatedPlotInput.cs" />
     <Compile Include="Licensing\Dto\CreateLicenseInput.cs" />
+    <Compile Include="Licensing\Dto\LicenceCertDto.cs" />
     <Compile Include="Licensing\Dto\LicenseDto.cs" />
     <Compile Include="Licensing\Dto\LicenseView.cs" />
     <Compile Include="Licensing\IAllocatedPlotAppService.cs" />
@@ -284,7 +292,9 @@
       <Name>Misitu.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Applicants\Services\ForestProduce\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

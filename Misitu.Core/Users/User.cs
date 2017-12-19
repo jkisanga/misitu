@@ -16,7 +16,9 @@ namespace Misitu.Users
             return Guid.NewGuid().ToString("N").Truncate(16);
         }
 
-        public  int StationId { get; set; }     
+        public int StationId { get; set; }
+
+        public int ApplicantId { get; set; }
 
         public static User CreateTenantAdminUser(int tenantId, string emailAddress, string password)
         {

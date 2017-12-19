@@ -92,16 +92,15 @@ namespace Misitu.Web.Controllers
 
             await SignInAsync(loginResult.User, loginResult.Identity, loginModel.RememberMe);
 
-            if (string.IsNullOrWhiteSpace(returnUrl))
-            {
-                returnUrl = Request.ApplicationPath;
-            }
+          
 
-            if (!string.IsNullOrWhiteSpace(returnUrlHash))
-            {
-                returnUrl = returnUrl + returnUrlHash;
-            }
-
+                if (_userManager.IsInRole(loginResult.User.Id, "Client"))
+                {
+                    returnUrl = "/Client/Dashboard";
+                }
+              
+                         
+           
             return Json(new AjaxResponse { TargetUrl = returnUrl });
         }
 
@@ -112,6 +111,7 @@ namespace Misitu.Web.Controllers
             switch (loginResult.Result)
             {
                 case AbpLoginResultType.Success:
+                   
                     return loginResult;
                 default:
                     throw CreateExceptionForFailedLoginAttempt(loginResult.Result, usernameOrEmailAddress, tenancyName);

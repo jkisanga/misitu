@@ -13,18 +13,21 @@ using Misitu.Stations.Dto;
 using Misitu.Activities;
 using System.Linq.Dynamic.Core;
 using Misitu.Users;
+using Misitu.Billing;
 
 namespace Misitu.Registration
 {
     public class DealerAppService : MisituAppServiceBase, IDealerAppService
     {
         private readonly IRepository<Dealer> _dealerRepository;
+        private readonly IRepository<Bill> _billRepository;
         private readonly IRepository<FinancialYear> _financialYearRepository;
         private readonly IRepository<DealerActivity> _dealerActivityRepository;
         private readonly IRepository<Activity> _activityRepository;
         private readonly IRepository<User, long> _userRepository;
 
         public DealerAppService(IRepository<Dealer> dealerRepository,
+            IRepository<Bill> billRepository,
             IRepository<FinancialYear> financialYearRepository,
             IRepository<DealerActivity> dealerActivityRepository,
             IRepository<Activity> activityRepository,
@@ -32,6 +35,7 @@ namespace Misitu.Registration
             )
         {
             _dealerRepository = dealerRepository;
+            _billRepository = billRepository;
             _financialYearRepository = financialYearRepository;
             _activityRepository = activityRepository;
             _dealerActivityRepository = dealerActivityRepository;
@@ -58,7 +62,8 @@ namespace Misitu.Registration
                     StationId = input.StationId,
                     RegisteredDate = input.RegisteredDate,
                     TIN = input.TIN,
-                    BusinessLicense = input.BusinessLicense
+                    BusinessLicense = input.BusinessLicense,
+                    AllocatedCubicMetres = input.AllocatedCubicMetres
                    
                 };
 
@@ -111,12 +116,30 @@ namespace Misitu.Registration
 
         public List<DealerDto> GetDealers(FinancialYearDto FinancialYear)
         {
-            var dealers = _dealerRepository
-             .GetAll()
-             .Where(p => p.FinancialYearId == FinancialYear.Id)
-             .Where(p => p.ReceiptNumber == null)
-             .OrderBy(p => p.Name)
-             .ToList();
+            var dealers = from l in _dealerRepository.GetAll()
+                          join b in _billRepository.GetAll() on l.BillControlNumber equals b.ControlNumber
+                          where l.FinancialYearId == FinancialYear.Id
+                          where b.PaidAmount == 0 && b.PaidDate == null
+                          orderby l.Name
+                          select new DealerDto
+                          {
+                              Id = l.Id,
+                              Name = l.Name,
+                              Address = l.Address,
+                              AllocatedCubicMetres = l.AllocatedCubicMetres,
+                              Amount = l.Amount,
+                              BillControlNumber = l.BillControlNumber,
+                              BusinessLicense = l.BusinessLicense,
+                              FinancialYearId = l.FinancialYearId,
+                              IssuedDate = l.IssuedDate,
+                              Phone = l.Phone,
+                              RegisteredDate = l.RegisteredDate,
+                              StationId = l.StationId,
+                              TIN = l.TIN,
+                              SerialNumber = l.SerialNumber,
+                              Email = l.Email
+
+                          };
 
             return new List<DealerDto>(dealers.MapTo<List<DealerDto>>());
         }
@@ -135,18 +158,18 @@ namespace Misitu.Registration
             dealer.TIN = input.TIN;
             dealer.BusinessLicense = input.BusinessLicense;
 
+
             await _dealerRepository.UpdateAsync(dealer);
             
         }
 
-        public async Task ConfirmPayment(DealerDto input, string PaymentReference)
+        public void UpdateBillControlNumber(DealerDto input,string BillControlNumber)
         {
             var dealer = _dealerRepository.FirstOrDefault(input.Id);
             if (dealer != null)
             {
-                dealer.PaymentReferenceNumber = PaymentReference;
-                dealer.ReceiptNumber = PaymentReference;
-                await _dealerRepository.UpdateAsync(dealer);
+                dealer.BillControlNumber = BillControlNumber;
+                _dealerRepository.UpdateAsync(dealer);
             }
             else
             {
@@ -157,12 +180,31 @@ namespace Misitu.Registration
 
         public List<DealerDto> GetRegisteredDealers(FinancialYearDto FinancialYear)
         {
-            var dealers = _dealerRepository
-             .GetAll()
-             .Where(p => p.FinancialYearId == FinancialYear.Id)
-             .Where(p => p.ReceiptNumber != null)
-             .OrderBy(p => p.Name)
-             .ToList();
+        
+
+            var dealers = from l in _dealerRepository.GetAll()
+                       join b in _billRepository.GetAll() on l.BillControlNumber equals b.ControlNumber
+                       where l.FinancialYearId == FinancialYear.Id
+                       where b.PaidAmount > 0 && b.PaidDate != null
+                       orderby l.Name
+                       select new DealerDto {
+                            Id = l.Id,
+                            Name = l.Name,
+                            Address = l.Address,
+                            AllocatedCubicMetres = l.AllocatedCubicMetres,
+                            Amount = l.Amount,
+                            BillControlNumber = l.BillControlNumber,
+                            BusinessLicense = l.BusinessLicense,
+                            FinancialYearId = l.FinancialYearId,
+                            IssuedDate = l.IssuedDate,
+                            Phone = l.Phone,
+                            RegisteredDate = l.RegisteredDate,
+                            StationId = l.StationId,
+                            TIN = l.TIN,
+                            SerialNumber= l.SerialNumber,
+                            Email = l.Email
+                            
+                       };
 
             return new List<DealerDto>(dealers.MapTo<List<DealerDto>>());
         }
@@ -226,7 +268,7 @@ namespace Misitu.Registration
                        join i in _activityRepository.GetAll() on a.ActivityId equals i.Id
                        where l.FinancialYearId == FinancialYear.Id
                        where l.StationId == Station.Id
-                       where l.ReceiptNumber != null
+                       //where l.ReceiptNumber != null
                        where l.PaymentReferenceNumber != null
                        group i by l.StationId into g
                        select  g.Sum(x => x.Fee);
@@ -243,7 +285,7 @@ namespace Misitu.Registration
                        join i in _activityRepository.GetAll() on a.ActivityId equals i.Id
                        where l.FinancialYearId == FinancialYear.Id
                        where l.StationId == Station.Id
-                       where l.ReceiptNumber != null
+                       //where l.ReceiptNumber != null
                        where l.PaymentReferenceNumber != null
                        where(l.RegisteredDate.Month == DateTime.Today.Month && l.RegisteredDate.Year == DateTime.Today.Year)
                        group i by l.StationId into g
@@ -268,7 +310,6 @@ namespace Misitu.Registration
                                 Address = d.Address,
                                 Email = d.Email,
                                 Phone = d.Phone,
-                                ReceiptNumber = d.ReceiptNumber,
                                 Amount = d.Amount,
                                 RegisteredDate = d.RegisteredDate,
                                 IssuedDate = d.IssuedDate,
@@ -281,6 +322,13 @@ namespace Misitu.Registration
             return dealer.ToList();
         }
 
-     
+        //Pre selected  dealer's allocated volume
+
+        public double DealerAllocatedCBM(DealerDto input)
+        {
+            var dealer = _dealerRepository.FirstOrDefault(input.Id);
+             
+            return dealer.AllocatedCubicMetres;
+        }
     }
 }

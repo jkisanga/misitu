@@ -154,6 +154,26 @@
     <Compile Include="Migrations\201712180705589_Update_ActivityDealer_and_RefServiceCategory_table.Designer.cs">
       <DependentUpon>201712180705589_Update_ActivityDealer_and_RefServiceCategory_table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712120859203_add_cubicMetres_dealer_table.cs" />
+    <Compile Include="Migrations\201712120859203_add_cubicMetres_dealer_table.Designer.cs">
+      <DependentUpon>201712120859203_add_cubicMetres_dealer_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712120949388_add_billControlNumber_dealer_table.cs" />
+    <Compile Include="Migrations\201712120949388_add_billControlNumber_dealer_table.Designer.cs">
+      <DependentUpon>201712120949388_add_billControlNumber_dealer_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712121432183_HarvestingLogs_table.cs" />
+    <Compile Include="Migrations\201712121432183_HarvestingLogs_table.Designer.cs">
+      <DependentUpon>201712121432183_HarvestingLogs_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712140933238_add_expiredate_LicenceTable.cs" />
+    <Compile Include="Migrations\201712140933238_add_expiredate_LicenceTable.Designer.cs">
+      <DependentUpon>201712140933238_add_expiredate_LicenceTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712151033132_add_aplicant_id_UsersTable.cs" />
+    <Compile Include="Migrations\201712151033132_add_aplicant_id_UsersTable.Designer.cs">
+      <DependentUpon>201712151033132_add_aplicant_id_UsersTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\DefaultGNCreatot.cs" />
@@ -191,6 +211,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712180705589_Update_ActivityDealer_and_RefServiceCategory_table.resx">
       <DependentUpon>201712180705589_Update_ActivityDealer_and_RefServiceCategory_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712120859203_add_cubicMetres_dealer_table.resx">
+      <DependentUpon>201712120859203_add_cubicMetres_dealer_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712120949388_add_billControlNumber_dealer_table.resx">
+      <DependentUpon>201712120949388_add_billControlNumber_dealer_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712121432183_HarvestingLogs_table.resx">
+      <DependentUpon>201712121432183_HarvestingLogs_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712140933238_add_expiredate_LicenceTable.resx">
+      <DependentUpon>201712140933238_add_expiredate_LicenceTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712151033132_add_aplicant_id_UsersTable.resx">
+      <DependentUpon>201712151033132_add_aplicant_id_UsersTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

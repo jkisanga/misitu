@@ -34,7 +34,7 @@ namespace Misitu.Web.Controllers
         public ActionResult Create()
         {
             var stations = _stationAppService.GetStations().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Name });
-            var roles = _roleManager.Roles.ToList().Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName });
+            var roles = _roleManager.Roles.Where(r => r.Name != "Client").ToList().Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName });
             ViewBag.StationId = stations;
             ViewBag.Roles = roles;
             return View();

@@ -13,6 +13,8 @@ namespace Misitu.Billing
     {
         List<BillPrint> Print(int id);
 
+        List<HarvestBill> PrintHarvestBill(int id);
+
         List<BillDto> GetBills(FinancialYearDto FinancialYear);
 
         List<BillDto> GetPayedBills(FinancialYearDto FinancialYear);

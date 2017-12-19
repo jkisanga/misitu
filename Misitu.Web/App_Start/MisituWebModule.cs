@@ -2,14 +2,12 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Abp.Hangfire;
-using Abp.Hangfire.Configuration;
 using Abp.Zero.Configuration;
 using Abp.Modules;
 using Abp.Web.Mvc;
 using Abp.Web.SignalR;
 using Misitu.Api;
-using Hangfire;
+
 
 namespace Misitu.Web
 {
@@ -42,7 +40,7 @@ namespace Misitu.Web
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
 
             AreaRegistration.RegisterAllAreas();
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);           
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }

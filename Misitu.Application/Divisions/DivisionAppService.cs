@@ -27,14 +27,14 @@ namespace Misitu.Divisions
                 StationId = input.StationId
             };
 
-            var existingDivision = _divisionRepository.FirstOrDefault(p => p.Name == input.Name);
+            var existingDivision = _divisionRepository.FirstOrDefault(p => p.Name == input.Name && p.StationId == input.StationId);
             if (existingDivision == null)
             {
                 await _divisionRepository.InsertAsync(division);
             }
             else
             {
-                throw new UserFriendlyException("There is already a Division with given name");
+                throw new UserFriendlyException("There is already a Division with given name for the same station");
             }
         }
 

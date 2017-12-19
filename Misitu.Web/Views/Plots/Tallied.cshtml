@@ -33,7 +33,7 @@
                     <div class="form-group">
                         @Html.Label("Registered Dealers", htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-5">
-                            @Html.DropDownList("DealerId", null, " ", new { @class = "form-control" })
+                            @Html.DropDownList("DealerId", null, " ", new { @class = "RegDealer form-control" })
                             @Html.ValidationMessage("DealerId", "", new { @class = "text-danger" })
                         </div>
 
@@ -145,23 +145,53 @@
 @section scripts{
     
 <script type="text/javascript"  >
+    $(document).ready(function () {
 
-    $(".table input:checkbox").on("change", function () {    // <-- Only changed this line
-        var sum = 0;
+        var cbm = 0;
 
-        $(".row-select input:checked").each(function () {
-            var value = $(this).closest('tr').find('.vol').html();
+        //get dealer volume in cubic metres (cbm)
+        $(".RegDealer").on("change", function () {
+
+            var url = '/PlotAllocation/DealerAllocatedCBM/' + $('.RegDealer').val();
+
+            $.ajax({
+                url: url,
+                dataType: 'json',
+                success: function (data) {
+
+                    cbm = data.result;
+
+                }
+            });
+        });
+
+        //get sum of volume of checked plots
+
+        $(".table input:checkbox").on("change", function () {    // <-- Only changed this line
+            var sum = 0;
+
+            $(".row-select input:checked").each(function () {
+                var value = $(this).closest('tr').find('.vol').html();
 
                 if (!isNaN(value) && value.length != 0) {
                     sum += parseFloat(value);
+
+                    if (sum > cbm) {
+                        alert("Volume has exeeded the pre allocated volume of "+ cbm)
+                        jQuery(this).attr('checked', false);
+                    } else {
+                        $('#total').val(sum);
+                    }
                 } else {
                     alert("Enter only numbers!")
                 }
             });
-        
 
-        $('#total').val(sum);
-        
+
+         
+
+        });
+
     });
 
     </script>

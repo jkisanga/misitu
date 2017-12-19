@@ -69,6 +69,7 @@ namespace Misitu.Web.Controllers.Registration
                 int bill = _billAppService.CreateBill(billInput);
                 if (bill > 0)
                 {
+          
                     foreach (var activity in activities)
                     {
                         var item = new CreateBillItemInput
@@ -81,6 +82,7 @@ namespace Misitu.Web.Controllers.Registration
                         };
 
                          _billItemAppService.CreateBillItem(item);
+                        _dealerAppService.UpdateBillControlNumber(dealer, _billAppService.GetBill(bill).ControlNumber);
 
                     }
                 }
