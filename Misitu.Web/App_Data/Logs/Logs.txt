@@ -1758,3 +1758,7 @@ System.InvalidOperationException: No route in the route table matches the suppli
    at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
    at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
    at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+DEBUG 2017-12-20 12:48:16,090 [47   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-12-20 12:48:16,106 [47   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-12-20 12:48:16,106 [47   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-12-20 12:48:16,106 [47   ] Abp.Modules.AbpModuleManager             - Shutting down completed.

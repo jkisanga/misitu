@@ -147,6 +147,13 @@
     <Compile Include="Activities\Dto\CreateActivityInput.cs" />
     <Compile Include="Activities\Dto\ActivityDto.cs" />
     <Compile Include="Activities\IActivityAppService.cs" />
+    <Compile Include="Applicants\Dto\ApplicantDto.cs" />
+    <Compile Include="Applicants\Dto\CreateInput.cs" />
+    <Compile Include="Applicants\Dto\ForestProduce\ForestProduceAppliedForestDto.cs" />
+    <Compile Include="Applicants\Dto\ForestProduce\ForestProduceAppliedSpecieCategoryDto.cs" />
+    <Compile Include="Applicants\Dto\ForestProduce\ForestProduceRegistrationDto.cs" />
+    <Compile Include="Applicants\Interface\IApplicant.cs" />
+    <Compile Include="Applicants\Services\ApplicantService.cs" />
     <Compile Include="Billing\BillAppService.cs" />
     <Compile Include="Billing\BillItemAppService.cs" />
     <Compile Include="Billing\Dto\BillDto.cs" />
@@ -197,6 +204,18 @@
     <Compile Include="PlotScalling\IHarvestingPlanAppService.cs" />
     <Compile Include="PlotScalling\ITallySheetAppService.cs" />
     <Compile Include="PlotScalling\TallySheetAppService.cs" />
+    <Compile Include="RefTables\Dto\CreateRefApplicationInput.cs" />
+    <Compile Include="RefTables\Dto\CreateRefIdentityInput.cs" />
+    <Compile Include="RefTables\Dto\RefApplicationTypeDto.cs" />
+    <Compile Include="RefTables\Dto\RefIdentityDto.cs" />
+    <Compile Include="RefTables\Dto\CreateRefServiceCategoryInput.cs" />
+    <Compile Include="RefTables\Dto\RefServiceCategoryDto.cs" />
+    <Compile Include="RefTables\Interface\IRefApplicationTypeAppService.cs" />
+    <Compile Include="RefTables\Interface\IRefIdentityAppService.cs" />
+    <Compile Include="RefTables\Interface\IRefServiceCategoryAppService.cs" />
+    <Compile Include="RefTables\Services\RefApplicationTypeAppService.cs" />
+    <Compile Include="RefTables\Services\RefIdentityAppService.cs" />
+    <Compile Include="RefTables\Services\RefServiceCategoryAppService.cs" />
     <Compile Include="Registration\CandidateAppService.cs" />
     <Compile Include="Registration\DealerActivityAppService.cs" />
     <Compile Include="Registration\DealerAppService.cs" />
@@ -286,7 +305,10 @@
       <Name>Misitu.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Applicants\Interface\ForestProduce\" />
+    <Folder Include="Applicants\Services\ForestProduce\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

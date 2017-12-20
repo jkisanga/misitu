@@ -35,6 +35,7 @@ namespace Misitu.Activities
         public async Task CreateActivity(CreateActivityInput input)
         {
             var activity = new Activity {
+                    RefServiceCategoryId = input.RefServiceCategoryId,
                     Description = input.Description,
                     Fee = input.Fee,
                     RegistrationFee = input.RegistrationFee
@@ -67,6 +68,7 @@ namespace Misitu.Activities
         {
             // here aoutomapping can be done;
             var activity = _activityRepository.FirstOrDefault(input.Id);
+            activity.RefServiceCategoryId = input.RefServiceCategoryId;
             activity.Description = input.Description;
             activity.Fee = input.Fee;
             activity.RegistrationFee = input.RegistrationFee;
