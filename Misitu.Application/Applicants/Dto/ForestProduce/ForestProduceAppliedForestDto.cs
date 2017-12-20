@@ -1,4 +1,6 @@
-﻿using Abp.Domain.Entities.Auditing;
+﻿using Abp.Application.Services.Dto;
+using Abp.AutoMapper;
+using Abp.Domain.Entities.Auditing;
 using Misitu.FinancialYears;
 using Misitu.Stations;
 using System;
@@ -10,8 +12,10 @@ using System.Threading.Tasks;
 
 namespace Misitu.Applicants.ForestProduce
 {
-   public class ForestProduceAppliedForest : FullAuditedEntity
+    [AutoMapFrom(typeof(ForestProduceAppliedForest))]
+    public class ForestProduceAppliedForestDto : FullAuditedEntityDto
     {
+        
         public virtual int ForestProduceRegistrationId { get; set; }
         public virtual int StationId { get; set; }
         public virtual int FinancialYearId { get; set; }

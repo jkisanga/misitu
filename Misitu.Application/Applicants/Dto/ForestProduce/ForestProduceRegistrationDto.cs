@@ -1,4 +1,6 @@
-﻿using Abp.Domain.Entities.Auditing;
+﻿using Abp.Application.Services.Dto;
+using Abp.AutoMapper;
+using Abp.Domain.Entities.Auditing;
 using Misitu.FinancialYears;
 using Misitu.Regions;
 using Misitu.Users;
@@ -12,13 +14,10 @@ using System.Threading.Tasks;
 
 namespace Misitu.Applicants
 {
-   public class ForestProduceRegistration : FullAuditedEntity
+    [AutoMapFrom(typeof(ForestProduceRegistration))]
+   public class ForestProduceRegistrationDto : FullAuditedEntityDto
     {
-        public ForestProduceRegistration()
-        {
-            Status = 0;
-            CertificatePrented = 0;
-        }
+       
         //A: MASHARTI  KWA MWOMBAJI
         [Required]
         public virtual string RequirementTitle { get; set; }

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Misitu.Applicants.Dto
 {
     [AutoMapFrom(typeof(Applicant))]
-    class CreateInput
+   public class CreateInput
     {
         [Required]
         public virtual int Type { get; set; }

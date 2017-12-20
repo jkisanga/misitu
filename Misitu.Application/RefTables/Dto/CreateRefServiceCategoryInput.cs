@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Misitu.RefTables.Dto
 {
     [AutoMapFrom(typeof(RefServiceCategory))]
-    class CreateRefServiceCategoryInput
+  public  class CreateRefServiceCategoryInput
     {
         [Required]
         public virtual string Name { get; set; }

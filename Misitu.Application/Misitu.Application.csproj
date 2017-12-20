@@ -149,10 +149,11 @@
     <Compile Include="Activities\IActivityAppService.cs" />
     <Compile Include="Applicants\Dto\ApplicantDto.cs" />
     <Compile Include="Applicants\Dto\CreateInput.cs" />
-    <Compile Include="Applicants\Dto\ForestProduce\ForestProduceAppliedForest.cs" />
-    <Compile Include="Applicants\Dto\ForestProduce\ForestProduceAppliedSpecieCategory.cs" />
-    <Compile Include="Applicants\Dto\ForestProduce\ForestProduceRegistration.cs" />
-    <Compile Include="Applicants\Interface\ForestProduce\IApplicant.cs" />
+    <Compile Include="Applicants\Dto\ForestProduce\ForestProduceAppliedForestDto.cs" />
+    <Compile Include="Applicants\Dto\ForestProduce\ForestProduceAppliedSpecieCategoryDto.cs" />
+    <Compile Include="Applicants\Dto\ForestProduce\ForestProduceRegistrationDto.cs" />
+    <Compile Include="Applicants\Interface\IApplicant.cs" />
+    <Compile Include="Applicants\Services\ApplicantService.cs" />
     <Compile Include="Billing\BillAppService.cs" />
     <Compile Include="Billing\BillItemAppService.cs" />
     <Compile Include="Billing\Dto\BillDto.cs" />
@@ -305,6 +306,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Applicants\Interface\ForestProduce\" />
     <Folder Include="Applicants\Services\ForestProduce\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
