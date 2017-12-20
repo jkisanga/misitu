@@ -7,7 +7,7 @@ using Abp.Modules;
 using Abp.Web.Mvc;
 using Abp.Web.SignalR;
 using Misitu.Api;
-
+using Misitu;
 
 namespace Misitu.Web
 {

@@ -21,13 +21,13 @@ using Misitu.GnTreeVolumeRates;
 using Misitu.Licensing;
 using Misitu.Species;
 using Misitu.RevenueSources;
-<<<<<<< HEAD
+
 using Misitu.Harvesting;
-=======
+
 using Misitu.RefereneceTables;
 using Misitu.Applicants;
 using Misitu.Applicants.ForestProduce;
->>>>>>> 4e8c6e758b6790be8a5baafdacca7e38f9604601
+
 
 namespace Misitu.EntityFramework
 {
@@ -97,16 +97,15 @@ namespace Misitu.EntityFramework
             modelBuilder.Entity<Bill>().HasRequired(i => i.FinancialYear).WithMany().HasForeignKey(k => k.FinancialYearId).WillCascadeOnDelete(false);
             modelBuilder.Entity<AllocatedPlot>().HasRequired(i => i.FinancialYear).WithMany().HasForeignKey(k => k.FinancialYearId).WillCascadeOnDelete(false);
             modelBuilder.Entity<AllocatedPlot>().HasRequired(i => i.Plot).WithMany().HasForeignKey(k => k.PlotId).WillCascadeOnDelete(false);
-<<<<<<< HEAD
             modelBuilder.Entity<HarvestingLog>().HasRequired(i => i.License).WithMany().HasForeignKey(k => k.LicenseId).WillCascadeOnDelete(false);
             modelBuilder.Entity<HarvestingLog>().HasRequired(i => i.Dealer).WithMany().HasForeignKey(k => k.DealerId).WillCascadeOnDelete(false);
             modelBuilder.Entity<HarvestingLog>().HasRequired(i => i.Plot).WithMany().HasForeignKey(k => k.PlotId).WillCascadeOnDelete(false);
-=======
+
             modelBuilder.Entity<ForestProduceRegistration>().HasRequired(i => i.Applicant).WithMany().HasForeignKey(k => k.ApplicantId).WillCascadeOnDelete(false);
             modelBuilder.Entity<ForestProduceRegistration>().HasRequired(i => i.FinancialYear).WithMany().HasForeignKey(k => k.FinancialYearId).WillCascadeOnDelete(false);
             modelBuilder.Entity<ForestProduceRegistration>().HasRequired(i => i.District).WithMany().HasForeignKey(k => k.DistrictId).WillCascadeOnDelete(false);
 
->>>>>>> 4e8c6e758b6790be8a5baafdacca7e38f9604601
+
 
         }
 

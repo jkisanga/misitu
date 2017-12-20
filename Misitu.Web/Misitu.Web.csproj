@@ -149,10 +149,6 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Downloads\nam_sample_pt1\NAM_Sample_Pt1\bin\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
       <Private>True</Private>
@@ -222,6 +218,10 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Misitu.EntityFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Misitu.EntityFramework\bin\Debug\Misitu.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -639,6 +639,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\MisituNavigationProvider.cs" />
     <Compile Include="App_Start\MisituWebModule.cs" />
+    <Compile Include="App_Start\RoleConstraint.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
@@ -808,12 +809,9 @@
     <Content Include="Views\Payments\Index.cshtml" />
     <Content Include="Views\Payments\Confirm.cshtml" />
     <Content Include="Views\Users\_EditUserModal.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\License\_LicenceReportViewer.cshtml" />
     <Content Include="Views\License\LicenceViewer.cshtml" />
-=======
     <Content Include="Views\RevenueSources\SubRevenue.cshtml" />
->>>>>>> 4e8c6e758b6790be8a5baafdacca7e38f9604601
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -829,10 +827,6 @@
     <ProjectReference Include="..\Misitu.Core\Misitu.Core.csproj">
       <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
       <Name>Misitu.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Misitu.EntityFramework\Misitu.EntityFramework.csproj">
-      <Project>{3979f157-deb0-4878-ab1d-4cef6b5a1300}</Project>
-      <Name>Misitu.EntityFramework</Name>
     </ProjectReference>
     <ProjectReference Include="..\Misitu.WebApi\Misitu.WebApi.csproj">
       <Project>{5eb52d3d-09fd-463a-b02a-8d9856bd3724}</Project>

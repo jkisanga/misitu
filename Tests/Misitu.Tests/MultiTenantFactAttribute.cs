@@ -8,7 +8,7 @@ namespace Misitu.Tests
         {
             if (!MisituConsts.MultiTenancyEnabled)
             {
-                Skip = "MultiTenancy is disabled.";
+                //Skip = "MultiTenancy is disabled.";
             }
         }
     }
