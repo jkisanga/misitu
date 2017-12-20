@@ -572,6 +572,8 @@
     <Content Include="Areas\Client\Views\Shared\Lockout.cshtml" />
     <Content Include="Areas\Client\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Client\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Areas\Client\Views\Account\Register.cshtml" />
+    <Content Include="Areas\Client\Views\Shared\_Menu.cshtml" />
     <None Include="Datasets\Misitu.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -643,6 +645,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
+    <Compile Include="Areas\Client\Controllers\ApplicantController.cs" />
     <Compile Include="Areas\Client\Controllers\DashboardController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
