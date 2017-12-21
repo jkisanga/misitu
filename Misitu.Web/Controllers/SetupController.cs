@@ -63,7 +63,7 @@ namespace Misitu.Web.Controllers
 
         // POST: Setup/Edit/5
         [HttpPost]
-        public async Task<ActionResult> Edit(int id, RefServiceCategoryDto collection)
+        public async Task<ActionResult> EditserviceCategory(int id, RefServiceCategoryDto collection)
         {
             try
             {
@@ -86,25 +86,27 @@ namespace Misitu.Web.Controllers
         }
 
         // GET: Setup/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Setup/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+       
+        public async Task<ActionResult> Deleteservicecategory(int id)
         {
             try
             {
                 // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
+                var obj = this.refServiceCategityAppService.GetObjectById(id);
+                await this.refServiceCategityAppService.DeleteObjectAsync(obj);
+                return RedirectToAction("CreateServiceCategory");
             }
             catch
             {
                 return View();
             }
+        }
+
+
+        public ActionResult CreateIdentityType()
+        {
+            return View();
         }
     }
 }

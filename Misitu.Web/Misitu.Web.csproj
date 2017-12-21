@@ -815,6 +815,7 @@
     <Content Include="Views\Setup\Create.cshtml" />
     <Content Include="Views\Setup\CreateServiceCategory.cshtml" />
     <Content Include="Views\Setup\EditserviceCategory.cshtml" />
+    <Content Include="Views\Setup\CreateIdentityType.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

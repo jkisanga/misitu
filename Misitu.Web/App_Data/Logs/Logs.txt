@@ -7369,3 +7369,483 @@ WARN  2017-12-21 20:04:45,291 [19   ] Abp.Logging.LogHelper                    -
 WARN  2017-12-21 20:04:45,362 [19   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
 WARN  2017-12-21 20:13:07,852 [12   ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
 WARN  2017-12-21 20:13:07,997 [12   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+DEBUG 2017-12-21 20:49:53,982 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-12-21 20:49:54,166 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-12-21 20:49:54,205 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.Web.MisituWebModule, Misitu.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:49:54,217 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.MisituDataModule, Misitu.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:49:54,218 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:49:54,219 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:49:54,219 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:49:54,220 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:49:54,221 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:49:54,222 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.MisituCoreModule, Misitu.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:49:54,223 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.MisituApplicationModule, Misitu.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:49:54,223 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:49:54,224 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.Api.MisituWebApiModule, Misitu.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:49:54,225 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:49:54,225 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:49:54,226 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:49:54,226 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:49:54,227 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:49:54,257 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-12-21 20:49:55,032 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-12-21 20:49:55,032 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-12-21 20:49:55,032 [1    ] o.Configuration.LanguageManagementConfig - Converted Misitu (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-12-21 20:49:55,033 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-12-21 20:49:56,817 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: Misitu.EntityFramework.MisituDbContext, Misitu.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:50:04,627 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-12-21 20:50:04,685 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-12-21 20:50:04,722 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-12-21 20:50:04,745 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Misitu
+DEBUG 2017-12-21 20:50:04,753 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-12-21 20:50:05,361 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-12-21 20:50:05,834 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 69 classes define auto mapping attributes
+DEBUG 2017-12-21 20:50:05,834 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Zones.Dto.CreateZoneInput
+DEBUG 2017-12-21 20:50:05,855 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Zones.Dto.ZoneDto
+DEBUG 2017-12-21 20:50:05,857 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-12-21 20:50:05,857 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-12-21 20:50:05,858 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Users.Dto.CreateUserInput
+DEBUG 2017-12-21 20:50:05,860 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Users.Dto.UserDto
+DEBUG 2017-12-21 20:50:05,861 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Users.Dto.UserListDto
+DEBUG 2017-12-21 20:50:05,861 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Stations.Dto.CreateStationInput
+DEBUG 2017-12-21 20:50:05,861 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Stations.Dto.StationDto
+DEBUG 2017-12-21 20:50:05,862 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Regions.Dto.CreateRegionInput
+DEBUG 2017-12-21 20:50:05,862 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Regions.Dto.RegionDto
+DEBUG 2017-12-21 20:50:05,863 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Ranges.Dto.CreateRangeInput
+DEBUG 2017-12-21 20:50:05,863 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Ranges.Dto.RangeDto
+DEBUG 2017-12-21 20:50:05,863 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Tariffs.Dto.CreateTariffInput
+DEBUG 2017-12-21 20:50:05,864 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Tariffs.Dto.TariffDto
+DEBUG 2017-12-21 20:50:05,864 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.CreateSpecieCategoryInput
+DEBUG 2017-12-21 20:50:05,864 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.CreateSpecieInput
+DEBUG 2017-12-21 20:50:05,864 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.SpecieCategoryDto
+DEBUG 2017-12-21 20:50:05,864 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.SpecieDto
+DEBUG 2017-12-21 20:50:05,864 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Roles.Dto.CreateRoleDto
+DEBUG 2017-12-21 20:50:05,865 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Roles.Dto.PermissionDto
+DEBUG 2017-12-21 20:50:05,865 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Roles.Dto.RoleDto
+DEBUG 2017-12-21 20:50:05,865 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.CreateRefSubRevenueSourcesInput
+DEBUG 2017-12-21 20:50:05,866 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.CreateRevenueSourcesInput
+DEBUG 2017-12-21 20:50:05,866 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.RevenueSourcesDto
+DEBUG 2017-12-21 20:50:05,866 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.RefSubRevenueSourcesDto
+DEBUG 2017-12-21 20:50:05,866 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CandidateDto
+DEBUG 2017-12-21 20:50:05,866 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CreateCandidateInput
+DEBUG 2017-12-21 20:50:05,867 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CreateDealerActivityInput
+DEBUG 2017-12-21 20:50:05,867 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CreateDealerInput
+DEBUG 2017-12-21 20:50:05,868 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.DealerActivityDto
+DEBUG 2017-12-21 20:50:05,868 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.DealerDto
+DEBUG 2017-12-21 20:50:05,868 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.CreateRefApplicationInput
+DEBUG 2017-12-21 20:50:05,868 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.CreateRefIdentityInput
+DEBUG 2017-12-21 20:50:05,868 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.RefApplicationTypeDto
+DEBUG 2017-12-21 20:50:05,868 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.RefIdentityDto
+DEBUG 2017-12-21 20:50:05,869 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.CreateRefServiceCategoryInput
+DEBUG 2017-12-21 20:50:05,869 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.RefServiceCategoryDto
+DEBUG 2017-12-21 20:50:05,869 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.PlotDto
+DEBUG 2017-12-21 20:50:05,869 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CompartmentView
+DEBUG 2017-12-21 20:50:05,869 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreateHarvestingPlanInput
+DEBUG 2017-12-21 20:50:05,870 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreateTallySheetInput
+DEBUG 2017-12-21 20:50:05,870 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.HarvestingPlanDto
+DEBUG 2017-12-21 20:50:05,870 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.TallySheetDto
+DEBUG 2017-12-21 20:50:05,870 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CompartmentDto
+DEBUG 2017-12-21 20:50:05,870 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreateCompartmentInput
+DEBUG 2017-12-21 20:50:05,870 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreatePlotInput
+DEBUG 2017-12-21 20:50:05,871 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-12-21 20:50:05,871 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-12-21 20:50:05,871 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.AllocatedPlotDto
+DEBUG 2017-12-21 20:50:05,871 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.CreateAllocatedPlotInput
+DEBUG 2017-12-21 20:50:05,871 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.CreateLicenseInput
+DEBUG 2017-12-21 20:50:05,872 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.LicenseDto
+DEBUG 2017-12-21 20:50:05,872 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.FinancialYears.Dto.CreateFinancialYear
+DEBUG 2017-12-21 20:50:05,872 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.FinancialYears.Dto.FinancialYearDto
+DEBUG 2017-12-21 20:50:05,872 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Divisions.Dto.CreateDivisionInput
+DEBUG 2017-12-21 20:50:05,872 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Divisions.Dto.DivisionDto
+DEBUG 2017-12-21 20:50:05,873 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.BillDto
+DEBUG 2017-12-21 20:50:05,873 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.BillItemDto
+DEBUG 2017-12-21 20:50:05,873 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.CreateBillInput
+DEBUG 2017-12-21 20:50:05,873 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.CreateBillItemInput
+DEBUG 2017-12-21 20:50:05,873 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ApplicantDto
+DEBUG 2017-12-21 20:50:05,874 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ForestProduceRegistrationDto
+DEBUG 2017-12-21 20:50:05,874 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ForestProduce.ForestProduceAppliedForestDto
+DEBUG 2017-12-21 20:50:05,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ForestProduce.ForestProduceAppliedSpecieCategoryDto
+DEBUG 2017-12-21 20:50:05,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.Dto.CreateInput
+DEBUG 2017-12-21 20:50:05,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Activities.CreateActivityInput
+DEBUG 2017-12-21 20:50:05,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Activities.Dto.ActivityDto
+DEBUG 2017-12-21 20:50:05,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-12-21 20:50:13,394 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Zones.IZoneAppService' with service name 'app/zone'.
+DEBUG 2017-12-21 20:50:13,400 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-12-21 20:50:13,405 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-12-21 20:50:13,409 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Stations.IStationAppService' with service name 'app/station'.
+DEBUG 2017-12-21 20:50:13,413 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Regions.IRegionAppService' with service name 'app/region'.
+DEBUG 2017-12-21 20:50:13,417 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Ranges.IRangeAppService' with service name 'app/range'.
+DEBUG 2017-12-21 20:50:13,420 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Tariffs.ITariffAppService' with service name 'app/tariff'.
+DEBUG 2017-12-21 20:50:13,425 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Species.ISpecieAppService' with service name 'app/specie'.
+DEBUG 2017-12-21 20:50:13,429 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Species.ISpecieCategoryAppService' with service name 'app/specieCategory'.
+DEBUG 2017-12-21 20:50:13,432 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-12-21 20:50:13,439 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RevenueSources.IRefSubRevenueSourceAppService' with service name 'app/refSubRevenueSource'.
+DEBUG 2017-12-21 20:50:13,444 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RevenueSources.IRevenueSourceAppService' with service name 'app/revenueSource'.
+DEBUG 2017-12-21 20:50:13,449 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Registration.ICandidateAppService' with service name 'app/candidate'.
+DEBUG 2017-12-21 20:50:13,453 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Registration.IDealerActivityAppService' with service name 'app/dealerActivity'.
+DEBUG 2017-12-21 20:50:13,457 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RefTables.Interface.IRefApplicationTypeAppService' with service name 'app/refApplicationType'.
+DEBUG 2017-12-21 20:50:13,460 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RefTables.Interface.IRefIdentityAppService' with service name 'app/refIdentity'.
+DEBUG 2017-12-21 20:50:13,464 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RefTables.Interface.IRefServiceCategoryAppService' with service name 'app/refServiceCategory'.
+DEBUG 2017-12-21 20:50:13,467 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.IHarvestingPlanAppService' with service name 'app/harvestingPlan'.
+DEBUG 2017-12-21 20:50:13,473 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.ITallySheetAppService' with service name 'app/tallySheet'.
+DEBUG 2017-12-21 20:50:13,479 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.ICompartmentAppService' with service name 'app/compartment'.
+DEBUG 2017-12-21 20:50:13,483 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.IPlotAppService' with service name 'app/plot'.
+DEBUG 2017-12-21 20:50:13,489 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-12-21 20:50:13,495 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Licensing.IAllocatedPlotAppService' with service name 'app/allocatedPlot'.
+DEBUG 2017-12-21 20:50:13,498 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Licensing.ILicenseAppService' with service name 'app/license'.
+DEBUG 2017-12-21 20:50:13,506 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.FinancialYears.IFinancialYearAppService' with service name 'app/financialYear'.
+DEBUG 2017-12-21 20:50:13,509 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Divisions.IDivisionAppService' with service name 'app/division'.
+DEBUG 2017-12-21 20:50:13,514 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Billing.IBillItemAppService' with service name 'app/billItem'.
+DEBUG 2017-12-21 20:50:13,519 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Applicants.Interface.ForestProduce.IApplicant' with service name 'app/applicant'.
+DEBUG 2017-12-21 20:50:13,523 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Activities.IActivityAppService' with service name 'app/activity'.
+WARN  2017-12-21 20:50:21,556 [6    ] Abp.Logging.LogHelper                    - Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__19.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<CheckPermissions>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass15_0.<Run>b__0(Task t)
+   at System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.Run(Func`1 action)
+   at Abp.Authorization.AuthorizationHelperExtensions.Authorize(IAuthorizationHelper authorizationHelper, MethodInfo methodInfo)
+   at Abp.Web.Mvc.Authorization.AbpMvcAuthorizeFilter.OnAuthorization(AuthorizationContext filterContext)
+Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__19.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<CheckPermissions>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass15_0.<Run>b__0(Task t)
+   at System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.Run(Func`1 action)
+   at Abp.Authorization.AuthorizationHelperExtensions.Authorize(IAuthorizationHelper authorizationHelper, MethodInfo methodInfo)
+   at Abp.Web.Mvc.Authorization.AbpMvcAuthorizeFilter.OnAuthorization(AuthorizationContext filterContext)
+WARN  2017-12-21 20:53:29,840 [10   ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
+WARN  2017-12-21 20:53:32,547 [10   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 20:54:08,903 [3    ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
+WARN  2017-12-21 20:54:09,828 [3    ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 20:55:02,158 [10   ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
+WARN  2017-12-21 20:55:02,694 [10   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 20:55:02,810 [10   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 20:55:03,543 [3    ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
+WARN  2017-12-21 20:55:04,225 [3    ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 20:55:04,354 [3    ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 20:55:09,910 [6    ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
+WARN  2017-12-21 20:55:10,617 [6    ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 20:55:10,755 [6    ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 20:55:16,899 [6    ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
+WARN  2017-12-21 20:55:17,741 [6    ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 20:55:17,941 [6    ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 20:55:29,335 [6    ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
+WARN  2017-12-21 20:55:29,862 [6    ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 20:55:29,944 [6    ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+DEBUG 2017-12-21 20:56:15,842 [15   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-12-21 20:56:15,846 [15   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-12-21 20:56:15,849 [15   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-12-21 20:56:15,849 [15   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-12-21 20:56:38,430 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-12-21 20:56:38,505 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-12-21 20:56:38,547 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.Web.MisituWebModule, Misitu.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:56:38,555 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.MisituDataModule, Misitu.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:56:38,555 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:56:38,556 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:56:38,556 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:56:38,557 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:56:38,559 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:56:38,560 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.MisituCoreModule, Misitu.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:56:38,561 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.MisituApplicationModule, Misitu.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:56:38,562 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:56:38,563 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.Api.MisituWebApiModule, Misitu.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:56:38,564 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:56:38,565 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:56:38,565 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:56:38,566 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:56:38,567 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:56:38,580 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-12-21 20:56:39,940 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-12-21 20:56:39,940 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-12-21 20:56:39,940 [1    ] o.Configuration.LanguageManagementConfig - Converted Misitu (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-12-21 20:56:39,940 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-12-21 20:56:42,315 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: Misitu.EntityFramework.MisituDbContext, Misitu.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 20:56:49,929 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-12-21 20:56:49,952 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-12-21 20:56:49,986 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-12-21 20:56:49,998 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Misitu
+DEBUG 2017-12-21 20:56:50,002 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-12-21 20:56:50,503 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-12-21 20:56:50,823 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 69 classes define auto mapping attributes
+DEBUG 2017-12-21 20:56:50,823 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Zones.Dto.CreateZoneInput
+DEBUG 2017-12-21 20:56:50,840 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Zones.Dto.ZoneDto
+DEBUG 2017-12-21 20:56:50,842 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-12-21 20:56:50,842 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-12-21 20:56:50,842 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Users.Dto.CreateUserInput
+DEBUG 2017-12-21 20:56:50,844 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Users.Dto.UserDto
+DEBUG 2017-12-21 20:56:50,844 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Users.Dto.UserListDto
+DEBUG 2017-12-21 20:56:50,845 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Stations.Dto.CreateStationInput
+DEBUG 2017-12-21 20:56:50,845 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Stations.Dto.StationDto
+DEBUG 2017-12-21 20:56:50,845 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Regions.Dto.CreateRegionInput
+DEBUG 2017-12-21 20:56:50,845 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Regions.Dto.RegionDto
+DEBUG 2017-12-21 20:56:50,845 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Ranges.Dto.CreateRangeInput
+DEBUG 2017-12-21 20:56:50,845 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Ranges.Dto.RangeDto
+DEBUG 2017-12-21 20:56:50,845 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Tariffs.Dto.CreateTariffInput
+DEBUG 2017-12-21 20:56:50,846 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Tariffs.Dto.TariffDto
+DEBUG 2017-12-21 20:56:50,846 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.CreateSpecieCategoryInput
+DEBUG 2017-12-21 20:56:50,846 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.CreateSpecieInput
+DEBUG 2017-12-21 20:56:50,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.SpecieCategoryDto
+DEBUG 2017-12-21 20:56:50,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.SpecieDto
+DEBUG 2017-12-21 20:56:50,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Roles.Dto.CreateRoleDto
+DEBUG 2017-12-21 20:56:50,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Roles.Dto.PermissionDto
+DEBUG 2017-12-21 20:56:50,847 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Roles.Dto.RoleDto
+DEBUG 2017-12-21 20:56:50,848 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.CreateRefSubRevenueSourcesInput
+DEBUG 2017-12-21 20:56:50,848 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.CreateRevenueSourcesInput
+DEBUG 2017-12-21 20:56:50,848 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.RevenueSourcesDto
+DEBUG 2017-12-21 20:56:50,848 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.RefSubRevenueSourcesDto
+DEBUG 2017-12-21 20:56:50,848 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CandidateDto
+DEBUG 2017-12-21 20:56:50,848 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CreateCandidateInput
+DEBUG 2017-12-21 20:56:50,849 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CreateDealerActivityInput
+DEBUG 2017-12-21 20:56:50,849 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CreateDealerInput
+DEBUG 2017-12-21 20:56:50,849 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.DealerActivityDto
+DEBUG 2017-12-21 20:56:50,849 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.DealerDto
+DEBUG 2017-12-21 20:56:50,849 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.CreateRefApplicationInput
+DEBUG 2017-12-21 20:56:50,849 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.CreateRefIdentityInput
+DEBUG 2017-12-21 20:56:50,849 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.RefApplicationTypeDto
+DEBUG 2017-12-21 20:56:50,850 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.RefIdentityDto
+DEBUG 2017-12-21 20:56:50,850 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.CreateRefServiceCategoryInput
+DEBUG 2017-12-21 20:56:50,850 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.RefServiceCategoryDto
+DEBUG 2017-12-21 20:56:50,850 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.PlotDto
+DEBUG 2017-12-21 20:56:50,850 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CompartmentView
+DEBUG 2017-12-21 20:56:50,850 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreateHarvestingPlanInput
+DEBUG 2017-12-21 20:56:50,850 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreateTallySheetInput
+DEBUG 2017-12-21 20:56:50,851 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.HarvestingPlanDto
+DEBUG 2017-12-21 20:56:50,851 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.TallySheetDto
+DEBUG 2017-12-21 20:56:50,851 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CompartmentDto
+DEBUG 2017-12-21 20:56:50,851 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreateCompartmentInput
+DEBUG 2017-12-21 20:56:50,851 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreatePlotInput
+DEBUG 2017-12-21 20:56:50,851 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-12-21 20:56:50,852 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-12-21 20:56:50,852 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.AllocatedPlotDto
+DEBUG 2017-12-21 20:56:50,852 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.CreateAllocatedPlotInput
+DEBUG 2017-12-21 20:56:50,852 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.CreateLicenseInput
+DEBUG 2017-12-21 20:56:50,852 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.LicenseDto
+DEBUG 2017-12-21 20:56:50,852 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.FinancialYears.Dto.CreateFinancialYear
+DEBUG 2017-12-21 20:56:50,852 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.FinancialYears.Dto.FinancialYearDto
+DEBUG 2017-12-21 20:56:50,853 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Divisions.Dto.CreateDivisionInput
+DEBUG 2017-12-21 20:56:50,853 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Divisions.Dto.DivisionDto
+DEBUG 2017-12-21 20:56:50,853 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.BillDto
+DEBUG 2017-12-21 20:56:50,853 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.BillItemDto
+DEBUG 2017-12-21 20:56:50,853 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.CreateBillInput
+DEBUG 2017-12-21 20:56:50,853 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.CreateBillItemInput
+DEBUG 2017-12-21 20:56:50,854 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ApplicantDto
+DEBUG 2017-12-21 20:56:50,854 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ForestProduceRegistrationDto
+DEBUG 2017-12-21 20:56:50,854 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ForestProduce.ForestProduceAppliedForestDto
+DEBUG 2017-12-21 20:56:50,854 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ForestProduce.ForestProduceAppliedSpecieCategoryDto
+DEBUG 2017-12-21 20:56:50,854 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.Dto.CreateInput
+DEBUG 2017-12-21 20:56:50,854 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Activities.CreateActivityInput
+DEBUG 2017-12-21 20:56:50,854 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Activities.Dto.ActivityDto
+DEBUG 2017-12-21 20:56:50,855 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-12-21 20:56:59,245 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Zones.IZoneAppService' with service name 'app/zone'.
+DEBUG 2017-12-21 20:56:59,249 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-12-21 20:56:59,252 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-12-21 20:56:59,257 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Stations.IStationAppService' with service name 'app/station'.
+DEBUG 2017-12-21 20:56:59,261 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Regions.IRegionAppService' with service name 'app/region'.
+DEBUG 2017-12-21 20:56:59,264 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Ranges.IRangeAppService' with service name 'app/range'.
+DEBUG 2017-12-21 20:56:59,267 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Tariffs.ITariffAppService' with service name 'app/tariff'.
+DEBUG 2017-12-21 20:56:59,272 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Species.ISpecieAppService' with service name 'app/specie'.
+DEBUG 2017-12-21 20:56:59,277 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Species.ISpecieCategoryAppService' with service name 'app/specieCategory'.
+DEBUG 2017-12-21 20:56:59,281 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-12-21 20:56:59,287 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RevenueSources.IRefSubRevenueSourceAppService' with service name 'app/refSubRevenueSource'.
+DEBUG 2017-12-21 20:56:59,294 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RevenueSources.IRevenueSourceAppService' with service name 'app/revenueSource'.
+DEBUG 2017-12-21 20:56:59,298 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Registration.ICandidateAppService' with service name 'app/candidate'.
+DEBUG 2017-12-21 20:56:59,302 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Registration.IDealerActivityAppService' with service name 'app/dealerActivity'.
+DEBUG 2017-12-21 20:56:59,309 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RefTables.Interface.IRefApplicationTypeAppService' with service name 'app/refApplicationType'.
+DEBUG 2017-12-21 20:56:59,313 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RefTables.Interface.IRefIdentityAppService' with service name 'app/refIdentity'.
+DEBUG 2017-12-21 20:56:59,318 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RefTables.Interface.IRefServiceCategoryAppService' with service name 'app/refServiceCategory'.
+DEBUG 2017-12-21 20:56:59,323 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.IHarvestingPlanAppService' with service name 'app/harvestingPlan'.
+DEBUG 2017-12-21 20:56:59,328 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.ITallySheetAppService' with service name 'app/tallySheet'.
+DEBUG 2017-12-21 20:56:59,331 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.ICompartmentAppService' with service name 'app/compartment'.
+DEBUG 2017-12-21 20:56:59,338 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.IPlotAppService' with service name 'app/plot'.
+DEBUG 2017-12-21 20:56:59,341 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-12-21 20:56:59,346 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Licensing.IAllocatedPlotAppService' with service name 'app/allocatedPlot'.
+DEBUG 2017-12-21 20:56:59,350 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Licensing.ILicenseAppService' with service name 'app/license'.
+DEBUG 2017-12-21 20:56:59,357 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.FinancialYears.IFinancialYearAppService' with service name 'app/financialYear'.
+DEBUG 2017-12-21 20:56:59,362 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Divisions.IDivisionAppService' with service name 'app/division'.
+DEBUG 2017-12-21 20:56:59,367 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Billing.IBillItemAppService' with service name 'app/billItem'.
+DEBUG 2017-12-21 20:56:59,372 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Applicants.Interface.ForestProduce.IApplicant' with service name 'app/applicant'.
+DEBUG 2017-12-21 20:56:59,377 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Activities.IActivityAppService' with service name 'app/activity'.
+WARN  2017-12-21 20:57:35,467 [15   ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
+WARN  2017-12-21 20:57:35,467 [3    ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
+WARN  2017-12-21 20:57:39,324 [3    ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 20:57:39,325 [15   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 20:57:39,479 [3    ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 20:57:47,753 [11   ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
+WARN  2017-12-21 20:57:48,427 [11   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 20:57:48,553 [11   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 20:57:52,796 [3    ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
+WARN  2017-12-21 20:57:53,444 [3    ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 20:57:53,604 [3    ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+DEBUG 2017-12-21 21:04:04,039 [8    ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-12-21 21:04:04,041 [8    ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-12-21 21:04:04,042 [8    ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-12-21 21:04:04,042 [8    ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-12-21 21:04:21,297 [21   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-12-21 21:04:21,359 [21   ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-12-21 21:04:21,387 [21   ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.Web.MisituWebModule, Misitu.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 21:04:21,395 [21   ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.MisituDataModule, Misitu.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 21:04:21,395 [21   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 21:04:21,395 [21   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 21:04:21,396 [21   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 21:04:21,396 [21   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 21:04:21,397 [21   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 21:04:21,398 [21   ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.MisituCoreModule, Misitu.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 21:04:21,398 [21   ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.MisituApplicationModule, Misitu.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 21:04:21,398 [21   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 21:04:21,399 [21   ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.Api.MisituWebApiModule, Misitu.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 21:04:21,399 [21   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 21:04:21,399 [21   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 21:04:21,400 [21   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 21:04:21,400 [21   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 21:04:21,400 [21   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 21:04:21,411 [21   ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-12-21 21:04:21,796 [21   ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-12-21 21:04:21,796 [21   ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-12-21 21:04:21,796 [21   ] o.Configuration.LanguageManagementConfig - Converted Misitu (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-12-21 21:04:21,796 [21   ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-12-21 21:04:22,783 [21   ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: Misitu.EntityFramework.MisituDbContext, Misitu.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-12-21 21:04:27,824 [21   ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-12-21 21:04:27,862 [21   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-12-21 21:04:27,889 [21   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-12-21 21:04:27,897 [21   ] Abp.Localization.LocalizationManager     - Initialized localization source: Misitu
+DEBUG 2017-12-21 21:04:27,904 [21   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-12-21 21:04:28,348 [21   ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-12-21 21:04:28,688 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 69 classes define auto mapping attributes
+DEBUG 2017-12-21 21:04:28,688 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Zones.Dto.CreateZoneInput
+DEBUG 2017-12-21 21:04:28,706 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Zones.Dto.ZoneDto
+DEBUG 2017-12-21 21:04:28,710 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-12-21 21:04:28,711 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-12-21 21:04:28,711 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Users.Dto.CreateUserInput
+DEBUG 2017-12-21 21:04:28,714 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Users.Dto.UserDto
+DEBUG 2017-12-21 21:04:28,714 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Users.Dto.UserListDto
+DEBUG 2017-12-21 21:04:28,714 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Stations.Dto.CreateStationInput
+DEBUG 2017-12-21 21:04:28,714 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Stations.Dto.StationDto
+DEBUG 2017-12-21 21:04:28,715 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Regions.Dto.CreateRegionInput
+DEBUG 2017-12-21 21:04:28,715 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Regions.Dto.RegionDto
+DEBUG 2017-12-21 21:04:28,715 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Ranges.Dto.CreateRangeInput
+DEBUG 2017-12-21 21:04:28,716 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Ranges.Dto.RangeDto
+DEBUG 2017-12-21 21:04:28,716 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Tariffs.Dto.CreateTariffInput
+DEBUG 2017-12-21 21:04:28,717 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Tariffs.Dto.TariffDto
+DEBUG 2017-12-21 21:04:28,717 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.CreateSpecieCategoryInput
+DEBUG 2017-12-21 21:04:28,718 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.CreateSpecieInput
+DEBUG 2017-12-21 21:04:28,718 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.SpecieCategoryDto
+DEBUG 2017-12-21 21:04:28,718 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.SpecieDto
+DEBUG 2017-12-21 21:04:28,718 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Roles.Dto.CreateRoleDto
+DEBUG 2017-12-21 21:04:28,719 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Roles.Dto.PermissionDto
+DEBUG 2017-12-21 21:04:28,719 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Roles.Dto.RoleDto
+DEBUG 2017-12-21 21:04:28,719 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.CreateRefSubRevenueSourcesInput
+DEBUG 2017-12-21 21:04:28,720 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.CreateRevenueSourcesInput
+DEBUG 2017-12-21 21:04:28,720 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.RevenueSourcesDto
+DEBUG 2017-12-21 21:04:28,720 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.RefSubRevenueSourcesDto
+DEBUG 2017-12-21 21:04:28,720 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CandidateDto
+DEBUG 2017-12-21 21:04:28,721 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CreateCandidateInput
+DEBUG 2017-12-21 21:04:28,721 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CreateDealerActivityInput
+DEBUG 2017-12-21 21:04:28,721 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CreateDealerInput
+DEBUG 2017-12-21 21:04:28,721 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.DealerActivityDto
+DEBUG 2017-12-21 21:04:28,722 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.DealerDto
+DEBUG 2017-12-21 21:04:28,722 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.CreateRefApplicationInput
+DEBUG 2017-12-21 21:04:28,722 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.CreateRefIdentityInput
+DEBUG 2017-12-21 21:04:28,722 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.RefApplicationTypeDto
+DEBUG 2017-12-21 21:04:28,722 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.RefIdentityDto
+DEBUG 2017-12-21 21:04:28,723 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.CreateRefServiceCategoryInput
+DEBUG 2017-12-21 21:04:28,723 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.RefServiceCategoryDto
+DEBUG 2017-12-21 21:04:28,723 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.PlotDto
+DEBUG 2017-12-21 21:04:28,723 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CompartmentView
+DEBUG 2017-12-21 21:04:28,723 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreateHarvestingPlanInput
+DEBUG 2017-12-21 21:04:28,724 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreateTallySheetInput
+DEBUG 2017-12-21 21:04:28,724 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.HarvestingPlanDto
+DEBUG 2017-12-21 21:04:28,724 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.TallySheetDto
+DEBUG 2017-12-21 21:04:28,724 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CompartmentDto
+DEBUG 2017-12-21 21:04:28,724 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreateCompartmentInput
+DEBUG 2017-12-21 21:04:28,724 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreatePlotInput
+DEBUG 2017-12-21 21:04:28,725 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-12-21 21:04:28,725 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-12-21 21:04:28,725 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.AllocatedPlotDto
+DEBUG 2017-12-21 21:04:28,725 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.CreateAllocatedPlotInput
+DEBUG 2017-12-21 21:04:28,725 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.CreateLicenseInput
+DEBUG 2017-12-21 21:04:28,726 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.LicenseDto
+DEBUG 2017-12-21 21:04:28,726 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.FinancialYears.Dto.CreateFinancialYear
+DEBUG 2017-12-21 21:04:28,726 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.FinancialYears.Dto.FinancialYearDto
+DEBUG 2017-12-21 21:04:28,726 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Divisions.Dto.CreateDivisionInput
+DEBUG 2017-12-21 21:04:28,726 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Divisions.Dto.DivisionDto
+DEBUG 2017-12-21 21:04:28,727 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.BillDto
+DEBUG 2017-12-21 21:04:28,727 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.BillItemDto
+DEBUG 2017-12-21 21:04:28,727 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.CreateBillInput
+DEBUG 2017-12-21 21:04:28,727 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.CreateBillItemInput
+DEBUG 2017-12-21 21:04:28,727 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ApplicantDto
+DEBUG 2017-12-21 21:04:28,727 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ForestProduceRegistrationDto
+DEBUG 2017-12-21 21:04:28,728 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ForestProduce.ForestProduceAppliedForestDto
+DEBUG 2017-12-21 21:04:28,728 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ForestProduce.ForestProduceAppliedSpecieCategoryDto
+DEBUG 2017-12-21 21:04:28,728 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.Dto.CreateInput
+DEBUG 2017-12-21 21:04:28,728 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Activities.CreateActivityInput
+DEBUG 2017-12-21 21:04:28,729 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Activities.Dto.ActivityDto
+DEBUG 2017-12-21 21:04:28,729 [21   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-12-21 21:04:36,474 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Zones.IZoneAppService' with service name 'app/zone'.
+DEBUG 2017-12-21 21:04:36,478 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-12-21 21:04:36,483 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-12-21 21:04:36,487 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Stations.IStationAppService' with service name 'app/station'.
+DEBUG 2017-12-21 21:04:36,490 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Regions.IRegionAppService' with service name 'app/region'.
+DEBUG 2017-12-21 21:04:36,493 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Ranges.IRangeAppService' with service name 'app/range'.
+DEBUG 2017-12-21 21:04:36,497 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Tariffs.ITariffAppService' with service name 'app/tariff'.
+DEBUG 2017-12-21 21:04:36,501 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Species.ISpecieAppService' with service name 'app/specie'.
+DEBUG 2017-12-21 21:04:36,506 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Species.ISpecieCategoryAppService' with service name 'app/specieCategory'.
+DEBUG 2017-12-21 21:04:36,509 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-12-21 21:04:36,514 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RevenueSources.IRefSubRevenueSourceAppService' with service name 'app/refSubRevenueSource'.
+DEBUG 2017-12-21 21:04:36,519 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RevenueSources.IRevenueSourceAppService' with service name 'app/revenueSource'.
+DEBUG 2017-12-21 21:04:36,525 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Registration.ICandidateAppService' with service name 'app/candidate'.
+DEBUG 2017-12-21 21:04:36,528 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Registration.IDealerActivityAppService' with service name 'app/dealerActivity'.
+DEBUG 2017-12-21 21:04:36,532 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RefTables.Interface.IRefApplicationTypeAppService' with service name 'app/refApplicationType'.
+DEBUG 2017-12-21 21:04:36,536 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RefTables.Interface.IRefIdentityAppService' with service name 'app/refIdentity'.
+DEBUG 2017-12-21 21:04:36,540 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RefTables.Interface.IRefServiceCategoryAppService' with service name 'app/refServiceCategory'.
+DEBUG 2017-12-21 21:04:36,543 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.IHarvestingPlanAppService' with service name 'app/harvestingPlan'.
+DEBUG 2017-12-21 21:04:36,547 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.ITallySheetAppService' with service name 'app/tallySheet'.
+DEBUG 2017-12-21 21:04:36,550 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.ICompartmentAppService' with service name 'app/compartment'.
+DEBUG 2017-12-21 21:04:36,554 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.IPlotAppService' with service name 'app/plot'.
+DEBUG 2017-12-21 21:04:36,557 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-12-21 21:04:36,560 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Licensing.IAllocatedPlotAppService' with service name 'app/allocatedPlot'.
+DEBUG 2017-12-21 21:04:36,565 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Licensing.ILicenseAppService' with service name 'app/license'.
+DEBUG 2017-12-21 21:04:36,571 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.FinancialYears.IFinancialYearAppService' with service name 'app/financialYear'.
+DEBUG 2017-12-21 21:04:36,575 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Divisions.IDivisionAppService' with service name 'app/division'.
+DEBUG 2017-12-21 21:04:36,579 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Billing.IBillItemAppService' with service name 'app/billItem'.
+DEBUG 2017-12-21 21:04:36,587 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Applicants.Interface.ForestProduce.IApplicant' with service name 'app/applicant'.
+DEBUG 2017-12-21 21:04:36,592 [21   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Activities.IActivityAppService' with service name 'app/activity'.
+WARN  2017-12-21 21:05:15,290 [18   ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
+WARN  2017-12-21 21:05:19,851 [18   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 21:07:49,122 [6    ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
+WARN  2017-12-21 21:07:49,805 [6    ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 21:07:49,918 [6    ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 21:08:08,290 [17   ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
+WARN  2017-12-21 21:08:09,021 [17   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 21:08:09,119 [17   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 21:08:38,261 [18   ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
+WARN  2017-12-21 21:08:39,115 [18   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2017-12-21 21:08:39,274 [18   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
