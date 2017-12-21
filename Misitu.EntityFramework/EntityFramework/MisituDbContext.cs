@@ -97,10 +97,7 @@ namespace Misitu.EntityFramework
             modelBuilder.Entity<Bill>().HasRequired(i => i.FinancialYear).WithMany().HasForeignKey(k => k.FinancialYearId).WillCascadeOnDelete(false);
             modelBuilder.Entity<AllocatedPlot>().HasRequired(i => i.FinancialYear).WithMany().HasForeignKey(k => k.FinancialYearId).WillCascadeOnDelete(false);
             modelBuilder.Entity<AllocatedPlot>().HasRequired(i => i.Plot).WithMany().HasForeignKey(k => k.PlotId).WillCascadeOnDelete(false);
-<<<<<<< HEAD
-=======
 
->>>>>>> 3c97757f263e81800f84b3ab94f066469c05d9f5
             modelBuilder.Entity<HarvestingLog>().HasRequired(i => i.License).WithMany().HasForeignKey(k => k.LicenseId).WillCascadeOnDelete(false);
             modelBuilder.Entity<HarvestingLog>().HasRequired(i => i.Dealer).WithMany().HasForeignKey(k => k.DealerId).WillCascadeOnDelete(false);
             modelBuilder.Entity<HarvestingLog>().HasRequired(i => i.Plot).WithMany().HasForeignKey(k => k.PlotId).WillCascadeOnDelete(false);

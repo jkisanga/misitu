@@ -572,7 +572,7 @@
     <Content Include="Areas\Client\Views\Shared\Lockout.cshtml" />
     <Content Include="Areas\Client\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Client\Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Areas\Client\Views\Account\Register.cshtml" />
+    <Content Include="Areas\Client\Views\Applicant\Register.cshtml" />
     <Content Include="Areas\Client\Views\Shared\_Menu.cshtml" />
     <None Include="Datasets\Misitu.xsd">
       <SubType>Designer</SubType>

@@ -82,5 +82,4 @@ C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\obj\Debug\Misitu.Tests.pdb
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\bin\Debug\Misitu.Application.dll.config
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\bin\Debug\Misitu.Core.dll.config
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\bin\Debug\Misitu.EntityFramework.dll.config
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\obj\Debug\Misitu.Tests.csproj.CoreCompileInputs.cache
