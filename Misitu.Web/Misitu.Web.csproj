@@ -666,6 +666,7 @@
     <Compile Include="Controllers\Registration\DealersController.cs" />
     <Compile Include="Controllers\Results\ChallengeResult.cs" />
     <Compile Include="Controllers\RevenueSourcesController.cs" />
+    <Compile Include="Controllers\SetupController.cs" />
     <Compile Include="Controllers\SpecieCategoriesController.cs" />
     <Compile Include="Controllers\SpeciesController.cs" />
     <Compile Include="Controllers\StationsController.cs" />
@@ -811,6 +812,9 @@
     <Content Include="Views\License\_LicenceReportViewer.cshtml" />
     <Content Include="Views\License\LicenceViewer.cshtml" />
     <Content Include="Views\RevenueSources\SubRevenue.cshtml" />
+    <Content Include="Views\Setup\Create.cshtml" />
+    <Content Include="Views\Setup\CreateServiceCategory.cshtml" />
+    <Content Include="Views\Setup\EditserviceCategory.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
