@@ -35,6 +35,8 @@ namespace Misitu.Users.Dto
 
         public  int StationId { get; set; }
 
+        public int ApplicantId { get; set; }
+
 
     }
 }

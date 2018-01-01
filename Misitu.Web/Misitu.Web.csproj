@@ -574,6 +574,7 @@
     <Content Include="Areas\Client\Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Areas\Client\Views\Applicant\Register.cshtml" />
     <Content Include="Areas\Client\Views\Shared\_Menu.cshtml" />
+    <Content Include="Areas\Client\Views\Applicant\AddUser.cshtml" />
     <None Include="Datasets\Misitu.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -640,6 +641,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\MisituNavigationProvider.cs" />
+    <Compile Include="App_Start\MisituSettingProvider.cs" />
     <Compile Include="App_Start\MisituWebModule.cs" />
     <Compile Include="App_Start\RoleConstraint.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -670,6 +672,7 @@
     <Compile Include="Controllers\Registration\DealersController.cs" />
     <Compile Include="Controllers\Results\ChallengeResult.cs" />
     <Compile Include="Controllers\RevenueSourcesController.cs" />
+    <Compile Include="Controllers\SetupController.cs" />
     <Compile Include="Controllers\SpecieCategoriesController.cs" />
     <Compile Include="Controllers\SpeciesController.cs" />
     <Compile Include="Controllers\StationsController.cs" />
@@ -815,6 +818,9 @@
     <Content Include="Views\License\_LicenceReportViewer.cshtml" />
     <Content Include="Views\License\LicenceViewer.cshtml" />
     <Content Include="Views\RevenueSources\SubRevenue.cshtml" />
+    <Content Include="Views\Setup\Create.cshtml" />
+    <Content Include="Views\Setup\CreateServiceCategory.cshtml" />
+    <Content Include="Views\Setup\EditserviceCategory.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -874,7 +880,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>61814</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

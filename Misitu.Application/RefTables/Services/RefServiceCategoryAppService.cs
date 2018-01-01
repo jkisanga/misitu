@@ -30,7 +30,7 @@ namespace Misitu.RefTables.Services
             };
 
             var objExist = this.repository.FirstOrDefault(a => a.Name == input.Name);
-            if (objExist != null)
+            if (objExist == null)
             {
                 await this.repository.InsertAsync(obj);
             }
@@ -77,6 +77,7 @@ namespace Misitu.RefTables.Services
         {
             var obj = this.repository.FirstOrDefault(input.Id);
             obj.Name = input.Name;
+            obj.Description = input.Description;
             if (obj != null)
             {
                 await this.repository.UpdateAsync(obj);

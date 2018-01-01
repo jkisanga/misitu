@@ -32,6 +32,13 @@ namespace Misitu.Web
                   }
             ).DataTokens.Add("area", "Client");
 
+            routes.MapRoute(
+             "Applicant_Default",
+             "Client/Applicant/{action}/{id}",
+             new { controller = "Applicant", action = "Index", id = UrlParameter.Optional }
+              
+         ).DataTokens.Add("area", "Client");
+
 
 
             routes.MapRoute(
@@ -49,6 +56,7 @@ namespace Misitu.Web
               url: "Account/{action}/{id}",
               defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional }            
           );
+          
 
 
 

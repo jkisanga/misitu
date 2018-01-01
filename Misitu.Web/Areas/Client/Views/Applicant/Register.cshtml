@@ -1,96 +1,105 @@
-﻿<div class="container">
-    <form class="form-horizontal" role="form">
-        <h2>Registration Form</h2>
-        <div class="form-group">
-            <label for="firstName" class="col-sm-3 control-label">Full Name</label>
-            <div class="col-sm-9">
-                <input type="text" id="firstName" placeholder="Full Name" class="form-control" autofocus>
-                <span class="help-block">Last Name, First Name, eg.: Smith, Harry</span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email" class="col-sm-3 control-label">Email</label>
-            <div class="col-sm-9">
-                <input type="email" id="email" placeholder="Email" class="form-control">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="password" class="col-sm-3 control-label">Password</label>
-            <div class="col-sm-9">
-                <input type="password" id="password" placeholder="Password" class="form-control">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
-            <div class="col-sm-9">
-                <input type="date" id="birthDate" class="form-control">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="country" class="col-sm-3 control-label">Country</label>
-            <div class="col-sm-9">
-                <select id="country" class="form-control">
-                    <option>Afghanistan</option>
-                    <option>Bahamas</option>
-                    <option>Cambodia</option>
-                    <option>Denmark</option>
-                    <option>Ecuador</option>
-                    <option>Fiji</option>
-                    <option>Gabon</option>
-                    <option>Haiti</option>
-                </select>
-            </div>
-        </div> <!-- /.form-group -->
-        <div class="form-group">
-            <label class="control-label col-sm-3">Gender</label>
-            <div class="col-sm-6">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <label class="radio-inline">
-                            <input type="radio" id="femaleRadio" value="Female">Female
-                        </label>
+﻿@model  Misitu.Applicants.Dto.CreateInput
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="pull-left"><span>Registration Form</span></div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+        <div class="padd">
+            <div class="form-horizontal">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        <label for="Type" class="col-sm-3 control-label">Application Type</label>
+                        <div class="col-sm-9">
+                            @Html.DropDownList("Type", null, " ", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                    <div class="col-sm-4">
-                        <label class="radio-inline">
-                            <input type="radio" id="maleRadio" value="Male">Male
-                        </label>
+                    <div class="form-group">
+                        <label for="firstName" class="col-sm-3 control-label">Full Name</label>
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                    <div class="col-sm-4">
-                        <label class="radio-inline">
-                            <input type="radio" id="uncknownRadio" value="Unknown">Unknown
-                        </label>
+                    <div class="form-group">
+                        <label for="address" class="col-sm-3 control-label">Address</label>
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.Adress, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Adress, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div> <!-- /.form-group -->
-        <div class="form-group">
-            <label class="control-label col-sm-3">Meal Preference</label>
-            <div class="col-sm-9">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" id="calorieCheckbox" value="Low calorie">Low calorie
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" id="saltCheckbox" value="Low salt">Low salt
-                    </label>
-                </div>
-            </div>
-        </div> <!-- /.form-group -->
-        <div class="form-group">
-            <div class="col-sm-9 col-sm-offset-3">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox">I accept <a href="#">terms</a>
-                    </label>
-                </div>
-            </div>
-        </div> <!-- /.form-group -->
-        <div class="form-group">
-            <div class="col-sm-9 col-sm-offset-3">
-                <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    <div class="form-group">
+                        <label for="email" class="col-sm-3 control-label">Email</label>
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="col-sm-3 control-label">Phone</label>
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Are you Tanzania</label>
+                        <div class="col-sm-9">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="IsTanzanian" id="IsTanzanian" checked />
+                                </label>
+                            </div>
+
+                        </div>
+                    </div> <!-- /.form-group -->
+                    <div class="form-group">
+                        <label for="phone" class="col-sm-3 control-label">ID Type</label>
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.IDtype, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IDtype, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="col-sm-3 control-label">ID Number</label>
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.IDNumber, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IDNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="col-sm-3 control-label">Issued Place</label>
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(model => model.IDIssuePlace, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IDIssuePlace, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthDate" class="col-sm-3 control-label">Date of Issue</label>
+                        <div class="col-sm-9">
+                            <input type="date" id="birthDate" name="IDExpiryDate" class="form-control">
+                            @Html.ValidationMessageFor(model => model.IDExpiryDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-2 col-sm-offset-3 pull-right">
+                            <button type="submit" class="btn btn-primary btn-block">Save & Continue</button>
+                        </div>
+                    </div>
+                } <!-- /form -->
+            
+            </div> 
             </div>
         </div>
-    </form> <!-- /form -->
-</div> <!-- ./container -->
+    </div>
+            <!-- ./container -->

@@ -1,4 +1,4 @@
-﻿using Misitu.Applicants.Interface.ForestProduce;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,26 +9,40 @@ using Misitu.RefTables.Dto;
 using Abp.Domain.Repositories;
 using Misitu.RefereneceTables;
 using Abp.UI;
+using Misitu.Applicants.Interface;
+using Misitu.FinancialYears;
+using Abp.AutoMapper;
 
 namespace Misitu.Applicants.Services
 {
-    public class ApplicantService : IApplicant
+    public class ApplicantService : IApplicantService
     {
         private readonly IRepository<Applicant> reporitaryApplicant;
         private readonly IRepository<RefApplicantType> repositoryApplicantType;
         private readonly IRepository<RefIdentityType> repositoryIdentity;
         private readonly IRepository<RefServiceCategory> repositoryServiceCategory;
+        private readonly IRepository<FinancialYear> financialYearRepository;
 
-        public ApplicantService(IRepository<Applicant> reporitaryApplicant, IRepository<RefApplicantType> repositoryApplicantType, IRepository<RefIdentityType> repositoryIdentity, IRepository<RefServiceCategory> repositoryServiceCategory)
+        public ApplicantService(IRepository<Applicant> reporitaryApplicant,
+            IRepository<RefApplicantType> repositoryApplicantType, 
+            IRepository<RefIdentityType> repositoryIdentity,
+            IRepository<RefServiceCategory> repositoryServiceCategory,
+              IRepository<FinancialYear> financialYearRepository
+            )
         {
             this.reporitaryApplicant = reporitaryApplicant;
             this.repositoryApplicantType = repositoryApplicantType;
             this.repositoryIdentity = repositoryIdentity;
             this.repositoryServiceCategory = repositoryServiceCategory;
+            this.financialYearRepository = financialYearRepository;
         }
 
-        public async Task CreateAsync(CreateInput input)
+        public  int  CreateAsync(CreateInput input)
         {
+
+            //get current active financial year;
+            var currentYr = financialYearRepository.FirstOrDefault(c => c.IsActive == true);
+
             var obj = new Applicant
             {
                 Type = input.Type,
@@ -40,12 +54,15 @@ namespace Misitu.Applicants.Services
                 IDtype = input.IDtype,
                 IDNumber = input.IDNumber,
                 IDIssuePlace = input.IDIssuePlace,
-                IDExpiryDate = input.IDExpiryDate
+                IDExpiryDate = DateTime.Now,
+                FinancialYearId = currentYr.Id
             };
             var objExist = this.reporitaryApplicant.FirstOrDefault(a => a.Name == input.Name);
-            if (objExist != null)
+            if (objExist == null)
             {
-                await this.reporitaryApplicant.InsertAsync(obj);
+               int ApplicantId =  this.reporitaryApplicant.InsertAndGetId(obj);
+               return ApplicantId;
+
             }
             else
             {
@@ -54,39 +71,15 @@ namespace Misitu.Applicants.Services
 
         }
 
-        public Task DeleteObjectAsync(ApplicantDto input)
+      
+        //get applicant by id
+        public ApplicantDto GetApplicantById(int id)
         {
-            throw new NotImplementedException();
+            var applicant = this.reporitaryApplicant.FirstOrDefault(id);
+
+            return applicant.MapTo<ApplicantDto>();
         }
 
-        public List<RefIdentityDto> GetIdentityTypeList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<ApplicantDto> GetItemList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public ApplicantDto GetObjectById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<RefApplicationTypeDto> GetRefApplicationTypes()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<RefServiceCategoryDto> GetServiceCategoryList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateObject(ApplicantDto input)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }

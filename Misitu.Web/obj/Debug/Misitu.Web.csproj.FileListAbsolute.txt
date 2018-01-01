@@ -146,8 +146,5 @@ C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\obj\Debu
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\obj\Debug\Misitu.Web.csproj.GenerateResource.Cache
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\obj\Debug\Misitu.Web.dll
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\obj\Debug\Misitu.Web.pdb
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\bin\Misitu.Application.dll.config
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\bin\Misitu.Core.dll.config
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\bin\Misitu.WebApi.dll.config
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\obj\Debug\Misitu.Web.csproj.CoreCompileInputs.cache
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\bin\Misitu.EntityFramework.dll.config
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\obj\Debug\RdlCompile.cache
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\obj\Debug\RdlCompile.compiled

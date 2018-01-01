@@ -58,5 +58,3 @@ C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tools\Misitu.Migrat
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tools\Misitu.Migrator\obj\Debug\Misitu.Migrator.csprojResolveAssemblyReference.cache
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tools\Misitu.Migrator\obj\Debug\Misitu.Migrator.exe
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tools\Misitu.Migrator\obj\Debug\Misitu.Migrator.pdb
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tools\Misitu.Migrator\bin\Debug\Misitu.Core.dll.config
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tools\Misitu.Migrator\obj\Debug\Misitu.Migrator.csproj.CoreCompileInputs.cache

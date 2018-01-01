@@ -177,22 +177,32 @@
     <Compile Include="Migrations\201712210335056_after-merge.cs" />
     <Compile Include="Migrations\201712210335056_after-merge.Designer.cs">
       <DependentUpon>201712210335056_after-merge.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\SeedData\DefaultGNCreatot.cs" />
-    <Compile Include="Migrations\SeedData\DefaultLanguagesTextsCreator.cs" />
-    <Compile Include="Migrations\SeedData\InitialZoneCreator.cs" />
-    <Compile Include="MisituDataModule.cs" />
-    <Compile Include="Migrations\SeedData\DefaultEditionsCreator.cs" />
-    <Compile Include="Migrations\SeedData\DefaultLanguagesCreator.cs" />
-    <Compile Include="Migrations\SeedData\DefaultSettingsCreator.cs" />
-    <Compile Include="Migrations\SeedData\DefaultTenantCreator.cs" />
-    <Compile Include="Migrations\SeedData\HostRoleAndUserCreator.cs" />
-    <Compile Include="Migrations\SeedData\InitialHostDbBuilder.cs" />
-    <Compile Include="Migrations\SeedData\TenantRoleAndUserBuilder.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+     </Compile>
+    
+      <Compile Include="Migrations\201712210533056_Updates_From_Victor.cs" />
+      <Compile Include="Migrations\201712210533056_Updates_From_Victor.Designer.cs">
+        <DependentUpon>201712210533056_Updates_From_Victor.cs</DependentUpon>
+      </Compile>
+      
+      <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
+      <Compile Include="Migrations\Configuration.cs" />
+      <Compile Include="Migrations\SeedData\DefaultGNCreatot.cs" />
+      <Compile Include="Migrations\SeedData\DefaultLanguagesTextsCreator.cs" />
+      <Compile Include="Migrations\SeedData\InitialZoneCreator.cs" />
+      <Compile Include="MisituDataModule.cs" />
+      <Compile Include="Migrations\SeedData\DefaultEditionsCreator.cs" />
+      <Compile Include="Migrations\SeedData\DefaultLanguagesCreator.cs" />
+      <Compile Include="Migrations\SeedData\DefaultSettingsCreator.cs" />
+      <Compile Include="Migrations\SeedData\DefaultTenantCreator.cs" />
+      <Compile Include="Migrations\SeedData\HostRoleAndUserCreator.cs" />
+      <Compile Include="Migrations\SeedData\InitialHostDbBuilder.cs" />
+      <Compile Include="Migrations\SeedData\TenantRoleAndUserBuilder.cs" />
+      <Compile Include="Properties\AssemblyInfo.cs" />
+
+   
+    
   </ItemGroup>
+  
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -219,11 +229,16 @@
     <EmbeddedResource Include="Migrations\201712151033132_add_aplicant_id_UsersTable.resx">
       <DependentUpon>201712151033132_add_aplicant_id_UsersTable.cs</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="Migrations\201712190947308_onlinetables.resx">
       <DependentUpon>201712190947308_onlinetables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712210335056_after-merge.resx">
       <DependentUpon>201712210335056_after-merge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712210533056_Updates_From_Victor.resx">
+      <DependentUpon>201712210533056_Updates_From_Victor.cs</DependentUpon>
+
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
