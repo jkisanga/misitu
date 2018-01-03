@@ -572,6 +572,14 @@
     <Content Include="Areas\Client\Views\Shared\Lockout.cshtml" />
     <Content Include="Areas\Client\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Client\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Areas\Client\Views\Applicantion\Create.cshtml" />
+    <Content Include="Areas\Client\Views\Applicantion\Delete.cshtml" />
+    <Content Include="Areas\Client\Views\Applicantion\Details.cshtml" />
+    <Content Include="Areas\Client\Views\Applicantion\Edit.cshtml" />
+    <Content Include="Areas\Client\Views\Applicantion\Index.cshtml" />
+    <Content Include="Areas\Client\Views\Applicantion\ForestProduceRegistration.cshtml" />
+    <Content Include="Areas\Client\Views\Applicantion\ForestProduceAppliedForest.cshtml" />
+    <Content Include="Areas\Client\Views\Applicantion\ForestProduceAppliedSpecieCategory.cshtml" />
     <None Include="Datasets\Misitu.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -639,9 +647,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\MisituNavigationProvider.cs" />
     <Compile Include="App_Start\MisituWebModule.cs" />
+    <Compile Include="App_Start\RoleConstraint.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
+    <Compile Include="Areas\Client\Controllers\ApplicantionController.cs" />
     <Compile Include="Areas\Client\Controllers\DashboardController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -696,6 +706,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Layout\TopMenuViewModel.cs" />
+    <Compile Include="Models\MisituWebContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\MisituWebViewPageBase.cs" />
     <Compile Include="Views\UrlChecker.cs" />
@@ -816,6 +827,8 @@
     <Content Include="Views\Setup\CreateServiceCategory.cshtml" />
     <Content Include="Views\Setup\EditserviceCategory.cshtml" />
     <Content Include="Views\Setup\CreateIdentityType.cshtml" />
+    <Content Include="Views\Setup\CreateApplicationType.cshtml" />
+    <Content Include="Views\Setup\EditApplicationType.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

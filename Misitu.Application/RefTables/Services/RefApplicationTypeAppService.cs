@@ -9,16 +9,20 @@ using Abp.Domain.Repositories;
 using Misitu.RefereneceTables;
 using Abp.UI;
 using Abp.AutoMapper;
+using Misitu.Regions;
 
 namespace Misitu.RefTables.Services
 {
     public class RefApplicationTypeAppService : MisituAppServiceBase, IRefApplicationTypeAppService
     {
         private readonly IRepository<RefApplicantType> _refApplicantType;
+        private readonly IRepository<District> repositoryDistrict;
 
-        public RefApplicationTypeAppService(IRepository<RefApplicantType> refApplicantType)
+        public RefApplicationTypeAppService(IRepository<RefApplicantType> refApplicantType, IRepository<District> repositoryDistrict)
         {
             _refApplicantType = refApplicantType;
+            this.repositoryDistrict = repositoryDistrict;
+
         }
 
         public async Task CreateApplicationTypeAsync(CreateRefApplicationInput input)
@@ -71,10 +75,17 @@ namespace Misitu.RefTables.Services
            
         }
 
+        public List<District> GetDistrictList()
+        {
+            var values = this.repositoryDistrict.GetAll().OrderBy(a => a.Name).ToList();
+            return new List<District>(values.MapTo<List<District>>());
+        }
+
         public List<RefApplicationTypeDto> GetRefApplicationTypes()
         {
             var values = _refApplicantType.GetAll().OrderBy(a => a.Name).ToList();
             return new List<RefApplicationTypeDto>(values.MapTo<List<RefApplicationTypeDto>>());
+            
         }
 
         public async Task UpdateApplicationType(RefApplicationTypeDto input)

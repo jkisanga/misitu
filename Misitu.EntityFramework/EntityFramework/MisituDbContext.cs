@@ -85,6 +85,7 @@ namespace Misitu.EntityFramework
         public virtual IDbSet<Applicant> Applicants { get; set; }
         public virtual IDbSet<ForestProduceRegistration> ForestProduceRegistrations { get; set; }
         public virtual IDbSet<ForestProduceAppliedSpecieCategory> ForestProduceAppliedSpecieCategories { get; set; }
+        public virtual IDbSet<ForestProduceAppliedForest> ForestProduceAppliedForests { get; set; }
 
 
 

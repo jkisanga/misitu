@@ -1,5 +1,6 @@
 ﻿using Abp.Application.Services;
 using Misitu.RefTables.Dto;
+using Misitu.Regions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,5 +21,6 @@ namespace Misitu.RefTables.Interface
         Task UpdateApplicationType(RefApplicationTypeDto input);
 
         Task DeleteApplicationAsync(RefApplicationTypeDto input);
+        List<District> GetDistrictList();
     }
 }
