@@ -240,6 +240,12 @@
       <DependentUpon>201712210533056_Updates_From_Victor.cs</DependentUpon>
 
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801011046350_add_ForestProduceAppliedSpecieCategory_table.resx">
+      <DependentUpon>201801011046350_add_ForestProduceAppliedSpecieCategory_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801020709204_add_ForestProduceApplied_table.resx">
+      <DependentUpon>201801020709204_add_ForestProduceApplied_table.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

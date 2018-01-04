@@ -1,4 +1,6 @@
-﻿using Abp.Domain.Entities.Auditing;
+﻿using Abp.Application.Services.Dto;
+using Abp.AutoMapper;
+using Abp.Domain.Entities.Auditing;
 using Misitu.FinancialYears;
 using Misitu.Regions;
 using Misitu.Users;
@@ -12,21 +14,11 @@ using System.Threading.Tasks;
 
 namespace Misitu.Applicants
 {
-   public class ForestProduceRegistration : FullAuditedEntity
+    [AutoMapFrom(typeof(ForestProduceRegistration))]
+   public class CreateForestProduceRegistration
     {
-        public ForestProduceRegistration()
-        {
-            Status = 0;
-            CertificatePrented = 0;
-            RequirementTitle = "Testing Title";
-            RequirementDescription = "Testing Requirement Description";
-        }
-        //A: MASHARTI  KWA MWOMBAJI
-        [Required]
-        public virtual string RequirementTitle { get; set; }
-        [Required]
-        public virtual string RequirementDescription { get; set; }
-
+       
+       
         //B :MAELEZO BINAFSI / KAMPUNI/ KIKUNDI
         public virtual int ApplicantId { get; set; }
         public virtual int FinancialYearId { get; set; }
@@ -68,18 +60,11 @@ namespace Misitu.Applicants
         public virtual string TaxClearance { get; set; }
         public virtual string CertifiedAudted { get; set; }
 
-
-        //Upande wa Afisa wa TFS
-      
-        public virtual int CertificatePrented { get; set; }
-       
-
-        public virtual int Status { get; set; }
-        public virtual string Resoan { get; set; }
+        
 
 
         [ForeignKey("ApplicantId")]
-        public virtual Applicant Applicant { get; set; }
+        public virtual ApplicantDto Applicant { get; set; }
         [ForeignKey("FinancialYearId")]
         public virtual FinancialYear FinancialYear { get; set; }
         [ForeignKey("DistrictId")]

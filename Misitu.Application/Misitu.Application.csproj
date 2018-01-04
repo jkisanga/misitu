@@ -150,8 +150,11 @@
     <Compile Include="Applicants\Dto\ApplicantDto.cs" />
     <Compile Include="Applicants\Dto\ApplicationTypeDto.cs" />
     <Compile Include="Applicants\Dto\CreateInput.cs" />
+    <Compile Include="Applicants\Dto\ForestProduce\CreateForestProduceAppliedForest.cs" />
+    <Compile Include="Applicants\Dto\ForestProduce\CreateForestProduceAppliedSpecieCategory.cs" />
     <Compile Include="Applicants\Dto\ForestProduce\ForestProduceAppliedForestDto.cs" />
     <Compile Include="Applicants\Dto\ForestProduce\ForestProduceAppliedSpecieCategoryDto.cs" />
+    <Compile Include="Applicants\Dto\ForestProduce\CreateForestProduceRegistration.cs" />
     <Compile Include="Applicants\Dto\ForestProduce\ForestProduceRegistrationDto.cs" />
     <Compile Include="Applicants\Interface\IApplicantService.cs" />
     <Compile Include="Applicants\Interface\IApplicationTypeService.cs" />
