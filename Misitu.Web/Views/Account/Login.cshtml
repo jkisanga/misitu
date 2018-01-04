@@ -56,7 +56,9 @@
                             <input id="ReturnUrlHash" type="hidden" name="returnUrlHash" />
                             <div class="col-lg-9 col-lg-offset-2">
                                 <button type="submit" id="LoginButton" class="btn btn-danger"><i class="fa fa-sign-in"></i> @L("LogIn")</button>
-                               
+
+                                @Html.ActionLink("New Account Register", "Register", "Applicant", new { area = "Client" },null)
+                             
                             </div>
                             <br />
                         </form>

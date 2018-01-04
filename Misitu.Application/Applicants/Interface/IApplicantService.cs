@@ -8,28 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Misitu.Applicants.Interface.ForestProduce
+namespace Misitu.Applicants.Interface
 {
-  public  interface IApplicant : IApplicationService
+  public  interface IApplicantService : IApplicationService
     {
 
-        List<ApplicantDto> GetItemList();
+
 
         int CreateAsync(CreateInput input);
 
-        ApplicantDto GetObjectById(int id);
+        ApplicantDto GetApplicantById(int id);
 
-        Task UpdateObject(ApplicantDto input);
 
-        Task DeleteObjectAsync(ApplicantDto input);
-
-        //get list of application Type
-        List<RefApplicationTypeDto> GetRefApplicationTypes();
-
-        //get Applicant Identity Categories
-        List<RefIdentityDto> GetIdentityTypeList();
-
-        List<RefServiceCategoryDto> GetServiceCategoryList();
 
         //Create ForestProduceRegistration
         //int CreateForestProduceRegistration(CreateForestProduceRegistration forestProduceRegistrationDto);

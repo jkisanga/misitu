@@ -1,4 +1,4 @@
-﻿using Misitu.Applicants.Interface.ForestProduce;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,21 +9,29 @@ using Misitu.RefTables.Dto;
 using Abp.Domain.Repositories;
 using Misitu.RefereneceTables;
 using Abp.UI;
+using Misitu.Applicants.Interface;
+using Misitu.FinancialYears;
 using Abp.AutoMapper;
-using Misitu.Applicants.ForestProduce;
 
 namespace Misitu.Applicants.Services
 {
-    public class ApplicantService : IApplicant
+    public class ApplicantService : IApplicantService
     {
         private readonly IRepository<Applicant> reporitaryApplicant;
         private readonly IRepository<RefApplicantType> repositoryApplicantType;
         private readonly IRepository<RefIdentityType> repositoryIdentity;
         private readonly IRepository<RefServiceCategory> repositoryServiceCategory;
+        private readonly IRepository<FinancialYear> financialYearRepository;
         private readonly IRepository<ForestProduceRegistration> repositoryForestProduceRegistration;
         private readonly IRepository<ForestProduceAppliedForest> repositoryForestProduceAppliedForest;
         private readonly IRepository<ForestProduceAppliedSpecieCategory> repositoryForestProduceAppliedSpecieCategory;
 
+        public ApplicantService(IRepository<Applicant> reporitaryApplicant,
+            IRepository<RefApplicantType> repositoryApplicantType, 
+            IRepository<RefIdentityType> repositoryIdentity,
+            IRepository<RefServiceCategory> repositoryServiceCategory,
+              IRepository<FinancialYear> financialYearRepository
+            )
         public ApplicantService(
             IRepository<Applicant> reporitaryApplicant, 
             IRepository<RefApplicantType> repositoryApplicantType, 
@@ -37,13 +45,18 @@ namespace Misitu.Applicants.Services
             this.repositoryApplicantType = repositoryApplicantType;
             this.repositoryIdentity = repositoryIdentity;
             this.repositoryServiceCategory = repositoryServiceCategory;
+            this.financialYearRepository = financialYearRepository;
             this.repositoryForestProduceRegistration = repositoryForestProduceRegistration;
             this.repositoryForestProduceAppliedForest = repositoryForestProduceAppliedForest;
             this.repositoryForestProduceAppliedSpecieCategory = repositoryForestProduceAppliedSpecieCategory;
         }
 
-        public  int CreateAsync(CreateInput input)
+        public  int  CreateAsync(CreateInput input)
         {
+
+            //get current active financial year;
+            var currentYr = financialYearRepository.FirstOrDefault(c => c.IsActive == true);
+
             var obj = new Applicant
             {
                 Type = input.Type,
@@ -56,7 +69,7 @@ namespace Misitu.Applicants.Services
                 IDNumber = input.IDNumber,
                 IDIssuePlace = input.IDIssuePlace,
                 IDExpiryDate = input.IDExpiryDate,
-                FinancialYearId = input.FinancialYearId
+                FinancialYearId = currentYr.Id
             };
             var objExist = this.reporitaryApplicant.FirstOrDefault(a => a.Name == input.Name);
             if (objExist == null)
@@ -234,13 +247,13 @@ namespace Misitu.Applicants.Services
         }
 
         public List<RefIdentityDto> GetIdentityTypeList()
+      
+        //get applicant by id
+        public ApplicantDto GetApplicantById(int id)
         {
-            throw new NotImplementedException();
-        }
+            var applicant = this.reporitaryApplicant.FirstOrDefault(id);
 
-        public List<ApplicantDto> GetItemList()
-        {
-            throw new NotImplementedException();
+            return applicant.MapTo<ApplicantDto>();
         }
 
         public ApplicantDto GetObjectById(int id)

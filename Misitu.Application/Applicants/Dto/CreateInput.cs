@@ -19,21 +19,26 @@ namespace Misitu.Applicants.Dto
         public virtual string Name { get; set; }
         [Required]
         public virtual string Adress { get; set; }
-        [Phone, Required]
+        [Required]
         public virtual string Phone { get; set; }
+
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public virtual string Email { get; set; }
-        [Required]
+     
         public virtual bool IsTanzanian { get; set; }
+
         [Required]
         public virtual string IDtype { get; set; }
         //Replace DoB here fill ID number for Individual and Reg Number for Company
+
         [Required]
         public virtual string IDNumber { get; set; }
         //dropdown selection from reference table 
+
         public virtual string IDIssuePlace { get; set; }
         [Required]
         public virtual DateTime IDExpiryDate { get; set; }
+
         public virtual int FinancialYearId { get; set; }
 
         [ForeignKey("FinancialYearId")]

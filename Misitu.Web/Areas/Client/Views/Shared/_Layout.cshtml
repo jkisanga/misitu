@@ -20,17 +20,20 @@
                 @Html.ActionLink("TFS Portal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Dashboard")</li>
-                    <li>@Html.ActionLink("About", "About", "Dashboard")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Dashboard")</li>
-                </ul>
+                @Html.Partial("_Menu")
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
+    <div class="container">
+        <br />
+        <hr />
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                @RenderBody()
+            </div>
+        </div>
+      
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - TFS</p>

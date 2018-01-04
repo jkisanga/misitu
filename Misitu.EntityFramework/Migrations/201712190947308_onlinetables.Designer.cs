@@ -7,13 +7,13 @@ namespace Misitu.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Update_ActivityDealer_and_RefServiceCategory_table : IMigrationMetadata
+    public sealed partial class onlinetables : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Update_ActivityDealer_and_RefServiceCategory_table));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(onlinetables));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712180705589_Update_ActivityDealer_and_RefServiceCategory_table"; }
+            get { return "201712190947308_onlinetables"; }
         }
         
         string IMigrationMetadata.Source

@@ -25,17 +25,30 @@ namespace Misitu.Web
             routes.MapRoute(
                 "Client_default",
                 "Client/{controller}/{action}/{id}",
-                new { controller = "Dashboard", action = "Index", id = UrlParameter.Optional}
-                  
+                new { controller = "Dashboard", action = "Index", id = UrlParameter.Optional},
+                  constraints: new
+                  {
+                      Client = new RoleConstraint()
+                  }
             ).DataTokens.Add("area", "Client");
+
+            routes.MapRoute(
+             "Applicant_Default",
+             "Client/Applicant/{action}/{id}",
+             new { controller = "Applicant", action = "Index", id = UrlParameter.Optional }
+              
+         ).DataTokens.Add("area", "Client");
 
 
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-                
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                 constraints: new
+                 {
+                     Staff = new RoleConstraint(),                   
+                 }
             );
 
             routes.MapRoute(
@@ -43,6 +56,7 @@ namespace Misitu.Web
               url: "Account/{action}/{id}",
               defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional }            
           );
+          
 
 
 

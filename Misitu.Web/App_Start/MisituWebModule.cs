@@ -7,6 +7,7 @@ using Abp.Modules;
 using Abp.Web.Mvc;
 using Abp.Web.SignalR;
 using Misitu.Api;
+using Misitu;
 
 
 namespace Misitu.Web
@@ -27,6 +28,9 @@ namespace Misitu.Web
 
             //Configure navigation/menu
             Configuration.Navigation.Providers.Add<MisituNavigationProvider>();
+
+            //Configure email
+            Configuration.Settings.Providers.Add<MisituSettingProvider>();
 
             //Configure Hangfire - ENABLE TO USE HANGFIRE INSTEAD OF DEFAULT JOB MANAGER
             //Configuration.BackgroundJobs.UseHangfire(configuration =>

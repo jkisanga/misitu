@@ -100,6 +100,10 @@
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Misitu.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Misitu.Core\bin\Debug\Misitu.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -146,14 +150,6 @@
     <Compile Include="Migrations\201712180659508_Add_online_applicant_tables.Designer.cs">
       <DependentUpon>201712180659508_Add_online_applicant_tables.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712180704015_Update_Activity_table.cs" />
-    <Compile Include="Migrations\201712180704015_Update_Activity_table.Designer.cs">
-      <DependentUpon>201712180704015_Update_Activity_table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712180705589_Update_ActivityDealer_and_RefServiceCategory_table.cs" />
-    <Compile Include="Migrations\201712180705589_Update_ActivityDealer_and_RefServiceCategory_table.Designer.cs">
-      <DependentUpon>201712180705589_Update_ActivityDealer_and_RefServiceCategory_table.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201712120859203_add_cubicMetres_dealer_table.cs" />
     <Compile Include="Migrations\201712120859203_add_cubicMetres_dealer_table.Designer.cs">
       <DependentUpon>201712120859203_add_cubicMetres_dealer_table.cs</DependentUpon>
@@ -174,42 +170,42 @@
     <Compile Include="Migrations\201712151033132_add_aplicant_id_UsersTable.Designer.cs">
       <DependentUpon>201712151033132_add_aplicant_id_UsersTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712210533056_Updates_From_Victor.cs" />
-    <Compile Include="Migrations\201712210533056_Updates_From_Victor.Designer.cs">
-      <DependentUpon>201712210533056_Updates_From_Victor.cs</DependentUpon>
+    <Compile Include="Migrations\201712190947308_onlinetables.cs" />
+    <Compile Include="Migrations\201712190947308_onlinetables.Designer.cs">
+      <DependentUpon>201712190947308_onlinetables.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801011046350_add_ForestProduceAppliedSpecieCategory_table.cs" />
-    <Compile Include="Migrations\201801011046350_add_ForestProduceAppliedSpecieCategory_table.Designer.cs">
-      <DependentUpon>201801011046350_add_ForestProduceAppliedSpecieCategory_table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801020709204_add_ForestProduceApplied_table.cs" />
-    <Compile Include="Migrations\201801020709204_add_ForestProduceApplied_table.Designer.cs">
-      <DependentUpon>201801020709204_add_ForestProduceApplied_table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\SeedData\DefaultGNCreatot.cs" />
-    <Compile Include="Migrations\SeedData\DefaultLanguagesTextsCreator.cs" />
-    <Compile Include="Migrations\SeedData\InitialZoneCreator.cs" />
-    <Compile Include="MisituDataModule.cs" />
-    <Compile Include="Migrations\SeedData\DefaultEditionsCreator.cs" />
-    <Compile Include="Migrations\SeedData\DefaultLanguagesCreator.cs" />
-    <Compile Include="Migrations\SeedData\DefaultSettingsCreator.cs" />
-    <Compile Include="Migrations\SeedData\DefaultTenantCreator.cs" />
-    <Compile Include="Migrations\SeedData\HostRoleAndUserCreator.cs" />
-    <Compile Include="Migrations\SeedData\InitialHostDbBuilder.cs" />
-    <Compile Include="Migrations\SeedData\TenantRoleAndUserBuilder.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Migrations\201712210335056_after-merge.cs" />
+    <Compile Include="Migrations\201712210335056_after-merge.Designer.cs">
+      <DependentUpon>201712210335056_after-merge.cs</DependentUpon>
+     </Compile>
+    
+      <Compile Include="Migrations\201712210533056_Updates_From_Victor.cs" />
+      <Compile Include="Migrations\201712210533056_Updates_From_Victor.Designer.cs">
+        <DependentUpon>201712210533056_Updates_From_Victor.cs</DependentUpon>
+      </Compile>
+      
+      <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
+      <Compile Include="Migrations\Configuration.cs" />
+      <Compile Include="Migrations\SeedData\DefaultGNCreatot.cs" />
+      <Compile Include="Migrations\SeedData\DefaultLanguagesTextsCreator.cs" />
+      <Compile Include="Migrations\SeedData\InitialZoneCreator.cs" />
+      <Compile Include="MisituDataModule.cs" />
+      <Compile Include="Migrations\SeedData\DefaultEditionsCreator.cs" />
+      <Compile Include="Migrations\SeedData\DefaultLanguagesCreator.cs" />
+      <Compile Include="Migrations\SeedData\DefaultSettingsCreator.cs" />
+      <Compile Include="Migrations\SeedData\DefaultTenantCreator.cs" />
+      <Compile Include="Migrations\SeedData\HostRoleAndUserCreator.cs" />
+      <Compile Include="Migrations\SeedData\InitialHostDbBuilder.cs" />
+      <Compile Include="Migrations\SeedData\TenantRoleAndUserBuilder.cs" />
+      <Compile Include="Properties\AssemblyInfo.cs" />
+
+   
+    
   </ItemGroup>
+  
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Misitu.Core\Misitu.Core.csproj">
-      <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
-      <Name>Misitu.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="ReportViewerWebForm.aspx" />
@@ -217,12 +213,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712180659508_Add_online_applicant_tables.resx">
       <DependentUpon>201712180659508_Add_online_applicant_tables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712180704015_Update_Activity_table.resx">
-      <DependentUpon>201712180704015_Update_Activity_table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712180705589_Update_ActivityDealer_and_RefServiceCategory_table.resx">
-      <DependentUpon>201712180705589_Update_ActivityDealer_and_RefServiceCategory_table.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712120859203_add_cubicMetres_dealer_table.resx">
       <DependentUpon>201712120859203_add_cubicMetres_dealer_table.cs</DependentUpon>
@@ -239,8 +229,16 @@
     <EmbeddedResource Include="Migrations\201712151033132_add_aplicant_id_UsersTable.resx">
       <DependentUpon>201712151033132_add_aplicant_id_UsersTable.cs</DependentUpon>
     </EmbeddedResource>
+
+    <EmbeddedResource Include="Migrations\201712190947308_onlinetables.resx">
+      <DependentUpon>201712190947308_onlinetables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712210335056_after-merge.resx">
+      <DependentUpon>201712210335056_after-merge.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712210533056_Updates_From_Victor.resx">
       <DependentUpon>201712210533056_Updates_From_Victor.cs</DependentUpon>
+
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801011046350_add_ForestProduceAppliedSpecieCategory_table.resx">
       <DependentUpon>201801011046350_add_ForestProduceAppliedSpecieCategory_table.cs</DependentUpon>

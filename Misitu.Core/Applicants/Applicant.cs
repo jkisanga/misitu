@@ -19,11 +19,11 @@ namespace Misitu.Applicants
         public virtual string Name { get; set; }
         [Required]
         public virtual string Adress { get; set; }
-        [Phone, Required]
+        [Required]
         public virtual string Phone { get; set; }
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public virtual string Email { get; set; }
-        [Required]
+      
         public virtual bool IsTanzanian { get; set; }
         [Required]
         public virtual string IDtype { get; set; }
@@ -34,6 +34,7 @@ namespace Misitu.Applicants
         public virtual string IDIssuePlace { get; set; }
         [Required]
         public virtual DateTime IDExpiryDate { get; set; }
+
         public virtual int FinancialYearId { get; set; }
 
         [ForeignKey("FinancialYearId")]
