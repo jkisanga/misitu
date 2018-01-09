@@ -117,6 +117,11 @@ namespace Misitu.Users
             return new ListResultDto<RoleDto>(ObjectMapper.Map<List<RoleDto>>(roles));
         }
 
-      
+        public List<UserListDto> GetUsersByApplicant(int Id)
+        {
+            var users = _userRepository.GetAll().Where(x => x.ApplicantId == Id);
+
+            return users.MapTo<List<UserListDto>>();
+        }
     }
 }

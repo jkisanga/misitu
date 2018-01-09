@@ -572,17 +572,17 @@
     <Content Include="Areas\Client\Views\Shared\Lockout.cshtml" />
     <Content Include="Areas\Client\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Client\Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Areas\Client\Views\Applicantion\Create.cshtml" />
-    <Content Include="Areas\Client\Views\Applicantion\Delete.cshtml" />
-    <Content Include="Areas\Client\Views\Applicantion\Details.cshtml" />
-    <Content Include="Areas\Client\Views\Applicantion\Edit.cshtml" />
-    <Content Include="Areas\Client\Views\Applicantion\Index.cshtml" />
-    <Content Include="Areas\Client\Views\Applicantion\ForestProduceRegistration.cshtml" />
-    <Content Include="Areas\Client\Views\Applicantion\ForestProduceAppliedForest.cshtml" />
-    <Content Include="Areas\Client\Views\Applicantion\ForestProduceAppliedSpecieCategory.cshtml" />
+    <Content Include="Areas\Client\Views\Application\Index.cshtml" />
+    <Content Include="Areas\Client\Views\Application\ForestProduceRegistration.cshtml" />
+    <Content Include="Areas\Client\Views\Application\ForestProduceAppliedForest.cshtml" />
+    <Content Include="Areas\Client\Views\Application\ForestProduceAppliedSpecieCategory.cshtml" />
     <Content Include="Areas\Client\Views\Applicant\Register.cshtml" />
     <Content Include="Areas\Client\Views\Shared\_Menu.cshtml" />
     <Content Include="Areas\Client\Views\Applicant\AddUser.cshtml" />
+    <Content Include="Areas\Client\Views\Applicant\ApplicantProfile.cshtml" />
+    <Content Include="Areas\Client\Views\Applicant\UserCreateSuccess.cshtml" />
+    <Content Include="Areas\Client\Views\Application\myApplications.cshtml" />
+    <Content Include="Areas\Client\Views\Application\ApplicationDetails.cshtml" />
     <None Include="Datasets\Misitu.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -655,8 +655,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
-    <Compile Include="Areas\Client\Controllers\ApplicantionController.cs" />
     <Compile Include="Areas\Client\Controllers\ApplicantController.cs" />
+    <Compile Include="Areas\Client\Controllers\ApplicationController.cs" />
     <Compile Include="Areas\Client\Controllers\DashboardController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />

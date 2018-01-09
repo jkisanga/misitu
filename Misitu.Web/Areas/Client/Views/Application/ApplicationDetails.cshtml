@@ -1,0 +1,76 @@
+﻿@model Misitu.Applicants.ForestProduceRegistrationDto
+
+@{
+    ViewBag.Title = "Application Details";
+}
+
+<div class="row">
+
+    <div class="col-md-6">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="pull-left"><span>Registration Details</span></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="panel-body">
+                <div class="padd">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>Registration Number</td>
+                            <td><input type="text" class="form-control" readonly value="@Model.RegNumber"> </td>
+                        </tr>
+                        <tr>
+                            <td>TIN</td>
+                            <td><input type="text" class="form-control" readonly value="@Model.TIN"> </td>
+                        </tr>
+                        <tr>
+                            <td>District</td>
+                            <td><input type="text" class="form-control" readonly value="@Model.District.Name"> </td>
+                        </tr>
+                        <tr>
+                            <td>Buseiness Licence No</td>
+                            <td><input type="text" class="form-control" readonly value="@Model.BussinessLicenseNo"> </td>
+                        </tr>
+                        <tr>
+                            <td>Saw Mill Lication</td>
+                            <td><input type="text" class="form-control" readonly value="@Model.SawmillInstalledLocation"> </td>
+                        </tr>
+                        <tr>
+                            <td>Saw Mill Capacity</td>
+                            <td><input type="text" class="form-control" readonly value="@Model.SawmillCapacityPerYear"> </td>
+                        </tr>
+                        <tr>
+                            <td>Date Applied</td>
+                            <td><input type="text" class="form-control" readonly value="@Model.CreationTime.ToShortDateString()"> </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="pull-left"><span>Others</span></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="panel-body">
+                <div class="padd">
+                    <fieldset>
+                        <legend class="small">Applied Forest/ Plantation</legend>
+                       
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="small">Applied Specie Category</legend>
+
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

@@ -7,13 +7,13 @@ namespace Misitu.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Updates_From_Victor : IMigrationMetadata
+    public sealed partial class After_merger_applicants : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Updates_From_Victor));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(After_merger_applicants));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712210533056_Updates_From_Victor"; }
+            get { return "201801040242134_After_merger_applicants"; }
         }
         
         string IMigrationMetadata.Source

@@ -12,6 +12,7 @@ using Abp.UI;
 using Misitu.Applicants.Interface;
 using Misitu.FinancialYears;
 using Abp.AutoMapper;
+using Misitu.Applicants.ForestProduce;
 
 namespace Misitu.Applicants.Services
 {
@@ -26,17 +27,13 @@ namespace Misitu.Applicants.Services
         private readonly IRepository<ForestProduceAppliedForest> repositoryForestProduceAppliedForest;
         private readonly IRepository<ForestProduceAppliedSpecieCategory> repositoryForestProduceAppliedSpecieCategory;
 
-        public ApplicantService(IRepository<Applicant> reporitaryApplicant,
-            IRepository<RefApplicantType> repositoryApplicantType, 
-            IRepository<RefIdentityType> repositoryIdentity,
-            IRepository<RefServiceCategory> repositoryServiceCategory,
-              IRepository<FinancialYear> financialYearRepository
-            )
+    
         public ApplicantService(
             IRepository<Applicant> reporitaryApplicant, 
             IRepository<RefApplicantType> repositoryApplicantType, 
             IRepository<RefIdentityType> repositoryIdentity,
             IRepository<RefServiceCategory> repositoryServiceCategory,
+              IRepository<FinancialYear> financialYearRepository,
             IRepository<ForestProduceRegistration> repositoryForestProduceRegistration,
             IRepository<ForestProduceAppliedForest> repositoryForestProduceAppliedForest,
             IRepository<ForestProduceAppliedSpecieCategory> repositoryForestProduceAppliedSpecieCategory)
@@ -104,6 +101,7 @@ namespace Misitu.Applicants.Services
                 ForestProduceRegistrationId = input.ForestProduceRegistrationId,
                 SpecieCategoryId = input.SpecieCategoryId,
                 FinancialYearId = input.FinancialYearId,
+                Volume = input.Volume,
                 Status = input.Status
             };
 
@@ -241,12 +239,17 @@ namespace Misitu.Applicants.Services
             return obj.MapTo<ForestProduceRegistrationDto>();
         }
 
-        public List<ForestProduceRegistrationDto> GetForestProduceRegistrationList()
+        public List<ForestProduceRegistrationDto> GetForestProduceRegistrationByApplicantId(int Id)
         {
-            throw new NotImplementedException();
+            var applications = this.repositoryForestProduceRegistration
+             .GetAll()
+             .Where(p => p.ApplicantId == Id)
+             .ToList();
+
+            return new List<ForestProduceRegistrationDto>(applications.MapTo<List<ForestProduceRegistrationDto>>());
         }
 
-        public List<RefIdentityDto> GetIdentityTypeList()
+     
       
         //get applicant by id
         public ApplicantDto GetApplicantById(int id)

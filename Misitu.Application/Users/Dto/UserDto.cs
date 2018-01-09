@@ -18,7 +18,7 @@ namespace Misitu.Users.Dto
         public string EmailAddress { get; set; }
         public bool IsActive { get; set; }
         public int StationId { get; set; }
-
+        public int ApplicantId { get; set; }
         public string[] Roles { get; set; }
 
 
