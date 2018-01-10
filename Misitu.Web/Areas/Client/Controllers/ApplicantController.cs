@@ -17,9 +17,10 @@ using Abp.Net.Mail;
 using Microsoft.AspNet.Identity;
 using Abp.Authorization.Users;
 
+
 namespace Misitu.Web.Areas.Client.Controllers
 {
-
+    
     public class ApplicantController : MisituControllerBase
     {
 
@@ -29,11 +30,13 @@ namespace Misitu.Web.Areas.Client.Controllers
         private readonly UserManager _userManager;
         private readonly RoleManager _roleManager;
         private readonly IEmailSender _emailSender;
+        private readonly IUserAppService _userAppService;
 
         public ApplicantController(
                   IApplicationTypeService applicationTypeService,
                   IApplicantService applicantService,
                   UserManager userManager,
+                  IUserAppService userAppService,
                   RoleManager roleManager,
                   IEmailSender emailSender
                   )
@@ -42,13 +45,13 @@ namespace Misitu.Web.Areas.Client.Controllers
             _applicationTypeService = applicationTypeService;
             _applicantService = applicantService;
             _userManager = userManager;
+            _userAppService = userAppService;
             _roleManager = roleManager;
             _emailSender = emailSender;
 
         }
 
       
-
         // GET: Client/Account/Create
         public ActionResult Register()
         {
@@ -62,27 +65,34 @@ namespace Misitu.Web.Areas.Client.Controllers
         [HttpPost]
         public  ActionResult Register(CreateInput input)
         {
-            int applicantId =  _applicantService.CreateAsync(input);
+           
+                int applicantId = _applicantService.CreateAsync(input);
+
+
+                if (applicantId > 0)
+                {
+                    // TODO: Add insert logic here
+
+                    return RedirectToAction("AddUser", new { Id = applicantId });
+
+                }
+
+                else
+                {
+                    var applicationTypes = _applicationTypeService.GetRefApplicationTypes().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Name });
+                    ViewBag.Type = applicationTypes;
+                    return View(input);
+                }
             
-
-            if (applicantId > 0) {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("AddUser", new { Id = applicantId });
-
-            }
-            else
-            {
-
-                var applicationTypes = _applicationTypeService.GetRefApplicationTypes().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Name });
-                ViewBag.Type = applicationTypes;
-                return View(input);
-            }
+        
         }
 
        public ActionResult AddUser(int Id)
         {
+           
             ViewBag.Applicant = _applicantService.GetApplicantById(Id);
+
+           
             return View();
         }
 
@@ -98,7 +108,9 @@ namespace Misitu.Web.Areas.Client.Controllers
                     Surname = input.Surname,
                     EmailAddress = input.EmailAddress,
                     UserName = input.UserName,
-                    IsActive = true
+                    IsActive = true,
+                    ApplicantId = input.ApplicantId
+                    
                 };
 
                 string[] roles = _roleManager.Roles.Where(r => r.Name == "Client").Select(c => c.Name).ToArray();
@@ -126,7 +138,7 @@ namespace Misitu.Web.Areas.Client.Controllers
                     isBodyHtml: true
                 );
 
-                return RedirectToAction("Login","Account",new { area=""});
+                return RedirectToAction("UserCreateSuccess");
 
             }
             else
@@ -134,6 +146,22 @@ namespace Misitu.Web.Areas.Client.Controllers
                 ViewBag.Applicant = _applicantService.GetApplicantById(input.ApplicantId);
                 return View(input);
             }
+        }
+
+        public ActionResult UserCreateSuccess()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult ApplicantProfile()
+        {
+
+         var applicant = _applicantService.GetApplicantById(_userAppService.GetLoggedInUser().ApplicantId);
+
+            ViewBag.Users = _userAppService.GetUsersByApplicant(applicant.Id);
+
+            return View(applicant);
         }
     }
 }

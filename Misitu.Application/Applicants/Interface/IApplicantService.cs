@@ -19,11 +19,6 @@ namespace Misitu.Applicants.Interface
 
         ApplicantDto GetApplicantById(int id);
 
-
-
-        //Create ForestProduceRegistration
-        //int CreateForestProduceRegistration(CreateForestProduceRegistration forestProduceRegistrationDto);
-
         List<ForestProduceAppliedForestDto> GetForestProduceAppliedForestList();
 
         int CreateForestProduceAppliedForestAsync(CreateForestProduceAppliedForest input);
@@ -34,10 +29,7 @@ namespace Misitu.Applicants.Interface
 
         Task DeleteForestProduceAppliedForestAsync(ForestProduceAppliedForestDto input);
 
-
-
-
-        List<ForestProduceRegistrationDto> GetForestProduceRegistrationList();
+        List<ForestProduceRegistrationDto> GetForestProduceRegistrationByApplicantId(int Id);
 
         int CreateForestProduceRegistrationAsync(CreateForestProduceRegistration input);
 
@@ -46,9 +38,6 @@ namespace Misitu.Applicants.Interface
         Task UpdateForestProduceRegistration(ForestProduceRegistrationDto input);
 
         Task DeleteForestProduceRegistrationAsync(ForestProduceRegistrationDto input);
-
-
-
 
         List<ForestProduceAppliedSpecieCategoryDto> GetForestProduceAppliedSpecieCategoryList();
 

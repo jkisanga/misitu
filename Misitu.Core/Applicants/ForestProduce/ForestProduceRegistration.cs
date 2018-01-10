@@ -34,12 +34,12 @@ namespace Misitu.Applicants
         public virtual bool HasForestBusinessLicense { get; set; }
         public virtual string TIN { get; set; }
         public virtual string BussinessLicenseNo { get; set; }
-        public virtual int RegNumber { get; set; }
+        public virtual string RegNumber { get; set; }
 
         //C: MAELEZO YA VITENDEA KAZI
         public virtual bool HasSawmill { get; set; }
         public virtual bool IsSawmillInstalled { get; set; }
-        public virtual int SawmillInstalledLocation { get; set; }
+        public virtual string SawmillInstalledLocation { get; set; }
         public virtual string  InstallationPermitNo { get; set; }
         public virtual string TypeOfSawmill { get; set; }
         public virtual string SawmillCapacityPerYear { get; set; }
