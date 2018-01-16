@@ -22,6 +22,7 @@ namespace Misitu.Stations
         public virtual int ZoneId { get; set; }
         [Required]
         public virtual int RegionId { get; set; }
+        public virtual int ParentId { get; set; }
 
         [ForeignKey("ZoneId")]
         public virtual Zone Zone { get; set; }

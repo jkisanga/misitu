@@ -1,4 +1,5 @@
-﻿using Misitu.RevenueSources;
+﻿using Misitu.Registration;
+using Misitu.RevenueSources;
 using Misitu.RevenueSources.Dto;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,9 @@ namespace Misitu.Web.Controllers
     {
 
         private readonly IRevenueSourceAppService _revenueSourceAppService;
-        private readonly IRefSubRevenueSourceAppService _refSubRevenueSourceAppService;
+        private readonly Interface1 _refSubRevenueSourceAppService;
 
-        public RevenueSourcesController(IRevenueSourceAppService revenueSourceAppService, IRefSubRevenueSourceAppService refSubRevenueSourceAppService)
+        public RevenueSourcesController(IRevenueSourceAppService revenueSourceAppService, Interface1 refSubRevenueSourceAppService)
         {
             _revenueSourceAppService = revenueSourceAppService;
             _refSubRevenueSourceAppService = refSubRevenueSourceAppService;
@@ -93,13 +94,7 @@ namespace Misitu.Web.Controllers
         }
 
 
-        public ActionResult SubRevenue(int Id)
-        {
-            var resource = _refSubRevenueSourceAppService.GetRefSubRevenueResources(Id);
-
-            return View(resource);
-        }
-
+       
 
 
     }

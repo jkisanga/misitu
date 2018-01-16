@@ -14,7 +14,7 @@ namespace Misitu.Billing.Dto
     public class CreateBillItemInput
     {
         public virtual int BillId { get; set; }
-        public virtual int RevenueResourceId { get; set; }
+        public virtual int ActivityId { get; set; }
         [Required]
         public virtual string Description { get; set; }
         public virtual double Loyality { get; set; }

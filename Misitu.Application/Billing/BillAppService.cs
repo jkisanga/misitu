@@ -52,7 +52,7 @@ namespace Misitu.Billing
             {
                 var bill = new Bill
                 {
-                    DealerId = input.DealerId,
+                    ApplicantId = input.ApplicantId,
                     Description = input.Description,
                     BillAmount = input.BillAmount,
                     Currency = input.Currency,
@@ -115,7 +115,7 @@ namespace Misitu.Billing
         public async Task UpdateBill(BillDto input)
         {
             var bill = _billRepository.FirstOrDefault(input.Id);
-            bill.DealerId = input.DealerId;
+            bill.ApplicantId = input.ApplicantId;
             bill.IssuedDate = DateTime.Now;
             bill.StationId = input.StationId;
             await _billRepository.UpdateAsync(bill);
@@ -234,9 +234,9 @@ namespace Misitu.Billing
                        where b.Id == id
                        select new BillPrint {
                             Id = b.Id,
-                            PayerName = b.Dealer.Name,
-                            PayerAddress = b.Dealer.Address,
-                            PayerPhone = b.Dealer.Phone,
+                            PayerName = b.Applicant.Name,
+                            PayerAddress = b.Applicant.Adress,
+                            PayerPhone = b.Applicant.Phone,
                             Station = b.Station.Name,
                             StationAddress = b.Station.Address,
                             ControlNumber = b.ControlNumber,
@@ -262,9 +262,9 @@ namespace Misitu.Billing
                        select new HarvestBill
                        {
                            Id = b.Id,
-                           PayerName = b.Dealer.Name,
-                           PayerAddress = b.Dealer.Address,
-                           PayerPhone = b.Dealer.Phone,
+                           PayerName = b.Applicant.Name,
+                           PayerAddress = b.Applicant.Adress,
+                           PayerPhone = b.Applicant.Phone,
                            Station = b.Station.Name,
                            StationAddress = b.Station.Address,
                            ControlNumber = b.ControlNumber,

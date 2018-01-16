@@ -85,7 +85,7 @@ namespace Misitu.Licensing
         {
             var licenses = (from l in _licenseRepository.GetAll()
                             join bill in _billRepository.GetAll() on l.BillId equals bill.Id
-                            join dealer in _dealerRepository.GetAll() on bill.DealerId equals dealer.Id
+                            join dealer in _dealerRepository.GetAll() on bill.ApplicantId equals dealer.Id
                             where bill.PaidAmount > 0
                             where bill.PaidDate != null
                             where l.FinancialYearId == FinancialYear.Id
@@ -108,7 +108,7 @@ namespace Misitu.Licensing
         {
             var licenses = (from l in _licenseRepository.GetAll()
                             join bill in _billRepository.GetAll() on l.BillId equals bill.Id
-                            join dealer in _dealerRepository.GetAll() on bill.DealerId equals dealer.Id
+                            join dealer in _dealerRepository.GetAll() on bill.ApplicantId equals dealer.Id
                             where bill.PaidAmount == 0
                             where bill.PaidDate == null
                             where l.FinancialYearId == FinancialYear.Id
@@ -164,9 +164,9 @@ namespace Misitu.Licensing
                        {
                            Id = l.Id,
                            SerialNumber = l.serialNumber,
-                           Name = b.Dealer.Name,
-                           Address = b.Dealer.Address,
-                           Phone = b.Dealer.Phone,
+                           Name = b.Applicant.Name,
+                           Address = b.Applicant.Adress,
+                           Phone = b.Applicant.Phone,
                            Station = b.Station.Name,
                            StationAddress = b.Station.Address,
                            IssuedDate = l.IssuedDate,

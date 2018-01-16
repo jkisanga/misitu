@@ -31,7 +31,7 @@ namespace Misitu.Billing
             var billItem = new BillItem
             {
                 BillId = input.BillId,
-                RevenueResourceId = input.RevenueResourceId,
+                ActivityId = input.ActivityId,
                 Description = input.Description,
                 Loyality = input.Loyality,
                 TFF = input.TFF,

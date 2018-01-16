@@ -224,7 +224,15 @@ namespace Misitu.Web
                             url: "/TransitPass/Dashboard",
                             icon: "icon-desktop"
                             )
-                   )
+
+                   ).AddItem(
+                          new MenuItemDefinition(
+                            "Add New TP",
+                            new LocalizableString("Add New TP", "Misitu"),
+                            url: "/TransitPass/GetApplicantList",
+                            icon: "icon-plus"
+                            )
+                          )
                    ).AddItem(
                       new MenuItemDefinition(
                     "Setup",

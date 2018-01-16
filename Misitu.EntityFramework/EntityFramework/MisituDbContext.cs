@@ -24,10 +24,12 @@ using Misitu.RevenueSources;
 
 using Misitu.Harvesting;
 
+
 using Misitu.RefereneceTables;
 using Misitu.Applicants;
 using Misitu.Applicants.ForestProduce;
 
+using Misitu.TransitPasses;
 
 namespace Misitu.EntityFramework
 {
@@ -46,7 +48,7 @@ namespace Misitu.EntityFramework
         public virtual IDbSet<GnTreeVolumeRate> GnTreeVolumeRates { get; set; }
         public virtual IDbSet<SpecieCategory> SpecieCategories {get; set; }
         public virtual IDbSet<Specie> Species {get; set; }
-        public virtual IDbSet<RevenueSource> RevenueSources { get; set; }
+        
 
         //Registration Tables
         public virtual IDbSet<Candidate> Candidates { get; set; }
@@ -55,7 +57,7 @@ namespace Misitu.EntityFramework
 
         //Billing
         public virtual IDbSet<Bill> Bills { get; set; }
-        public virtual IDbSet<BillItem> BillItems { get; set; }
+        
 
         //Plot Scalling
         public virtual IDbSet<HarvestingPlan> HarvestingPlans { get; set; }
@@ -87,6 +89,15 @@ namespace Misitu.EntityFramework
         public virtual IDbSet<ForestProduceAppliedSpecieCategory> ForestProduceAppliedSpecieCategories { get; set; }
         public virtual IDbSet<ForestProduceAppliedForest> ForestProduceAppliedForests { get; set; }
 
+        public virtual IDbSet<TransitPass> TransitPasses { get; set; }
+        public virtual IDbSet<BillTransitPass> BillTransitPasses { get; set; }
+        public virtual IDbSet<CheckPointTransitPass> CheckPointTransitPass { get; set; }
+        public virtual IDbSet<InspectionAudit> InspectionAudities { get; set; }
+        public virtual IDbSet<MainRevenueSource> MainRevenueSourcees { get; set; }
+        public virtual IDbSet<RevenueSource> RevenueSources { get; set; }
+        public virtual IDbSet<BillItem> BillItems { get; set; }
+        public virtual IDbSet<Payment> Payments { get; set; }
+
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -96,6 +107,7 @@ namespace Misitu.EntityFramework
             modelBuilder.Entity<License>().HasRequired(i => i.FinancialYear).WithMany().HasForeignKey(k => k.FinancialYearId).WillCascadeOnDelete(false);
             modelBuilder.Entity<Bill>().HasRequired(i => i.Station).WithMany().HasForeignKey(k => k.StationId).WillCascadeOnDelete(false);
             modelBuilder.Entity<Bill>().HasRequired(i => i.FinancialYear).WithMany().HasForeignKey(k => k.FinancialYearId).WillCascadeOnDelete(false);
+            modelBuilder.Entity<Bill>().HasRequired(i => i.Applicant).WithMany().HasForeignKey(k => k.ApplicantId).WillCascadeOnDelete(false);
             modelBuilder.Entity<AllocatedPlot>().HasRequired(i => i.FinancialYear).WithMany().HasForeignKey(k => k.FinancialYearId).WillCascadeOnDelete(false);
             modelBuilder.Entity<AllocatedPlot>().HasRequired(i => i.Plot).WithMany().HasForeignKey(k => k.PlotId).WillCascadeOnDelete(false);
 
@@ -106,6 +118,11 @@ namespace Misitu.EntityFramework
             modelBuilder.Entity<ForestProduceRegistration>().HasRequired(i => i.Applicant).WithMany().HasForeignKey(k => k.ApplicantId).WillCascadeOnDelete(false);
             modelBuilder.Entity<ForestProduceRegistration>().HasRequired(i => i.FinancialYear).WithMany().HasForeignKey(k => k.FinancialYearId).WillCascadeOnDelete(false);
             modelBuilder.Entity<ForestProduceRegistration>().HasRequired(i => i.District).WithMany().HasForeignKey(k => k.DistrictId).WillCascadeOnDelete(false);
+            modelBuilder.Entity<TransitPass>().HasRequired(i => i.Applicant).WithMany().HasForeignKey(k => k.ApplicantId).WillCascadeOnDelete(false);
+            modelBuilder.Entity<BillTransitPass>().HasRequired(i => i.TransitPass).WithMany().HasForeignKey(k => k.TransitPassId).WillCascadeOnDelete(false);
+            modelBuilder.Entity<CheckPointTransitPass>().HasRequired(i => i.TransitPass).WithMany().HasForeignKey(k => k.TransitPassId).WillCascadeOnDelete(false);
+            modelBuilder.Entity<Applicant>().HasRequired(i => i.FinancialYear).WithMany().HasForeignKey(k => k.FinancialYearId).WillCascadeOnDelete(false);
+            modelBuilder.Entity<InspectionAudit>().HasRequired(i => i.CheckPointTransitPass).WithMany().HasForeignKey(k => k.CheckPointTransitPassId).WillCascadeOnDelete(false);
 
 
 

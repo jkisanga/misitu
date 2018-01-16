@@ -67,14 +67,14 @@ namespace Misitu.Web.Controllers
 
 
         [HttpPost]
-        public ActionResult Bill(int id, CreateBillInput billInput, int RevenueSourceId)
+        public ActionResult Bill(int id, CreateBillInput billInput, int ActivityId)
         {
             var dealer = _dealerAppService.GetDealer(id);
 
 
             if (dealer != null)
             {
-                var revenue = _revenueSourceAppService.GetRevenueResource(RevenueSourceId);
+                var revenue = _revenueSourceAppService.GetRevenueResource(ActivityId);
                 var items = _allocatedPlotAppService.GetAllocatedPlotsByDealer(dealer);
                 var user = _userAppService.GetLoggedInUser();
                 var Fyear = _financialYearAppService.GetActiveFinancialYear();
@@ -89,7 +89,7 @@ namespace Misitu.Web.Controllers
                         var billItem = new CreateBillItemInput
                         {
                             BillId = bill,
-                            RevenueResourceId = RevenueSourceId,
+                            ActivityId = ActivityId,
                             Description = revenue.Description,
                             Loyality = item.Loyality,
                             TFF = item.TFF,

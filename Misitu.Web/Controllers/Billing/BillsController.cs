@@ -130,7 +130,7 @@ namespace Misitu.Web.Controllers.Billing
                             CreateBillItemInput item = new CreateBillItemInput
                             {
                                 BillId = bill,
-                                RevenueResourceId = source.Id,
+                                ActivityId = source.Id,
                                 Description = source.Description,
                                 Loyality = Convert.ToDouble(Amount[i])
                             };
@@ -237,7 +237,7 @@ namespace Misitu.Web.Controllers.Billing
         public ActionResult Confirm(int id, BillDto input, double Amount)
         {
             var bill = _billAppService.GetBill(id);
-            var dealer = _dealerAppService.GetDealer(input.DealerId);
+            var dealer = _dealerAppService.GetDealer(input.ApplicantId);
 
             if(bill != null)
             {

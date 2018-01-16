@@ -1,4 +1,5 @@
 ﻿using Abp.AutoMapper;
+using Misitu.Applicants;
 using Misitu.FinancialYears;
 using Misitu.Registration;
 using Misitu.Stations;
@@ -14,7 +15,7 @@ namespace Misitu.Billing.Dto
     [AutoMapFrom(typeof(Bill))]
     public class CreateBillInput
     {
-        public virtual int DealerId { get; set; }
+        public virtual int ApplicantId { get; set; }
         public virtual int StationId { get; set; }
         public virtual int FinancialYearId { get; set; }
         public virtual Double BillAmount { get; set; }
@@ -23,8 +24,8 @@ namespace Misitu.Billing.Dto
         public virtual DateTime ExpiredDate { get; set; }
         public virtual string Currency { get; set; }
 
-        [ForeignKey("DealerId")]
-        public virtual Dealer Dealer { get; set; }
+        [ForeignKey("ApplicantId")]
+        public virtual Applicant Applicant { get; set; }
         [ForeignKey("StationId")]
         public virtual Statiton Station { get; set; }
         [ForeignKey("FinancialYearId")]

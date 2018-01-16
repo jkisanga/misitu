@@ -54,7 +54,7 @@ namespace Misitu.Web.Controllers.Registration
 
         // GET: DealerActivities Partialn view
         [HttpPost]
-        public ActionResult Bill(int id, CreateBillInput billInput, int RevenueSourceId)
+        public ActionResult Bill(int id, CreateBillInput billInput, int ActivityId)
         {
             var dealer = _dealerAppService.GetDealer(id);
 
@@ -62,7 +62,7 @@ namespace Misitu.Web.Controllers.Registration
             if (dealer != null)
             {
                 var activities = _dealerActivityAppService.GetDealerActivities(dealer);
-                var revenue = _revenueSourceAppService.GetRevenueResource(RevenueSourceId);
+                var revenue = _revenueSourceAppService.GetRevenueResource(ActivityId);
 
                 //Dealer Registration Bill
 
@@ -75,7 +75,7 @@ namespace Misitu.Web.Controllers.Registration
                         var item = new CreateBillItemInput
                         {
                             BillId = bill,
-                            RevenueResourceId = RevenueSourceId,
+                            ActivityId = ActivityId,
                             Description = revenue.Description,
                             Loyality = activity.Activity.Fee + activity.Activity.RegistrationFee,
                             Total = activity.Activity.Fee + activity.Activity.RegistrationFee
