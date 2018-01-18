@@ -843,6 +843,7 @@
     <Content Include="Views\TransitPass\GetApplicantList.cshtml" />
     <Content Include="Views\TransitPass\AddTpProduct.cshtml" />
     <Content Include="Views\TransitPass\CreateBill.cshtml" />
+    <Content Include="Views\TransitPass\CreateTp.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

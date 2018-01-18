@@ -2,6 +2,7 @@
 using Abp.AutoMapper;
 using Abp.Domain.Entities.Auditing;
 using Misitu.Applicants;
+using Misitu.Billing;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,13 +12,16 @@ using System.Threading.Tasks;
 
 namespace Misitu.TransitPasses
 {
-   public class TransitPassDto: FullAuditedEntityDto
+    [AutoMapFrom(typeof(TransitPass))]
+    public class TransitPassDto: FullAuditedEntityDto
     {
-        [AutoMapFrom(typeof(TransitPass))]
+        
+
         public virtual int ApplicantId { get; set; }
+        public virtual int BillId { get; set; }
         public virtual string OrginalCountry { get; set; }
         public virtual string NoOfConsignment { get; set; }
-        public virtual int LisenceNo { get; set; }
+        public virtual string LisenceNo { get; set; }
         public virtual string TransitPassNo { get; set; }
         public virtual int SourceForest { get; set; }
         public virtual DateTime IssuedDate { get; set; }
@@ -37,6 +41,9 @@ namespace Misitu.TransitPasses
 
         [ForeignKey("ApplicantId")]
         public virtual Applicant Applicant { get; set; }
+
+        [ForeignKey("BillId")]
+        public virtual Bill Bill { get; set; }
 
 
     }

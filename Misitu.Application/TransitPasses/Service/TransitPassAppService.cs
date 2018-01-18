@@ -21,11 +21,12 @@ namespace Misitu.TransitPasses.Service
             this.repositoryTransitpass = repositoryTransitpass;
         }
 
-        public int CreateTransitPass(CreateTransitPass input)
+        public int CreateTransitPass(CreateTransitPassInput input)
         {
             var obj = new TransitPass
             {
                 ApplicantId = input.ApplicantId,
+                BillId = input.BillId,
                 LisenceNo = input.LisenceNo,
                 IssuedDate = input.IssuedDate,
                 OrginalCountry = input.OrginalCountry,

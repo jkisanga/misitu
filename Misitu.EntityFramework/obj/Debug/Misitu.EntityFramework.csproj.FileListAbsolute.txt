@@ -124,7 +124,9 @@ C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramewor
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.add_ForestProduceAppliedSpecieCategory_table.resources
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.add_ForestProduceApplied_table.resources
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.Update_Activity_Bill_BillItem_Add_Payment.resources
+C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.Update_TP.resources
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.csproj.GenerateResource.Cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.csproj.CoreCompileInputs.cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.dll
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.pdb
+C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.udd_bool_stutas_in_TP.resources

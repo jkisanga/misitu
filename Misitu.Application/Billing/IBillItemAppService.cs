@@ -13,7 +13,7 @@ namespace Misitu.Billing
 
         List<BillItemDto> GetBillItems(BillDto bill);
 
-        Task CreateBillItem(CreateBillItemInput input);
+        int CreateBillItem(CreateBillItemInput input);
 
         BillItemDto GetBillItem(int id);
 

@@ -85,7 +85,7 @@ namespace Misitu.Licensing
         {
             var licenses = (from l in _licenseRepository.GetAll()
                             join bill in _billRepository.GetAll() on l.BillId equals bill.Id
-                            join dealer in _dealerRepository.GetAll() on bill.ApplicantId equals dealer.Id
+                            //join dealer in _dealerRepository.GetAll() on bill.ApplicantId equals dealer.Id
                             where bill.PaidAmount > 0
                             where bill.PaidDate != null
                             where l.FinancialYearId == FinancialYear.Id
@@ -94,7 +94,7 @@ namespace Misitu.Licensing
                             select new LicenseView{
                                 Id = l.Id,
                                 SerialNumber = l.serialNumber,
-                                Dealer = dealer.Name,
+                               // Dealer = dealer.Name,
                                 Description = bill.Description,
                                 Amount = bill.PaidAmount,
                                 IssuedDate = l.IssuedDate

@@ -146,6 +146,14 @@
     <Compile Include="Migrations\201801150911426_Update_Activity_Bill_BillItem_Add_Payment.Designer.cs">
       <DependentUpon>201801150911426_Update_Activity_Bill_BillItem_Add_Payment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801161009161_Update_TP.cs" />
+    <Compile Include="Migrations\201801161009161_Update_TP.Designer.cs">
+      <DependentUpon>201801161009161_Update_TP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801170757221_udd_bool_stutas_in_TP.cs" />
+    <Compile Include="Migrations\201801170757221_udd_bool_stutas_in_TP.Designer.cs">
+      <DependentUpon>201801170757221_udd_bool_stutas_in_TP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\DefaultGNCreatot.cs" />
@@ -177,6 +185,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801150911426_Update_Activity_Bill_BillItem_Add_Payment.resx">
       <DependentUpon>201801150911426_Update_Activity_Bill_BillItem_Add_Payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801161009161_Update_TP.resx">
+      <DependentUpon>201801161009161_Update_TP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801170757221_udd_bool_stutas_in_TP.resx">
+      <DependentUpon>201801170757221_udd_bool_stutas_in_TP.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

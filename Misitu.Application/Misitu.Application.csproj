@@ -293,7 +293,7 @@
     <Compile Include="TransitPasses\Dto\BillTransitPassDto.cs" />
     <Compile Include="TransitPasses\Dto\CheckPointTransitPassDto.cs" />
     <Compile Include="TransitPasses\Dto\InspectionAuditDto.cs" />
-    <Compile Include="TransitPasses\Dto\CreateTransitPass.cs" />
+    <Compile Include="TransitPasses\Dto\CreateTransitPassInput.cs" />
     <Compile Include="TransitPasses\Dto\TransitPassDto.cs" />
     <Compile Include="TransitPasses\Interface\IInspectionAudit.cs" />
     <Compile Include="TransitPasses\Interface\ITransitPass.cs" />
