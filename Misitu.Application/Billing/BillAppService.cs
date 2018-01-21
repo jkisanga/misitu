@@ -12,6 +12,7 @@ using Misitu.Users;
 using Misitu.FinancialYears.Dto;
 using Misitu.Stations.Dto;
 using Misitu.Registration;
+using Misitu.Applicants;
 
 namespace Misitu.Billing
 {
@@ -24,13 +25,15 @@ namespace Misitu.Billing
         private readonly IRepository<BillItem> _billItemRepository;
         private readonly IRepository<FinancialYear> _financialYearRepository;
         private readonly IRepository<User, long> _userRepository;
+        private readonly IRepository<Applicant> _applicantRepository;
 
         public BillAppService(
             IRepository<Dealer> dealerRepository,
             IRepository<Bill> billRepository,
             IRepository<BillItem> billItemRepository,
             IRepository<FinancialYear> financialYearRepository,
-            IRepository<User, long> userRepository
+            IRepository<User, long> userRepository,
+            IRepository<Applicant> applicantRepository
             )
         {
             _dealerRepository = dealerRepository;
@@ -38,10 +41,10 @@ namespace Misitu.Billing
             _billItemRepository = billItemRepository;
             _financialYearRepository = financialYearRepository;
             _userRepository = userRepository;
+            _applicantRepository = applicantRepository;
         }
 
     
-
         public int CreateBill(CreateBillInput input)
         {
             //get current active financial year;
@@ -52,9 +55,11 @@ namespace Misitu.Billing
             {
                 var bill = new Bill
                 {
-                    DealerId = input.DealerId,
+                    ApplicantId = input.ApplicantId,
                     Description = input.Description,
                     BillAmount = input.BillAmount,
+                    EquvAmont = input.EquvAmont,
+                    MiscAmont = input.MiscAmont,
                     Currency = input.Currency,
                     IssuedDate = DateTime.Now,
                     ExpiredDate = input.ExpiredDate,                     
@@ -88,6 +93,18 @@ namespace Misitu.Billing
             return bill.MapTo<BillDto>();
         }
 
+        //get registration bill
+        public BillDto GetBillForRegistrationByFyr(int applicantId, FinancialYearDto FinancialYear)
+        {
+            var bill = (from b in _billRepository.GetAll()
+                        join dealer in _dealerRepository.GetAll() on b.ApplicantId equals dealer.ApplicantId
+                        where dealer.ApplicantId == applicantId
+                        where dealer.FinancialYearId == FinancialYear.Id
+                        select b).FirstOrDefault();
+
+            return bill.MapTo<BillDto>();
+        }
+
         public List<BillDto> GetBills(FinancialYearDto FinancialYear)
         {
             var bills = _billRepository
@@ -115,7 +132,7 @@ namespace Misitu.Billing
         public async Task UpdateBill(BillDto input)
         {
             var bill = _billRepository.FirstOrDefault(input.Id);
-            bill.DealerId = input.DealerId;
+            bill.ApplicantId = input.ApplicantId;
             bill.IssuedDate = DateTime.Now;
             bill.StationId = input.StationId;
             await _billRepository.UpdateAsync(bill);
@@ -230,22 +247,22 @@ namespace Misitu.Billing
         public List<BillPrint> Print(int id)
         {
             var bill = from b in _billRepository.GetAll()
-                       join item in _billItemRepository.GetAll() on b.Id equals item.BillId                      
+                       join item in _billItemRepository.GetAll() on b.Id equals item.BillId
                        where b.Id == id
                        select new BillPrint {
-                            Id = b.Id,
-                            PayerName = b.Dealer.Name,
-                            PayerAddress = b.Dealer.Address,
-                            PayerPhone = b.Dealer.Phone,
-                            Station = b.Station.Name,
-                            StationAddress = b.Station.Address,
-                            ControlNumber = b.ControlNumber,
-                            IssuedDate = b.IssuedDate,
+                           Id = b.Id,
+                           PayerName = b.Applicant.Name,
+                           PayerAddress = b.Applicant.Adress,
+                           PayerPhone = b.Applicant.Phone,
+                           Station = b.Station.Name,
+                           StationAddress = b.Station.Address,
+                           ControlNumber = b.ControlNumber,
+                           IssuedDate = b.IssuedDate,
                             ExpireDate = b.ExpiredDate,
                             BilledAmount = b.BillAmount,
                             Currency = b.Currency,
-                           Description = b.Description,
-                           BillId = item.BillId,                        
+                            Description = b.Description,
+                            BillId = item.BillId,                        
                             ItemDescription = item.Description,
                             Amount = item.Total                            
                        };   
@@ -262,9 +279,9 @@ namespace Misitu.Billing
                        select new HarvestBill
                        {
                            Id = b.Id,
-                           PayerName = b.Dealer.Name,
-                           PayerAddress = b.Dealer.Address,
-                           PayerPhone = b.Dealer.Phone,
+                           PayerName = b.Applicant.Name,
+                           PayerAddress = b.Applicant.Adress,
+                           PayerPhone = b.Applicant.Phone,
                            Station = b.Station.Name,
                            StationAddress = b.Station.Address,
                            ControlNumber = b.ControlNumber,

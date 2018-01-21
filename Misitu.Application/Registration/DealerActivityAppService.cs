@@ -20,7 +20,7 @@ namespace Misitu.Registration
         }
 
 
-        public async Task CreateDealerActivity(CreateDealerActivityInput input)
+        public void CreateDealerActivity(CreateDealerActivityInput input)
         {
             var dealerActivity = new DealerActivity
             {
@@ -29,7 +29,7 @@ namespace Misitu.Registration
             };
 
          
-           await _dealerActivityRepository.InsertAsync(dealerActivity);
+            _dealerActivityRepository.InsertAsync(dealerActivity);
            
         }
 

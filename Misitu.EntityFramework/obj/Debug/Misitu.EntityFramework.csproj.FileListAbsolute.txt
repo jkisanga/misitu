@@ -67,3 +67,10 @@ C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramew
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.add_ForestProduceApplied_table.resources
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.After_merger_applicants.resources
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.modified_regproduce_table.resources
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.ExportTables.resources
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.major_updates.resources
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.applicant_changes.resources
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.registration.resources
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.is_reg_submitted.resources
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.bill_update.resources
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.is_denied_application.resources

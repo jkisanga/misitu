@@ -21,7 +21,6 @@ namespace Misitu.Activities
         public virtual double Fee { get; set; }
 
         public virtual double RegistrationFee { get; set; }
-        [ForeignKey("RefServiceCategoryId")]
-        public virtual RefServiceCategory RefServiceCategory { get; set; }
+
     }
 }

@@ -14,6 +14,8 @@ namespace Misitu.Web
     {
         public override void SetNavigation(INavigationProviderContext context)
         {
+        
+
             context.Manager.MainMenu
                 .AddItem(
                     new MenuItemDefinition(
@@ -47,14 +49,14 @@ namespace Misitu.Web
                             )
                    ).AddItem(
                         new MenuItemDefinition(
-                            "Selected Candidates",
-                            new LocalizableString("SelectedCandidates", "Misitu"),
-                            url: "/Candidates",
+                            "Application for Registrtaion",
+                            new LocalizableString("ApplicationForRegistrtaion", "Misitu"),
+                            url: "/Dealers/OnlineRegApplications",
                             icon: "icon-ok"
                             )
                    ).AddItem(
                         new MenuItemDefinition(
-                            "Pending Registration",
+                            "Pending Applications",
                             new LocalizableString("PendingRegistration", "Misitu"),
                             url: "/Dealers",
                             icon: "icon-th"
@@ -64,6 +66,13 @@ namespace Misitu.Web
                             "Registered Dealers",
                             new LocalizableString("RegisteredDealers", "Misitu"),
                             url: "/Dealers/Registered",
+                            icon: "icon-th"
+                            )
+                   ).AddItem(
+                        new MenuItemDefinition(
+                            "Rejected Applications",
+                            new LocalizableString("RejectedApplications", "Misitu"),
+                            url: "/Dealers/RejectedRegApplications",
                             icon: "icon-th"
                             )
                    )

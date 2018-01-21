@@ -150,6 +150,11 @@
     <Compile Include="Applicants\Dto\ApplicantDto.cs" />
     <Compile Include="Applicants\Dto\ApplicationTypeDto.cs" />
     <Compile Include="Applicants\Dto\CreateInput.cs" />
+    <Compile Include="Applicants\Dto\ExportImport\CreateExportAttachment.cs" />
+    <Compile Include="Applicants\Dto\ExportImport\CreateExportDetail.cs" />
+    <Compile Include="Applicants\Dto\ExportImport\CreateExportSpecie.cs" />
+    <Compile Include="Applicants\Dto\ExportImport\ExportDetailDto.cs" />
+    <Compile Include="Applicants\Dto\ExportImport\ExportSpecieDto.cs" />
     <Compile Include="Applicants\Dto\ForestProduce\CreateForestProduceAppliedForest.cs" />
     <Compile Include="Applicants\Dto\ForestProduce\CreateForestProduceAppliedSpecieCategory.cs" />
     <Compile Include="Applicants\Dto\ForestProduce\ForestProduceAppliedForestDto.cs" />
@@ -158,8 +163,10 @@
     <Compile Include="Applicants\Dto\ForestProduce\ForestProduceRegistrationDto.cs" />
     <Compile Include="Applicants\Interface\IApplicantService.cs" />
     <Compile Include="Applicants\Interface\IApplicationTypeService.cs" />
+    <Compile Include="Applicants\Interface\IExportService.cs" />
     <Compile Include="Applicants\Services\ApplicantService.cs" />
     <Compile Include="Applicants\Services\ApplicationTypeService.cs" />
+    <Compile Include="Applicants\Services\ExportService.cs" />
     <Compile Include="Billing\BillAppService.cs" />
     <Compile Include="Billing\BillItemAppService.cs" />
     <Compile Include="Billing\Dto\BillDto.cs" />
@@ -214,14 +221,10 @@
     <Compile Include="RefTables\Dto\CreateRefIdentityInput.cs" />
     <Compile Include="RefTables\Dto\RefApplicationTypeDto.cs" />
     <Compile Include="RefTables\Dto\RefIdentityDto.cs" />
-    <Compile Include="RefTables\Dto\CreateRefServiceCategoryInput.cs" />
-    <Compile Include="RefTables\Dto\RefServiceCategoryDto.cs" />
     <Compile Include="RefTables\Interface\IRefApplicationTypeAppService.cs" />
     <Compile Include="RefTables\Interface\IRefIdentityAppService.cs" />
-    <Compile Include="RefTables\Interface\IRefServiceCategoryAppService.cs" />
     <Compile Include="RefTables\Services\RefApplicationTypeAppService.cs" />
     <Compile Include="RefTables\Services\RefIdentityAppService.cs" />
-    <Compile Include="RefTables\Services\RefServiceCategoryAppService.cs" />
     <Compile Include="Registration\CandidateAppService.cs" />
     <Compile Include="Registration\DealerActivityAppService.cs" />
     <Compile Include="Registration\DealerAppService.cs" />

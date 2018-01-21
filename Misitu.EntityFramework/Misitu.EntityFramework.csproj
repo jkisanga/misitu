@@ -186,6 +186,34 @@
     <Compile Include="Migrations\201801050245194_modified_regproduce_table.Designer.cs">
       <DependentUpon>201801050245194_modified_regproduce_table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801111025242_ExportTables.cs" />
+    <Compile Include="Migrations\201801111025242_ExportTables.Designer.cs">
+      <DependentUpon>201801111025242_ExportTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801150403488_major_updates.cs" />
+    <Compile Include="Migrations\201801150403488_major_updates.Designer.cs">
+      <DependentUpon>201801150403488_major_updates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801150440079_applicant_changes.cs" />
+    <Compile Include="Migrations\201801150440079_applicant_changes.Designer.cs">
+      <DependentUpon>201801150440079_applicant_changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801150535050_registration.cs" />
+    <Compile Include="Migrations\201801150535050_registration.Designer.cs">
+      <DependentUpon>201801150535050_registration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801150848215_is_reg_submitted.cs" />
+    <Compile Include="Migrations\201801150848215_is_reg_submitted.Designer.cs">
+      <DependentUpon>201801150848215_is_reg_submitted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801160716361_bill_update.cs" />
+    <Compile Include="Migrations\201801160716361_bill_update.Designer.cs">
+      <DependentUpon>201801160716361_bill_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801170720147_is_denied_application.cs" />
+    <Compile Include="Migrations\201801170720147_is_denied_application.Designer.cs">
+      <DependentUpon>201801170720147_is_denied_application.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\DefaultGNCreatot.cs" />
@@ -244,6 +272,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801050245194_modified_regproduce_table.resx">
       <DependentUpon>201801050245194_modified_regproduce_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801111025242_ExportTables.resx">
+      <DependentUpon>201801111025242_ExportTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801150403488_major_updates.resx">
+      <DependentUpon>201801150403488_major_updates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801150440079_applicant_changes.resx">
+      <DependentUpon>201801150440079_applicant_changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801150535050_registration.resx">
+      <DependentUpon>201801150535050_registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801150848215_is_reg_submitted.resx">
+      <DependentUpon>201801150848215_is_reg_submitted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801160716361_bill_update.resx">
+      <DependentUpon>201801160716361_bill_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801170720147_is_denied_application.resx">
+      <DependentUpon>201801170720147_is_denied_application.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

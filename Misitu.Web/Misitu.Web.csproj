@@ -576,13 +576,23 @@
     <Content Include="Areas\Client\Views\Application\ForestProduceRegistration.cshtml" />
     <Content Include="Areas\Client\Views\Application\ForestProduceAppliedForest.cshtml" />
     <Content Include="Areas\Client\Views\Application\ForestProduceAppliedSpecieCategory.cshtml" />
-    <Content Include="Areas\Client\Views\Applicant\Register.cshtml" />
+    <Content Include="Areas\Client\Views\Applicant\Account.cshtml" />
     <Content Include="Areas\Client\Views\Shared\_Menu.cshtml" />
     <Content Include="Areas\Client\Views\Applicant\AddUser.cshtml" />
     <Content Include="Areas\Client\Views\Applicant\ApplicantProfile.cshtml" />
     <Content Include="Areas\Client\Views\Applicant\UserCreateSuccess.cshtml" />
     <Content Include="Areas\Client\Views\Application\myApplications.cshtml" />
     <Content Include="Areas\Client\Views\Application\ApplicationDetails.cshtml" />
+    <Content Include="Areas\Client\Views\Export\Create.cshtml" />
+    <Content Include="Areas\Client\Views\Export\addSpecie.cshtml" />
+    <Content Include="Areas\Client\Views\Shared\Message.cshtml" />
+    <Content Include="Areas\Client\Views\Export\addAttachments.cshtml" />
+    <Content Include="Areas\Client\Views\Applicant\ApplyForRegistration.cshtml" />
+    <Content Include="Areas\Client\Views\Applicant\AddActivities.cshtml" />
+    <Content Include="Areas\Client\Views\Applicant\getRegistrationBill.cshtml" />
+    <Content Include="Areas\Client\Views\Applicant\ApplicationDetails.cshtml" />
+    <Content Include="Areas\Client\Views\Export\Index.cshtml" />
+    <Content Include="Areas\Client\Views\Export\Details.cshtml" />
     <None Include="Datasets\Misitu.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -658,6 +668,8 @@
     <Compile Include="Areas\Client\Controllers\ApplicantController.cs" />
     <Compile Include="Areas\Client\Controllers\ApplicationController.cs" />
     <Compile Include="Areas\Client\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Client\Controllers\ExportController.cs" />
+    <Compile Include="Areas\Client\Helpers\ApplicantConstrait.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActivitiesController.cs" />
@@ -834,6 +846,11 @@
     <Content Include="Views\Setup\CreateIdentityType.cshtml" />
     <Content Include="Views\Setup\CreateApplicationType.cshtml" />
     <Content Include="Views\Setup\EditApplicationType.cshtml" />
+    <Content Include="Views\Shared\Message.cshtml" />
+    <Content Include="Views\Dealers\OnlineRegApplications.cshtml" />
+    <Content Include="Views\Dealers\DenyRegistration.cshtml" />
+    <Content Include="Views\Dealers\DeniedRegApplications.cshtml" />
+    <Content Include="Views\Dealers\RejectedRegApplications.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -857,6 +874,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Documents\" />
+    <Folder Include="App_Data\Uploads\" />
     <Folder Include="Areas\Client\Models\" />
     <Folder Include="img\" />
   </ItemGroup>

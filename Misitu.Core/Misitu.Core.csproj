@@ -113,10 +113,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\Activity.cs" />
-    <Compile Include="Applicants\ExportImport\ForestProduceExportPermit.cs" />
-    <Compile Include="Applicants\ExportImport\ForestProduceImportPermit.cs" />
-    <Compile Include="Applicants\ExportImport\ForestProduceInspection.cs" />
-    <Compile Include="Applicants\ExportImport\PermitExportGrandedTimber.cs" />
+    <Compile Include="Applicants\ExportImport\ExportDetail.cs" />
+    <Compile Include="Applicants\ExportImport\ExportAttachment.cs" />
+    <Compile Include="Applicants\ExportImport\ExportSpecie.cs" />
     <Compile Include="Applicants\ForestProduce\ForestProduceAppliedForest.cs" />
     <Compile Include="Applicants\ForestProduce\ForestProduceAppliedSpecieCategory.cs" />
     <Compile Include="Applicants\ForestProduce\ForestProduceHarvestLicense.cs" />
@@ -165,7 +164,6 @@
     <Compile Include="Ranges\Range.cs" />
     <Compile Include="RefereneceTables\RefApplicantType.cs" />
     <Compile Include="RefereneceTables\RefIdentityType.cs" />
-    <Compile Include="RefereneceTables\RefServiceCategory.cs" />
     <Compile Include="Regions\District.cs" />
     <Compile Include="Regions\Region.cs" />
     <Compile Include="Registration\Candidate.cs" />

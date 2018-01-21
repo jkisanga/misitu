@@ -9,19 +9,13 @@ namespace Misitu.Web.Areas.Client.Controllers
 {
     public class DashboardController : Controller
     {
-        private readonly IRefServiceCategoryAppService refServiceCategoryAppService;
-
-        public DashboardController(IRefServiceCategoryAppService refServiceCategoryAppService)
-        {
-            this.refServiceCategoryAppService = refServiceCategoryAppService;
-        }
-
+     
 
 
         // GET: Client/Home
         public ActionResult Index()
         {
-            ViewBag.ListOfServiceCategories = this.refServiceCategoryAppService.GetItemList();
+         
             return View();
         }
 

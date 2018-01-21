@@ -1,4 +1,5 @@
 ﻿using Abp.Domain.Entities.Auditing;
+using Misitu.Activities;
 using Misitu.RevenueSources;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,17 @@ namespace Misitu.Billing
     public class BillItem : FullAuditedEntity
     {
         public virtual int BillId { get; set; }
-
-        public virtual int RevenueResourceId { get; set; }
+        public virtual int ActivityId { get; set; }
 
         [Required]
         public virtual string Description { get; set; }
+
+        public virtual double EquvAmont { get; set; }
+
+        public virtual double MiscAmont { get; set; }
+
+        public virtual int GfsCode { get; set; }
+
         public virtual double Loyality { get; set; }
         public virtual double TFF { get; set; }
         public virtual double LMDA { get; set; }
@@ -31,7 +38,7 @@ namespace Misitu.Billing
 
         [ForeignKey("BillId")]
         public virtual Bill Bill { get; set; }
-        [ForeignKey("RevenueResourceId")]
-        public virtual RevenueSource RevenueResource { get; set; }
+        [ForeignKey("ActivityId")]
+        public virtual Activity Activity { get; set; }
     }
 }

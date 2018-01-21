@@ -1,0 +1,108 @@
+﻿@model Misitu.Applicants.Dto.ExportImport.CreateExportAttachment
+@{
+    ViewBag.Title = "Attachments";
+}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="pull-left"><span>Export Attachments Form</span></div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+        <div class="padd">
+            <div class="form-horizontal">
+
+                @using (Html.BeginForm("addAttachments", "Export", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                     
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <input type="hidden" name="ExportDetailId" value="@ViewBag.ExportDetail.Id" />
+
+                        <div class="form-group">
+                            @Html.Label("Brela Registration Certificate", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.BrelaRegistrationCert, new { htmlAttributes = new { @class = "form-control",@type="File" } })
+                                @Html.ValidationMessageFor(model => model.BrelaRegistrationCert, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Business Licence Certificate", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.LicenceCert, new { htmlAttributes = new { @class = "form-control", @type = "File" } })
+                                @Html.ValidationMessageFor(model => model.LicenceCert, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Tax Clearance Certificate", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.TaxClearanceCert, new { htmlAttributes = new { @class = "form-control", @type = "File" } })
+                                @Html.ValidationMessageFor(model => model.TaxClearanceCert, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Enquiry Order", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.EnquiryOrder, new { htmlAttributes = new { @class = "form-control", @type = "File" } })
+                                @Html.ValidationMessageFor(model => model.EnquiryOrder, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Export Returns Statement", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.ExportReturns, new { htmlAttributes = new { @class = "form-control", @type = "File" } })
+                                @Html.ValidationMessageFor(model => model.ExportReturns, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Forest Produce Registration Certificate", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.ForestProduceRegCert, new { htmlAttributes = new { @class = "form-control", @type = "File" } })
+                                @Html.ValidationMessageFor(model => model.ForestProduceRegCert, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Autholized Letter (District/Region)", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.AutholizedLetter, new { htmlAttributes = new { @class = "form-control", @type = "File" } })
+                                @Html.ValidationMessageFor(model => model.AutholizedLetter, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Saw Miller Owner Contract", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.SawMillerContract, new { htmlAttributes = new { @class = "form-control", @type = "File" } })
+                                @Html.ValidationMessageFor(model => model.SawMillerContract, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label(" Copy of MoU", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.MouCert, new { htmlAttributes = new { @class = "form-control", @type = "File" } })
+                                @Html.ValidationMessageFor(model => model.MouCert, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-8">
+                                <input type="submit" value="Save & Finish" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                }
+                </div>
+            </div>
+        </div>
+    </div>
+

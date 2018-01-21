@@ -23,6 +23,8 @@ namespace Misitu.Billing
 
         BillDto GetBill(int id);
 
+        BillDto GetBillForRegistrationByFyr(int id, FinancialYearDto FinancialYear);
+
         Task ConfirmBill(BillDto input, double PaidAmount);
 
         Task UpdateBill(BillDto input);

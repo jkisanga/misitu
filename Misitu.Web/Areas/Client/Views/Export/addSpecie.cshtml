@@ -1,0 +1,97 @@
+﻿@model Misitu.Applicants.Dto.ExportImport.CreateExportSpecie
+
+@{
+    ViewBag.Title = "Species";
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="pull-left"><span>Export Species Form</span></div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+        <div class="padd">
+            <div class="form-horizontal">
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+
+                        <hr />                     
+                       
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                      <input type="hidden" name="ExportDetailId" value="@ViewBag.ExportDetail.Id" />
+
+                        <div class="form-group">
+                            @Html.Label("Specie", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("SpecieId",null,  new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.SpecieId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Size, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Size, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Size, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Price (USD)", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Add" class="btn btn-primary" />
+                                <a href="@Url.Action("addAttachments","Export",new { Id = ViewBag.ExportDetail.Id})" class="btn btn-primary pull-right">Continue</a>
+                            </div>
+                        </div>
+                        @if (ViewBag.Species != null)
+                        {
+                            <fieldset>
+                                <legend>Added List</legend>
+
+                                <table class="table table-bordered table-hover">
+                                    <tr>
+                                        <th>Specie</th>
+                                        <th>Quantity</th>
+                                        <th>Size</th>
+                                        <th>Price(USD)</th>
+                                    </tr>
+                                    @foreach (var item in ViewBag.Species)
+                                    {
+                                        <tr>
+                                            <td>@item.Specie.EnglishName</td>
+                                            <td>@item.Quantity</td>
+                                            <td>@item.Size</td>
+                                            <td>@item.Price</td>
+                                        </tr>
+                                    }
+                                </table>
+                            </fieldset>
+                        }
+                       
+                    </div>
+                }
+                </div>
+            </div>
+        </div>
+    </div>
+

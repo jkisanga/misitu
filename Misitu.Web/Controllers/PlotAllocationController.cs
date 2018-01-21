@@ -89,7 +89,7 @@ namespace Misitu.Web.Controllers
                         var billItem = new CreateBillItemInput
                         {
                             BillId = bill,
-                            RevenueResourceId = RevenueSourceId,
+                            ActivityId = RevenueSourceId,
                             Description = revenue.Description,
                             Loyality = item.Loyality,
                             TFF = item.TFF,

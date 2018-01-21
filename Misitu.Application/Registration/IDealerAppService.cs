@@ -11,9 +11,13 @@ namespace Misitu.Registration
 {
     public interface IDealerAppService
     {
+        List<DealerDto> GetAllDealers();
+
         List<DealerDto> GetDealers(FinancialYearDto FinancialYear);
 
-        List<DealerDto> GetAllDealers();
+        List<DealerDto> GetRegApplicationByStation(StationDto Station, FinancialYearDto FinancialYear);
+
+        List<DealerDto> GetDeniedRegApplicationByStation(StationDto Station, FinancialYearDto FinancialYear);
 
         List<DealerDto> GetRegisteredDealers(FinancialYearDto FinancialYear);
 
@@ -21,11 +25,21 @@ namespace Misitu.Registration
 
         DealerDto GetDealer(int id);
 
+        bool IsApplicationExists(int id, FinancialYearDto FinancialYear);
+
+        bool IsRegistered(int id, FinancialYearDto FinancialYear);
+
+        DealerDto GetRegApplication(int applicantId, FinancialYearDto FinancialYear);//submitted application for registrtation for online user
+
+        int ApproveRegistration(int id);
+
+        void DenyRegistration(DealerDto input);
+
         List<RegistrationCertDto> PrintDealer(int id);
 
         void UpdateBillControlNumber(DealerDto input, string BillControlNumber);
 
-        Task UpdateDealer(DealerDto input);
+        void UpdateDealer(DealerDto input);
 
         Task DeleteDealerAsync(DealerDto input);
 

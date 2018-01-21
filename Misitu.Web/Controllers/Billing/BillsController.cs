@@ -103,7 +103,7 @@ namespace Misitu.Web.Controllers.Billing
         public ActionResult CreateNew()
         {
           
-            var dealers = _dealerAppService.GetAllDealers().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Name });
+            var dealers = _dealerAppService.GetAllDealers().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Applicant.Name });
             var sources = _revenueSourceAppService.GetRevenueResources().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Description });
             ViewBag.DealerId = dealers;
             ViewBag.choices = _revenueSourceAppService.GetRevenueResources();
@@ -123,14 +123,14 @@ namespace Misitu.Web.Controllers.Billing
                 if (bill > 0)
                 {
                     for (int i = 0; i < sources.Length; i++)
-                    {
+                    {// change
                         var source = _revenueSourceAppService.GetRevenueResource(sources[i]);
                         if (source != null)
                         {
                             CreateBillItemInput item = new CreateBillItemInput
                             {
                                 BillId = bill,
-                                RevenueResourceId = source.Id,
+                                ActivityId = source.Id,
                                 Description = source.Description,
                                 Loyality = Convert.ToDouble(Amount[i])
                             };
@@ -145,7 +145,7 @@ namespace Misitu.Web.Controllers.Billing
             }
             else
             {
-                var dealers = _dealerAppService.GetAllDealers().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Name });
+                var dealers = _dealerAppService.GetAllDealers().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Applicant.Name });
                 ViewBag.DealerId = dealers;
                 return View(input);            
         }
@@ -237,7 +237,7 @@ namespace Misitu.Web.Controllers.Billing
         public ActionResult Confirm(int id, BillDto input, double Amount)
         {
             var bill = _billAppService.GetBill(id);
-            var dealer = _dealerAppService.GetDealer(input.DealerId);
+            var dealer = _dealerAppService.GetDealer(input.ApplicantId);// change
 
             if(bill != null)
             {
