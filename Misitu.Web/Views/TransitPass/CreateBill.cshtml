@@ -12,60 +12,59 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4></h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-       
 
+        <div class="form-group">
+            <input name="ApplicantId" value="@ViewBag.Applicant.Id" type="hidden" />
+            @Html.Label("Bill Description", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+            @Html.Label("Currency", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => model.Currency, new List<SelectListItem>
+                                { new SelectListItem{Text="TZS", Value="TZS",Selected =true },
+                                    new SelectListItem{Text="USD", Value="USD"}}, new { @class = "form-control" })
 
+                @Html.ValidationMessage("Currency", "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-
-       
-        <input name="IssuedDate" value="@ViewBag.IssuedDate" type="hidden" />
-        <input name="ExpiredDate" value="@ViewBag.ExpiredDate" type="hidden" />
-        <input name="Currency" value="TZS" type="hidden" />
-        <input name="FinancialYearId" value="3" type="hidden" />
-        <input name="StationId" value="3" type="hidden" />
-       <input name="ApplicantId"  value="@ViewBag.Applicant.Id" type="hidden"/>
-             
-
-        <input value="@ViewBag.Description" class="form-control" name="Description" type="hidden" />
-
-      
-
-       
-
+                      
         <div class="input-group control-group after-add-more">
 
-         <div class="row">
-             @Html.Label("Products", null, new { @class = "control-label col-md-2" })
-                 <div class="col-lg-5">
-                     <select name="ActivtiyId[]" class="form-control">
-                         <option></option>
-                         @foreach (var item in ViewBag.activities)
-                         {
-                             <option title="@item.Name" value="@item.Id">@item.Name</option>
+            <div class="row">
+                @Html.Label("Products", null, new { @class = "control-label col-md-2" })
+                <div class="col-lg-5">
+                    <select name="ActivtiyId[]" class="form-control">
+                        <option></option>
+                        @foreach (var item in ViewBag.activities)
+                        {
+                            <option title="@item.Name" value="@item.Id">@item.Name</option>
 
-                         }
+                        }
 
-                     </select>
-                 </div>
-                 <div class="col-lg-2">
-                     <input name="quantity[]" class="form-control" placeholder="Quantity" required  />
-                 </div>
-                 <div class="col-lg-2">
-                     <input name="amount[]" class="form-control"  placeholder="Amount" required/>
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                    <input name="quantity[]" class="form-control" placeholder="Quantity" required />
+                </div>
+                <div class="col-lg-2">
+                    <input name="amount[]" class="form-control" placeholder="Amount" required />
 
-                 </div>
+                </div>
 
 
-                 <div class="input-group-btn">
-                     <button class="btn btn-success add-more" type="button"><i class="glyphicon glyphicon-plus"></i> Add</button>
-                 </div>
-             </div>
+                <div class="input-group-btn">
+                    <button class="btn btn-success add-more" type="button"><i class="glyphicon glyphicon-plus"></i> Add</button>
+                </div>
             </div>
+        </div>
         <br />
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

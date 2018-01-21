@@ -7,13 +7,13 @@ namespace Misitu.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ExportTables : IMigrationMetadata
+    public sealed partial class BillItem : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ExportTables));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(BillItem));
         
         string IMigrationMetadata.Id
         {
-            get { return "201801111025242_ExportTables"; }
+            get { return "201801210831597_BillItem"; }
         }
         
         string IMigrationMetadata.Source

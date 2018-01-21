@@ -698,10 +698,12 @@
     <Compile Include="Controllers\SpeciesController.cs" />
     <Compile Include="Controllers\StationsController.cs" />
     <Compile Include="Controllers\TariffsController.cs" />
-    <Compile Include="Controllers\TenantsController.cs" />
     <Compile Include="Controllers\TransitPassController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ZonesController.cs" />
+    <Compile Include="Datasets\Misitu.cs">
+      <DependentUpon>Misitu.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\Misitu.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -851,6 +853,17 @@
     <Content Include="Views\Dealers\DenyRegistration.cshtml" />
     <Content Include="Views\Dealers\DeniedRegApplications.cshtml" />
     <Content Include="Views\Dealers\RejectedRegApplications.cshtml" />
+    <Content Include="Views\Dealers\ApproveRegistration.cshtml" />
+    <Content Include="Views\TransitPass\AddTpProduct.cshtml" />
+    <Content Include="Views\TransitPass\Create.cshtml" />
+    <Content Include="Views\TransitPass\CreateBill.cshtml" />
+    <Content Include="Views\TransitPass\CreateTp.cshtml" />
+    <Content Include="Views\TransitPass\Delete.cshtml" />
+    <Content Include="Views\TransitPass\Details.cshtml" />
+    <Content Include="Views\TransitPass\Edit.cshtml" />
+    <Content Include="Views\TransitPass\GetApplicantList.cshtml" />
+    <Content Include="Views\TransitPass\Index.cshtml" />
+    <Content Include="Views\TransitPass\getTransitPass.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -891,6 +904,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptTransitPass.rdlc" />
     <EmbeddedResource Include="Reports\rptHarvestLicence.rdlc" />
     <EmbeddedResource Include="Reports\RegCert.rdlc" />
     <EmbeddedResource Include="Reports\rptHarvestingBill.rdlc" />

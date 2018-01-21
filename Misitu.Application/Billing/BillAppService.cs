@@ -267,7 +267,7 @@ namespace Misitu.Billing
                             Amount = item.Total                            
                        };   
 
-            return new List<BillPrint>(bill.MapTo<List<BillPrint>>()); ;
+            return new List<BillPrint>(bill.MapTo<List<BillPrint>>()); 
         }
 
 

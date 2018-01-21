@@ -300,3 +300,8 @@ C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\obj\Debug\
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\obj\Debug\Misitu.Web.csproj.CoreCompileInputs.cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\obj\Debug\Misitu.Web.dll
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\obj\Debug\Misitu.Web.pdb
+C:\Users\nshaba\Desktop\MISITU\Misitu\Misitu.Web\obj\Debug\Misitu.Web.csprojResolveAssemblyReference.cache
+C:\Users\nshaba\Desktop\MISITU\Misitu\Misitu.Web\obj\Debug\Misitu.Web.Lang.resources
+C:\Users\nshaba\Desktop\MISITU\Misitu\Misitu.Web\obj\Debug\Misitu.Web.csproj.GenerateResource.Cache
+C:\Users\nshaba\Desktop\MISITU\Misitu\Misitu.Web\obj\Debug\RdlCompile.cache
+C:\Users\nshaba\Desktop\MISITU\Misitu\Misitu.Web\obj\Debug\RdlCompile.compiled

@@ -252,7 +252,7 @@ namespace Misitu.Web
                           new MenuItemDefinition(
                             "Waiting Inspection",
                             new LocalizableString("Waiting Inspection", "Misitu"),
-                            url: "/TransitPass/WaitingInspectionList",
+                            url: "/TransitPass/Index",
                             icon: "icon-list"
                             )
                           ).AddItem(

@@ -21,15 +21,11 @@ using Misitu.GnTreeVolumeRates;
 using Misitu.Licensing;
 using Misitu.Species;
 using Misitu.RevenueSources;
-
 using Misitu.Harvesting;
-
-
 using Misitu.RefereneceTables;
 using Misitu.Applicants;
 using Misitu.Applicants.ForestProduce;
 using Misitu.Applicants.ExportImport;
-
 using Misitu.TransitPasses;
 
 namespace Misitu.EntityFramework
@@ -58,7 +54,8 @@ namespace Misitu.EntityFramework
 
         //Billing
         public virtual IDbSet<Bill> Bills { get; set; }
-        
+        public virtual IDbSet<BillItem> BillItems { get; set; }
+
 
         //Plot Scalling
         public virtual IDbSet<HarvestingPlan> HarvestingPlans { get; set; }
@@ -95,7 +92,6 @@ namespace Misitu.EntityFramework
         public virtual IDbSet<InspectionAudit> InspectionAudities { get; set; }
         public virtual IDbSet<MainRevenueSource> MainRevenueSourcees { get; set; }
         public virtual IDbSet<RevenueSource> RevenueSources { get; set; }
-        public virtual IDbSet<BillItem> BillItems { get; set; }
         public virtual IDbSet<Payment> Payments { get; set; }
 
 
@@ -118,6 +114,7 @@ namespace Misitu.EntityFramework
             modelBuilder.Entity<ForestProduceRegistration>().HasRequired(i => i.Applicant).WithMany().HasForeignKey(k => k.ApplicantId).WillCascadeOnDelete(false);
             modelBuilder.Entity<ForestProduceRegistration>().HasRequired(i => i.FinancialYear).WithMany().HasForeignKey(k => k.FinancialYearId).WillCascadeOnDelete(false);
             modelBuilder.Entity<ForestProduceRegistration>().HasRequired(i => i.District).WithMany().HasForeignKey(k => k.DistrictId).WillCascadeOnDelete(false);
+
             modelBuilder.Entity<TransitPass>().HasRequired(i => i.Applicant).WithMany().HasForeignKey(k => k.ApplicantId).WillCascadeOnDelete(false);
             modelBuilder.Entity<BillTransitPass>().HasRequired(i => i.TransitPass).WithMany().HasForeignKey(k => k.TransitPassId).WillCascadeOnDelete(false);
             modelBuilder.Entity<CheckPointTransitPass>().HasRequired(i => i.TransitPass).WithMany().HasForeignKey(k => k.TransitPassId).WillCascadeOnDelete(false);
@@ -126,6 +123,7 @@ namespace Misitu.EntityFramework
 
             modelBuilder.Entity<ExportDetail>().HasRequired(i => i.FinancialYear).WithMany().HasForeignKey(k => k.FinancialYearId).WillCascadeOnDelete(false);
             modelBuilder.Entity<ExportSpecie>().HasRequired(i => i.Specie).WithMany().HasForeignKey(k => k.SpecieId).WillCascadeOnDelete(false);
+            modelBuilder.Entity<Dealer>().HasRequired(i => i.Applicant).WithMany().HasForeignKey(k => k.ApplicantId).WillCascadeOnDelete(false);
 
         }
 

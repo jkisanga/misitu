@@ -7,13 +7,13 @@ namespace Misitu.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class is_reg_submitted : IMigrationMetadata
+    public sealed partial class InitialTables : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(is_reg_submitted));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialTables));
         
         string IMigrationMetadata.Id
         {
-            get { return "201801150848215_is_reg_submitted"; }
+            get { return "201801210719137_InitialTables"; }
         }
         
         string IMigrationMetadata.Source

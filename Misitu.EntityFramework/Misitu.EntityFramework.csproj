@@ -100,6 +100,10 @@
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Misitu.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Misitu.Core\bin\Debug\Misitu.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -142,45 +146,17 @@
   <ItemGroup>
     <Compile Include="EntityFramework\MisituDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\MisituRepositoryBase.cs" />
-    <Compile Include="Migrations\201801150911426_Update_Activity_Bill_BillItem_Add_Payment.cs" />
-    <Compile Include="Migrations\201801150911426_Update_Activity_Bill_BillItem_Add_Payment.Designer.cs">
-      <DependentUpon>201801150911426_Update_Activity_Bill_BillItem_Add_Payment.cs</DependentUpon>
+    <Compile Include="Migrations\201701271145151_AbpZero_Initial.cs" />
+    <Compile Include="Migrations\201701271145151_AbpZero_Initial.designer.cs">
+      <DependentUpon>201701271145151_AbpZero_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801161009161_Update_TP.cs" />
-    <Compile Include="Migrations\201801161009161_Update_TP.Designer.cs">
-      <DependentUpon>201801161009161_Update_TP.cs</DependentUpon>
+    <Compile Include="Migrations\201801210719137_InitialTables.cs" />
+    <Compile Include="Migrations\201801210719137_InitialTables.Designer.cs">
+      <DependentUpon>201801210719137_InitialTables.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801170757221_udd_bool_stutas_in_TP.cs" />
-    <Compile Include="Migrations\201801170757221_udd_bool_stutas_in_TP.Designer.cs">
-      <DependentUpon>201801170757221_udd_bool_stutas_in_TP.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801111025242_ExportTables.cs" />
-    <Compile Include="Migrations\201801111025242_ExportTables.Designer.cs">
-      <DependentUpon>201801111025242_ExportTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801150403488_major_updates.cs" />
-    <Compile Include="Migrations\201801150403488_major_updates.Designer.cs">
-      <DependentUpon>201801150403488_major_updates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801150440079_applicant_changes.cs" />
-    <Compile Include="Migrations\201801150440079_applicant_changes.Designer.cs">
-      <DependentUpon>201801150440079_applicant_changes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801150535050_registration.cs" />
-    <Compile Include="Migrations\201801150535050_registration.Designer.cs">
-      <DependentUpon>201801150535050_registration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801150848215_is_reg_submitted.cs" />
-    <Compile Include="Migrations\201801150848215_is_reg_submitted.Designer.cs">
-      <DependentUpon>201801150848215_is_reg_submitted.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801160716361_bill_update.cs" />
-    <Compile Include="Migrations\201801160716361_bill_update.Designer.cs">
-      <DependentUpon>201801160716361_bill_update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801170720147_is_denied_application.cs" />
-    <Compile Include="Migrations\201801170720147_is_denied_application.Designer.cs">
-      <DependentUpon>201801170720147_is_denied_application.cs</DependentUpon>
+    <Compile Include="Migrations\201801210831597_BillItem.cs" />
+    <Compile Include="Migrations\201801210831597_BillItem.Designer.cs">
+      <DependentUpon>201801210831597_BillItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -205,48 +181,15 @@
     <Content Include="ReportViewerWebForm.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801011046350_add_ForestProduceAppliedSpecieCategory_table.resx">
-      <DependentUpon>201801011046350_add_ForestProduceAppliedSpecieCategory_table.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201701271145151_AbpZero_Initial.resx">
+      <DependentUpon>201701271145151_AbpZero_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801020709204_add_ForestProduceApplied_table.resx">
-      <DependentUpon>201801020709204_add_ForestProduceApplied_table.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801210719137_InitialTables.resx">
+      <DependentUpon>201801210719137_InitialTables.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801150911426_Update_Activity_Bill_BillItem_Add_Payment.resx">
-      <DependentUpon>201801150911426_Update_Activity_Bill_BillItem_Add_Payment.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801210831597_BillItem.resx">
+      <DependentUpon>201801210831597_BillItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801161009161_Update_TP.resx">
-      <DependentUpon>201801161009161_Update_TP.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801170757221_udd_bool_stutas_in_TP.resx">
-      <DependentUpon>201801170757221_udd_bool_stutas_in_TP.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801111025242_ExportTables.resx">
-      <DependentUpon>201801111025242_ExportTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801150403488_major_updates.resx">
-      <DependentUpon>201801150403488_major_updates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801150440079_applicant_changes.resx">
-      <DependentUpon>201801150440079_applicant_changes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801150535050_registration.resx">
-      <DependentUpon>201801150535050_registration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801150848215_is_reg_submitted.resx">
-      <DependentUpon>201801150848215_is_reg_submitted.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801160716361_bill_update.resx">
-      <DependentUpon>201801160716361_bill_update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801170720147_is_denied_application.resx">
-      <DependentUpon>201801170720147_is_denied_application.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Misitu.Core\Misitu.Core.csproj">
-      <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
-      <Name>Misitu.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

@@ -35,9 +35,7 @@ namespace Misitu.Billing.Dto
         public virtual double DataSheet { get; set; }
         public virtual double Others { get; set; }
         public virtual double Total { get; set; }
-        public virtual Double EquvAmont { get; set; }
-        public virtual Double MiscAmont { get; set; }
-        public virtual int GfsCode { get; set; }
+
 
         [ForeignKey("BillId")]
         public virtual Bill Bill { get; set; }

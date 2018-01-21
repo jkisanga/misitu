@@ -7,13 +7,13 @@ namespace Misitu.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class applicant_changes : IMigrationMetadata
+    public sealed partial class AbpZero_Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(applicant_changes));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AbpZero_Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201801150440079_applicant_changes"; }
+            get { return "201701271145151_AbpZero_Initial"; }
         }
         
         string IMigrationMetadata.Source

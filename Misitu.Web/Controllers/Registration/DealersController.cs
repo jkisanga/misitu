@@ -105,14 +105,25 @@ namespace Misitu.Web.Controllers.Registration
 
         public ActionResult ApproveRegistration(int id)
         {
+            var dealer = _dealerAppService.GetDealer(id);
+            var DealerActivities = _dealerActivityAppService.GetDealerActivities(dealer);
+            ViewBag.DealerActivities = DealerActivities;
+
+            return View(dealer);
+        }
+
+        [HttpPost]
+        public ActionResult ApproveRegistration(DealerDto input)
+        {
             double TotalBillAmount = 0;
             try
             {
-               int dealerId =  _dealerAppService.ApproveRegistration(id);
-
-               var dealer = _dealerAppService.GetDealer(dealerId);
-               var DealerActivities = _dealerActivityAppService.GetDealerActivities(dealer);
-
+                var dealer = _dealerAppService.GetDealer(input.Id);
+                var DealerActivities = _dealerActivityAppService.GetDealerActivities(dealer);
+                if (input.Remark != null && dealer != null)
+                {
+                  int dealerId =  _dealerAppService.ApproveRegistration(dealer);
+              
                 foreach (var activity in DealerActivities) {
                     TotalBillAmount = TotalBillAmount + activity.Activity.Fee + activity.Activity.RegistrationFee; 
                 }
@@ -149,6 +160,13 @@ namespace Misitu.Web.Controllers.Registration
 
                 TempData["success"] = string.Format(@"The application has been approved  successfully!");
                 return RedirectToAction("OnlineRegApplications");
+                }
+                else
+                {
+                    ViewBag.DealerActivities = DealerActivities;
+                    TempData["danger"] = string.Format(@"Failed to reject the selected application, remarks field should not be empty!");
+                    return View(dealer);
+                }
             }
             catch
             {
@@ -183,7 +201,7 @@ namespace Misitu.Web.Controllers.Registration
             else
             {
                 ViewBag.DealerActivities = DealerActivities;
-                TempData["danger"] = string.Format(@"Failed to deny the selected application, remarks field should not be empty!");
+                TempData["danger"] = string.Format(@"Failed to reject the selected application, remarks field should not be empty!");
                 return View(dealer);
             }         
         }

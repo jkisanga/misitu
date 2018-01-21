@@ -32,6 +32,8 @@ namespace Misitu.Web.Datasets {
         
         private LicenceDataTable tableLicence;
         
+        private TransitPassDataTable tableTransitPass;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -71,6 +73,9 @@ namespace Misitu.Web.Datasets {
                 }
                 if ((ds.Tables["Licence"] != null)) {
                     base.Tables.Add(new LicenceDataTable(ds.Tables["Licence"]));
+                }
+                if ((ds.Tables["TransitPass"] != null)) {
+                    base.Tables.Add(new TransitPassDataTable(ds.Tables["TransitPass"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -127,6 +132,16 @@ namespace Misitu.Web.Datasets {
         public LicenceDataTable Licence {
             get {
                 return this.tableLicence;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public TransitPassDataTable TransitPass {
+            get {
+                return this.tableTransitPass;
             }
         }
         
@@ -209,6 +224,9 @@ namespace Misitu.Web.Datasets {
                 if ((ds.Tables["Licence"] != null)) {
                     base.Tables.Add(new LicenceDataTable(ds.Tables["Licence"]));
                 }
+                if ((ds.Tables["TransitPass"] != null)) {
+                    base.Tables.Add(new TransitPassDataTable(ds.Tables["TransitPass"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -266,6 +284,12 @@ namespace Misitu.Web.Datasets {
                     this.tableLicence.InitVars();
                 }
             }
+            this.tableTransitPass = ((TransitPassDataTable)(base.Tables["TransitPass"]));
+            if ((initTable == true)) {
+                if ((this.tableTransitPass != null)) {
+                    this.tableTransitPass.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -284,6 +308,8 @@ namespace Misitu.Web.Datasets {
             base.Tables.Add(this.tableHarvestBill);
             this.tableLicence = new LicenceDataTable();
             base.Tables.Add(this.tableLicence);
+            this.tableTransitPass = new TransitPassDataTable();
+            base.Tables.Add(this.tableTransitPass);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -307,6 +333,12 @@ namespace Misitu.Web.Datasets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeLicence() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeTransitPass() {
             return false;
         }
         
@@ -376,6 +408,9 @@ namespace Misitu.Web.Datasets {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void LicenceRowChangeEventHandler(object sender, LicenceRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void TransitPassRowChangeEventHandler(object sender, TransitPassRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2240,6 +2275,607 @@ namespace Misitu.Web.Datasets {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "LicenceDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class TransitPassDataTable : global::System.Data.TypedTableBase<TransitPassRow> {
+            
+            private global::System.Data.DataColumn columnId;
+            
+            private global::System.Data.DataColumn columnApplicant;
+            
+            private global::System.Data.DataColumn columnStationName;
+            
+            private global::System.Data.DataColumn columnOrginalCountry;
+            
+            private global::System.Data.DataColumn columnNoOfConsignment;
+            
+            private global::System.Data.DataColumn columnLisenceNo;
+            
+            private global::System.Data.DataColumn columnTransitPassNo;
+            
+            private global::System.Data.DataColumn columnSourceForest;
+            
+            private global::System.Data.DataColumn columnIssuedDate;
+            
+            private global::System.Data.DataColumn columnExpireDate;
+            
+            private global::System.Data.DataColumn columnSourceName;
+            
+            private global::System.Data.DataColumn columnDestinationName;
+            
+            private global::System.Data.DataColumn columnVehcleNo;
+            
+            private global::System.Data.DataColumn columnHummerNo;
+            
+            private global::System.Data.DataColumn columnHummerMaker;
+            
+            private global::System.Data.DataColumn columnHummerStation;
+            
+            private global::System.Data.DataColumn columnAdditionInformation;
+            
+            private global::System.Data.DataColumn columnStationAddress;
+            
+            private global::System.Data.DataColumn columnCreatedUser;
+            
+            private global::System.Data.DataColumn columnCreationTime;
+            
+            private global::System.Data.DataColumn columnBillId;
+            
+            private global::System.Data.DataColumn columnItemDescription;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TransitPassDataTable() {
+                this.TableName = "TransitPass";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal TransitPassDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected TransitPassDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IdColumn {
+                get {
+                    return this.columnId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ApplicantColumn {
+                get {
+                    return this.columnApplicant;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn StationNameColumn {
+                get {
+                    return this.columnStationName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OrginalCountryColumn {
+                get {
+                    return this.columnOrginalCountry;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NoOfConsignmentColumn {
+                get {
+                    return this.columnNoOfConsignment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LisenceNoColumn {
+                get {
+                    return this.columnLisenceNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TransitPassNoColumn {
+                get {
+                    return this.columnTransitPassNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SourceForestColumn {
+                get {
+                    return this.columnSourceForest;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IssuedDateColumn {
+                get {
+                    return this.columnIssuedDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ExpireDateColumn {
+                get {
+                    return this.columnExpireDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SourceNameColumn {
+                get {
+                    return this.columnSourceName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DestinationNameColumn {
+                get {
+                    return this.columnDestinationName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn VehcleNoColumn {
+                get {
+                    return this.columnVehcleNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HummerNoColumn {
+                get {
+                    return this.columnHummerNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HummerMakerColumn {
+                get {
+                    return this.columnHummerMaker;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HummerStationColumn {
+                get {
+                    return this.columnHummerStation;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AdditionInformationColumn {
+                get {
+                    return this.columnAdditionInformation;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn StationAddressColumn {
+                get {
+                    return this.columnStationAddress;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CreatedUserColumn {
+                get {
+                    return this.columnCreatedUser;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CreationTimeColumn {
+                get {
+                    return this.columnCreationTime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BillIdColumn {
+                get {
+                    return this.columnBillId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ItemDescriptionColumn {
+                get {
+                    return this.columnItemDescription;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TransitPassRow this[int index] {
+                get {
+                    return ((TransitPassRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event TransitPassRowChangeEventHandler TransitPassRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event TransitPassRowChangeEventHandler TransitPassRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event TransitPassRowChangeEventHandler TransitPassRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event TransitPassRowChangeEventHandler TransitPassRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddTransitPassRow(TransitPassRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TransitPassRow AddTransitPassRow(
+                        string Applicant, 
+                        string StationName, 
+                        string OrginalCountry, 
+                        string NoOfConsignment, 
+                        string LisenceNo, 
+                        string TransitPassNo, 
+                        int SourceForest, 
+                        System.DateTime IssuedDate, 
+                        System.DateTime ExpireDate, 
+                        string SourceName, 
+                        string DestinationName, 
+                        string VehcleNo, 
+                        string HummerNo, 
+                        string HummerMaker, 
+                        string HummerStation, 
+                        string AdditionInformation, 
+                        string StationAddress, 
+                        string CreatedUser, 
+                        System.DateTime CreationTime, 
+                        int BillId, 
+                        string ItemDescription) {
+                TransitPassRow rowTransitPassRow = ((TransitPassRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Applicant,
+                        StationName,
+                        OrginalCountry,
+                        NoOfConsignment,
+                        LisenceNo,
+                        TransitPassNo,
+                        SourceForest,
+                        IssuedDate,
+                        ExpireDate,
+                        SourceName,
+                        DestinationName,
+                        VehcleNo,
+                        HummerNo,
+                        HummerMaker,
+                        HummerStation,
+                        AdditionInformation,
+                        StationAddress,
+                        CreatedUser,
+                        CreationTime,
+                        BillId,
+                        ItemDescription};
+                rowTransitPassRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTransitPassRow);
+                return rowTransitPassRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TransitPassRow FindById(int Id) {
+                return ((TransitPassRow)(this.Rows.Find(new object[] {
+                            Id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                TransitPassDataTable cln = ((TransitPassDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new TransitPassDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnId = base.Columns["Id"];
+                this.columnApplicant = base.Columns["Applicant"];
+                this.columnStationName = base.Columns["StationName"];
+                this.columnOrginalCountry = base.Columns["OrginalCountry"];
+                this.columnNoOfConsignment = base.Columns["NoOfConsignment"];
+                this.columnLisenceNo = base.Columns["LisenceNo"];
+                this.columnTransitPassNo = base.Columns["TransitPassNo"];
+                this.columnSourceForest = base.Columns["SourceForest"];
+                this.columnIssuedDate = base.Columns["IssuedDate"];
+                this.columnExpireDate = base.Columns["ExpireDate"];
+                this.columnSourceName = base.Columns["SourceName"];
+                this.columnDestinationName = base.Columns["DestinationName"];
+                this.columnVehcleNo = base.Columns["VehcleNo"];
+                this.columnHummerNo = base.Columns["HummerNo"];
+                this.columnHummerMaker = base.Columns["HummerMaker"];
+                this.columnHummerStation = base.Columns["HummerStation"];
+                this.columnAdditionInformation = base.Columns["AdditionInformation"];
+                this.columnStationAddress = base.Columns["StationAddress"];
+                this.columnCreatedUser = base.Columns["CreatedUser"];
+                this.columnCreationTime = base.Columns["CreationTime"];
+                this.columnBillId = base.Columns["BillId"];
+                this.columnItemDescription = base.Columns["ItemDescription"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.columnApplicant = new global::System.Data.DataColumn("Applicant", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnApplicant);
+                this.columnStationName = new global::System.Data.DataColumn("StationName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStationName);
+                this.columnOrginalCountry = new global::System.Data.DataColumn("OrginalCountry", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrginalCountry);
+                this.columnNoOfConsignment = new global::System.Data.DataColumn("NoOfConsignment", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNoOfConsignment);
+                this.columnLisenceNo = new global::System.Data.DataColumn("LisenceNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLisenceNo);
+                this.columnTransitPassNo = new global::System.Data.DataColumn("TransitPassNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransitPassNo);
+                this.columnSourceForest = new global::System.Data.DataColumn("SourceForest", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSourceForest);
+                this.columnIssuedDate = new global::System.Data.DataColumn("IssuedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIssuedDate);
+                this.columnExpireDate = new global::System.Data.DataColumn("ExpireDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnExpireDate);
+                this.columnSourceName = new global::System.Data.DataColumn("SourceName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSourceName);
+                this.columnDestinationName = new global::System.Data.DataColumn("DestinationName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDestinationName);
+                this.columnVehcleNo = new global::System.Data.DataColumn("VehcleNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVehcleNo);
+                this.columnHummerNo = new global::System.Data.DataColumn("HummerNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHummerNo);
+                this.columnHummerMaker = new global::System.Data.DataColumn("HummerMaker", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHummerMaker);
+                this.columnHummerStation = new global::System.Data.DataColumn("HummerStation", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHummerStation);
+                this.columnAdditionInformation = new global::System.Data.DataColumn("AdditionInformation", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAdditionInformation);
+                this.columnStationAddress = new global::System.Data.DataColumn("StationAddress", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStationAddress);
+                this.columnCreatedUser = new global::System.Data.DataColumn("CreatedUser", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreatedUser);
+                this.columnCreationTime = new global::System.Data.DataColumn("CreationTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreationTime);
+                this.columnBillId = new global::System.Data.DataColumn("BillId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBillId);
+                this.columnItemDescription = new global::System.Data.DataColumn("ItemDescription", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItemDescription);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId}, true));
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
+                this.columnId.AllowDBNull = false;
+                this.columnId.ReadOnly = true;
+                this.columnId.Unique = true;
+                this.columnApplicant.AllowDBNull = false;
+                this.columnApplicant.Caption = "ApplicantId";
+                this.columnStationName.AllowDBNull = false;
+                this.columnStationName.Caption = "BillId";
+                this.columnOrginalCountry.MaxLength = 2147483647;
+                this.columnNoOfConsignment.MaxLength = 2147483647;
+                this.columnLisenceNo.MaxLength = 2147483647;
+                this.columnTransitPassNo.MaxLength = 2147483647;
+                this.columnSourceForest.AllowDBNull = false;
+                this.columnIssuedDate.AllowDBNull = false;
+                this.columnExpireDate.AllowDBNull = false;
+                this.columnSourceName.MaxLength = 2147483647;
+                this.columnDestinationName.MaxLength = 2147483647;
+                this.columnVehcleNo.MaxLength = 2147483647;
+                this.columnHummerNo.MaxLength = 2147483647;
+                this.columnHummerMaker.MaxLength = 2147483647;
+                this.columnHummerStation.Caption = "HummerStationId";
+                this.columnHummerStation.MaxLength = 2147483647;
+                this.columnAdditionInformation.MaxLength = 2147483647;
+                this.columnStationAddress.AllowDBNull = false;
+                this.columnStationAddress.Caption = "Status";
+                this.columnCreatedUser.AllowDBNull = false;
+                this.columnCreatedUser.Caption = "IsDeleted";
+                this.columnCreationTime.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TransitPassRow NewTransitPassRow() {
+                return ((TransitPassRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new TransitPassRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(TransitPassRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.TransitPassRowChanged != null)) {
+                    this.TransitPassRowChanged(this, new TransitPassRowChangeEvent(((TransitPassRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.TransitPassRowChanging != null)) {
+                    this.TransitPassRowChanging(this, new TransitPassRowChangeEvent(((TransitPassRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.TransitPassRowDeleted != null)) {
+                    this.TransitPassRowDeleted(this, new TransitPassRowChangeEvent(((TransitPassRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.TransitPassRowDeleting != null)) {
+                    this.TransitPassRowDeleting(this, new TransitPassRowChangeEvent(((TransitPassRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveTransitPassRow(TransitPassRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                Misitu ds = new Misitu();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "TransitPassDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -4189,6 +4825,484 @@ namespace Misitu.Web.Datasets {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class TransitPassRow : global::System.Data.DataRow {
+            
+            private TransitPassDataTable tableTransitPass;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal TransitPassRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableTransitPass = ((TransitPassDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Id {
+                get {
+                    return ((int)(this[this.tableTransitPass.IdColumn]));
+                }
+                set {
+                    this[this.tableTransitPass.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Applicant {
+                get {
+                    return ((string)(this[this.tableTransitPass.ApplicantColumn]));
+                }
+                set {
+                    this[this.tableTransitPass.ApplicantColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string StationName {
+                get {
+                    return ((string)(this[this.tableTransitPass.StationNameColumn]));
+                }
+                set {
+                    this[this.tableTransitPass.StationNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string OrginalCountry {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransitPass.OrginalCountryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'OrginalCountry\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.OrginalCountryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NoOfConsignment {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransitPass.NoOfConsignmentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NoOfConsignment\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.NoOfConsignmentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string LisenceNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransitPass.LisenceNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LisenceNo\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.LisenceNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TransitPassNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransitPass.TransitPassNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TransitPassNo\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.TransitPassNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int SourceForest {
+                get {
+                    return ((int)(this[this.tableTransitPass.SourceForestColumn]));
+                }
+                set {
+                    this[this.tableTransitPass.SourceForestColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime IssuedDate {
+                get {
+                    return ((global::System.DateTime)(this[this.tableTransitPass.IssuedDateColumn]));
+                }
+                set {
+                    this[this.tableTransitPass.IssuedDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime ExpireDate {
+                get {
+                    return ((global::System.DateTime)(this[this.tableTransitPass.ExpireDateColumn]));
+                }
+                set {
+                    this[this.tableTransitPass.ExpireDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string SourceName {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransitPass.SourceNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SourceName\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.SourceNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DestinationName {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransitPass.DestinationNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DestinationName\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.DestinationNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string VehcleNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransitPass.VehcleNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VehcleNo\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.VehcleNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string HummerNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransitPass.HummerNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HummerNo\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.HummerNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string HummerMaker {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransitPass.HummerMakerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HummerMaker\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.HummerMakerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string HummerStation {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransitPass.HummerStationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HummerStation\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.HummerStationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string AdditionInformation {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransitPass.AdditionInformationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AdditionInformation\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.AdditionInformationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string StationAddress {
+                get {
+                    return ((string)(this[this.tableTransitPass.StationAddressColumn]));
+                }
+                set {
+                    this[this.tableTransitPass.StationAddressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CreatedUser {
+                get {
+                    return ((string)(this[this.tableTransitPass.CreatedUserColumn]));
+                }
+                set {
+                    this[this.tableTransitPass.CreatedUserColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime CreationTime {
+                get {
+                    return ((global::System.DateTime)(this[this.tableTransitPass.CreationTimeColumn]));
+                }
+                set {
+                    this[this.tableTransitPass.CreationTimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int BillId {
+                get {
+                    try {
+                        return ((int)(this[this.tableTransitPass.BillIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BillId\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.BillIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ItemDescription {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransitPass.ItemDescriptionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemDescription\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.ItemDescriptionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOrginalCountryNull() {
+                return this.IsNull(this.tableTransitPass.OrginalCountryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOrginalCountryNull() {
+                this[this.tableTransitPass.OrginalCountryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNoOfConsignmentNull() {
+                return this.IsNull(this.tableTransitPass.NoOfConsignmentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNoOfConsignmentNull() {
+                this[this.tableTransitPass.NoOfConsignmentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLisenceNoNull() {
+                return this.IsNull(this.tableTransitPass.LisenceNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLisenceNoNull() {
+                this[this.tableTransitPass.LisenceNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTransitPassNoNull() {
+                return this.IsNull(this.tableTransitPass.TransitPassNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTransitPassNoNull() {
+                this[this.tableTransitPass.TransitPassNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSourceNameNull() {
+                return this.IsNull(this.tableTransitPass.SourceNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSourceNameNull() {
+                this[this.tableTransitPass.SourceNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDestinationNameNull() {
+                return this.IsNull(this.tableTransitPass.DestinationNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDestinationNameNull() {
+                this[this.tableTransitPass.DestinationNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsVehcleNoNull() {
+                return this.IsNull(this.tableTransitPass.VehcleNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetVehcleNoNull() {
+                this[this.tableTransitPass.VehcleNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHummerNoNull() {
+                return this.IsNull(this.tableTransitPass.HummerNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHummerNoNull() {
+                this[this.tableTransitPass.HummerNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHummerMakerNull() {
+                return this.IsNull(this.tableTransitPass.HummerMakerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHummerMakerNull() {
+                this[this.tableTransitPass.HummerMakerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHummerStationNull() {
+                return this.IsNull(this.tableTransitPass.HummerStationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHummerStationNull() {
+                this[this.tableTransitPass.HummerStationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAdditionInformationNull() {
+                return this.IsNull(this.tableTransitPass.AdditionInformationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAdditionInformationNull() {
+                this[this.tableTransitPass.AdditionInformationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBillIdNull() {
+                return this.IsNull(this.tableTransitPass.BillIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBillIdNull() {
+                this[this.tableTransitPass.BillIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsItemDescriptionNull() {
+                return this.IsNull(this.tableTransitPass.ItemDescriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetItemDescriptionNull() {
+                this[this.tableTransitPass.ItemDescriptionColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -4310,6 +5424,40 @@ namespace Misitu.Web.Datasets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public LicenceRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class TransitPassRowChangeEvent : global::System.EventArgs {
+            
+            private TransitPassRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TransitPassRowChangeEvent(TransitPassRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TransitPassRow Row {
                 get {
                     return this.eventRow;
                 }

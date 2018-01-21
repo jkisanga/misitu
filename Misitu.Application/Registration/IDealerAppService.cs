@@ -31,7 +31,7 @@ namespace Misitu.Registration
 
         DealerDto GetRegApplication(int applicantId, FinancialYearDto FinancialYear);//submitted application for registrtation for online user
 
-        int ApproveRegistration(int id);
+        int ApproveRegistration(DealerDto input);
 
         void DenyRegistration(DealerDto input);
 

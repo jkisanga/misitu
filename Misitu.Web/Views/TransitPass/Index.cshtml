@@ -1,22 +1,18 @@
 ﻿@model IEnumerable<Misitu.TransitPasses.TransitPassDto>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.ActiveMenu = "Transit Passes"; //The menu item will be active for this page.
+    ViewBag.Title = "Transit Passes";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
+       
         <th>
-            @Html.DisplayNameFor(model => model.Applicant.Name)
+            @Html.DisplayName("Tp Holder")
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OrginalCountry)
-        </th>
+ 
         <th>
             @Html.DisplayNameFor(model => model.NoOfConsignment)
         </th>
@@ -37,63 +33,28 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.SourceName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DestinationId)
-        </th>
+        </th>   
         <th>
             @Html.DisplayNameFor(model => model.DestinationName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.VehcleNo)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IssuerOfficer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HummerNo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HummerMaker)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HummerStationId)
-        </th>
+    
+  
         <th>
             @Html.DisplayNameFor(model => model.AdditionInformation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsDeleted)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DeleterUserId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DeletionTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastModificationTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastModifierUserId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreationTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatorUserId)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+       
         <td>
             @Html.DisplayFor(modelItem => item.Applicant.Name)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrginalCountry)
-        </td>
+           
         <td>
             @Html.DisplayFor(modelItem => item.NoOfConsignment)
         </td>
@@ -115,55 +76,17 @@
         <td>
             @Html.DisplayFor(modelItem => item.SourceName)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DestinationId)
-        </td>
+    
         <td>
             @Html.DisplayFor(modelItem => item.DestinationName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.VehcleNo)
         </td>
+       
         <td>
-            @Html.DisplayFor(modelItem => item.IssuerOfficer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HummerNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HummerMaker)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HummerStationId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AdditionInformation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsDeleted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DeleterUserId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DeletionTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastModificationTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastModifierUserId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreationTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatorUserId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("View Printout", "getTransitPass", new { id=item.Id }) 
+       
         </td>
     </tr>
 }

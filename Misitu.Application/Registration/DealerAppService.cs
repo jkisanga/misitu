@@ -374,13 +374,14 @@ namespace Misitu.Registration
         }
 
         //approve application for registration
-        public int ApproveRegistration(int id)
+        public int ApproveRegistration(DealerDto input)
         {
-            var dealer = _dealerRepository.FirstOrDefault(id);
+            var dealer = _dealerRepository.FirstOrDefault(input.Id);
             if(dealer != null && dealer.IsSubmitted == true)
             {
                 dealer.IsApproved = true;
                 dealer.ApprovedUserId = (int)AbpSession.UserId;
+                dealer.Remark = input.Remark;
 
                 return _dealerRepository.InsertOrUpdateAndGetId(dealer);
 

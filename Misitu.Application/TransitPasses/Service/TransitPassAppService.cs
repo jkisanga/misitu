@@ -2,6 +2,8 @@
 using Abp.Domain.Repositories;
 using Abp.UI;
 using Misitu.Applicants;
+using Misitu.Billing;
+using Misitu.TransitPasses.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +16,16 @@ namespace Misitu.TransitPasses.Service
     {
         private readonly IRepository<Applicant> reporitaryApplicant;
         private readonly IRepository<TransitPass> repositoryTransitpass;
+        private readonly IRepository<BillItem> billItemRepository;
 
-        public TransitPassAppService(IRepository<Applicant> reporitaryApplicant, IRepository<TransitPass> repositoryTransitpass)
+        public TransitPassAppService(IRepository<Applicant> reporitaryApplicant,
+            IRepository<TransitPass> repositoryTransitpass, 
+            IRepository<TransitPass> repositoryTransitpass,
+            IRepository<BillItem> billItemRepository)
         {
             this.reporitaryApplicant = reporitaryApplicant;
             this.repositoryTransitpass = repositoryTransitpass;
+            this.billItemRepository = billItemRepository;
         }
 
         public int CreateTransitPass(CreateTransitPassInput input)
@@ -71,6 +78,37 @@ namespace Misitu.TransitPasses.Service
             var obj = this.repositoryTransitpass.FirstOrDefault(id);
 
             return obj.MapTo<TransitPassDto>();
+        }
+
+        //
+
+        public List<TransitPassPrintout> GetTransitPassPrintout(int id)
+        {
+            
+            var printout = from tp in this.repositoryTransitpass.GetAll()
+                        join item in this.billItemRepository.GetAll() on tp.BillId equals item.BillId
+                         where tp.Id == id
+                        select  new TransitPassPrintout
+                            {
+                                 Id = tp.Id,
+                                 Applicant = tp.Applicant.Name,
+                                 OrginalCountry = tp.OrginalCountry,
+                                 NoOfConsignment = tp.NoOfConsignment,
+                                 LisenceNo  = tp.LisenceNo,
+                                 TransitPassNo = tp.TransitPassNo,
+                                 IssuedDate = tp.IssuedDate,
+                                 ExpireDate = tp.ExpireDate,
+                                 SourceName = tp.SourceName,
+                                 DestinationName = tp.DestinationName,
+                                 VehcleNo = tp.VehcleNo,
+                                 HummerNo = tp.HummerNo,
+                                 HummerMaker = tp.HummerMaker,
+                                 AdditionInformation = tp.AdditionInformation,
+                                 CreationTime = tp.CreationTime,
+                                 ItemDescription = item.Description                                
+                            };
+
+            return new List<TransitPassPrintout>(printout.MapTo<List<TransitPassPrintout>>());
         }
 
         public List<TransitPassDto> GetTransitPasses()

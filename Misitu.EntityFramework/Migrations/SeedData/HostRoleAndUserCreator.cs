@@ -30,9 +30,17 @@ namespace Misitu.Migrations.SeedData
             //Admin role for host
 
             var adminRoleForHost = _context.Roles.FirstOrDefault(r => r.TenantId == null && r.Name == StaticRoleNames.Host.Admin);
-            if (adminRoleForHost == null)
+            var staffRoleForHost = _context.Roles.FirstOrDefault(r => r.TenantId == null && r.Name == StaticRoleNames.Host.Staff);
+            var clientRoleForHost = _context.Roles.FirstOrDefault(r => r.TenantId == null && r.Name == StaticRoleNames.Host.Client);
+            if (adminRoleForHost == null || staffRoleForHost== null || clientRoleForHost==null)
             {
                 adminRoleForHost = _context.Roles.Add(new Role { Name = StaticRoleNames.Host.Admin, DisplayName = StaticRoleNames.Host.Admin, IsStatic = true });
+                _context.SaveChanges();
+
+                 staffRoleForHost = _context.Roles.Add(new Role { Name = StaticRoleNames.Host.Staff, DisplayName = StaticRoleNames.Host.Staff, IsStatic = true });
+                _context.SaveChanges();
+
+                clientRoleForHost = _context.Roles.Add(new Role { Name = StaticRoleNames.Host.Client, DisplayName = StaticRoleNames.Host.Client, IsStatic = true });
                 _context.SaveChanges();
 
                 //Grant all tenant permissions
@@ -74,6 +82,7 @@ namespace Misitu.Migrations.SeedData
                 _context.SaveChanges();
 
                 _context.UserRoles.Add(new UserRole(null, adminUserForHost.Id, adminRoleForHost.Id));
+                _context.UserRoles.Add(new UserRole(null, adminUserForHost.Id, staffRoleForHost.Id));
 
                 _context.SaveChanges();
             }
