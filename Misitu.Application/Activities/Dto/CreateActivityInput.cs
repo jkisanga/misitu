@@ -1,5 +1,6 @@
 ﻿using Abp.AutoMapper;
 using Misitu.RefereneceTables;
+using Misitu.RevenueSources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -15,12 +16,13 @@ namespace Misitu.Activities
     {
         [Required]
         public virtual string Description { get; set; }
-        public virtual int RefServiceCategoryId { get; set; }
+        public virtual int RevenueSourceId { get; set; }
 
         [Required]
         public virtual double Fee { get; set; }
 
         public virtual double RegistrationFee { get; set; }
-       
+        [ForeignKey("RevenueSourceId")]
+        public virtual RevenueSource RevenueSource { get; set; }
     }
 }

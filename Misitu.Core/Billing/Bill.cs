@@ -16,7 +16,16 @@ namespace Misitu.Billing
     [Table("Bills")]
     public class Bill:FullAuditedEntity
     {
-
+        //public Bill()
+        //{
+        //    using (RandomNumberGenerator rng = new RNGCryptoServiceProvider())
+        //    {
+        //        byte[] tokenData = new byte[12];
+        //        rng.GetBytes(tokenData);              
+        //        ControlNumber = Convert.ToString(BitConverter.ToUInt32(tokenData, 0));
+        //    }
+            
+        //}
 
         public virtual int ApplicantId { get; set; }
 

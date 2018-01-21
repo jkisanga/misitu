@@ -237,7 +237,7 @@ namespace Misitu.Web.Controllers.Billing
         public ActionResult Confirm(int id, BillDto input, double Amount)
         {
             var bill = _billAppService.GetBill(id);
-            var dealer = _dealerAppService.GetDealer(input.ApplicantId);// change
+            var dealer = _dealerAppService.GetDealer(input.ApplicantId);
 
             if(bill != null)
             {

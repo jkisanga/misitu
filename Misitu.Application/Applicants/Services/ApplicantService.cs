@@ -25,6 +25,7 @@ namespace Misitu.Applicants.Services
         private readonly IRepository<ForestProduceRegistration> repositoryForestProduceRegistration;
         private readonly IRepository<ForestProduceAppliedForest> repositoryForestProduceAppliedForest;
         private readonly IRepository<ForestProduceAppliedSpecieCategory> repositoryForestProduceAppliedSpecieCategory;
+        private readonly IRepository<FinancialYear> repositoryFinancialYear;
 
     
         public ApplicantService(
@@ -34,7 +35,8 @@ namespace Misitu.Applicants.Services
               IRepository<FinancialYear> financialYearRepository,
             IRepository<ForestProduceRegistration> repositoryForestProduceRegistration,
             IRepository<ForestProduceAppliedForest> repositoryForestProduceAppliedForest,
-            IRepository<ForestProduceAppliedSpecieCategory> repositoryForestProduceAppliedSpecieCategory)
+            IRepository<ForestProduceAppliedSpecieCategory> repositoryForestProduceAppliedSpecieCategory,
+            IRepository<FinancialYear> repositoryFinancialYear)
         {
             this.reporitaryApplicant = reporitaryApplicant;
             this.repositoryApplicantType = repositoryApplicantType;
@@ -43,6 +45,7 @@ namespace Misitu.Applicants.Services
             this.repositoryForestProduceRegistration = repositoryForestProduceRegistration;
             this.repositoryForestProduceAppliedForest = repositoryForestProduceAppliedForest;
             this.repositoryForestProduceAppliedSpecieCategory = repositoryForestProduceAppliedSpecieCategory;
+            this.repositoryFinancialYear = repositoryFinancialYear;
         }
 
         public  int  CreateAsync(CreateInput input)
@@ -288,6 +291,18 @@ namespace Misitu.Applicants.Services
         public Task UpdateObject(ApplicantDto input)
         {
             throw new NotImplementedException();
+        }
+
+        public List<ApplicantDto> GetApplicantList()
+        {
+            //var FinancialYear = this.repositoryFinancialYear.ActivateFinancialYearAsync();
+            var bills = this.reporitaryApplicant
+             .GetAll()
+             .Where(p => p.IsDeleted == false)         
+             .OrderByDescending(p => p.Name)
+             .ToList();
+
+            return new List<ApplicantDto>(bills.MapTo<List<ApplicantDto>>());
         }
     }
 }

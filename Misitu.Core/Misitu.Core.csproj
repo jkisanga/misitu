@@ -133,6 +133,7 @@
     <Compile Include="Applicants\GenericTranstPass\GenericTranstPass.cs" />
     <Compile Include="Billing\Bill.cs" />
     <Compile Include="Billing\BillItem.cs" />
+    <Compile Include="Billing\Payment.cs" />
     <Compile Include="Divisions\Division.cs" />
     <Compile Include="FinancialYears\FinancialYear.cs" />
     <Compile Include="GnTreeVolumeRates\GnTreeVolumeRate.cs" />
@@ -169,12 +170,17 @@
     <Compile Include="Registration\Candidate.cs" />
     <Compile Include="Registration\Dealer.cs" />
     <Compile Include="Registration\DealerActivity.cs" />
+    <Compile Include="RevenueSources\MainRevenueSource.cs" />
     <Compile Include="RevenueSources\RefSubRevenueSource.cs" />
     <Compile Include="RevenueSources\RevenueSource.cs" />
     <Compile Include="Species\Specie.cs" />
     <Compile Include="Species\SpecieCategory.cs" />
     <Compile Include="Stations\Statiton.cs" />
     <Compile Include="Tariffs\Tariff.cs" />
+    <Compile Include="TransitPasses\BillTransitPass.cs" />
+    <Compile Include="TransitPasses\CheckPointTransitPass.cs" />
+    <Compile Include="TransitPasses\InspectionAudit.cs" />
+    <Compile Include="TransitPasses\TransitPass.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\UserManager.cs" />
     <Compile Include="Users\UserStore.cs" />

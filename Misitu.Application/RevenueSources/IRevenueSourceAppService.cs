@@ -19,5 +19,8 @@ namespace Misitu.RevenueSources
         Task UpdateRevenueResource(RevenueSourcesDto input);
 
         Task DeleteRevenueResourceAsync(RevenueSourcesDto input);
+
+
+
     }
 }

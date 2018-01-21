@@ -40,6 +40,7 @@ namespace Misitu.Applicants.Interface
         Task DeleteForestProduceRegistrationAsync(ForestProduceRegistrationDto input);
 
         List<ForestProduceAppliedSpecieCategoryDto> GetForestProduceAppliedSpecieCategoryList();
+        List<ApplicantDto> GetApplicantList();
 
         int CreateForestProduceAppliedSpecieCategory(CreateForestProduceAppliedSpecieCategory input);
 

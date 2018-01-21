@@ -1,0 +1,134 @@
+﻿@model Misitu.Billing.Dto.CreateBillInput
+
+@{
+    ViewBag.ActiveMenu = "Transit Passes"; //The menu item will be active for this page.
+    ViewBag.Title = "Transit Passes";
+}
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<h4>Create Transitpass Bill For @ViewBag.Applicant.Name</h4>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4></h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+       
+
+
+
+
+       
+        <input name="IssuedDate" value="@ViewBag.IssuedDate" type="hidden" />
+        <input name="ExpiredDate" value="@ViewBag.ExpiredDate" type="hidden" />
+        <input name="Currency" value="TZS" type="hidden" />
+        <input name="FinancialYearId" value="3" type="hidden" />
+        <input name="StationId" value="3" type="hidden" />
+       <input name="ApplicantId"  value="@ViewBag.Applicant.Id" type="hidden"/>
+             
+
+        <input value="@ViewBag.Description" class="form-control" name="Description" type="hidden" />
+
+      
+
+       
+
+        <div class="input-group control-group after-add-more">
+
+         <div class="row">
+             @Html.Label("Products", null, new { @class = "control-label col-md-2" })
+                 <div class="col-lg-5">
+                     <select name="ActivtiyId[]" class="form-control">
+                         <option></option>
+                         @foreach (var item in ViewBag.activities)
+                         {
+                             <option title="@item.Name" value="@item.Id">@item.Name</option>
+
+                         }
+
+                     </select>
+                 </div>
+                 <div class="col-lg-2">
+                     <input name="quantity[]" class="form-control" placeholder="Quantity" required  />
+                 </div>
+                 <div class="col-lg-2">
+                     <input name="amount[]" class="form-control"  placeholder="Amount" required/>
+
+                 </div>
+
+
+                 <div class="input-group-btn">
+                     <button class="btn btn-success add-more" type="button"><i class="glyphicon glyphicon-plus"></i> Add</button>
+                 </div>
+             </div>
+            </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+
+
+
+}
+
+ <!-- Copy Fields-These are the fields which we get through jquery and then add after the above input,-->
+<div class="copy-fields hide">
+    <div class="control-group input-group" >
+        <div class="row">
+            <div class="col-lg-2"></div>
+                <div class="col-lg-5">
+                    <select name="ActivtiyId[]" class="form-control">
+                       <option></option>
+                        @foreach (var item in ViewBag.activities)
+                        {
+                            <option title="@item.Name" value="@item.Id">@item.Name</option>
+
+                        }
+
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                    <input name="quantity[]" class="form-control" placeholder="Quantity" required />
+                </div>
+                <div class="col-lg-2">
+                    <input name="amount[]" class="form-control" placeholder="Amount" required />
+
+                </div>
+            </div>
+            <div class="input-group-btn">
+                <button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
+            </div>
+        </div>
+</div>
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        //here first get the contents of the div with name class copy-fields and add it to after "after-add-more" div class.
+        $(".add-more").click(function () {
+            var html = $(".copy-fields").html();
+            $(".after-add-more").after(html);
+        });
+        //here it will remove the current value of the remove button which has been pressed
+        $("body").on("click", ".remove", function () {
+            $(this).parents(".control-group").remove();
+        });
+
+    });
+
+</script>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

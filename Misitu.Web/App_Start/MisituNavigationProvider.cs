@@ -233,7 +233,43 @@ namespace Misitu.Web
                             url: "/TransitPass/Dashboard",
                             icon: "icon-desktop"
                             )
-                   )
+
+                   ).AddItem(
+                          new MenuItemDefinition(
+                            "Add New TP",
+                            new LocalizableString("Add New TP", "Misitu"),
+                            url: "/TransitPass/GetApplicantList",
+                            icon: "icon-plus"
+                            )
+                          ).AddItem(
+                          new MenuItemDefinition(
+                            "Pending TP",
+                            new LocalizableString("Pending TP", "Misitu"),
+                            url: "/TransitPass/PendingList",
+                            icon: "icon-list"
+                            )
+                          ).AddItem(
+                          new MenuItemDefinition(
+                            "Waiting Inspection",
+                            new LocalizableString("Waiting Inspection", "Misitu"),
+                            url: "/TransitPass/WaitingInspectionList",
+                            icon: "icon-list"
+                            )
+                          ).AddItem(
+                           new MenuItemDefinition(
+                            "Exipired TP",
+                            new LocalizableString("Exipired TP", "Misitu"),
+                            url: "/TransitPass/ExipiredTPList",
+                            icon: "icon-list"
+                            )
+                          ).AddItem(
+                           new MenuItemDefinition(
+                            "Inspected",
+                            new LocalizableString("Exipired TP", "Misitu"),
+                            url: "/TransitPass/ExipiredTPList",
+                            icon: "icon-list"
+                            )
+                          )
                    ).AddItem(
                       new MenuItemDefinition(
                     "Setup",

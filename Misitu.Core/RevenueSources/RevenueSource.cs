@@ -11,7 +11,11 @@ namespace Misitu.RevenueSources
     [Table("RevenueSources")]
     public class RevenueSource: FullAuditedEntity
     {
+        public virtual int MainRevenueSourceId { get; set; }
         public virtual string Code { get; set; }
         public virtual string Description { get; set; }
+
+        [ForeignKey("MainRevenueSourceId")]
+        public virtual MainRevenueSource MainRevenueSource { get; set; }
     }
 }
