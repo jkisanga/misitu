@@ -3,6 +3,7 @@ using Abp.Domain.Repositories;
 using Abp.UI;
 using Misitu.Applicants;
 using Misitu.Billing;
+using Misitu.Billing.Dto;
 using Misitu.TransitPasses.Dto;
 using System;
 using System.Collections.Generic;
@@ -17,15 +18,17 @@ namespace Misitu.TransitPasses.Service
         private readonly IRepository<Applicant> reporitaryApplicant;
         private readonly IRepository<TransitPass> repositoryTransitpass;
         private readonly IRepository<BillItem> billItemRepository;
+        private readonly IRepository<Bill> repositoryBill;
 
         public TransitPassAppService(IRepository<Applicant> reporitaryApplicant,
             IRepository<TransitPass> repositoryTransitpass, 
-            IRepository<TransitPass> repositoryTransitpass,
+            IRepository<Bill> repositoryBill,
             IRepository<BillItem> billItemRepository)
         {
             this.reporitaryApplicant = reporitaryApplicant;
             this.repositoryTransitpass = repositoryTransitpass;
             this.billItemRepository = billItemRepository;
+            this.repositoryBill = repositoryBill;
         }
 
         public int CreateTransitPass(CreateTransitPassInput input)
@@ -80,15 +83,46 @@ namespace Misitu.TransitPasses.Service
             return obj.MapTo<TransitPassDto>();
         }
 
+
+        //get bill
+        public List<BillPrint> getBillByTp(int id)
+        {
+            var bill = from tp in this.repositoryTransitpass.GetAll()
+                       join b in this.repositoryBill.GetAll() on tp.BillId equals b.Id
+                       join item in this.billItemRepository.GetAll() on b.Id equals item.BillId
+                       where tp.Id == id
+                       select new BillPrint
+                       {
+                           Id = b.Id,
+                           PayerName = b.Applicant.Name,
+                           PayerAddress = b.Applicant.Adress,
+                           PayerPhone = b.Applicant.Phone,
+                           Station = b.Station.Name,
+                           StationAddress = b.Station.Address,
+                           ControlNumber = b.ControlNumber,
+                           IssuedDate = b.IssuedDate,
+                           ExpireDate = b.ExpiredDate,
+                           BilledAmount = b.BillAmount,
+                           Currency = b.Currency,
+                           Description = b.Description,
+                           BillId = item.BillId,
+                           ItemDescription = item.Description,
+                           Amount = item.Total
+                       };
+
+            return new List<BillPrint>(bill.MapTo<List<BillPrint>>());
+        }
+
         //
+
 
         public List<TransitPassPrintout> GetTransitPassPrintout(int id)
         {
             
             var printout = from tp in this.repositoryTransitpass.GetAll()
-                        join item in this.billItemRepository.GetAll() on tp.BillId equals item.BillId
+                         join item in this.billItemRepository.GetAll() on tp.BillId equals item.BillId
                          where tp.Id == id
-                        select  new TransitPassPrintout
+                         select  new TransitPassPrintout
                             {
                                  Id = tp.Id,
                                  Applicant = tp.Applicant.Name,

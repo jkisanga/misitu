@@ -249,6 +249,47 @@ namespace Misitu.Web.Controllers
             }
         }
 
+        public ActionResult getBill(int id) {
+
+            try
+            {
+                var tp = this.transitPass.GetTransitPass(id);
+              
+
+                ReportViewer reportViewer = new ReportViewer();
+                reportViewer.Reset();
+                reportViewer.ProcessingMode = ProcessingMode.Local;
+                reportViewer.SizeToReportContent = true;
+
+                reportViewer.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reports\rptBill.rdlc";
+
+                ReportParameter billId = new ReportParameter("BillId", tp.BillId.ToString());
+                reportViewer.LocalReport.SetParameters(new ReportParameter[] { billId });
+                reportViewer.LocalReport.DataSources.Clear();
+
+                reportViewer.LocalReport.DataSources.Add(new ReportDataSource("DSBill", this.transitPass.getBillByTp(id)));
+                reportViewer.LocalReport.Refresh();
+
+
+                reportViewer.ProcessingMode = ProcessingMode.Local;
+                reportViewer.Width = 1200;
+                reportViewer.Height = 500;
+                reportViewer.ShowPrintButton = false;
+                reportViewer.ZoomMode = ZoomMode.FullPage;
+
+                ViewBag.rptBill = reportViewer;
+                ViewBag.BillId = id;
+
+                return View();
+            }
+            catch
+            {
+                TempData["danger"] = string.Format(@"We have detected problems contact the authority!");
+                return RedirectToAction("Dashboard", "TransitPass");
+
+            }
+        }
+
         public ActionResult getTransitPass(int id)
         {
 
