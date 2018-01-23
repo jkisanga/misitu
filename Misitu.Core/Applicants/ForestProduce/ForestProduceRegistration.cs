@@ -14,13 +14,7 @@ namespace Misitu.Applicants
 {
    public class ForestProduceRegistration : FullAuditedEntity
     {
-        public ForestProduceRegistration()
-        {
-            Status = 0;
-            CertificatePrented = 0;
-            RequirementTitle = "Testing Title";
-            RequirementDescription = "Testing Requirement Description";
-        }
+     
         //A: MASHARTI  KWA MWOMBAJI
         [Required]
         public virtual string RequirementTitle { get; set; }
@@ -58,12 +52,6 @@ namespace Misitu.Applicants
         public virtual string OperatorCertificateAttachment { get; set; }
         public virtual bool HasSawmillOperator { get; set; }
 
-        //E: MAELEZO YA MAHITAJI YA MALIGHAFI UNAYOOMBA
-        //Mahutaji ya malighafi yalioombwa yatakua katika table ForestProduceAppliedSpecieCategory
-
-
-
-
         //F: VIAMBATISHO NA MUDA WA KEREJESHA FOMU
         public virtual string TaxClearance { get; set; }
         public virtual string CertifiedAudted { get; set; }
@@ -71,11 +59,16 @@ namespace Misitu.Applicants
 
         //Upande wa Afisa wa TFS
       
-        public virtual int CertificatePrented { get; set; }
-       
-
-        public virtual int Status { get; set; }
+        public virtual bool CertificatePrinted { get; set; }
+      
+        public virtual string Status { get; set; }
         public virtual string Resoan { get; set; }
+
+        public virtual bool IsSubmitted { get; set; }
+        public virtual bool IsApproved { get; set; }
+        public virtual bool IsRejected { get; set; }
+        public virtual int? ApprovedUserId { get; set; }
+        public virtual string Remark { get; set; }
 
 
         [ForeignKey("ApplicantId")]

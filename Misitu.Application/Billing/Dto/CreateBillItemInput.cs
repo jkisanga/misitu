@@ -26,6 +26,8 @@ namespace Misitu.Billing.Dto
 
         public virtual int GfsCode { get; set; }
 
+        public virtual int Quantity { get; set; }
+
         public virtual double Loyality { get; set; }
         public virtual double TFF { get; set; }
         public virtual double LMDA { get; set; }

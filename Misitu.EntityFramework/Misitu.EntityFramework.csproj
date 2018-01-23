@@ -158,6 +158,18 @@
     <Compile Include="Migrations\201801210831597_BillItem.Designer.cs">
       <DependentUpon>201801210831597_BillItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801221147333_harvest_billitem_updates.cs" />
+    <Compile Include="Migrations\201801221147333_harvest_billitem_updates.Designer.cs">
+      <DependentUpon>201801221147333_harvest_billitem_updates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801221158421_activity_update.cs" />
+    <Compile Include="Migrations\201801221158421_activity_update.Designer.cs">
+      <DependentUpon>201801221158421_activity_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801231218434_tp_expire_days.cs" />
+    <Compile Include="Migrations\201801231218434_tp_expire_days.Designer.cs">
+      <DependentUpon>201801231218434_tp_expire_days.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\DefaultGNCreatot.cs" />
@@ -189,6 +201,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801210831597_BillItem.resx">
       <DependentUpon>201801210831597_BillItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801221147333_harvest_billitem_updates.resx">
+      <DependentUpon>201801221147333_harvest_billitem_updates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801221158421_activity_update.resx">
+      <DependentUpon>201801221158421_activity_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801231218434_tp_expire_days.resx">
+      <DependentUpon>201801231218434_tp_expire_days.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

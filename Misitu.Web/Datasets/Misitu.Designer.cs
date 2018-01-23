@@ -2366,6 +2366,8 @@ namespace Misitu.Web.Datasets {
             
             private global::System.Data.DataColumn columnItemDescription;
             
+            private global::System.Data.DataColumn columnQuantity;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TransitPassDataTable() {
@@ -2577,6 +2579,14 @@ namespace Misitu.Web.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn QuantityColumn {
+                get {
+                    return this.columnQuantity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2633,7 +2643,8 @@ namespace Misitu.Web.Datasets {
                         string CreatedUser, 
                         System.DateTime CreationTime, 
                         int BillId, 
-                        string ItemDescription) {
+                        string ItemDescription, 
+                        int Quantity) {
                 TransitPassRow rowTransitPassRow = ((TransitPassRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2657,7 +2668,8 @@ namespace Misitu.Web.Datasets {
                         CreatedUser,
                         CreationTime,
                         BillId,
-                        ItemDescription};
+                        ItemDescription,
+                        Quantity};
                 rowTransitPassRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTransitPassRow);
                 return rowTransitPassRow;
@@ -2709,6 +2721,7 @@ namespace Misitu.Web.Datasets {
                 this.columnCreationTime = base.Columns["CreationTime"];
                 this.columnBillId = base.Columns["BillId"];
                 this.columnItemDescription = base.Columns["ItemDescription"];
+                this.columnQuantity = base.Columns["Quantity"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2758,6 +2771,8 @@ namespace Misitu.Web.Datasets {
                 base.Columns.Add(this.columnBillId);
                 this.columnItemDescription = new global::System.Data.DataColumn("ItemDescription", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnItemDescription);
+                this.columnQuantity = new global::System.Data.DataColumn("Quantity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQuantity);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -5147,6 +5162,22 @@ namespace Misitu.Web.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Quantity {
+                get {
+                    try {
+                        return ((int)(this[this.tableTransitPass.QuantityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Quantity\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.QuantityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsOrginalCountryNull() {
                 return this.IsNull(this.tableTransitPass.OrginalCountryColumn);
             }
@@ -5299,6 +5330,18 @@ namespace Misitu.Web.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetItemDescriptionNull() {
                 this[this.tableTransitPass.ItemDescriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsQuantityNull() {
+                return this.IsNull(this.tableTransitPass.QuantityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetQuantityNull() {
+                this[this.tableTransitPass.QuantityColumn] = global::System.Convert.DBNull;
             }
         }
         

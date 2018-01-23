@@ -356,8 +356,7 @@ namespace Misitu.Web.Areas.Client.Controllers
         [Authorize]
         public ActionResult getRegistrationBill(int id)
         {
-
-           
+         
             try
             {
                 var finacialYear = _financialYearAppService.GetActiveFinancialYear();

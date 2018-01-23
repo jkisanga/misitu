@@ -245,7 +245,7 @@ namespace Misitu.Web
                           new MenuItemDefinition(
                             "Pending TP",
                             new LocalizableString("Pending TP", "Misitu"),
-                            url: "/TransitPass/PendingList",
+                            url: "/TransitPass/Pending",
                             icon: "icon-list"
                             )
                           ).AddItem(

@@ -36,6 +36,7 @@ namespace Misitu.Activities
         {
             var activity = new Activity {
                     RevenueSourceId = input.RevenueSourceId,
+                    Name = input.Name,
                     Description = input.Description,
                     Fee = input.Fee,
                     RegistrationFee = input.RegistrationFee

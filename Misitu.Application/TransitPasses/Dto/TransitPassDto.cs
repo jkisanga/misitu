@@ -29,6 +29,7 @@ namespace Misitu.TransitPasses
         public virtual DateTime IssuedDate { get; set; }
         [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}")]
         public virtual DateTime ExpireDate { get; set; }
+        public virtual int ExpireDays { get; set; }
         public virtual string SourceName { get; set; }
         //Destnation pull form District
         public virtual int DestinationId { get; set; }

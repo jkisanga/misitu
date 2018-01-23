@@ -30,5 +30,7 @@ namespace Misitu.TransitPasses.Dto
         public virtual string CreatedUser { get; set; }
         public virtual DateTime CreationTime { get; set; }
         public virtual string ItemDescription { get; set; }
+        public virtual int Quantity { get; set; }
+
     }
 }

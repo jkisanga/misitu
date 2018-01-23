@@ -16,16 +16,12 @@ namespace Misitu.Billing
     {
         public virtual int BillId { get; set; }
         public virtual int ActivityId { get; set; }
-
         [Required]
         public virtual string Description { get; set; }
-
         public virtual double EquvAmont { get; set; }
-
         public virtual double MiscAmont { get; set; }
-
         public virtual int GfsCode { get; set; }
-
+        public virtual int Quantity { get; set; }
         public virtual double Loyality { get; set; }
         public virtual double TFF { get; set; }
         public virtual double LMDA { get; set; }

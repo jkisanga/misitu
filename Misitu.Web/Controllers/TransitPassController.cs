@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Abp.Runtime.Validation;
+using Microsoft.AspNet.Identity;
 using Microsoft.Reporting.WebForms;
 using Misitu.Activities;
 using Misitu.Applicants.Interface;
@@ -20,6 +21,7 @@ using System.Web.Mvc;
 
 namespace Misitu.Web.Controllers
 {
+    [DisableValidation]
     public class TransitPassController : MisituControllerBase
     {
 
@@ -71,9 +73,18 @@ namespace Misitu.Web.Controllers
         // GET: TransitPass
         public ActionResult Index()
         {
-            var tps = this.transitPass.GetTransitPasses();
+            var tps = this.transitPass.GetPaidTransitPasses();
             return View(tps);
         }
+
+
+        // GET: TransitPass
+        public ActionResult Pending()
+        {
+            var tps = this.transitPass.GetUnPaidTransitPasses();
+            return View(tps);
+        }
+
 
         // GET: TransitPass/Details/5
         public ActionResult Details(int id)
@@ -99,7 +110,7 @@ namespace Misitu.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateBill(CreateBillInput input, int[] ActivtiyId, int[] quantity, double[] amount)
+        public ActionResult CreateBill(CreateBillInput input, int[] ActivityId, int[] Quantity, double[] Amount, double total)
         {
             try
             {
@@ -108,19 +119,15 @@ namespace Misitu.Web.Controllers
                 billExpireDate = billExpireDate.AddDays(30);
 
                 input.ExpiredDate = billExpireDate;
-
+                input.BillAmount = total;
                 int CreatedBillId = this.billAppService.CreateBill(input);
 
-                //insert bill item details
-                double GTotal = 0;
-                double BillAmount = 0;
-
                  
-                for (int i = 0; i < ActivtiyId.Length; i++)
+                for (int i = 0; i < ActivityId.Length; i++)
                 {
-                    var ActivityObj = this.activityAppService.GetActivity(ActivtiyId[i]);
+                    var ActivityObj = this.activityAppService.GetActivity(ActivityId[i]);
 
-                    GTotal = quantity[i] * (float)amount[i];
+             
                     var revenue = this.revenueSourceAppService.GetRevenueResource(ActivityObj.RevenueSourceId);
                     int code = Convert.ToInt32(revenue.MainRevenueSource.Code);
            
@@ -129,21 +136,18 @@ namespace Misitu.Web.Controllers
                         var obj = new CreateBillItemInput
                         {
                             BillId = CreatedBillId,
-                            ActivityId = ActivtiyId[i],
+                            ActivityId = ActivityId[i],
                             Description = ActivityObj.Description,
+                            Quantity = Quantity[i],
                             GfsCode = code,
-                            Total = GTotal
+                            Total = Amount[i]
                         };
-
-                        BillAmount = BillAmount + GTotal;
+                        
                         this.billItemAppService.CreateBillItem(obj);
                     }
 
                 }
 
-                var BillObj = this.billAppService.GetBill(CreatedBillId);
-                BillObj.BillAmount = BillAmount;
-                this.billAppService.UpdateBill(BillObj);
 
                 //redirect to Tp page
                 TempData["success"] = string.Format(@"The Bill has been Created successfully!");            
@@ -151,16 +155,16 @@ namespace Misitu.Web.Controllers
                 //return Json(new { Total = GTotal, gfs = GfsCode });
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 TempData["danger"] = ex.Message;
                 ViewBag.Applicant = this.applicantService.GetApplicantById(input.ApplicantId);
                 ViewBag.Activities = this.activityAppService.GetActivities();
                 ViewBag.ActivitiyId = new SelectList(this.activityAppService.GetActivities(), "Id", "Description");
                 return View();
-             
+
             }
-                          
+
         }
 
         //Create TP 
@@ -189,9 +193,10 @@ namespace Misitu.Web.Controllers
         {
             try
             {
+                input.ExpireDate = input.IssuedDate.AddDays(input.ExpireDays);
                 int TransitpassId = this.transitPass.CreateTransitPass(input);
 
-                for (int i = 0; i <= StationId.Count() - 1; i++)
+                for (int i = 0; i < StationId.Count(); i++)
                 {
                     var checkpointObj = new CreateCheckPointTransitPass
                     {
@@ -201,8 +206,8 @@ namespace Misitu.Web.Controllers
 
                     int checkpointTP = this.checkPointTransitPass.CreateCheckPointTransitPass(checkpointObj);
                 }
-                // return Json(new { Result = StationId });
-                return RedirectToAction("Dashboard");
+            
+                return RedirectToAction("getBill",new { Id = TransitpassId });
             }
             catch
             {
@@ -298,31 +303,39 @@ namespace Misitu.Web.Controllers
                 
                 var tp = this.transitPass.GetTransitPass(id);
 
-                ReportViewer reportViewer = new ReportViewer();
-                reportViewer.Reset();
-                reportViewer.ProcessingMode = ProcessingMode.Local;
-                reportViewer.SizeToReportContent = true;
+                if (this.transitPass.GetTransitPassPrintout(tp.Id) != null)
+                {
 
-                reportViewer.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reports\rptTransitPass.rdlc";
+                    ReportViewer reportViewer = new ReportViewer();
+                    reportViewer.Reset();
+                    reportViewer.ProcessingMode = ProcessingMode.Local;
+                    reportViewer.SizeToReportContent = true;
 
-                ReportParameter tpId = new ReportParameter("Id", tp.Id.ToString());
-                reportViewer.LocalReport.SetParameters(new ReportParameter[] { tpId });
-                reportViewer.LocalReport.DataSources.Clear();
+                    reportViewer.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reports\rptTransitPass.rdlc";
 
-                reportViewer.LocalReport.DataSources.Add(new ReportDataSource("dsTransitPass", this.transitPass.GetTransitPassPrintout(tp.Id)));
-                reportViewer.LocalReport.Refresh();
+                    ReportParameter tpId = new ReportParameter("Id", tp.Id.ToString());
+                    reportViewer.LocalReport.SetParameters(new ReportParameter[] { tpId });
+                    reportViewer.LocalReport.DataSources.Clear();
+
+                    reportViewer.LocalReport.DataSources.Add(new ReportDataSource("dsTransitPass", this.transitPass.GetTransitPassPrintout(tp.Id)));
+                    reportViewer.LocalReport.Refresh();
 
 
-                reportViewer.ProcessingMode = ProcessingMode.Local;
-                reportViewer.Width = 1200;
-                reportViewer.Height = 500;
-                reportViewer.ShowPrintButton = false;
-                reportViewer.ZoomMode = ZoomMode.FullPage;
+                    reportViewer.ProcessingMode = ProcessingMode.Local;
+                    reportViewer.Width = 1200;
+                    reportViewer.Height = 500;
+                    reportViewer.ShowPrintButton = false;
+                    reportViewer.ZoomMode = ZoomMode.FullPage;
 
-                ViewBag.rptTransitPass = reportViewer;
-                ViewBag.Id = id;
+                    ViewBag.rptTransitPass = reportViewer;
+                    ViewBag.Id = id;
 
-                return View();
+                    return View();
+                }else
+                {
+                    TempData["danger"] = string.Format(@"You cant print the TP untill the payment is complete!");
+                    return RedirectToAction("Dashboard", "TransitPass");
+                }
             }
             catch
             {

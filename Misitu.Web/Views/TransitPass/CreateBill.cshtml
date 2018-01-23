@@ -4,12 +4,11 @@
     ViewBag.ActiveMenu = "Transit Passes"; //The menu item will be active for this page.
     ViewBag.Title = "Transit Passes";
 }
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
 
 <h4>Create Transitpass Bill For @ViewBag.Applicant.Name</h4>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
@@ -22,112 +21,136 @@
             <input name="ApplicantId" value="@ViewBag.Applicant.Id" type="hidden" />
             @Html.Label("Bill Description", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-4">
-                @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+               <textarea class="form-control" name="Description">The Transit Pass Bill for the below Forest Products</textarea>
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
             @Html.Label("Currency", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-4">
-                @Html.DropDownListFor(model => model.Currency, new List<SelectListItem>
+                @*@Html.DropDownListFor(model => model.Currency, new List<SelectListItem>
                                 { new SelectListItem{Text="TZS", Value="TZS",Selected =true },
-                                    new SelectListItem{Text="USD", Value="USD"}}, new { @class = "form-control" })
+                                    new SelectListItem{Text="USD", Value="USD"}}, new { @class = "form-control" })*@
+                <input type="text" name="Currency" value="TZS" class="form-control" readonly />
 
                 @Html.ValidationMessage("Currency", "", new { @class = "text-danger" })
             </div>
         </div>
 
-                      
-        <div class="input-group control-group after-add-more">
 
-            <div class="row">
-                @Html.Label("Products", null, new { @class = "control-label col-md-2" })
-                <div class="col-lg-5">
-                    <select name="ActivtiyId[]" class="form-control">
-                        <option></option>
+        <table id="myTable" class="table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Amount</th>
+                    <th>Total</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <select name="ActivityId[]" class="form-control">
+                            @foreach (var item in ViewBag.activities)
+                            {
+                                <option value="@item.Id">@item.Description</option>
+                            }
+                        </select>
+                    </td>
+                    <td><input type="text" name="Quantity[]" class="form-control"></td>
+                    <td><input type="text" name="Amount[]" class="form-control"></td>
+                    <td><input type="text" class="form-control total" readonly /></td>
+                    <td></td>
+                </tr>
+
+            </tbody>
+            <tbody>
+                <tr id="totals">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Total<input type="text" name="total" id="total" class="form-control" readonly /></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="button" class="btn btn-success" id="addrow">Add</button>
+
+        <table id="newrow" style="display:none">
+            <tr>
+                <td>
+                    <select name="ActivityId[]" class="form-control">
                         @foreach (var item in ViewBag.activities)
                         {
-                            <option title="@item.Name" value="@item.Id">@item.Name</option>
-
+                            <option value="@item.Id">@item.Description</option>
                         }
-
                     </select>
-                </div>
-                <div class="col-lg-2">
-                    <input name="quantity[]" class="form-control" placeholder="Quantity" required />
-                </div>
-                <div class="col-lg-2">
-                    <input name="amount[]" class="form-control" placeholder="Amount" required />
+                </td>
 
-                </div>
+                <td><input type="text" name="Quantity[]" class="form-control"></td>
+                <td><input type="text" name="Amount[]" class="form-control"></td>
+                <td><input type="text" class="form-control total" readonly /></td>
+                <td><button type="button" class="delete btn-danger">Delete</button>
+            </tr>
+        </table>
 
-
-                <div class="input-group-btn">
-                    <button class="btn btn-success add-more" type="button"><i class="glyphicon glyphicon-plus"></i> Add</button>
-                </div>
-            </div>
-        </div>
         <br />
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="col-md-offset-0 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary pull-right" />
             </div>
         </div>
     </div>
 
-
-
-
 }
 
- <!-- Copy Fields-These are the fields which we get through jquery and then add after the above input,-->
-<div class="copy-fields hide">
-    <div class="control-group input-group" >
-        <div class="row">
-            <div class="col-lg-2"></div>
-                <div class="col-lg-5">
-                    <select name="ActivtiyId[]" class="form-control">
-                       <option></option>
-                        @foreach (var item in ViewBag.activities)
-                        {
-                            <option title="@item.Name" value="@item.Id">@item.Name</option>
 
-                        }
-
-                    </select>
-                </div>
-                <div class="col-lg-2">
-                    <input name="quantity[]" class="form-control" placeholder="Quantity" required />
-                </div>
-                <div class="col-lg-2">
-                    <input name="amount[]" class="form-control" placeholder="Amount" required />
-
-                </div>
-            </div>
-            <div class="input-group-btn">
-                <button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
-            </div>
-        </div>
-</div>
+@section scripts
+{
+    <script type="text/javascript">
 
 
+        var body = $('#myTable').children('tbody').first();
 
-<script type="text/javascript">
+        body.on('change', 'input[type="text"]', function () {
 
-    $(document).ready(function () {
+            var cells = $(this).closest('tr').children('td');
 
-        //here first get the contents of the div with name class copy-fields and add it to after "after-add-more" div class.
-        $(".add-more").click(function () {
-            var html = $(".copy-fields").html();
-            $(".after-add-more").after(html);
-        });
-        //here it will remove the current value of the remove button which has been pressed
-        $("body").on("click", ".remove", function () {
-            $(this).parents(".control-group").remove();
+            var value2 = cells.eq(1).find('input').val();
+            var value3 = cells.eq(2).find('input').val();
+            cells.eq(3).children('input[type="text"]').val(new Number(value2) * new Number(value3));
+
+            var sum = 0;
+            $(".total").each(function () {
+                sum += new Number(this.value);               
+            });
+            sum = new Number(sum);
+
+            $('#total').val(sum);
         });
 
-    });
+        $('#addrow').click(function() {
+            var clone = $('#newrow').clone();
+            // update indexers etc.
+            var newrow = clone.find('tr');
+            body.append(newrow);
+        });
 
-</script>
+        body.on('click', '.delete', function() {
+            var row = $(this).closest('tr');
+            row.remove();
+            var sum = 0;
+            $(".total").each(function () {
+                sum += new Number(this.value);
+            });
+            sum = new Number(sum);
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+            $('#total').val(sum);
+
+        });
+
+
+    </script>
+}
+

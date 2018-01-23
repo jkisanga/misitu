@@ -26,7 +26,7 @@ namespace Misitu.Billing
 
         public void CreateBillItem(CreateBillItemInput input)
         {
-            double total = input.Loyality + input.LMDA + input.TFF + input.VAT + input.CESS + input.TP + input.DataSheet + input.Others;
+            double total = input.Total + input.Loyality + input.LMDA + input.TFF + input.VAT + input.CESS + input.TP + input.DataSheet + input.Others;
 
             var billItem = new BillItem
             {
@@ -43,8 +43,10 @@ namespace Misitu.Billing
                 Others =input.Others,
                 EquvAmont = input.EquvAmont,
                 MiscAmont = input.MiscAmont,
-                Total = total
-                
+                GfsCode = input.GfsCode,
+                Total = total,
+                Quantity = input.Quantity
+
             };
 
              _billItemRepository.InsertAsync(billItem);

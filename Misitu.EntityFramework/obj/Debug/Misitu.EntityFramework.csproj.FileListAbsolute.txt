@@ -74,3 +74,6 @@ C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramew
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.AbpZero_Initial.resources
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.InitialTables.resources
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.BillItem.resources
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.harvest_billitem_updates.resources
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.activity_update.resources
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.tp_expire_days.resources

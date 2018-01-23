@@ -17,6 +17,10 @@ namespace Misitu.TransitPasses
 
         List<TransitPassDto> GetTransitPasses();
 
+        List<TransitPassDto> GetUnPaidTransitPasses();
+
+        List<TransitPassDto> GetPaidTransitPasses();
+
         int CreateTransitPass(CreateTransitPassInput input);
 
         TransitPassDto GetTransitPass(int id);
