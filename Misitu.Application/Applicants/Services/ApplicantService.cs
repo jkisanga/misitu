@@ -21,7 +21,6 @@ namespace Misitu.Applicants.Services
         private readonly IRepository<Applicant> reporitaryApplicant;
         private readonly IRepository<RefApplicantType> repositoryApplicantType;
         private readonly IRepository<RefIdentityType> repositoryIdentity;
-        private readonly IRepository<RefServiceCategory> repositoryServiceCategory;
         private readonly IRepository<FinancialYear> financialYearRepository;
         private readonly IRepository<ForestProduceRegistration> repositoryForestProduceRegistration;
         private readonly IRepository<ForestProduceAppliedForest> repositoryForestProduceAppliedForest;
@@ -33,7 +32,6 @@ namespace Misitu.Applicants.Services
             IRepository<Applicant> reporitaryApplicant, 
             IRepository<RefApplicantType> repositoryApplicantType, 
             IRepository<RefIdentityType> repositoryIdentity,
-            IRepository<RefServiceCategory> repositoryServiceCategory,
               IRepository<FinancialYear> financialYearRepository,
             IRepository<ForestProduceRegistration> repositoryForestProduceRegistration,
             IRepository<ForestProduceAppliedForest> repositoryForestProduceAppliedForest,
@@ -43,7 +41,6 @@ namespace Misitu.Applicants.Services
             this.reporitaryApplicant = reporitaryApplicant;
             this.repositoryApplicantType = repositoryApplicantType;
             this.repositoryIdentity = repositoryIdentity;
-            this.repositoryServiceCategory = repositoryServiceCategory;
             this.financialYearRepository = financialYearRepository;
             this.repositoryForestProduceRegistration = repositoryForestProduceRegistration;
             this.repositoryForestProduceAppliedForest = repositoryForestProduceAppliedForest;
@@ -64,6 +61,7 @@ namespace Misitu.Applicants.Services
                 Adress = input.Adress,
                 Phone = input.Phone,
                 Email = input.Email,
+                TIN = input.TIN,
                 IsTanzanian = input.IsTanzanian,
                 IDtype = input.IDtype,
                 IDNumber = input.IDNumber,
@@ -273,10 +271,7 @@ namespace Misitu.Applicants.Services
             throw new NotImplementedException();
         }
 
-        public List<RefServiceCategoryDto> GetServiceCategoryList()
-        {
-            throw new NotImplementedException();
-        }
+    
 
         public Task UpdateForestProduceAppliedForest(ForestProduceAppliedForestDto input)
         {

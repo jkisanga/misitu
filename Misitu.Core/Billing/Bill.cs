@@ -27,21 +27,34 @@ namespace Misitu.Billing
             
         //}
 
-       
         public virtual int ApplicantId { get; set; }
+
         public virtual int StationId { get; set; }
+
         public virtual int FinancialYearId { get; set; }
+
         public virtual DateTime IssuedDate { get; set; }
-        public virtual DateTime ExpiredDate { get; set; }
+
         public virtual string ControlNumber { get; set; }
+
         public virtual Double BillAmount { get; set; }
+
         public virtual Double PaidAmount { get; set; }
-        public virtual Double EquvAmont { get; set; }
-        public virtual Double MiscAmont { get; set; }
+
+       public virtual Double EquvAmont { get; set; }
+
+       public virtual Double MiscAmont { get; set; }
+
         public virtual string Currency { get; set; }
+
         public virtual DateTime? PaidDate { get; set; }
+
+        public virtual DateTime ExpiredDate { get; set; }
+
         public virtual Boolean IsCanceled { get; set; }
+
         public virtual string Description { get; set; }
+
         public virtual string Reason { get; set; }
 
         [ForeignKey("ApplicantId")]

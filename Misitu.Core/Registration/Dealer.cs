@@ -1,4 +1,5 @@
 ﻿using Abp.Domain.Entities.Auditing;
+using Misitu.Applicants;
 using Misitu.FinancialYears;
 using Misitu.Stations;
 using System;
@@ -15,30 +16,23 @@ namespace Misitu.Registration
     public class Dealer: FullAuditedEntity
     {
         public virtual string SerialNumber { get; set; }
-        [Required]
-        public virtual string Name { get; set; }
-        [Required]
-        public virtual string Address { get; set; }
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
-        public virtual string Email { get; set; }
-        [Required]
-        public virtual string Phone { get; set; }
-
         public virtual int StationId { get; set; }
+        public virtual int ApplicantId { get; set; }
         public virtual int FinancialYearId { get; set; } 
         public virtual string BillControlNumber { get; set; }
         public virtual double Amount { get; set; }
-        public virtual DateTime RegisteredDate { get; set; }
         public virtual DateTime? IssuedDate { get; set; }
-
-        public virtual string TIN { get; set; }
-        public virtual string BusinessLicense { get; set; }
-        public virtual string PaymentReferenceNumber { get; set; }
-        public virtual double AllocatedCubicMetres { get; set; }
-        public virtual string PrintedBy { get; set; }
+        public virtual int? PrintedUserId { get; set; }
+        public virtual bool IsSubmitted { get; set; }
+        public virtual bool IsApproved { get; set; }
+        public virtual bool IsDenied { get; set; }
+        public virtual int? ApprovedUserId { get; set; }
+        public virtual string Remark { get; set; }
 
         [ForeignKey("StationId")]
         public virtual Statiton Station { get; set; }
+        [ForeignKey("ApplicantId")]
+        public virtual Applicant Applicant { get; set; }
         [ForeignKey("FinancialYearId")]
         public virtual FinancialYear FinancialYear { get; set; }
 

@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.ActiveMenu = "Transit Passes"; //The menu item will be active for this page.
+    ViewBag.Title = "Transit Passes";
+}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="pull-left"><span>Transit Pass bill</span></div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="panel-body">
+        <div class="padd">
+
+            <div class="form-horizontal">
+                @using ReportViewerForMvc
+
+
+                @Html.ReportViewer(ViewBag.rptBill as Microsoft.Reporting.WebForms.ReportViewer)
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

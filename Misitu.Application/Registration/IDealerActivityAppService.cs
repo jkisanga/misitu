@@ -12,7 +12,7 @@ namespace Misitu.Registration
     {
         List<DealerActivityDto> GetDealerActivities(DealerDto dealer);
 
-        Task CreateDealerActivity(CreateDealerActivityInput input);
+        void CreateDealerActivity(CreateDealerActivityInput input);
 
         DealerActivityDto GetDealerActivity(int id);
 

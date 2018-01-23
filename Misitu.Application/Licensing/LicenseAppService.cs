@@ -118,7 +118,7 @@ namespace Misitu.Licensing
                             {
 
                                 SerialNumber = l.serialNumber,
-                                Dealer = dealer.Name,
+                                //Dealer = dealer.Name,
                                 Description = bill.Description,
                                 Amount = bill.BillAmount,
                                 IssuedDate = bill.IssuedDate

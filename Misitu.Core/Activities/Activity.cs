@@ -17,12 +17,12 @@ namespace Misitu.Activities
         
 
         public virtual int RevenueSourceId { get; set; }
-        [Required]
+     
         public virtual string Name { get; set; }
-        public virtual string Description { get; set; }
-      
 
         [Required]
+        public virtual string Description { get; set; }
+      
         public virtual double Fee { get; set; }
 
         public virtual bool IsActive { get; set; }

@@ -1,0 +1,102 @@
+﻿@model Misitu.Applicants.Dto.ExportImport.ExportDetailDto
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="pull-left"><span>Holder: @Model.Applicant.Name </span></div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+        <div class="padd">
+            <dl class="dl-horizontal col-md-6">
+                
+
+                <dt>
+                    @Html.DisplayName("Specie Category")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SpecieCategory.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("Origin")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Station.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("Bank Name")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.BankName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("Bank Address")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.BankAddress)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Destination)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Destination)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("Shipment Date")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ShipmentDate)
+                </dd>
+                <dt>
+                    @Html.DisplayName("Applied Date")
+                </dt>
+
+                <dd>
+                    @String.Format("{0:dd MMM yyyy}", Model.CreationTime)
+                </dd>
+
+            </dl>
+
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>Species</legend>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>English Name</th>
+                                <th>Quantity</th>
+                                <th>size </th>
+                                <th>Prise(USD) </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.Species)
+                            {
+
+                                <tr>
+                                    <td>@item.Specie.EnglishName</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@item.Size</td>
+                                    <td>@item.Price</td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </fieldset>
+
+            </div>
+</div>
+        </div>
+    </div>
+

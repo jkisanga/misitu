@@ -19,6 +19,8 @@ namespace Misitu.Billing.Dto
         public virtual int StationId { get; set; }
         public virtual int FinancialYearId { get; set; }
         public virtual Double BillAmount { get; set; }
+        public virtual Double EquvAmont { get; set; }
+        public virtual Double MiscAmont { get; set; }
         public virtual string Description { get; set; }
         public virtual DateTime IssuedDate { get; set; }
         public virtual DateTime ExpiredDate { get; set; }

@@ -1,0 +1,133 @@
+﻿@model Misitu.Registration.Dto.CreateDealerActivityInput
+
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="pull-left"><span>Activities Form</span></div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+        <div class="padd">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+
+                    <div class="well">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#list" data-toggle="tab">Activities List</a></li>
+                            <li><a href="#my"data-toggle="tab">My Activities</a></li>
+                        </ul>
+                        <div class="tab-content">
+
+                            <div class="tab-pane active in" id="list">
+                                <br />
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.Label("Dealer", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        <input type="hidden" name="DealerId" value="@ViewBag.Dealer.Id" class="form-control" />
+                                        <input type="text" value="@ViewBag.Dealer.Applicant.Name" class="form-control" readonly />
+                                        @Html.ValidationMessageFor(model => model.DealerId, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.Label("Activities", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        <table class="table table-bordered">
+                                            <tr>
+                                                <th></th>
+                                                <th>Description</th>
+                                                <th>Amount</th>
+                                            </tr>
+
+                                            @{
+                                                foreach (var activity in ViewBag.Activities)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            <input type="checkbox" class="checkbox" name="ActivityId[]" value="@activity.Id" />
+                                                        </td>
+                                                        <td>@activity.Description</td>
+                                                        <td>@activity.Fee</td>
+                                                    </tr>
+
+                                                }
+                                            }
+                                            @Html.ValidationMessage("ActivityId", "", new { @class = "text-danger" })
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        @if (@ViewBag.Dealer.IsSubmitted == true)
+                                        {
+                                            <div class="alert alert-warning alert-dismissable">
+                                                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                                <p>Your application has been submitted you can not modify</p>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <input type="submit" value="Add" class="btn btn-primary" />
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane " id="my">
+                              
+                                <table class="table">
+                                    <tr>
+
+                                        <th>
+                                            @Html.DisplayName("Description")
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Fee")
+                                        </th>
+                                        <th></th>
+                                    </tr>
+
+                                    @foreach (var item in ViewBag.DealerActivities)
+                                     {
+                                        <tr>
+
+                                            <td>
+                                                @item.Activity.Description
+                                            </td>
+                                            <td>
+                                                @item.Activity.Fee
+                                            </td>
+                                            <td>
+                                             @if (@ViewBag.Dealer.IsSubmitted != true)
+                                                {
+                                                @Html.ActionLink("Remove", "Delete", new { id = item.Id })
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </table>
+                            </div>
+
+                        </div>
+                            </div>
+                    @if (@ViewBag.Dealer.IsSubmitted != true)
+                    {
+                        <a href="@Url.Action("submit", "Applicant", new { id = ViewBag.Dealer.Id})" class="btn btn-danger pull-right" onclick="return confirm('Are you sure?');">Submit</a>
+
+                    }
+                           
+                            </div>
+                        }
+                    </div>
+                </div>
+    </div>
+
+

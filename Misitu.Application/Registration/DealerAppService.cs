@@ -53,21 +53,13 @@ namespace Misitu.Registration
             {
                 var dealer = new Dealer
                 {
-                    SerialNumber = input.SerialNumber,
-                    Name = input.Name,                
-                    FinancialYearId = current.Id,
-                    Address = input.Address,
-                    Email = input.Email,
-                    Phone = input.Phone,
-                    StationId = input.StationId,
-                    RegisteredDate = input.RegisteredDate,
-                    TIN = input.TIN,
-                    BusinessLicense = input.BusinessLicense,
-                    AllocatedCubicMetres = input.AllocatedCubicMetres
-                   
+                    SerialNumber = input.SerialNumber,  
+                    ApplicantId = input.ApplicantId,
+                    StationId = input.StationId,            
+                    FinancialYearId = current.Id,               
                 };
 
-                var existingDealer = _dealerRepository.FirstOrDefault(p => p.Name == input.Name && p.FinancialYearId == current.Id);
+                var existingDealer = _dealerRepository.FirstOrDefault(p => p.SerialNumber == input.SerialNumber && p.FinancialYearId == current.Id);
                 if (existingDealer == null)
                 {
                     var dealerId =  _dealerRepository.InsertAndGetId(dealer);
@@ -105,8 +97,84 @@ namespace Misitu.Registration
         public List<DealerDto> GetAllDealers()
         {
             var dealers = _dealerRepository
-            .GetAll()      
-            .OrderBy(p => p.Name)
+            .GetAll()
+            .OrderBy(p => p.Applicant.Name)
+            .ToList();
+
+            return new List<DealerDto>(dealers.MapTo<List<DealerDto>>());
+        }
+
+        //Is application exists for current financial Year
+        public bool IsApplicationExists(int id, FinancialYearDto FinancialYear)
+        {
+            var dealer = _dealerRepository.GetAll()
+               .Where(p => p.ApplicantId == id)
+               .Where(p => p.FinancialYearId == FinancialYear.Id)
+               .FirstOrDefault();
+            if(dealer != null)
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
+        }
+
+        //Is Registered exists for current financial Year
+
+        public bool IsRegistered(int id, FinancialYearDto FinancialYear)  // Add Registration Criteria
+        {
+            var dealer = _dealerRepository.GetAll()
+               .Where(p => p.ApplicantId == id)
+               .Where(p => p.FinancialYearId == FinancialYear.Id)
+               .Where(p => p.IsApproved == true)
+               .FirstOrDefault();
+
+            if (dealer != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        //submitted application for registrtation for online user
+        public DealerDto GetRegApplication(int applicantId, FinancialYearDto FinancialYear) 
+        {
+            var dealer = _dealerRepository.GetAll()
+                .Where(p => p.ApplicantId == applicantId)
+                .Where(p => p.FinancialYearId == FinancialYear.Id)
+                .FirstOrDefault();
+
+            return dealer.MapTo<DealerDto>();
+        }
+
+        public List<DealerDto> GetRegApplicationByStation(StationDto Station, FinancialYearDto FinancialYear)
+        {
+            var dealers = _dealerRepository
+            .GetAll()  
+            .Where(p => p.IsSubmitted == true)
+            .Where(p => p.IsApproved == false)
+            .Where(p => p.IsDenied == false)
+            .Where (p => p.StationId == Station.Id)
+            .Where (p => p.FinancialYearId == FinancialYear.Id)
+            .OrderBy(p => p.CreationTime)
+            .ToList();
+
+            return new List<DealerDto>(dealers.MapTo<List<DealerDto>>());
+        }
+
+        public List<DealerDto> GetDeniedRegApplicationByStation(StationDto Station, FinancialYearDto FinancialYear)
+        {
+            var dealers = _dealerRepository
+            .GetAll()
+            .Where(p => p.IsSubmitted == true)
+            .Where(p => p.IsApproved == false)
+            .Where(p => p.IsDenied == true)
+            .Where(p => p.StationId == Station.Id)
+            .Where(p => p.FinancialYearId == FinancialYear.Id)
+            .OrderBy(p => p.CreationTime)
             .ToList();
 
             return new List<DealerDto>(dealers.MapTo<List<DealerDto>>());
@@ -117,49 +185,32 @@ namespace Misitu.Registration
         public List<DealerDto> GetDealers(FinancialYearDto FinancialYear)
         {
             var dealers = from l in _dealerRepository.GetAll()
-                          join b in _billRepository.GetAll() on l.BillControlNumber equals b.ControlNumber
+                          join b in _billRepository.GetAll() on l.ApplicantId equals b.ApplicantId
                           where l.FinancialYearId == FinancialYear.Id
                           where b.PaidAmount == 0 && b.PaidDate == null
-                          orderby l.Name
+                          orderby l.SerialNumber
                           select new DealerDto
                           {
-                              Id = l.Id,
-                              Name = l.Name,
-                              Address = l.Address,
-                              AllocatedCubicMetres = l.AllocatedCubicMetres,
-                              Amount = l.Amount,
-                              BillControlNumber = l.BillControlNumber,
-                              BusinessLicense = l.BusinessLicense,
+                              Id = l.Id,   
+                              ApplicantId = l.ApplicantId,                          
+                              Amount = l.Amount,                             
+                              BillControlNumber = l.BillControlNumber,                       
                               FinancialYearId = l.FinancialYearId,
                               IssuedDate = l.IssuedDate,
-                              Phone = l.Phone,
-                              RegisteredDate = l.RegisteredDate,
                               StationId = l.StationId,
-                              TIN = l.TIN,
-                              SerialNumber = l.SerialNumber,
-                              Email = l.Email
-
+                              SerialNumber = l.SerialNumber,                        
                           };
 
             return new List<DealerDto>(dealers.MapTo<List<DealerDto>>());
         }
 
-        public async Task UpdateDealer(DealerDto input)
+        public void UpdateDealer(DealerDto input)
         {
             var dealer = _dealerRepository.FirstOrDefault(input.Id);
 
-            dealer.SerialNumber = input.SerialNumber;
-            dealer.Name = input.Name;
-            dealer.Address = input.Address;
-            dealer.Email = input.Email;
-            dealer.Phone = input.Phone;
-            dealer.StationId = input.StationId;
-            dealer.RegisteredDate = input.RegisteredDate;
-            dealer.TIN = input.TIN;
-            dealer.BusinessLicense = input.BusinessLicense;
-
-
-            await _dealerRepository.UpdateAsync(dealer);
+            dealer.IsSubmitted = input.IsSubmitted;
+    
+             _dealerRepository.Update(dealer);
             
         }
 
@@ -183,26 +234,19 @@ namespace Misitu.Registration
         
 
             var dealers = from l in _dealerRepository.GetAll()
-                       join b in _billRepository.GetAll() on l.BillControlNumber equals b.ControlNumber
+                       join b in _billRepository.GetAll() on l.ApplicantId equals b.ApplicantId
                        where l.FinancialYearId == FinancialYear.Id
                        where b.PaidAmount > 0 && b.PaidDate != null
-                       orderby l.Name
+                       orderby l.SerialNumber
                        select new DealerDto {
                             Id = l.Id,
-                            Name = l.Name,
-                            Address = l.Address,
-                            AllocatedCubicMetres = l.AllocatedCubicMetres,
-                            Amount = l.Amount,
+                            ApplicantId = l.ApplicantId,
+                            Amount = b.PaidAmount,
                             BillControlNumber = l.BillControlNumber,
-                            BusinessLicense = l.BusinessLicense,
                             FinancialYearId = l.FinancialYearId,
                             IssuedDate = l.IssuedDate,
-                            Phone = l.Phone,
-                            RegisteredDate = l.RegisteredDate,
                             StationId = l.StationId,
-                            TIN = l.TIN,
-                            SerialNumber= l.SerialNumber,
-                            Email = l.Email
+                            SerialNumber= l.SerialNumber
                             
                        };
 
@@ -215,7 +259,7 @@ namespace Misitu.Registration
             var dealers = _dealerRepository.GetAll()
                 .Where(x => x.StationId == Station.Id)
                 .Where(x => x.FinancialYearId == FinancialYear.Id)
-                .Where(x => x.PaymentReferenceNumber != null)
+                .Where(x => x.BillControlNumber != null)
                 .Count();
 
             return dealers;
@@ -227,8 +271,8 @@ namespace Misitu.Registration
             var dealers = _dealerRepository.GetAll()
                 .Where(x => x.StationId == Station.Id)
                 .Where(x => x.FinancialYearId == FinancialYear.Id)
-                .Where(x => x.PaymentReferenceNumber != null)
-                .Where(x => x.RegisteredDate.Month == DateTime.Today.Month && x.RegisteredDate.Year == DateTime.Today.Year)
+                .Where(x => x.BillControlNumber != null)
+                .Where(x => x.CreationTime.Month == DateTime.Today.Month && x.CreationTime.Year == DateTime.Today.Year)
                 .Count();
 
             return dealers;
@@ -240,7 +284,7 @@ namespace Misitu.Registration
             var dealers = _dealerRepository.GetAll()
                 .Where(x => x.StationId == Station.Id)
                 .Where(x=> x.FinancialYearId == FinancialYear.Id)
-                .Where(x => x.PaymentReferenceNumber == null)
+                .Where(x => x.BillControlNumber == null)
                 .Count();
 
             return dealers;
@@ -252,8 +296,8 @@ namespace Misitu.Registration
             var dealers = _dealerRepository.GetAll()
                 .Where(x => x.StationId == Station.Id)
                 .Where(x => x.FinancialYearId == FinancialYear.Id)
-                .Where(x => x.PaymentReferenceNumber == null)
-                .Where(x => x.RegisteredDate.Month == DateTime.Today.Month && x.RegisteredDate.Year == DateTime.Today.Year)
+                .Where(x => x.BillControlNumber == null)
+                .Where(x => x.CreationTime.Month == DateTime.Today.Month && x.CreationTime.Year == DateTime.Today.Year)
                 .Count();
 
             return dealers;
@@ -269,7 +313,7 @@ namespace Misitu.Registration
                        where l.FinancialYearId == FinancialYear.Id
                        where l.StationId == Station.Id
                        //where l.ReceiptNumber != null
-                       where l.PaymentReferenceNumber != null
+                       where l.BillControlNumber != null
                        group i by l.StationId into g
                        select  g.Sum(x => x.Fee);
 
@@ -286,8 +330,7 @@ namespace Misitu.Registration
                        where l.FinancialYearId == FinancialYear.Id
                        where l.StationId == Station.Id
                        //where l.ReceiptNumber != null
-                       where l.PaymentReferenceNumber != null
-                       where(l.RegisteredDate.Month == DateTime.Today.Month && l.RegisteredDate.Year == DateTime.Today.Year)
+                       where(l.CreationTime.Month == DateTime.Today.Month && l.CreationTime.Year == DateTime.Today.Year)
                        group i by l.StationId into g
                        select g.Sum(x => x.Fee);
 
@@ -305,13 +348,12 @@ namespace Misitu.Registration
                          where d.Id == id
                          select new RegistrationCertDto {
                                 Id = d.Id,
-                                SerialNumber = d.SerialNumber,
-                                Name = d.Name,
-                                Address = d.Address,
-                                Email = d.Email,
-                                Phone = d.Phone,
+                                SerialNumber = d.SerialNumber, 
+                                Name = d.Applicant.Name,
+                                Address = d.Applicant.Adress,
+                                Email = d.Applicant.Email,
+                                Phone = d.Applicant.Name,                     
                                 Amount = d.Amount,
-                                RegisteredDate = d.RegisteredDate,
                                 IssuedDate = d.IssuedDate,
                                 Station = d.Station.Name,
                                 ExpireYear = (d.FinancialYear.Name).Substring(0,4),
@@ -328,7 +370,45 @@ namespace Misitu.Registration
         {
             var dealer = _dealerRepository.FirstOrDefault(input.Id);
              
-            return dealer.AllocatedCubicMetres;
+            return 99;
+        }
+
+        //approve application for registration
+        public int ApproveRegistration(DealerDto input)
+        {
+            var dealer = _dealerRepository.FirstOrDefault(input.Id);
+            if(dealer != null && dealer.IsSubmitted == true)
+            {
+                dealer.IsApproved = true;
+                dealer.ApprovedUserId = (int)AbpSession.UserId;
+                dealer.Remark = input.Remark;
+
+                return _dealerRepository.InsertOrUpdateAndGetId(dealer);
+
+            }else
+            {
+                throw new UserFriendlyException("Application for Registration not Found!");
+            }
+        }
+
+        //Deny Registration
+        public void DenyRegistration(DealerDto input)
+        {
+            var dealer = _dealerRepository.FirstOrDefault(input.Id);
+            if (dealer != null && dealer.IsSubmitted == true)
+            {
+                dealer.IsApproved = false;
+                dealer.IsDenied = true;
+                dealer.ApprovedUserId = (int)AbpSession.UserId;
+                dealer.Remark = input.Remark;
+
+              _dealerRepository.Update(dealer);
+
+            }
+            else
+            {
+                throw new UserFriendlyException("Application for Registration not Found!");
+            }
         }
     }
 }

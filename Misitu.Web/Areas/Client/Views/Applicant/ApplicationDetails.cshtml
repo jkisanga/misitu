@@ -1,0 +1,112 @@
+﻿@model Misitu.Registration.Dto.DealerDto
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="pull-left"><span>Application For Registration Form</span></div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+        <div class="padd">
+
+
+            <div class="form-horizontal">
+                
+                @Html.HiddenFor(model => model.Id)
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="well well-sm">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayName("Serial Number")
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.SerialNumber)
+                                        </dd>
+                                        <dt>
+                                            @Html.DisplayName("Application Holder")
+                                        </dt>
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Applicant.Name)
+                                        </dd>
+                                        <dt>
+                                            @Html.DisplayName("Applied Date")
+                                        </dt>
+                                        <dd>
+                                            @Html.DisplayFor(model => model.CreationTime)
+                                        </dd>
+                                        <dt>
+                                            @Html.DisplayName("Status")
+                                        </dt>
+                                        <dd>
+                                            @if (Model.IsSubmitted && Model.IsApproved == false && Model.IsDenied==false)
+                                            {
+                                                <button type="button" class="btn btn-primary">
+                                                     <span class="badge badge-light">Waiting for approval</span>
+                                                </button>
+                                                
+                                            }
+                                            @if (Model.IsSubmitted && Model.IsApproved)
+                                            {
+                                                <button type="button" class="btn btn-success">
+                                                     <span class="badge badge-light">Approved</span>
+                                                </button>
+                                                <a href="@Url.Action("getRegistrationBill", "Applicant",new { Id = Model.ApplicantId})" class="btn btn-primary">Print Bill</a>
+                                            }
+                                            @if (Model.IsDenied)
+                                            {
+                                                <button type="button" class="btn btn-danger">
+                                                     <span class="badge badge-light">Rejected</span>
+                                                </button>
+                                                <p class="text-info">@Model.Remark</p>
+                                            }
+                                            
+                                        </dd>
+                                     
+                                     </dl>
+                                        
+                                        @Html.Label("Activities", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <fieldset class="col-md-10">
+
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th>Description</th>
+                                                    <th>Registration Fee</th>
+                                                    <th>Application Fee</th>
+                                                </tr>
+
+                                                @{
+                                                    foreach (var activity in ViewBag.DealerActivities)
+                                                    {
+                                                        <tr>
+
+                                                            <td>@activity.Activity.Description</td>
+                                                            <td>@activity.Activity.Fee</td>
+                                                            <td>@activity.Activity.RegistrationFee</td>
+                                                        </tr>
+
+                                                    }
+                                                }
+
+                                            </table>
+                                        </fieldset>
+                                                                
+                               </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            </div>
+        </div>
+    </div>
+
+
+
+

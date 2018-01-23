@@ -18,22 +18,39 @@ namespace Misitu.Billing.Dto
     [AutoMapFrom(typeof(Bill))]
     public class BillDto : FullAuditedEntityDto
     {
+   
         public virtual int ApplicantId { get; set; }
+
         public virtual int StationId { get; set; }
+
         public virtual int FinancialYearId { get; set; }
+
         [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}")]
         public virtual DateTime IssuedDate { get; set; }
-        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}")]
-        public virtual DateTime ExpiredDate { get; set; }
+
         public virtual string ControlNumber { get; set; }
+
         public virtual Double BillAmount { get; set; }
+
         public virtual Double PaidAmount { get; set; }
+
+        public virtual Double EquvAmont { get; set; }
+
+        public virtual Double MiscAmont { get; set; }
+
         public virtual string Currency { get; set; }
+
         [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}")]
         public virtual DateTime? PaidDate { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}")]
+        public virtual DateTime ExpiredDate { get; set; }
+
         public virtual Boolean IsCanceled { get; set; }
-        public virtual string Reason { get; set; }
+
         public virtual string Description { get; set; }
+
+        public virtual string Reason { get; set; }
 
         [ForeignKey("ApplicantId")]
         public virtual Applicant Applicant { get; set; }
@@ -42,6 +59,5 @@ namespace Misitu.Billing.Dto
         [ForeignKey("FinancialYearId")]
         public virtual FinancialYear FinancialYear { get; set; }
 
-      
     }
 }

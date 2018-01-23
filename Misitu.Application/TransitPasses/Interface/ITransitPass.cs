@@ -1,6 +1,8 @@
 ﻿using Abp.Application.Services;
 using Abp.Domain.Entities.Auditing;
 using Misitu.Applicants;
+using Misitu.Billing.Dto;
+using Misitu.TransitPasses.Dto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -15,9 +17,17 @@ namespace Misitu.TransitPasses
 
         List<TransitPassDto> GetTransitPasses();
 
+        List<TransitPassDto> GetUnPaidTransitPasses();
+
+        List<TransitPassDto> GetPaidTransitPasses();
+
         int CreateTransitPass(CreateTransitPassInput input);
 
         TransitPassDto GetTransitPass(int id);
+
+        List<BillPrint> getBillByTp(int id);
+
+        List<TransitPassPrintout>  GetTransitPassPrintout(int id);
 
         Task UpdateTransitPass(TransitPassDto input);
 

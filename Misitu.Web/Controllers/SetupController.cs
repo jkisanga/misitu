@@ -11,13 +11,12 @@ namespace Misitu.Web.Controllers
 {
     public class SetupController : Controller
     {
-        private readonly IRefServiceCategoryAppService refServiceCategityAppService;
+       
         private readonly IRefIdentityAppService refIdentityAppService;
         private readonly IRefApplicationTypeAppService refApplicationTypeAppService;
 
-        public SetupController(IRefServiceCategoryAppService refServiceCategityAppService, IRefIdentityAppService refIdentityAppService, IRefApplicationTypeAppService refApplicationTypeAppService)
+        public SetupController(IRefIdentityAppService refIdentityAppService, IRefApplicationTypeAppService refApplicationTypeAppService)
         {
-            this.refServiceCategityAppService = refServiceCategityAppService;
             this.refIdentityAppService = refIdentityAppService;
             this.refApplicationTypeAppService = refApplicationTypeAppService;
         }
@@ -35,71 +34,7 @@ namespace Misitu.Web.Controllers
         {
             return View();
         }
-
-        // GET: Setup/Create
-        public ActionResult CreateServiceCategory()
-        {
-            ViewBag.values = this.refServiceCategityAppService.GetItemList();
-
-            return View();
-        }
-
-        // POST: Setup/Create
-        [HttpPost]
-        public async Task<ActionResult> CreateServiceCategory(CreateRefServiceCategoryInput input)
-        {
-            await this.refServiceCategityAppService.CreateAsync(input);
-
-            return RedirectToAction("CreateServiceCategory");
-        }
-
-        public ActionResult EditserviceCategory(int id)
-        {
-
-            var value = this.refServiceCategityAppService.GetObjectById(id);
-            return View(value);
-        }
-
-        [HttpPost]
-        public async Task<ActionResult> EditserviceCategory(int id, RefServiceCategoryDto collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-                if (ModelState.IsValid)
-                {
-                    await this.refServiceCategityAppService.UpdateObject(collection);
-                    return RedirectToAction("CreateServiceCategory");
-                }
-                else
-                {
-                    return View(collection);
-                }
-                
-            }
-            catch
-            {
-                return View();
-            }
-        }      
-       
-        public async Task<ActionResult> Deleteservicecategory(int id)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                var obj = this.refServiceCategityAppService.GetObjectById(id);
-                await this.refServiceCategityAppService.DeleteObjectAsync(obj);
-                return RedirectToAction("CreateServiceCategory");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-
+ 
         public ActionResult CreateIdentityType()
         {
             ViewBag.values = this.refIdentityAppService.GetItemList();

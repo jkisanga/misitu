@@ -1,0 +1,99 @@
+﻿@model Misitu.Registration.Dto.DealerDto
+
+@{
+    ViewBag.ActiveMenu = "Registration"; //The menu item will be active for this page.
+    ViewBag.Title = "Dealers";
+}
+
+
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">Deny Application Form</div>
+        <div class="widget-icons pull-right">
+            <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="widget-content">
+        <div class="padd">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <hr />
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.Id)
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="well well-sm">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                            @Html.Label("Serial Number", htmlAttributes: new { @class = "control-label col-md-4" })
+                                            <div class="col-md-10">                                            
+                                                <input type="text" value="@Model.SerialNumber" class="form-control" readonly />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.Label("Application Holder", htmlAttributes: new { @class = "control-label col-md-4" })
+                                            <div class="col-md-10">
+                                                <input type="text" value="@Model.Applicant.Name" class = "form-control" readonly />
+                     
+                                            </div>
+                                        </div>
+                                        @Html.Label("Activities", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <fieldset class="col-md-10">
+                                           
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th>Description</th>
+                                                    <th>Registration Fee</th>
+                                                    <th>Application Fee</th>
+                                                </tr>
+
+                                                @{
+                                                    foreach (var activity in ViewBag.DealerActivities)
+                                                    {
+                                                        <tr>
+                                                           
+                                                            <td>@activity.Activity.Description</td>
+                                                            <td>@activity.Activity.Fee</td>
+                                                            <td>@activity.Activity.RegistrationFee</td>
+                                                        </tr>
+
+                                                    }
+                                                }
+
+                                            </table>
+                                        </fieldset>   
+                                        
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Remark, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.TextAreaFor(model => model.Remark, new {@class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.Remark, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <input type="submit" value="Reject" class="btn btn-danger" />
+                                            </div>
+                                        </div>       
+                                    </div> 
+                                                          
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            }
+          </div>
+        </div>
+    </div>
+

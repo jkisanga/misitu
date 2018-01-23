@@ -1,0 +1,52 @@
+﻿@model Misitu.Registration.Dto.CreateDealerInput
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="pull-left"><span>Application For Registration Form</span></div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+        <div class="padd">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <input type="hidden" name="ApplicantId" value="@ViewBag.Applicant.Id" />
+                    <div class="form-group">
+                        @Html.Label("Serial Number", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="text" name="SerialNumber" value="@ViewBag.SerialNumber" class="form-control" readonly />
+                            @Html.ValidationMessageFor(model => model.SerialNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Applicant Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="text" name="" value="@ViewBag.Applicant.Name" class="form-control" readonly />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Forest/District", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.StationId, null, null, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.StationId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save & Continue" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            }
+            </div>
+        </div>
+    </div>
+
+

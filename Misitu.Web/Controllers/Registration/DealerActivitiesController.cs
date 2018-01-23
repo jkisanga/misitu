@@ -117,7 +117,7 @@ namespace Misitu.Web.Controllers.Registration
 
         // POST: DealerActivities/Create
         [HttpPost]
-        public async Task< ActionResult> Create(CreateDealerActivityInput input, int[] ActivityId)
+        public  ActionResult Create(CreateDealerActivityInput input, int[] ActivityId)
         {
             try
             {
@@ -127,7 +127,7 @@ namespace Misitu.Web.Controllers.Registration
                         
                         input.ActivityId = activityId;
 
-                        await _dealerActivityAppService.CreateDealerActivity(input);
+                        _dealerActivityAppService.CreateDealerActivity(input);
 
                     }
                     return RedirectToAction("Create", new { id = input.DealerId });

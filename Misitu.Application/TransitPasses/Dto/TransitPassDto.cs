@@ -5,6 +5,7 @@ using Misitu.Applicants;
 using Misitu.Billing;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -24,8 +25,11 @@ namespace Misitu.TransitPasses
         public virtual string LisenceNo { get; set; }
         public virtual string TransitPassNo { get; set; }
         public virtual int SourceForest { get; set; }
+        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}")]
         public virtual DateTime IssuedDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}")]
         public virtual DateTime ExpireDate { get; set; }
+        public virtual int ExpireDays { get; set; }
         public virtual string SourceName { get; set; }
         //Destnation pull form District
         public virtual int DestinationId { get; set; }

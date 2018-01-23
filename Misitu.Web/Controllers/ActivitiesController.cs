@@ -1,6 +1,7 @@
 ﻿using Abp.Runtime.Validation;
 using Misitu.Activities;
 using Misitu.Activities.Dto;
+using Misitu.RevenueSources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +15,13 @@ namespace Misitu.Web.Controllers
     public class ActivitiesController : MisituControllerBase
     {
         private readonly IActivityAppService _activityAppService;
+        private readonly IRevenueSourceAppService _revenueSourceAppService;
 
-        public ActivitiesController(IActivityAppService activityAppService)
+
+        public ActivitiesController(IActivityAppService activityAppService, IRevenueSourceAppService revenueSourceAppService)
         {
             _activityAppService = activityAppService;
+            _revenueSourceAppService = revenueSourceAppService;
         }
 
         public ActionResult Index()
@@ -29,6 +33,7 @@ namespace Misitu.Web.Controllers
         // GET: Zone/Create
         public ActionResult Create()
         {
+            ViewBag.RevenueSourceId = _revenueSourceAppService.GetRevenueResources().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Description });
             return View();
         }
 
@@ -47,6 +52,7 @@ namespace Misitu.Web.Controllers
             }
             else
             {
+                ViewBag.RevenueSourceId = _revenueSourceAppService.GetRevenueResources().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Description });
                 return View(input);
             }
 

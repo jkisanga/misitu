@@ -24,9 +24,9 @@ namespace Misitu.Billing
             _billItemRepository = billItemRepository;
         }
 
-        public  int CreateBillItem(CreateBillItemInput input)
+        public void CreateBillItem(CreateBillItemInput input)
         {
-            double total = input.Loyality + input.LMDA + input.TFF + input.VAT + input.CESS + input.TP + input.DataSheet + input.Others;
+            double total = input.Total + input.Loyality + input.LMDA + input.TFF + input.VAT + input.CESS + input.TP + input.DataSheet + input.Others;
 
             var billItem = new BillItem
             {
@@ -41,11 +41,15 @@ namespace Misitu.Billing
                 TP = input.TP,
                 DataSheet =input.DataSheet,
                 Others =input.Others,
-                Total = total
-                
+                EquvAmont = input.EquvAmont,
+                MiscAmont = input.MiscAmont,
+                GfsCode = input.GfsCode,
+                Total = total,
+                Quantity = input.Quantity
+
             };
 
-           return  _billItemRepository.InsertAndGetId(billItem);
+             _billItemRepository.InsertAsync(billItem);
         }
 
         public async Task DeleteBillItemAsync(BillItemDto input)

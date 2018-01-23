@@ -14,7 +14,7 @@ namespace Misitu.Billing
         List<BillItemDto> GetBillItems(BillDto bill);
         List<BillItemDto> GetBillItems();
 
-        int CreateBillItem(CreateBillItemInput input);
+        void CreateBillItem(CreateBillItemInput input);
 
         BillItemDto GetBillItem(int id);
 

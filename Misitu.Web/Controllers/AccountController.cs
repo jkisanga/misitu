@@ -91,9 +91,7 @@ namespace Misitu.Web.Controllers
                 );
 
             await SignInAsync(loginResult.User, loginResult.Identity, loginModel.RememberMe);
-
-          
-
+         
                 if (_userManager.IsInRole(loginResult.User.Id, "Client"))
                 {
                     returnUrl = "/Client/Dashboard";

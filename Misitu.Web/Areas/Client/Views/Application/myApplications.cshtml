@@ -75,7 +75,7 @@
                             @Html.DisplayFor(modelItem => item.SawmillCapacityPerYear)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.CreationTime)
+                            @String.Format("{0:dd MMM yyyy}", item.CreationTime)
                         </td>
                       
                         <td>

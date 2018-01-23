@@ -11,6 +11,7 @@ using Misitu.Users;
 using Misitu.Stations;
 using System.Linq;
 using Misitu.Species;
+using Misitu.Registration;
 
 namespace Misitu.Web.Areas.Client.Controllers
 {
@@ -23,12 +24,14 @@ namespace Misitu.Web.Areas.Client.Controllers
         private readonly IUserAppService _userAppService;
         private readonly IStationAppService _stationAppService;
         private readonly ISpecieCategoryAppService _specieCategoryAppService;
+        private readonly IDealerAppService _dealerAppService;
 
 
         public ApplicationController(IFinancialYearAppService financialYear, IApplicantService applicant, 
             IRefApplicationTypeAppService refApplicationTypeAppService,
-              IUserAppService userAppService,
-               ISpecieCategoryAppService specieCategoryAppService,
+             IUserAppService userAppService,
+             IDealerAppService dealerAppService,
+             ISpecieCategoryAppService specieCategoryAppService,
             IStationAppService stationAppService
             )
         {
@@ -38,17 +41,25 @@ namespace Misitu.Web.Areas.Client.Controllers
             _userAppService = userAppService;
             _specieCategoryAppService = specieCategoryAppService;
             _stationAppService = stationAppService;
+            _dealerAppService = dealerAppService;
 
         }
 
         [HttpGet]
         public ActionResult ForestProduceRegistration()
         {
-
-            ViewBag.Applicant = this.applicant.GetApplicantById(_userAppService.GetLoggedInUser().ApplicantId);       
-            ViewBag.FinancialYearId = this.financialYear.GetActiveFinancialYear().Id;
-            ViewBag.DistrictId = new SelectList(this.refApplicationTypeAppService.GetDistrictList(), "Id", "Name");
-            return View();
+            if(_dealerAppService.IsRegistered(_userAppService.GetLoggedInUser().ApplicantId, this.financialYear.GetActiveFinancialYear()))
+            {
+                ViewBag.Applicant = this.applicant.GetApplicantById(_userAppService.GetLoggedInUser().ApplicantId);
+                ViewBag.FinancialYearId = this.financialYear.GetActiveFinancialYear().Id;
+                ViewBag.DistrictId = new SelectList(this.refApplicationTypeAppService.GetDistrictList(), "Id", "Name");
+                return View();
+            }else
+            {
+                TempData["danger"] = string.Format(@"You must have registrartion certificate first, apply for registration!");
+                return RedirectToAction("Index", "Dashboard");
+            }
+           
         }
 
 

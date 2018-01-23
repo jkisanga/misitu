@@ -17,6 +17,8 @@ Misitu.Application/bin/
 *.userosscache
 *.sln.docstates
 
+**/logs 
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

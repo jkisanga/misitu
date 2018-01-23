@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Misitu.Applicants.Dto.ExportImport.ExportDetailDto>
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="pull-left"><span>Applications for import and export</span></div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+        <div class="padd">
+            <table class="table table-bordered table-hover">
+                    <tr>
+                        <th>
+                            @Html.DisplayName("Application Holder")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Specie Category")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Origin")
+                        </th>
+                        <th>
+                            @Html.DisplayName("BankName")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Bank Address")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Destination")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Shipment Date")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Applied Date")
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                          
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Applicant.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SpecieCategory.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Station.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BankName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BankAddress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Destination)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ShipmentDate)
+                            </td>
+                            <td>
+                                @String.Format("{0:dd MMM yyyy}", item.CreationTime)
+                            </td>
+                            <td>
+
+                                @Html.ActionLink("Details", "Details", new { id = item.Id }) 
+
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+
