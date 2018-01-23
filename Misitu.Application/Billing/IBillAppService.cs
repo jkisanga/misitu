@@ -16,10 +16,12 @@ namespace Misitu.Billing
         List<HarvestBill> PrintHarvestBill(int id);
 
         List<BillDto> GetBills(FinancialYearDto FinancialYear);
+        List<BillDto> GetBills();
 
         List<BillDto> GetPayedBills(FinancialYearDto FinancialYear);
 
         int CreateBill(CreateBillInput input);
+        Task CreateBill1(CreateBillInput input);
 
         BillDto GetBill(int id);
 

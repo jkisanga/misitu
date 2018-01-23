@@ -1,5 +1,7 @@
-﻿using Abp.AutoMapper;
+﻿using Abp.Application.Services.Dto;
+using Abp.AutoMapper;
 using Abp.Domain.Entities.Auditing;
+using Misitu.Activities;
 using Misitu.RevenueSources;
 using System;
 using System.Collections.Generic;
@@ -12,10 +14,12 @@ using System.Threading.Tasks;
 namespace Misitu.Billing.Dto
 {
     [AutoMapFrom(typeof(BillItem))]
-    public class BillItemDto:FullAuditedEntity
+    public class BillItemDto:FullAuditedEntityDto
     {
         public virtual int BillId { get; set; }
-        public virtual int RevenueResourceId { get; set; }
+
+        public virtual int ActivityId { get; set; }
+
         [Required]
         public virtual string Description { get; set; }
         public virtual double Loyality { get; set; }
@@ -27,10 +31,13 @@ namespace Misitu.Billing.Dto
         public virtual double DataSheet { get; set; }
         public virtual double Others { get; set; }
         public virtual double Total { get; set; }
+        public virtual Double EquvAmont { get; set; }
+        public virtual Double MiscAmont { get; set; }
+        public virtual int GfsCode { get; set; }
 
         [ForeignKey("BillId")]
         public virtual Bill Bill { get; set; }
-        [ForeignKey("RevenueResourceId")]
-        public virtual RevenueSource RevenueResource { get; set; }
+        [ForeignKey("ActivityId")]
+        public virtual Activity Activity { get; set; }
     }
 }

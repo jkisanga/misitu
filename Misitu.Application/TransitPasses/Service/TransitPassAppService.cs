@@ -28,7 +28,7 @@ namespace Misitu.TransitPasses.Service
                 ApplicantId = input.ApplicantId,
                 BillId = input.BillId,
                 LisenceNo = input.LisenceNo,
-                IssuedDate = input.IssuedDate,
+                IssuedDate = DateTime.Now,
                 OrginalCountry = input.OrginalCountry,
                 NoOfConsignment = input.NoOfConsignment,
                 TransitPassNo = input.TransitPassNo,
@@ -44,15 +44,15 @@ namespace Misitu.TransitPasses.Service
                 HummerStationId = input.HummerStationId,
                 AdditionInformation = input.AdditionInformation
             };
-            var objExist = this.repositoryTransitpass.FirstOrDefault(a => a.TransitPassNo == input.TransitPassNo);
-            if (objExist == null)
-            {
+           // var objExist = this.repositoryTransitpass.FirstOrDefault(a => a.TransitPassNo == input.TransitPassNo);
+            //if (objExist == null)
+            //{
                 return this.repositoryTransitpass.InsertAndGetId(obj);
-            }
-            else
-            {
-                throw new UserFriendlyException("Item Alredy Exist");
-            }
+            //}
+            //else
+            //{
+            //    throw new UserFriendlyException("Item Alredy Exist");
+            //}
         }
 
         public async Task DeleteTransitPassAsync(TransitPassDto input)

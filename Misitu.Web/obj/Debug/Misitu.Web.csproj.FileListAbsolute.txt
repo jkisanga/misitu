@@ -148,6 +148,10 @@ C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\obj\Debu
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\obj\Debug\Misitu.Web.pdb
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\obj\Debug\RdlCompile.cache
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\obj\Debug\RdlCompile.compiled
+C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\obj\Debug\Misitu.Web.csprojResolveAssemblyReference.cache
+C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\obj\Debug\Misitu.Web.Lang.resources
+C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\obj\Debug\Misitu.Web.csproj.GenerateResource.Cache
+C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\obj\Debug\Misitu.Web.csproj.CoreCompileInputs.cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\bin\Misitu.Web.dll.config
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\bin\Misitu.Web.dll
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\bin\Misitu.Web.pdb
@@ -294,9 +298,5 @@ C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\bin\System
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\bin\System.Web.Http.Owin.xml
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\bin\es\Hangfire.Core.resources.dll
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\bin\zh\Hangfire.Core.resources.dll
-C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\obj\Debug\Misitu.Web.csprojResolveAssemblyReference.cache
-C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\obj\Debug\Misitu.Web.Lang.resources
-C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\obj\Debug\Misitu.Web.csproj.GenerateResource.Cache
-C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\obj\Debug\Misitu.Web.csproj.CoreCompileInputs.cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\obj\Debug\Misitu.Web.dll
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Web\obj\Debug\Misitu.Web.pdb

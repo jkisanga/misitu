@@ -78,4 +78,3 @@ C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Core\bin\Debug
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Core\obj\Debug\Misitu.Core.csproj.CoreCompileInputs.cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Core\obj\Debug\Misitu.Core.dll
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Core\obj\Debug\Misitu.Core.pdb
-C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Core\obj\Debug\Misitu.Core.csprojResolveAssemblyReference.cache

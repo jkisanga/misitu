@@ -13,6 +13,8 @@ namespace Misitu.Applicants
   public  class Applicant : FullAuditedEntity
     {
         
+
+
        [Required]
         public virtual int Type { get; set; }
         [Required]

@@ -1,6 +1,8 @@
 ﻿using System.Reflection;
 using Abp.AutoMapper;
 using Abp.Modules;
+using Misitu.Applicants.Interface;
+using Abp.Application.Services;
 
 namespace Misitu
 {
@@ -19,6 +21,8 @@ namespace Misitu
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
+
+            
         }
     }
 }
