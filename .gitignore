@@ -9,6 +9,7 @@ Misitu.Application/bin/
 
 Misitu.Application/obj/
 Misitu.Application/bin/
+App_Data/Logs
 *.vs/
 
 # User-specific files

@@ -1651,3 +1651,7 @@ WARN  2018-01-23 16:59:59,956 [52   ] Abp.Logging.LogHelper                    -
 WARN  2018-01-23 16:59:59,957 [52   ] Abp.Logging.LogHelper                    - Can not find 'SpecieCategories' in localization source 'Misitu'!
 WARN  2018-01-23 16:59:59,957 [52   ] Abp.Logging.LogHelper                    - Can not find 'Species' in localization source 'Misitu'!
 WARN  2018-01-23 16:59:59,957 [52   ] Abp.Logging.LogHelper                    - Can not find 'HarvestingPlan' in localization source 'Misitu'!
+DEBUG 2018-01-23 17:20:35,567 [23   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2018-01-23 17:20:35,583 [23   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-01-23 17:20:35,583 [23   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-01-23 17:20:35,583 [23   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
