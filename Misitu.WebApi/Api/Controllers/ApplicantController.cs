@@ -164,10 +164,10 @@ namespace Misitu.Api.Controllers
 
             };
 
-            int billItem = this.billItemAppService.CreateBillItem(obj);
-            var newBillTem = this.billItemAppService.GetBillItem(billItem);
+            this.billItemAppService.CreateBillItem(obj);
+            //var newBillTem = this.billItemAppService.GetBillItem(billItem);
 
-            return Json(newBillTem);
+            return Json("");
         }
 
 

@@ -1655,3 +1655,1298 @@ DEBUG 2018-01-23 17:20:35,567 [23   ] Abp.Modules.AbpModuleManager             -
 DEBUG 2018-01-23 17:20:35,583 [23   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
 DEBUG 2018-01-23 17:20:35,583 [23   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
 DEBUG 2018-01-23 17:20:35,583 [23   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2018-01-24 10:32:40,220 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2018-01-24 10:32:40,358 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2018-01-24 10:32:40,458 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.Web.MisituWebModule, Misitu.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:32:40,474 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.MisituDataModule, Misitu.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:32:40,474 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:32:40,474 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:32:40,474 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:32:40,474 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:32:40,474 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:32:40,474 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.MisituCoreModule, Misitu.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:32:40,505 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.MisituApplicationModule, Misitu.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:32:40,505 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:32:40,505 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.Api.MisituWebApiModule, Misitu.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:32:40,505 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:32:40,505 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:32:40,505 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:32:40,505 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:32:40,505 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:32:40,521 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2018-01-24 10:32:42,760 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-01-24 10:32:42,760 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-01-24 10:32:42,760 [1    ] o.Configuration.LanguageManagementConfig - Converted Misitu (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-01-24 10:32:42,760 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-01-24 10:32:43,524 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: Misitu.EntityFramework.MisituDbContext, Misitu.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:32:50,701 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2018-01-24 10:32:50,770 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2018-01-24 10:32:50,801 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2018-01-24 10:32:50,817 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Misitu
+DEBUG 2018-01-24 10:32:50,833 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2018-01-24 10:32:50,933 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-01-24 10:32:51,017 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 83 classes define auto mapping attributes
+DEBUG 2018-01-24 10:32:51,017 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Zones.Dto.CreateZoneInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Zones.Dto.ZoneDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Sessions.Dto.UserLoginInfoDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Users.Dto.CreateUserInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Users.Dto.UserDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Users.Dto.UserListDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.TransitPasses.CreateCheckPointTransitPass
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.TransitPasses.CreateBillTransitPass
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.TransitPasses.BillTransitPassDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.TransitPasses.CheckPointTransitPassDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.TransitPasses.CreateTransitPassInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.TransitPasses.TransitPassDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Stations.Dto.CreateStationInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Stations.Dto.StationDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Regions.Dto.CreateRegionInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Regions.Dto.RegionDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Ranges.Dto.CreateRangeInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Ranges.Dto.RangeDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Tariffs.Dto.CreateTariffInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Tariffs.Dto.TariffDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.CreateSpecieCategoryInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.CreateSpecieInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.SpecieCategoryDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.SpecieDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Roles.Dto.CreateRoleDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Roles.Dto.PermissionDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Roles.Dto.RoleDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.CreateMainRevenueSource
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.CreateRefSubRevenueSourcesInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.CreateRevenueSourcesInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.MainRevenueSourceDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.RevenueSourcesDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.RefSubRevenueSourcesDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CandidateDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CreateCandidateInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CreateDealerActivityInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CreateDealerInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.DealerActivityDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.DealerDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.CreateRefApplicationInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.CreateRefIdentityInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.RefApplicationTypeDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.RefIdentityDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.PlotDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CompartmentView
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreateHarvestingPlanInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreateTallySheetInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.HarvestingPlanDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.TallySheetDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CompartmentDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreateCompartmentInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreatePlotInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.MultiTenancy.Dto.TenantListDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.AllocatedPlotDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.CreateAllocatedPlotInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.CreateLicenseInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.LicenseDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.FinancialYears.Dto.CreateFinancialYear
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.FinancialYears.Dto.FinancialYearDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Divisions.Dto.CreateDivisionInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Divisions.Dto.DivisionDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.BillDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.BillItemDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.CreateBillInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.CreateBillItemInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ApplicantDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.CreateForestProduceRegistration
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ForestProduceRegistrationDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ForestProduce.CreateForestProduceAppliedForest
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ForestProduce.ForestProduceAppliedForestDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ForestProduce.ForestProduceAppliedSpecieCategoryDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.Dto.ApplicationTypeDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.Dto.CreateInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.Dto.ExportImport.CreateExportAttachment
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.Dto.ExportImport.CreateExportDetail
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.Dto.ExportImport.CreateExportSpecie
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.Dto.ExportImport.ExportDetailDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.Dto.ExportImport.ExportSpecieDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Activities.CreateActivityInput
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Activities.Dto.ActivityDto
+DEBUG 2018-01-24 10:32:51,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2018-01-24 10:32:53,722 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Zones.IZoneAppService' with service name 'app/zone'.
+DEBUG 2018-01-24 10:32:53,722 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2018-01-24 10:32:53,722 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2018-01-24 10:32:53,722 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.TransitPasses.IBillTransitPass' with service name 'app/billTransitPass'.
+DEBUG 2018-01-24 10:32:53,722 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.TransitPasses.ICheckPointTransitPass' with service name 'app/checkPointTransitPass'.
+DEBUG 2018-01-24 10:32:53,722 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.TransitPasses.IInspectionAudit' with service name 'app/inspectionAudit'.
+DEBUG 2018-01-24 10:32:53,738 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.TransitPasses.ITransitPass' with service name 'app/transitPass'.
+DEBUG 2018-01-24 10:32:53,738 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Stations.IStationAppService' with service name 'app/station'.
+DEBUG 2018-01-24 10:32:53,738 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Regions.IRegionAppService' with service name 'app/region'.
+DEBUG 2018-01-24 10:32:53,738 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Ranges.IRangeAppService' with service name 'app/range'.
+DEBUG 2018-01-24 10:32:53,738 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Tariffs.ITariffAppService' with service name 'app/tariff'.
+DEBUG 2018-01-24 10:32:53,738 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Species.ISpecieAppService' with service name 'app/specie'.
+DEBUG 2018-01-24 10:32:53,738 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Species.ISpecieCategoryAppService' with service name 'app/specieCategory'.
+DEBUG 2018-01-24 10:32:53,738 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2018-01-24 10:32:53,738 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RevenueSources.IRefSubRevenueSourceAppService' with service name 'app/refSubRevenueSource'.
+DEBUG 2018-01-24 10:32:53,738 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RevenueSources.IRevenueSourceAppService' with service name 'app/revenueSource'.
+DEBUG 2018-01-24 10:32:53,738 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Registration.ICandidateAppService' with service name 'app/candidate'.
+DEBUG 2018-01-24 10:32:53,738 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Registration.IDealerActivityAppService' with service name 'app/dealerActivity'.
+DEBUG 2018-01-24 10:32:53,738 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RefTables.Interface.IRefApplicationTypeAppService' with service name 'app/refApplicationType'.
+DEBUG 2018-01-24 10:32:53,738 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RefTables.Interface.IRefIdentityAppService' with service name 'app/refIdentity'.
+DEBUG 2018-01-24 10:32:53,753 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.IHarvestingPlanAppService' with service name 'app/harvestingPlan'.
+DEBUG 2018-01-24 10:32:53,753 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.ITallySheetAppService' with service name 'app/tallySheet'.
+DEBUG 2018-01-24 10:32:53,753 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.ICompartmentAppService' with service name 'app/compartment'.
+DEBUG 2018-01-24 10:32:53,753 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.IPlotAppService' with service name 'app/plot'.
+DEBUG 2018-01-24 10:32:53,753 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2018-01-24 10:32:53,753 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Licensing.IAllocatedPlotAppService' with service name 'app/allocatedPlot'.
+DEBUG 2018-01-24 10:32:53,753 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Licensing.ILicenseAppService' with service name 'app/license'.
+DEBUG 2018-01-24 10:32:53,753 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.FinancialYears.IFinancialYearAppService' with service name 'app/financialYear'.
+DEBUG 2018-01-24 10:32:53,753 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Divisions.IDivisionAppService' with service name 'app/division'.
+DEBUG 2018-01-24 10:32:53,753 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Billing.IBillItemAppService' with service name 'app/billItem'.
+DEBUG 2018-01-24 10:32:53,753 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Applicants.Interface.IApplicantService' with service name 'app/applicantService'.
+DEBUG 2018-01-24 10:32:53,753 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Applicants.Interface.IApplicationTypeService' with service name 'app/applicationTypeService'.
+DEBUG 2018-01-24 10:32:53,770 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Applicants.Interface.IExportService' with service name 'app/exportService'.
+DEBUG 2018-01-24 10:32:53,772 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Activities.IActivityAppService' with service name 'app/activity'.
+WARN  2018-01-24 10:34:04,504 [6    ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate Misitu.EntityFramework.MisituDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The network path was not found
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass33.<UsingConnection>b__32()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
+   at System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
+   at System.Data.Entity.SqlServer.SqlProviderServices.CreateDatabaseFromScript(Nullable`1 commandTimeout, DbConnection sqlConnection, String createDatabaseScript)
+   at System.Data.Entity.SqlServer.SqlProviderServices.DbCreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   at System.Data.Entity.Core.Common.DbProviderServices.CreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   at System.Data.Entity.Core.Objects.ObjectContext.CreateDatabase()
+   at System.Data.Entity.Migrations.Utilities.DatabaseCreator.Create(DbConnection connection)
+   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.Internal.DatabaseCreator.CreateDatabase(InternalContext internalContext, Func`3 createMigrator, ObjectContext objectContext)
+   at System.Data.Entity.Internal.InternalContext.CreateDatabase(ObjectContext objectContext, DatabaseExistenceState existenceState)
+   at System.Data.Entity.Database.Create(DatabaseExistenceState existenceState)
+   at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.ForceOSpaceLoadingForKnownEntityTypes()
+   at System.Data.Entity.DbContext.System.Data.Entity.Infrastructure.IObjectContextAdapter.get_ObjectContext()
+   at Abp.EntityFramework.AbpDbContext.RegisterToChanges()
+   at Abp.Zero.EntityFramework.AbpZeroDbContext`3..ctor(String nameOrConnectionString)
+   at Misitu.EntityFramework.MisituDbContext..ctor(String nameOrConnectionString) in C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\EntityFramework\MisituDbContext.cs:line 146
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.FastCreateInstance(Type implType, Object[] arguments, ConstructorCandidate constructor)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.Instantiate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, Object argumentsAsAnonymousType)
+   at Abp.Dependency.IocManager.Resolve(Type type, Object argumentsAsAnonymousType)
+   at Abp.EntityFramework.DefaultDbContextResolver.Resolve[TDbContext](String connectionString)
+   at Abp.EntityFramework.Uow.TransactionScopeEfTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFramework.Uow.EfUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Context_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context()
+   at Abp.EntityFramework.Repositories.EfRepositoryBase`3.get_Table()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Table_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_GetAll_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync_callback(Int32 maxResultCount)
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.<DoWork>b__13_0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass16_0`1.<Run>b__0(Task`1 t)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
+Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate Misitu.EntityFramework.MisituDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The network path was not found
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass33.<UsingConnection>b__32()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
+   at System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
+   at System.Data.Entity.SqlServer.SqlProviderServices.CreateDatabaseFromScript(Nullable`1 commandTimeout, DbConnection sqlConnection, String createDatabaseScript)
+   at System.Data.Entity.SqlServer.SqlProviderServices.DbCreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   at System.Data.Entity.Core.Common.DbProviderServices.CreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   at System.Data.Entity.Core.Objects.ObjectContext.CreateDatabase()
+   at System.Data.Entity.Migrations.Utilities.DatabaseCreator.Create(DbConnection connection)
+   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.Internal.DatabaseCreator.CreateDatabase(InternalContext internalContext, Func`3 createMigrator, ObjectContext objectContext)
+   at System.Data.Entity.Internal.InternalContext.CreateDatabase(ObjectContext objectContext, DatabaseExistenceState existenceState)
+   at System.Data.Entity.Database.Create(DatabaseExistenceState existenceState)
+   at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.ForceOSpaceLoadingForKnownEntityTypes()
+   at System.Data.Entity.DbContext.System.Data.Entity.Infrastructure.IObjectContextAdapter.get_ObjectContext()
+   at Abp.EntityFramework.AbpDbContext.RegisterToChanges()
+   at Abp.Zero.EntityFramework.AbpZeroDbContext`3..ctor(String nameOrConnectionString)
+   at Misitu.EntityFramework.MisituDbContext..ctor(String nameOrConnectionString) in C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\EntityFramework\MisituDbContext.cs:line 146
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.FastCreateInstance(Type implType, Object[] arguments, ConstructorCandidate constructor)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.Instantiate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, Object argumentsAsAnonymousType)
+   at Abp.Dependency.IocManager.Resolve(Type type, Object argumentsAsAnonymousType)
+   at Abp.EntityFramework.DefaultDbContextResolver.Resolve[TDbContext](String connectionString)
+   at Abp.EntityFramework.Uow.TransactionScopeEfTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFramework.Uow.EfUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Context_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context()
+   at Abp.EntityFramework.Repositories.EfRepositoryBase`3.get_Table()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Table_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_GetAll_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync_callback(Int32 maxResultCount)
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.<DoWork>b__13_0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass16_0`1.<Run>b__0(Task`1 t)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
+ERROR 2018-01-24 10:34:36,186 [5    ] Misitu.Web.Controllers.AccountController - ComponentActivator: could not instantiate Misitu.EntityFramework.MisituDbContext
+Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate Misitu.EntityFramework.MisituDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The network path was not found
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass33.<UsingConnection>b__32()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
+   at System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
+   at System.Data.Entity.SqlServer.SqlProviderServices.CreateDatabaseFromScript(Nullable`1 commandTimeout, DbConnection sqlConnection, String createDatabaseScript)
+   at System.Data.Entity.SqlServer.SqlProviderServices.DbCreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   at System.Data.Entity.Core.Common.DbProviderServices.CreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   at System.Data.Entity.Core.Objects.ObjectContext.CreateDatabase()
+   at System.Data.Entity.Migrations.Utilities.DatabaseCreator.Create(DbConnection connection)
+   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.Internal.DatabaseCreator.CreateDatabase(InternalContext internalContext, Func`3 createMigrator, ObjectContext objectContext)
+   at System.Data.Entity.Internal.InternalContext.CreateDatabase(ObjectContext objectContext, DatabaseExistenceState existenceState)
+   at System.Data.Entity.Database.Create(DatabaseExistenceState existenceState)
+   at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.ForceOSpaceLoadingForKnownEntityTypes()
+   at System.Data.Entity.DbContext.System.Data.Entity.Infrastructure.IObjectContextAdapter.get_ObjectContext()
+   at Abp.EntityFramework.AbpDbContext.RegisterToChanges()
+   at Abp.Zero.EntityFramework.AbpZeroDbContext`3..ctor(String nameOrConnectionString)
+   at Misitu.EntityFramework.MisituDbContext..ctor(String nameOrConnectionString) in C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\EntityFramework\MisituDbContext.cs:line 146
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.FastCreateInstance(Type implType, Object[] arguments, ConstructorCandidate constructor)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.Instantiate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, Object argumentsAsAnonymousType)
+   at Abp.Dependency.IocManager.Resolve(Type type, Object argumentsAsAnonymousType)
+   at Abp.EntityFramework.DefaultDbContextResolver.Resolve[TDbContext](String connectionString)
+   at Abp.EntityFramework.Uow.TransactionScopeEfTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFramework.Uow.EfUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   at Castle.Proxies.EfRepositoryBase`2Proxy_1.get_Context_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Context_1.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`2Proxy_1.get_Context()
+   at Abp.EntityFramework.Repositories.EfRepositoryBase`3.get_Table()
+   at Castle.Proxies.EfRepositoryBase`2Proxy_1.get_Table_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Table_1.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`2Proxy_1.get_Table()
+   at Castle.Proxies.EfRepositoryBase`2Proxy_1.GetAll_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_GetAll_1.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`2Proxy_1.GetAll()
+   at Abp.EntityFramework.Repositories.EfRepositoryBase`3.<GetAllListAsync>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Threading.InternalAsyncHelper.<AwaitTaskWithPostActionAndFinallyAndGetResult>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Localization.ApplicationLanguageManager.<GetLanguagesFromDatabaseAsync>d__17.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Threading.InternalAsyncHelper.<AwaitTaskWithPostActionAndFinallyAndGetResult>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Runtime.Caching.CacheExtensions.<>c__DisplayClass5_0`2.<<GetAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Runtime.Caching.CacheBase.<GetAsync>d__15.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Runtime.Caching.CacheExtensions.<GetAsync>d__5`2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Localization.ApplicationLanguageManager.<GetLanguageDictionary>d__15.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Localization.ApplicationLanguageManager.<GetLanguagesAsync>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass16_0`1.<Run>b__0(Task`1 t)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.Localization.ApplicationLanguageProvider.GetLanguages()
+   at Abp.Localization.LanguageManager.GetLanguages()
+   at Abp.Localization.MultiTenantLocalizationDictionaryProvider.GetDictionaries()
+   at Abp.Localization.MultiTenantLocalizationDictionaryProvider.get_Dictionaries()
+   at Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource.GetStringOrNull(String name, CultureInfo culture, Boolean tryDefaults)
+   at Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource.GetString(String name)
+   at Abp.Web.Mvc.Views.AbpWebViewPage`1.L(String name)
+   at ASP._Page_Views_Account_Login_cshtml.Execute() in c:\Users\nshaba\documents\visual studio 2015\projects\misitu\misitu.web\Views\Account\Login.cshtml:line 5
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+WARN  2018-01-24 10:34:36,403 [15   ] Abp.BackgroundJobs.BackgroundJobManager  - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate Misitu.EntityFramework.MisituDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The network path was not found
+   --- End of inner exception stack trace ---
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass33.<UsingConnection>b__32()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
+   at System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
+   at System.Data.Entity.SqlServer.SqlProviderServices.CreateDatabaseFromScript(Nullable`1 commandTimeout, DbConnection sqlConnection, String createDatabaseScript)
+   at System.Data.Entity.SqlServer.SqlProviderServices.DbCreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   at System.Data.Entity.Core.Common.DbProviderServices.CreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   at System.Data.Entity.Core.Objects.ObjectContext.CreateDatabase()
+   at System.Data.Entity.Migrations.Utilities.DatabaseCreator.Create(DbConnection connection)
+   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.Internal.DatabaseCreator.CreateDatabase(InternalContext internalContext, Func`3 createMigrator, ObjectContext objectContext)
+   at System.Data.Entity.Internal.InternalContext.CreateDatabase(ObjectContext objectContext, DatabaseExistenceState existenceState)
+   at System.Data.Entity.Database.Create(DatabaseExistenceState existenceState)
+   at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.ForceOSpaceLoadingForKnownEntityTypes()
+   at System.Data.Entity.DbContext.System.Data.Entity.Infrastructure.IObjectContextAdapter.get_ObjectContext()
+   at Abp.EntityFramework.AbpDbContext.RegisterToChanges()
+   at Abp.Zero.EntityFramework.AbpZeroDbContext`3..ctor(String nameOrConnectionString)
+   at Misitu.EntityFramework.MisituDbContext..ctor(String nameOrConnectionString) in C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\EntityFramework\MisituDbContext.cs:line 146
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.FastCreateInstance(Type implType, Object[] arguments, ConstructorCandidate constructor)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.Instantiate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, Object argumentsAsAnonymousType)
+   at Abp.Dependency.IocManager.Resolve(Type type, Object argumentsAsAnonymousType)
+   at Abp.EntityFramework.DefaultDbContextResolver.Resolve[TDbContext](String connectionString)
+   at Abp.EntityFramework.Uow.TransactionScopeEfTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFramework.Uow.EfUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Context_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context()
+   at Abp.EntityFramework.Repositories.EfRepositoryBase`3.get_Table()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Table_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_GetAll_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync_callback(Int32 maxResultCount)
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.<DoWork>b__13_0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass16_0`1.<Run>b__0(Task`1 t)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
+Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate Misitu.EntityFramework.MisituDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The network path was not found
+   --- End of inner exception stack trace ---
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass33.<UsingConnection>b__32()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
+   at System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
+   at System.Data.Entity.SqlServer.SqlProviderServices.CreateDatabaseFromScript(Nullable`1 commandTimeout, DbConnection sqlConnection, String createDatabaseScript)
+   at System.Data.Entity.SqlServer.SqlProviderServices.DbCreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   at System.Data.Entity.Core.Common.DbProviderServices.CreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   at System.Data.Entity.Core.Objects.ObjectContext.CreateDatabase()
+   at System.Data.Entity.Migrations.Utilities.DatabaseCreator.Create(DbConnection connection)
+   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.Internal.DatabaseCreator.CreateDatabase(InternalContext internalContext, Func`3 createMigrator, ObjectContext objectContext)
+   at System.Data.Entity.Internal.InternalContext.CreateDatabase(ObjectContext objectContext, DatabaseExistenceState existenceState)
+   at System.Data.Entity.Database.Create(DatabaseExistenceState existenceState)
+   at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.ForceOSpaceLoadingForKnownEntityTypes()
+   at System.Data.Entity.DbContext.System.Data.Entity.Infrastructure.IObjectContextAdapter.get_ObjectContext()
+   at Abp.EntityFramework.AbpDbContext.RegisterToChanges()
+   at Abp.Zero.EntityFramework.AbpZeroDbContext`3..ctor(String nameOrConnectionString)
+   at Misitu.EntityFramework.MisituDbContext..ctor(String nameOrConnectionString) in C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\EntityFramework\MisituDbContext.cs:line 146
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.FastCreateInstance(Type implType, Object[] arguments, ConstructorCandidate constructor)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.Instantiate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, Object argumentsAsAnonymousType)
+   at Abp.Dependency.IocManager.Resolve(Type type, Object argumentsAsAnonymousType)
+   at Abp.EntityFramework.DefaultDbContextResolver.Resolve[TDbContext](String connectionString)
+   at Abp.EntityFramework.Uow.TransactionScopeEfTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFramework.Uow.EfUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Context_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Context()
+   at Abp.EntityFramework.Repositories.EfRepositoryBase`3.get_Table()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Table_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.get_Table()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_GetAll_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`3Proxy_1.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync_callback(Int32 maxResultCount)
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at Abp.BackgroundJobs.BackgroundJobManager.<DoWork>b__13_0()
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass16_0`1.<Run>b__0(Task`1 t)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork()
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
+ERROR 2018-01-24 10:34:36,788 [10   ] Misitu.Web.Controllers.AccountController - ComponentActivator: could not instantiate Misitu.EntityFramework.MisituDbContext
+Castle.MicroKernel.ComponentActivator.ComponentActivatorException: ComponentActivator: could not instantiate Misitu.EntityFramework.MisituDbContext ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The network path was not found
+   --- End of inner exception stack trace ---
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass33.<UsingConnection>b__32()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
+   at System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
+   at System.Data.Entity.SqlServer.SqlProviderServices.CreateDatabaseFromScript(Nullable`1 commandTimeout, DbConnection sqlConnection, String createDatabaseScript)
+   at System.Data.Entity.SqlServer.SqlProviderServices.DbCreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   at System.Data.Entity.Core.Common.DbProviderServices.CreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   at System.Data.Entity.Core.Objects.ObjectContext.CreateDatabase()
+   at System.Data.Entity.Migrations.Utilities.DatabaseCreator.Create(DbConnection connection)
+   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.Internal.DatabaseCreator.CreateDatabase(InternalContext internalContext, Func`3 createMigrator, ObjectContext objectContext)
+   at System.Data.Entity.Internal.InternalContext.CreateDatabase(ObjectContext objectContext, DatabaseExistenceState existenceState)
+   at System.Data.Entity.Database.Create(DatabaseExistenceState existenceState)
+   at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.ForceOSpaceLoadingForKnownEntityTypes()
+   at System.Data.Entity.DbContext.System.Data.Entity.Infrastructure.IObjectContextAdapter.get_ObjectContext()
+   at Abp.EntityFramework.AbpDbContext.RegisterToChanges()
+   at Abp.Zero.EntityFramework.AbpZeroDbContext`3..ctor(String nameOrConnectionString)
+   at Misitu.EntityFramework.MisituDbContext..ctor(String nameOrConnectionString) in C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\EntityFramework\MisituDbContext.cs:line 146
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.FastCreateInstance(Type implType, Object[] arguments, ConstructorCandidate constructor)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   --- End of inner exception stack trace ---
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.Instantiate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   at Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   at Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   at Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   at Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   at Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   at Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   at Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, IDictionary arguments)
+   at Castle.Windsor.WindsorContainer.Resolve(Type service, Object argumentsAsAnonymousType)
+   at Abp.Dependency.IocManager.Resolve(Type type, Object argumentsAsAnonymousType)
+   at Abp.EntityFramework.DefaultDbContextResolver.Resolve[TDbContext](String connectionString)
+   at Abp.EntityFramework.Uow.TransactionScopeEfTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver)
+   at Abp.EntityFramework.Uow.EfUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkExtensions.GetDbContext[TDbContext](IActiveUnitOfWork unitOfWork, Nullable`1 multiTenancySide)
+   at Abp.EntityFramework.Uow.UnitOfWorkDbContextProvider`1.GetDbContext(Nullable`1 multiTenancySide)
+   at Castle.Proxies.EfRepositoryBase`2Proxy_1.get_Context_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Context_1.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`2Proxy_1.get_Context()
+   at Abp.EntityFramework.Repositories.EfRepositoryBase`3.get_Table()
+   at Castle.Proxies.EfRepositoryBase`2Proxy_1.get_Table_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_get_Table_1.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`2Proxy_1.get_Table()
+   at Castle.Proxies.EfRepositoryBase`2Proxy_1.GetAll_callback()
+   at Castle.Proxies.Invocations.EfRepositoryBase`3_GetAll_1.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.EfRepositoryBase`2Proxy_1.GetAll()
+   at Abp.EntityFramework.Repositories.EfRepositoryBase`3.<GetAllListAsync>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Threading.InternalAsyncHelper.<AwaitTaskWithPostActionAndFinallyAndGetResult>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Localization.ApplicationLanguageManager.<GetLanguagesFromDatabaseAsync>d__17.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Threading.InternalAsyncHelper.<AwaitTaskWithPostActionAndFinallyAndGetResult>d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Runtime.Caching.CacheExtensions.<>c__DisplayClass5_0`2.<<GetAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Runtime.Caching.CacheBase.<GetAsync>d__15.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Runtime.Caching.CacheExtensions.<GetAsync>d__5`2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Localization.ApplicationLanguageManager.<GetLanguageDictionary>d__15.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Localization.ApplicationLanguageManager.<GetLanguagesAsync>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass16_0`1.<Run>b__0(Task`1 t)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.Localization.ApplicationLanguageProvider.GetLanguages()
+   at Abp.Localization.LanguageManager.GetLanguages()
+   at Abp.Localization.MultiTenantLocalizationDictionaryProvider.GetDictionaries()
+   at Abp.Localization.MultiTenantLocalizationDictionaryProvider.get_Dictionaries()
+   at Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource.GetStringOrNull(String name, CultureInfo culture, Boolean tryDefaults)
+   at Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource.GetString(String name)
+   at Abp.Web.Mvc.Views.AbpWebViewPage`1.L(String name)
+   at ASP._Page_Views_Account_Login_cshtml.Execute() in c:\Users\nshaba\documents\visual studio 2015\projects\misitu\misitu.web\Views\Account\Login.cshtml:line 5
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+DEBUG 2018-01-24 10:35:57,726 [7    ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2018-01-24 10:35:57,726 [7    ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-01-24 10:35:57,726 [7    ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-01-24 10:35:57,726 [7    ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2018-01-24 10:36:04,203 [20   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2018-01-24 10:36:04,234 [20   ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2018-01-24 10:36:04,234 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.Web.MisituWebModule, Misitu.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:36:04,234 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.MisituDataModule, Misitu.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:36:04,234 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:36:04,234 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:36:04,234 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:36:04,234 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:36:04,234 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:36:04,234 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.MisituCoreModule, Misitu.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:36:04,234 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.MisituApplicationModule, Misitu.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:36:04,234 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:36:04,234 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Misitu.Api.MisituWebApiModule, Misitu.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:36:04,234 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:36:04,234 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:36:04,234 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:36:04,234 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:36:04,234 [20   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:36:04,250 [20   ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2018-01-24 10:36:06,860 [20   ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-01-24 10:36:06,860 [20   ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-01-24 10:36:06,860 [20   ] o.Configuration.LanguageManagementConfig - Converted Misitu (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-01-24 10:36:06,860 [20   ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2018-01-24 10:36:07,240 [20   ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: Misitu.EntityFramework.MisituDbContext, Misitu.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-24 10:36:07,942 [20   ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2018-01-24 10:36:07,942 [20   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2018-01-24 10:36:08,013 [20   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2018-01-24 10:36:08,013 [20   ] Abp.Localization.LocalizationManager     - Initialized localization source: Misitu
+DEBUG 2018-01-24 10:36:08,013 [20   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2018-01-24 10:36:08,082 [20   ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 83 classes define auto mapping attributes
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Zones.Dto.CreateZoneInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Zones.Dto.ZoneDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Sessions.Dto.UserLoginInfoDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Users.Dto.CreateUserInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Users.Dto.UserDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Users.Dto.UserListDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.TransitPasses.CreateCheckPointTransitPass
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.TransitPasses.CreateBillTransitPass
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.TransitPasses.BillTransitPassDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.TransitPasses.CheckPointTransitPassDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.TransitPasses.CreateTransitPassInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.TransitPasses.TransitPassDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Stations.Dto.CreateStationInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Stations.Dto.StationDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Regions.Dto.CreateRegionInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Regions.Dto.RegionDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Ranges.Dto.CreateRangeInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Ranges.Dto.RangeDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Tariffs.Dto.CreateTariffInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Tariffs.Dto.TariffDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.CreateSpecieCategoryInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.CreateSpecieInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.SpecieCategoryDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Species.Dto.SpecieDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Roles.Dto.CreateRoleDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Roles.Dto.PermissionDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Roles.Dto.RoleDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.CreateMainRevenueSource
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.CreateRefSubRevenueSourcesInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.CreateRevenueSourcesInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.MainRevenueSourceDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.RevenueSourcesDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RevenueSources.Dto.RefSubRevenueSourcesDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CandidateDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CreateCandidateInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CreateDealerActivityInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.CreateDealerInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.DealerActivityDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Registration.Dto.DealerDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.CreateRefApplicationInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.CreateRefIdentityInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.RefApplicationTypeDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.RefTables.Dto.RefIdentityDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.PlotDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CompartmentView
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreateHarvestingPlanInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreateTallySheetInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.HarvestingPlanDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.TallySheetDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CompartmentDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreateCompartmentInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.PlotScalling.Dto.CreatePlotInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.MultiTenancy.Dto.TenantListDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.AllocatedPlotDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.CreateAllocatedPlotInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.CreateLicenseInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Licensing.Dto.LicenseDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.FinancialYears.Dto.CreateFinancialYear
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.FinancialYears.Dto.FinancialYearDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Divisions.Dto.CreateDivisionInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Divisions.Dto.DivisionDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.BillDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.BillItemDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.CreateBillInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Billing.Dto.CreateBillItemInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ApplicantDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.CreateForestProduceRegistration
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ForestProduceRegistrationDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ForestProduce.CreateForestProduceAppliedForest
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ForestProduce.ForestProduceAppliedForestDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.ForestProduce.ForestProduceAppliedSpecieCategoryDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.Dto.ApplicationTypeDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.Dto.CreateInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.Dto.ExportImport.CreateExportAttachment
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.Dto.ExportImport.CreateExportDetail
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.Dto.ExportImport.CreateExportSpecie
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.Dto.ExportImport.ExportDetailDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Applicants.Dto.ExportImport.ExportSpecieDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Activities.CreateActivityInput
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Activities.Dto.ActivityDto
+DEBUG 2018-01-24 10:36:08,129 [20   ] Abp.AutoMapper.AbpAutoMapperModule       - Misitu.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2018-01-24 10:36:09,445 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Zones.IZoneAppService' with service name 'app/zone'.
+DEBUG 2018-01-24 10:36:09,445 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2018-01-24 10:36:09,445 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2018-01-24 10:36:09,445 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.TransitPasses.IBillTransitPass' with service name 'app/billTransitPass'.
+DEBUG 2018-01-24 10:36:09,461 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.TransitPasses.ICheckPointTransitPass' with service name 'app/checkPointTransitPass'.
+DEBUG 2018-01-24 10:36:09,461 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.TransitPasses.IInspectionAudit' with service name 'app/inspectionAudit'.
+DEBUG 2018-01-24 10:36:09,461 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.TransitPasses.ITransitPass' with service name 'app/transitPass'.
+DEBUG 2018-01-24 10:36:09,461 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Stations.IStationAppService' with service name 'app/station'.
+DEBUG 2018-01-24 10:36:09,461 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Regions.IRegionAppService' with service name 'app/region'.
+DEBUG 2018-01-24 10:36:09,461 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Ranges.IRangeAppService' with service name 'app/range'.
+DEBUG 2018-01-24 10:36:09,461 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Tariffs.ITariffAppService' with service name 'app/tariff'.
+DEBUG 2018-01-24 10:36:09,461 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Species.ISpecieAppService' with service name 'app/specie'.
+DEBUG 2018-01-24 10:36:09,461 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Species.ISpecieCategoryAppService' with service name 'app/specieCategory'.
+DEBUG 2018-01-24 10:36:09,461 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2018-01-24 10:36:09,461 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RevenueSources.IRefSubRevenueSourceAppService' with service name 'app/refSubRevenueSource'.
+DEBUG 2018-01-24 10:36:09,461 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RevenueSources.IRevenueSourceAppService' with service name 'app/revenueSource'.
+DEBUG 2018-01-24 10:36:09,477 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Registration.ICandidateAppService' with service name 'app/candidate'.
+DEBUG 2018-01-24 10:36:09,477 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Registration.IDealerActivityAppService' with service name 'app/dealerActivity'.
+DEBUG 2018-01-24 10:36:09,477 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RefTables.Interface.IRefApplicationTypeAppService' with service name 'app/refApplicationType'.
+DEBUG 2018-01-24 10:36:09,477 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.RefTables.Interface.IRefIdentityAppService' with service name 'app/refIdentity'.
+DEBUG 2018-01-24 10:36:09,477 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.IHarvestingPlanAppService' with service name 'app/harvestingPlan'.
+DEBUG 2018-01-24 10:36:09,477 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.ITallySheetAppService' with service name 'app/tallySheet'.
+DEBUG 2018-01-24 10:36:09,477 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.ICompartmentAppService' with service name 'app/compartment'.
+DEBUG 2018-01-24 10:36:09,477 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.PlotScalling.IPlotAppService' with service name 'app/plot'.
+DEBUG 2018-01-24 10:36:09,477 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2018-01-24 10:36:09,477 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Licensing.IAllocatedPlotAppService' with service name 'app/allocatedPlot'.
+DEBUG 2018-01-24 10:36:09,477 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Licensing.ILicenseAppService' with service name 'app/license'.
+DEBUG 2018-01-24 10:36:09,477 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.FinancialYears.IFinancialYearAppService' with service name 'app/financialYear'.
+DEBUG 2018-01-24 10:36:09,477 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Divisions.IDivisionAppService' with service name 'app/division'.
+DEBUG 2018-01-24 10:36:09,477 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Billing.IBillItemAppService' with service name 'app/billItem'.
+DEBUG 2018-01-24 10:36:09,492 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Applicants.Interface.IApplicantService' with service name 'app/applicantService'.
+DEBUG 2018-01-24 10:36:09,492 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Applicants.Interface.IApplicationTypeService' with service name 'app/applicationTypeService'.
+DEBUG 2018-01-24 10:36:09,492 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Applicants.Interface.IExportService' with service name 'app/exportService'.
+DEBUG 2018-01-24 10:36:09,492 [20   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Misitu.Activities.IActivityAppService' with service name 'app/activity'.
+WARN  2018-01-24 10:36:51,786 [14   ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,292 [14   ] Abp.Logging.LogHelper                    - Can not find 'ApplicationForRegistrtaion' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,292 [14   ] Abp.Logging.LogHelper                    - Can not find 'RejectedApplications' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,292 [14   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,292 [14   ] Abp.Logging.LogHelper                    - Can not find 'Payments' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,292 [14   ] Abp.Logging.LogHelper                    - Can not find 'PendingPayments' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,292 [14   ] Abp.Logging.LogHelper                    - Can not find 'SuccessfulPayments' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,292 [14   ] Abp.Logging.LogHelper                    - Can not find 'Add New TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,292 [14   ] Abp.Logging.LogHelper                    - Can not find 'Pending TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,292 [14   ] Abp.Logging.LogHelper                    - Can not find 'Waiting Inspection' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,292 [14   ] Abp.Logging.LogHelper                    - Can not find 'Exipired TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,292 [14   ] Abp.Logging.LogHelper                    - Can not find 'Exipired TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,308 [14   ] Abp.Logging.LogHelper                    - Can not find 'Users' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,308 [14   ] Abp.Logging.LogHelper                    - Can not find 'Zones' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,308 [14   ] Abp.Logging.LogHelper                    - Can not find 'FinancialYears' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,308 [14   ] Abp.Logging.LogHelper                    - Can not find 'Regions' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,308 [14   ] Abp.Logging.LogHelper                    - Can not find 'Stations' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,308 [14   ] Abp.Logging.LogHelper                    - Can not find 'Divisions' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,308 [14   ] Abp.Logging.LogHelper                    - Can not find 'Ranges' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,308 [14   ] Abp.Logging.LogHelper                    - Can not find 'Tariffs' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,308 [14   ] Abp.Logging.LogHelper                    - Can not find 'Activities' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,308 [14   ] Abp.Logging.LogHelper                    - Can not find 'RevenueSources' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,308 [14   ] Abp.Logging.LogHelper                    - Can not find 'SpecieCategories' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,308 [14   ] Abp.Logging.LogHelper                    - Can not find 'Species' in localization source 'Misitu'!
+WARN  2018-01-24 10:36:53,308 [14   ] Abp.Logging.LogHelper                    - Can not find 'HarvestingPlan' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:04,885 [10   ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,000 [10   ] Abp.Logging.LogHelper                    - Can not find 'ApplicationForRegistrtaion' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,000 [10   ] Abp.Logging.LogHelper                    - Can not find 'RejectedApplications' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,002 [10   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,005 [10   ] Abp.Logging.LogHelper                    - Can not find 'Payments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,005 [10   ] Abp.Logging.LogHelper                    - Can not find 'PendingPayments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,006 [10   ] Abp.Logging.LogHelper                    - Can not find 'SuccessfulPayments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,007 [10   ] Abp.Logging.LogHelper                    - Can not find 'Add New TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,007 [10   ] Abp.Logging.LogHelper                    - Can not find 'Pending TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,007 [10   ] Abp.Logging.LogHelper                    - Can not find 'Waiting Inspection' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,007 [10   ] Abp.Logging.LogHelper                    - Can not find 'Exipired TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,007 [10   ] Abp.Logging.LogHelper                    - Can not find 'Exipired TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,007 [10   ] Abp.Logging.LogHelper                    - Can not find 'Users' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,007 [10   ] Abp.Logging.LogHelper                    - Can not find 'Zones' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,007 [10   ] Abp.Logging.LogHelper                    - Can not find 'FinancialYears' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,007 [10   ] Abp.Logging.LogHelper                    - Can not find 'Regions' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,007 [10   ] Abp.Logging.LogHelper                    - Can not find 'Stations' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,007 [10   ] Abp.Logging.LogHelper                    - Can not find 'Divisions' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,007 [10   ] Abp.Logging.LogHelper                    - Can not find 'Ranges' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,007 [10   ] Abp.Logging.LogHelper                    - Can not find 'Tariffs' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,007 [10   ] Abp.Logging.LogHelper                    - Can not find 'Activities' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,007 [10   ] Abp.Logging.LogHelper                    - Can not find 'RevenueSources' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,007 [10   ] Abp.Logging.LogHelper                    - Can not find 'SpecieCategories' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,007 [10   ] Abp.Logging.LogHelper                    - Can not find 'Species' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,007 [10   ] Abp.Logging.LogHelper                    - Can not find 'HarvestingPlan' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,054 [10   ] Abp.Logging.LogHelper                    - Can not find 'ApplicationForRegistrtaion' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,054 [10   ] Abp.Logging.LogHelper                    - Can not find 'RejectedApplications' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,054 [10   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,054 [10   ] Abp.Logging.LogHelper                    - Can not find 'Payments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,054 [10   ] Abp.Logging.LogHelper                    - Can not find 'PendingPayments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,054 [10   ] Abp.Logging.LogHelper                    - Can not find 'SuccessfulPayments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,054 [10   ] Abp.Logging.LogHelper                    - Can not find 'Add New TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,054 [10   ] Abp.Logging.LogHelper                    - Can not find 'Pending TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,054 [10   ] Abp.Logging.LogHelper                    - Can not find 'Waiting Inspection' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,054 [10   ] Abp.Logging.LogHelper                    - Can not find 'Exipired TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,054 [10   ] Abp.Logging.LogHelper                    - Can not find 'Exipired TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,070 [10   ] Abp.Logging.LogHelper                    - Can not find 'Users' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,070 [10   ] Abp.Logging.LogHelper                    - Can not find 'Zones' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,070 [10   ] Abp.Logging.LogHelper                    - Can not find 'FinancialYears' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,070 [10   ] Abp.Logging.LogHelper                    - Can not find 'Regions' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,070 [10   ] Abp.Logging.LogHelper                    - Can not find 'Stations' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,070 [10   ] Abp.Logging.LogHelper                    - Can not find 'Divisions' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,070 [10   ] Abp.Logging.LogHelper                    - Can not find 'Ranges' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,070 [10   ] Abp.Logging.LogHelper                    - Can not find 'Tariffs' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,070 [10   ] Abp.Logging.LogHelper                    - Can not find 'Activities' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,070 [10   ] Abp.Logging.LogHelper                    - Can not find 'RevenueSources' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,070 [10   ] Abp.Logging.LogHelper                    - Can not find 'SpecieCategories' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,070 [10   ] Abp.Logging.LogHelper                    - Can not find 'Species' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:05,070 [10   ] Abp.Logging.LogHelper                    - Can not find 'HarvestingPlan' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,363 [14   ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,763 [14   ] Abp.Logging.LogHelper                    - Can not find 'ApplicationForRegistrtaion' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,763 [14   ] Abp.Logging.LogHelper                    - Can not find 'RejectedApplications' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,763 [14   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,778 [14   ] Abp.Logging.LogHelper                    - Can not find 'Payments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,778 [14   ] Abp.Logging.LogHelper                    - Can not find 'PendingPayments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,778 [14   ] Abp.Logging.LogHelper                    - Can not find 'SuccessfulPayments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,794 [14   ] Abp.Logging.LogHelper                    - Can not find 'Add New TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,794 [14   ] Abp.Logging.LogHelper                    - Can not find 'Pending TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,794 [14   ] Abp.Logging.LogHelper                    - Can not find 'Waiting Inspection' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,794 [14   ] Abp.Logging.LogHelper                    - Can not find 'Exipired TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,794 [14   ] Abp.Logging.LogHelper                    - Can not find 'Exipired TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,794 [14   ] Abp.Logging.LogHelper                    - Can not find 'Users' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,794 [14   ] Abp.Logging.LogHelper                    - Can not find 'Zones' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,794 [14   ] Abp.Logging.LogHelper                    - Can not find 'FinancialYears' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,794 [14   ] Abp.Logging.LogHelper                    - Can not find 'Regions' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,794 [14   ] Abp.Logging.LogHelper                    - Can not find 'Stations' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,794 [14   ] Abp.Logging.LogHelper                    - Can not find 'Divisions' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,794 [14   ] Abp.Logging.LogHelper                    - Can not find 'Ranges' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,810 [14   ] Abp.Logging.LogHelper                    - Can not find 'Tariffs' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,810 [14   ] Abp.Logging.LogHelper                    - Can not find 'Activities' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,811 [14   ] Abp.Logging.LogHelper                    - Can not find 'RevenueSources' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,812 [14   ] Abp.Logging.LogHelper                    - Can not find 'SpecieCategories' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,813 [14   ] Abp.Logging.LogHelper                    - Can not find 'Species' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,815 [14   ] Abp.Logging.LogHelper                    - Can not find 'HarvestingPlan' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,831 [14   ] Abp.Logging.LogHelper                    - Can not find 'ApplicationForRegistrtaion' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,831 [14   ] Abp.Logging.LogHelper                    - Can not find 'RejectedApplications' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'Payments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'PendingPayments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'SuccessfulPayments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'Add New TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'Pending TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'Waiting Inspection' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'Exipired TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'Exipired TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'Users' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'Zones' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'FinancialYears' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'Regions' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'Stations' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'Divisions' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'Ranges' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'Tariffs' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'Activities' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'RevenueSources' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'SpecieCategories' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'Species' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:11,847 [14   ] Abp.Logging.LogHelper                    - Can not find 'HarvestingPlan' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,468 [19   ] Abp.Logging.LogHelper                    - Can not find 'Logout' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,568 [19   ] Abp.Logging.LogHelper                    - Can not find 'ApplicationForRegistrtaion' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,568 [19   ] Abp.Logging.LogHelper                    - Can not find 'RejectedApplications' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'Payments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'PendingPayments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'SuccessfulPayments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'Add New TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'Pending TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'Waiting Inspection' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'Exipired TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'Exipired TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'Users' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'Zones' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'FinancialYears' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'Regions' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'Stations' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'Divisions' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'Ranges' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'Tariffs' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'Activities' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'RevenueSources' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'SpecieCategories' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'Species' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,584 [19   ] Abp.Logging.LogHelper                    - Can not find 'HarvestingPlan' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'ApplicationForRegistrtaion' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'RejectedApplications' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'TalliedCompartments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'Payments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'PendingPayments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'SuccessfulPayments' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'Add New TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'Pending TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'Waiting Inspection' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'Exipired TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'Exipired TP' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'Users' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'Zones' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'FinancialYears' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'Regions' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'Stations' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'Divisions' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'Ranges' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'Tariffs' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'Activities' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'RevenueSources' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'SpecieCategories' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,600 [19   ] Abp.Logging.LogHelper                    - Can not find 'Species' in localization source 'Misitu'!
+WARN  2018-01-24 10:37:19,615 [19   ] Abp.Logging.LogHelper                    - Can not find 'HarvestingPlan' in localization source 'Misitu'!
+DEBUG 2018-01-24 10:39:59,612 [7    ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2018-01-24 10:39:59,612 [7    ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-01-24 10:39:59,612 [7    ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-01-24 10:39:59,612 [7    ] Abp.Modules.AbpModuleManager             - Shutting down completed.

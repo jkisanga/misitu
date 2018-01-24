@@ -35,7 +35,6 @@ C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Core\bin\Deb
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Core\bin\Debug\Nito.AsyncEx.Enlightenment.xml
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Core\bin\Debug\System.Collections.Immutable.xml
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Core\bin\Debug\System.Linq.Dynamic.Core.xml
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Core\obj\Debug\Misitu.Core.csprojResolveAssemblyReference.cache
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Core\obj\Debug\Misitu.Core.dll
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Core\obj\Debug\Misitu.Core.pdb
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Core\bin\Debug\Misitu.Core.dll.config
