@@ -7,8 +7,9 @@ using Abp.Modules;
 using Abp.Web.Mvc;
 using Abp.Web.SignalR;
 using Misitu.Api;
+using Abp.Application.Services;
 using Misitu;
-
+using Abp.Configuration.Startup;
 
 namespace Misitu.Web
 {
@@ -46,6 +47,10 @@ namespace Misitu.Web
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);           
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            //Configuration.Modules.AbpWebApi().DynamicApiControllerBuilder
+            //  .ForAll<IApplicationService>(Assembly.GetAssembly(typeof(MisituApplicationModule)), "app")
+            //  .Build();
         }
     }
 }

@@ -85,7 +85,6 @@ C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.WebApi\bin\Deb
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.WebApi\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.WebApi\bin\Debug\Microsoft.Owin.dll
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.WebApi\bin\Debug\Microsoft.Owin.Security.dll
-C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.WebApi\bin\Debug\Microsoft.Owin.Security.OAuth.dll
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.WebApi\bin\Debug\Microsoft.Threading.Tasks.dll
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.WebApi\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.WebApi\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
@@ -121,7 +120,6 @@ C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.WebApi\bin\Deb
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.WebApi\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.WebApi\bin\Debug\Microsoft.Owin.xml
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.WebApi\bin\Debug\Microsoft.Owin.Security.xml
-C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.WebApi\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.WebApi\bin\Debug\Microsoft.Threading.Tasks.xml
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.WebApi\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.WebApi\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml

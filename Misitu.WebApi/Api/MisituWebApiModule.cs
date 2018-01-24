@@ -19,6 +19,10 @@ namespace Misitu.Api
                 .Build();
 
             Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));
+
+            //Configuration.Modules.AbpWebApi().DynamicApiControllerBuilder
+            //    .ForAll<IApplicationService>(Assembly.GetAssembly(typeof(MisituApplicationModule)), "app")
+            //    .Build();
         }
     }
 }

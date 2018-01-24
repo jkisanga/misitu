@@ -1,4 +1,5 @@
-﻿using Abp.AutoMapper;
+﻿using Abp.Application.Services.Dto;
+using Abp.AutoMapper;
 using Abp.Domain.Entities.Auditing;
 using Misitu.Applicants;
 using Misitu.FinancialYears;
@@ -15,7 +16,7 @@ using System.Threading.Tasks;
 namespace Misitu.Billing.Dto
 {
     [AutoMapFrom(typeof(Bill))]
-    public class BillDto: FullAuditedEntity
+    public class BillDto : FullAuditedEntityDto
     {
    
         public virtual int ApplicantId { get; set; }

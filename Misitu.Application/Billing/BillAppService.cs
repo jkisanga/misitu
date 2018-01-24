@@ -51,7 +51,7 @@ namespace Misitu.Billing
             var current = _financialYearRepository.FirstOrDefault(c => c.IsActive == true);
             var loginUser = _userRepository.FirstOrDefault(Convert.ToInt32(AbpSession.UserId));
 
-            if (current != null & loginUser != null)
+            if (current != null )
             {
                 var bill = new Bill
                 {
@@ -62,13 +62,43 @@ namespace Misitu.Billing
                     MiscAmont = input.MiscAmont,
                     Currency = input.Currency,
                     IssuedDate = DateTime.Now,
-                    ExpiredDate = input.ExpiredDate,                     
+                    ExpiredDate = DateTime.Now.AddDays(15),                     
                     FinancialYearId = current.Id,
-                    StationId = loginUser.StationId
+                    StationId = input.StationId
                     };
                
                     var billId = _billRepository.InsertAndGetId(bill);
                     return billId;           
+            }
+            else
+            {
+                throw new UserFriendlyException("No Active Financial Year");
+            }
+        }
+
+
+
+        public async Task CreateBill1(CreateBillInput input)
+        {
+            //get current active financial year;
+            var current = _financialYearRepository.FirstOrDefault(c => c.IsActive == true);
+            var loginUser = _userRepository.FirstOrDefault(Convert.ToInt32(AbpSession.UserId));
+
+            if (current != null & loginUser != null)
+            {
+                var bill = new Bill
+                {
+                    ApplicantId = input.ApplicantId,
+                    Description = input.Description,
+                    BillAmount = input.BillAmount,
+                    Currency = input.Currency,
+                    IssuedDate = DateTime.Now,
+                    ExpiredDate = input.ExpiredDate,
+                    FinancialYearId = current.Id,
+                    StationId = loginUser.StationId
+                };
+
+                await _billRepository.InsertAsync(bill);
             }
             else
             {
@@ -111,6 +141,17 @@ namespace Misitu.Billing
               .GetAll()
               .Where(p => p.PaidAmount == 0)
               .Where(p => p.FinancialYearId == FinancialYear.Id)
+              .OrderByDescending(p => p.IssuedDate)
+              .ToList();
+
+            return new List<BillDto>(bills.MapTo<List<BillDto>>());
+        }
+
+        public List<BillDto> GetBills()
+        {
+            var bills = _billRepository
+              .GetAll()
+           
               .OrderByDescending(p => p.IssuedDate)
               .ToList();
 

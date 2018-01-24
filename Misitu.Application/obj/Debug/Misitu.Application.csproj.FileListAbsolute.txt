@@ -108,4 +108,9 @@ C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Application\ob
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Application\obj\Debug\Misitu.Application.csproj.CoreCompileInputs.cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Application\obj\Debug\Misitu.Application.dll
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Application\obj\Debug\Misitu.Application.pdb
-C:\Users\nshaba\Desktop\MISITU\Misitu\Misitu.Application\obj\Debug\Misitu.Application.csprojResolveAssemblyReference.cache
+C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Application\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Application\bin\Debug\System.Web.Http.dll
+C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Application\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Application\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Application\bin\Debug\System.Web.Http.xml
+C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.Application\bin\Debug\System.Web.Http.WebHost.xml

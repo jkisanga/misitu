@@ -58,8 +58,8 @@ C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tools\Misitu.Migrat
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tools\Misitu.Migrator\obj\Debug\Misitu.Migrator.csprojResolveAssemblyReference.cache
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tools\Misitu.Migrator\obj\Debug\Misitu.Migrator.exe
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tools\Misitu.Migrator\obj\Debug\Misitu.Migrator.pdb
-C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Tools\Misitu.Migrator\obj\Debug\Misitu.Migrator.csprojResolveAssemblyReference.cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Tools\Misitu.Migrator\obj\Debug\Misitu.Migrator.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Tools\Misitu.Migrator\obj\Debug\Misitu.Migrator.csprojResolveAssemblyReference.cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Tools\Misitu.Migrator\bin\Debug\log4net.config
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Tools\Misitu.Migrator\bin\Debug\Misitu.Migrator.exe.config
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Tools\Misitu.Migrator\bin\Debug\Misitu.Migrator.exe
