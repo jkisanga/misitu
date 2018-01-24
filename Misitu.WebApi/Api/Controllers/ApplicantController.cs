@@ -164,8 +164,8 @@ namespace Misitu.Api.Controllers
 
             };
 
-            this.billItemAppService.CreateBillItem(obj);
-            //var newBillTem = this.billItemAppService.GetBillItem(billItem);
+            int billItem = this.billItemAppService.CreateBillItemAPI(obj);
+            var newBillTem = this.billItemAppService.GetBillItem(billItem);
 
             return Json("");
         }
@@ -209,6 +209,19 @@ namespace Misitu.Api.Controllers
             var ct = this.checkPointTransitPass.GetCheckPointTransitPass(ctId);
 
             return Json(ct);
+        }
+
+        public IHttpActionResult getTransitPass(int id)
+        {
+            return Json("");
+        }
+
+        [HttpGet]
+        public IHttpActionResult getTPBill(int id)
+        {
+            BillPrint billPrint = this.transitPass.getBillByTPId(id);
+
+            return Json(billPrint);
         }
 
 
