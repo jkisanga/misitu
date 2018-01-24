@@ -146,29 +146,9 @@
   <ItemGroup>
     <Compile Include="EntityFramework\MisituDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\MisituRepositoryBase.cs" />
-    <Compile Include="Migrations\201701271145151_AbpZero_Initial.cs" />
-    <Compile Include="Migrations\201701271145151_AbpZero_Initial.designer.cs">
-      <DependentUpon>201701271145151_AbpZero_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801210719137_InitialTables.cs" />
-    <Compile Include="Migrations\201801210719137_InitialTables.Designer.cs">
-      <DependentUpon>201801210719137_InitialTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801210831597_BillItem.cs" />
-    <Compile Include="Migrations\201801210831597_BillItem.Designer.cs">
-      <DependentUpon>201801210831597_BillItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801221147333_harvest_billitem_updates.cs" />
-    <Compile Include="Migrations\201801221147333_harvest_billitem_updates.Designer.cs">
-      <DependentUpon>201801221147333_harvest_billitem_updates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801221158421_activity_update.cs" />
-    <Compile Include="Migrations\201801221158421_activity_update.Designer.cs">
-      <DependentUpon>201801221158421_activity_update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801231218434_tp_expire_days.cs" />
-    <Compile Include="Migrations\201801231218434_tp_expire_days.Designer.cs">
-      <DependentUpon>201801231218434_tp_expire_days.cs</DependentUpon>
+    <Compile Include="Migrations\201801240438520_update_form_server.cs" />
+    <Compile Include="Migrations\201801240438520_update_form_server.Designer.cs">
+      <DependentUpon>201801240438520_update_form_server.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -190,26 +170,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="ReportViewerWebForm.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201701271145151_AbpZero_Initial.resx">
-      <DependentUpon>201701271145151_AbpZero_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801210719137_InitialTables.resx">
-      <DependentUpon>201801210719137_InitialTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801210831597_BillItem.resx">
-      <DependentUpon>201801210831597_BillItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801221147333_harvest_billitem_updates.resx">
-      <DependentUpon>201801221147333_harvest_billitem_updates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801221158421_activity_update.resx">
-      <DependentUpon>201801221158421_activity_update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801231218434_tp_expire_days.resx">
-      <DependentUpon>201801231218434_tp_expire_days.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801240438520_update_form_server.resx">
+      <DependentUpon>201801240438520_update_form_server.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

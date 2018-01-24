@@ -9,13 +9,13 @@ using Abp.Configuration.Startup;
 using Abp.Domain.Uow;
 using Abp.Runtime.Session;
 using Abp.TestBase;
-using Misitu.EntityFramework;
-using Misitu.Migrations.SeedData;
 using Misitu.MultiTenancy;
 using Misitu.Users;
 using Castle.MicroKernel.Registration;
 using Effort;
 using EntityFramework.DynamicFilters;
+using Misitu.Migrations.SeedData;
+using Misitu.EntityFramework;
 
 namespace Misitu.Tests
 {

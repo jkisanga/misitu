@@ -219,6 +219,7 @@
     <EmbeddedResource Include="Localization\Source\Misitu-vi.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="Localization\Source\Misitu.xml">
       <SubType>Designer</SubType>
     </Content>

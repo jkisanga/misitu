@@ -26,6 +26,7 @@ namespace Misitu.TransitPasses
         TransitPassDto GetTransitPass(int id);
 
         List<BillPrint> getBillByTp(int id);
+        BillPrint getBillByTPId(int id);
 
         List<TransitPassPrintout>  GetTransitPassPrintout(int id);
 
