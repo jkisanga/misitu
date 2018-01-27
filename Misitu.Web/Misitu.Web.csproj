@@ -344,6 +344,7 @@
     <Content Include="Content\flags\famfamfam-flags.png" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -593,6 +594,7 @@
     <Content Include="Areas\Client\Views\Applicant\ApplicationDetails.cshtml" />
     <Content Include="Areas\Client\Views\Export\Index.cshtml" />
     <Content Include="Areas\Client\Views\Export\Details.cshtml" />
+    <Content Include="Areas\Client\Views\Applicant\RegCertViewer.cshtml" />
     <None Include="Datasets\Misitu.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>

@@ -258,3 +258,10 @@ C:\Users\Dell\Documents\Visual Studio 2017\misitu\Tests\Misitu.Tests\bin\Debug\A
 C:\Users\Dell\Documents\Visual Studio 2017\misitu\Tests\Misitu.Tests\bin\Debug\log4net.xml
 C:\Users\Dell\Documents\Visual Studio 2017\misitu\Tests\Misitu.Tests\obj\Debug\Misitu.Tests.dll
 C:\Users\Dell\Documents\Visual Studio 2017\misitu\Tests\Misitu.Tests\obj\Debug\Misitu.Tests.pdb
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\bin\Debug\log4net.config
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\bin\Debug\Misitu.Migrator.exe
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\bin\Debug\Abp.Castle.Log4Net.dll
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\bin\Debug\log4net.dll
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\bin\Debug\Misitu.Migrator.pdb
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\bin\Debug\Abp.Castle.Log4Net.xml
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Tests\Misitu.Tests\bin\Debug\log4net.xml

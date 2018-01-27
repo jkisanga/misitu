@@ -52,7 +52,6 @@ C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramew
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\bin\Debug\System.Collections.Immutable.xml
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\bin\Debug\System.Linq.Dynamic.Core.xml
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.csprojResolveAssemblyReference.cache
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.csproj.GenerateResource.Cache
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.dll
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.pdb
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\bin\Debug\Misitu.EntityFramework.dll.config
@@ -118,9 +117,3 @@ C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramewor
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.csproj.CoreCompileInputs.cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.dll
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.pdb
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.AbpZero_Initial.resources
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.InitialTables.resources
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.BillItem.resources
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.harvest_billitem_updates.resources
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.activity_update.resources
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.tp_expire_days.resources

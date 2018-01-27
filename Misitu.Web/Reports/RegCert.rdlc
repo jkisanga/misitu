@@ -480,7 +480,7 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox15</rd:DefaultName>
                           <Top>13.62287cm</Top>
-                          <Left>2.21979cm</Left>
+                          <Left>1.16146cm</Left>
                           <Height>0.6cm</Height>
                           <Width>1.07125cm</Width>
                           <ZIndex>14</ZIndex>
@@ -600,7 +600,7 @@
                           <Top>17.56516cm</Top>
                           <Left>0.28833cm</Left>
                           <Height>0cm</Height>
-                          <Width>7.23604cm</Width>
+                          <Width>6.23063cm</Width>
                           <ZIndex>18</ZIndex>
                           <Style>
                             <Border>
@@ -713,7 +713,7 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox22</rd:DefaultName>
                           <Top>18.86162cm</Top>
-                          <Left>1.58479cm</Left>
+                          <Left>1.16146cm</Left>
                           <Height>0.6cm</Height>
                           <Width>5.3575cm</Width>
                           <ZIndex>22</ZIndex>
@@ -734,7 +734,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Fees paid Tshs.</Value>
+                                  <Value>Fees Paid in TZS.</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>12pt</FontSize>
@@ -749,7 +749,7 @@
                           <Top>20.68724cm</Top>
                           <Left>0.28833cm</Left>
                           <Height>0.6cm</Height>
-                          <Width>3.00271cm</Width>
+                          <Width>3.1791cm</Width>
                           <ZIndex>23</ZIndex>
                           <Style>
                             <Border>

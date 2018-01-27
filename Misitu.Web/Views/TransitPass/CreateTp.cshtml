@@ -3,135 +3,146 @@
     ViewBag.ActiveMenu = "Transit Passes"; //The menu item will be active for this page.
     ViewBag.Title = "Transit Passes";
 }
-<h2>Create Transitpass for @ViewBag.Applicant.Name</h2>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-       
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <input type="hidden" name="ApplicantId" value="@ViewBag.Applicant.Id" />
-        <input type="hidden" name="BillId" value="@ViewBag.Bill.Id" />
-        <input type="hidden" name="LisenceNo" value="" />
-        <input type="hidden" name="TransitPassNo" value="@ViewBag.TransitPassNo" />
-        
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">Create Transitpass for @ViewBag.Applicant.Name</div>
+        <div class="widget-icons pull-right">
 
-      <input type="hidden" name="OrginalCountry" value="Tanzania" />
-
-        <div class="form-group">
-            @Html.Label("No of Consignment", htmlAttributes: new { @class = "control-label col-md-3" })
-            <div class="col-md-9">
-                @Html.EditorFor(model => model.NoOfConsignment, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NoOfConsignment, "", new { @class = "text-danger" })
-            </div>
         </div>
-
-
-
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SourceForest, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("SourceForest", null, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.SourceForest, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IssuedDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input name="IssuedDate" value="@ViewBag.IssuedDate" class="form-control"  readonly/>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Expire Days", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ExpireDays, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ExpireDays, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SourceName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SourceName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SourceName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Destination (District)", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("DestinationId",null, new { @class = "form-control"  })
-                @Html.ValidationMessageFor(model => model.DestinationId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DestinationName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DestinationName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DestinationName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.VehcleNo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.VehcleNo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.VehcleNo, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.HummerNo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.HummerNo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HummerNo, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.HummerMaker, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.HummerMaker, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HummerMaker, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.AdditionInformation, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.AdditionInformation, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AdditionInformation, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="row">
-            
-
-                @foreach( var checkpoint  in @ViewBag.Checkpoints)
-                {
-                    <div class="col-lg-2">
-                        <input type="checkbox" name="StationId[]"  id="StationId[]" value="@checkpoint.Id" class="form-control pull-left" /> @checkpoint.Name
-                    </div>
-                }
-            </div>
-        
-
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+        <div class="clearfix"></div>
     </div>
-}
+    <div class="widget-content">
+        <div class="padd">
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+            <div class="form-horizontal">
+
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <input type="hidden" name="ApplicantId" value="@ViewBag.Applicant.Id" />
+                            <input type="hidden" name="BillId" value="@ViewBag.Bill.Id" />
+                            <input type="hidden" name="LisenceNo" value="" />
+                            <input type="hidden" name="TransitPassNo" value="@ViewBag.TransitPassNo" />
+
+
+                            <input type="hidden" name="OrginalCountry" value="Tanzania" />
+
+                            <div class="form-group">
+                                @Html.Label("No of Consignment", htmlAttributes: new { @class = "control-label col-md-3" })
+                                <div class="col-md-9">
+                                    @Html.EditorFor(model => model.NoOfConsignment, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.NoOfConsignment, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.SourceForest, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownList("SourceForest", null, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.SourceForest, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.IssuedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    <input name="IssuedDate" value="@ViewBag.IssuedDate" class="form-control" readonly />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Expire Days", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.ExpireDays, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.ExpireDays, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.SourceName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.SourceName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.SourceName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Destination (District)", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownList("DestinationId", null, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.DestinationId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DestinationName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.DestinationName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.DestinationName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VehcleNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.VehcleNo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.VehcleNo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.HummerNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.HummerNo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.HummerNo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.HummerMaker, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.HummerMaker, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.HummerMaker, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.AdditionInformation, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.AdditionInformation, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.AdditionInformation, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <fieldset><legend>Check Points</legend>
+
+
+                                @foreach (var checkpoint in @ViewBag.Checkpoints)
+                                {
+                                    <div class="col-lg-2">
+                                        <input type="checkbox" name="StationId[]" id="StationId[]" value="@checkpoint.Id" class="form-control pull-left" /> @checkpoint.Name
+                                    </div>
+                                }
+                            </fieldset>
+
+
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-9">
+                                    <input type="submit" value="Create" class="btn btn-primary pull-right" />
+                                </div>
+                            </div>
+
+                    }
+
+              </div>
+</div>
 </div>

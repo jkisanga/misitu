@@ -269,7 +269,9 @@ namespace Misitu.Web.Controllers.Registration
      
         public ActionResult RegCertViewer(int id)
         {
-            
+
+                var finacialYear = _financialYearAppService.GetActiveFinancialYear();
+
                 ReportViewer reportViewer = new ReportViewer();
                 reportViewer.ProcessingMode = ProcessingMode.Local;
                 reportViewer.SizeToReportContent = true;
@@ -281,7 +283,7 @@ namespace Misitu.Web.Controllers.Registration
                 reportViewer.LocalReport.DataSources.Clear();
 
               
-                reportViewer.LocalReport.DataSources.Add(new ReportDataSource("RegistrationCert", _dealerAppService.PrintDealer(id)));
+                reportViewer.LocalReport.DataSources.Add(new ReportDataSource("RegistrationCert", _dealerAppService.PrintDealer(id, finacialYear)));
 
                 reportViewer.LocalReport.Refresh();
                 reportViewer.ProcessingMode = ProcessingMode.Local;

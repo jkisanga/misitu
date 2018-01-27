@@ -31,11 +31,13 @@ namespace Misitu.Registration
 
         DealerDto GetRegApplication(int applicantId, FinancialYearDto FinancialYear);//submitted application for registrtation for online user
 
+        DealerDto GetRegByApplicantId(int applicantId, FinancialYearDto FinancialYear);//get dealer by application
+
         int ApproveRegistration(DealerDto input);
 
         void DenyRegistration(DealerDto input);
 
-        List<RegistrationCertDto> PrintDealer(int id);
+        List<RegistrationCertDto> PrintDealer(int id, FinancialYearDto FinancialYear);
 
         void UpdateBillControlNumber(DealerDto input, string BillControlNumber);
 

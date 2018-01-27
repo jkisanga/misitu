@@ -96,10 +96,8 @@ namespace Misitu.Web.Areas.Client.Controllers
         [DisableValidation]
         [HttpPost]
         public  ActionResult Account(CreateInput input)
-        {
-           
+        {         
                 int applicantId = _applicantService.CreateAsync(input);
-
                 if (applicantId > 0)
                 {
                     // TODO: Add insert logic here
@@ -107,7 +105,6 @@ namespace Misitu.Web.Areas.Client.Controllers
                     return RedirectToAction("AddUser", new { Id = applicantId });
 
                 }
-
                 else
                 {
                 var applicationTypes = _applicationTypeService.GetRefApplicationTypes().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Name });
@@ -341,11 +338,12 @@ namespace Misitu.Web.Areas.Client.Controllers
             var application = _dealerAppService.GetRegApplication(_userAppService.GetLoggedInUser().ApplicantId, _financialYearAppService.GetActiveFinancialYear());
             if (application != null)
             {
+                ViewBag.Reg = _dealerAppService.GetRegByApplicantId(_userAppService.GetLoggedInUser().ApplicantId, _financialYearAppService.GetActiveFinancialYear());
                 ViewBag.DealerActivities = _dealerActivityAppService.GetDealerActivities(application);
                 return View(application);
             }else
             {
-                TempData["danger"] = string.Format(@"Your have not applied for current financial year!");
+                TempData["danger"] = string.Format(@"Your have not submitted application for registration for current financial year!");
                 return RedirectToAction("Index", "Dashboard");
             }
             
@@ -399,6 +397,41 @@ namespace Misitu.Web.Areas.Client.Controllers
 
             }
            
+
+        }
+
+        //Print Certificate
+        [Authorize]
+        public ActionResult RegCertViewer(int id)
+        {
+
+            var finacialYear = _financialYearAppService.GetActiveFinancialYear();
+            var reg = _dealerAppService.GetRegByApplicantId(id, finacialYear);
+
+
+
+            ReportViewer reportViewer = new ReportViewer();
+            reportViewer.ProcessingMode = ProcessingMode.Local;
+            reportViewer.SizeToReportContent = true;
+
+            reportViewer.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reports\RegCert.rdlc";
+
+            ReportParameter Id = new ReportParameter("Id", id.ToString());
+            reportViewer.LocalReport.SetParameters(new ReportParameter[] { Id });
+            reportViewer.LocalReport.DataSources.Clear();
+
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("RegistrationCert", _dealerAppService.PrintDealer(reg.Id, finacialYear)));
+            reportViewer.LocalReport.Refresh();
+            reportViewer.ProcessingMode = ProcessingMode.Local;
+            reportViewer.Width = 1200;
+            reportViewer.Height = 500;
+            reportViewer.ShowPrintButton = true;
+            reportViewer.ZoomMode = ZoomMode.FullPage;
+
+
+            ViewBag.rptRegCert = reportViewer;
+
+            return View();
 
         }
 

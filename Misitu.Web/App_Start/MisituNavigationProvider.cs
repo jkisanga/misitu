@@ -40,14 +40,16 @@ namespace Misitu.Web
                             url: "/Dealers/Dashboard",
                             icon: "icon-desktop"
                             )
-                   ).AddItem(
-                        new MenuItemDefinition(
-                            "New Dealer",
-                            new LocalizableString("NewDealer", "Misitu"),
-                            url: "/Dealers/Create",
-                            icon: "icon-plus"
-                            )
-                   ).AddItem(
+                   )
+                   //.AddItem(
+                   //     new MenuItemDefinition(
+                   //         "New Dealer",
+                   //         new LocalizableString("NewDealer", "Misitu"),
+                   //         url: "/Dealers/Create",
+                   //         icon: "icon-plus"
+                   //         )
+                   //)
+                   .AddItem(
                         new MenuItemDefinition(
                             "Application for Registrtaion",
                             new LocalizableString("ApplicationForRegistrtaion", "Misitu"),

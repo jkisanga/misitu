@@ -146,10 +146,6 @@
   <ItemGroup>
     <Compile Include="EntityFramework\MisituDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\MisituRepositoryBase.cs" />
-    <Compile Include="Migrations\201801240438520_update_form_server.cs" />
-    <Compile Include="Migrations\201801240438520_update_form_server.Designer.cs">
-      <DependentUpon>201801240438520_update_form_server.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\DefaultGNCreatot.cs" />
@@ -172,11 +168,6 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="ReportViewerWebForm.aspx" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801240438520_update_form_server.resx">
-      <DependentUpon>201801240438520_update_form_server.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

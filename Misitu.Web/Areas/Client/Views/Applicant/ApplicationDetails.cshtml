@@ -55,6 +55,11 @@
                                                      <span class="badge badge-light">Approved</span>
                                                 </button>
                                                 <a href="@Url.Action("getRegistrationBill", "Applicant",new { Id = Model.ApplicantId})" class="btn btn-primary">Print Bill</a>
+
+                                                if (ViewBag.Reg != null)
+                                                {
+                                                    <a href="@Url.Action("RegCertViewer", "Applicant",new { Id = Model.ApplicantId})" class="btn btn-primary">Print Registration Certificate</a>
+                                                }
                                             }
                                             @if (Model.IsDenied)
                                             {

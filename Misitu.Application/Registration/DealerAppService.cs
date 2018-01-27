@@ -25,13 +25,15 @@ namespace Misitu.Registration
         private readonly IRepository<DealerActivity> _dealerActivityRepository;
         private readonly IRepository<Activity> _activityRepository;
         private readonly IRepository<User, long> _userRepository;
+        private readonly IRepository<Payment> _paymentRepository;
 
         public DealerAppService(IRepository<Dealer> dealerRepository,
             IRepository<Bill> billRepository,
             IRepository<FinancialYear> financialYearRepository,
             IRepository<DealerActivity> dealerActivityRepository,
             IRepository<Activity> activityRepository,
-             IRepository<User, long> userRepository
+             IRepository<User, long> userRepository,
+             IRepository<Payment> paymentRepository
             )
         {
             _dealerRepository = dealerRepository;
@@ -39,7 +41,8 @@ namespace Misitu.Registration
             _financialYearRepository = financialYearRepository;
             _activityRepository = activityRepository;
             _dealerActivityRepository = dealerActivityRepository;
-            _userRepository = userRepository; ;
+            _userRepository = userRepository;
+            _paymentRepository = paymentRepository;
         }
 
       
@@ -142,11 +145,25 @@ namespace Misitu.Registration
         //submitted application for registrtation for online user
         public DealerDto GetRegApplication(int applicantId, FinancialYearDto FinancialYear) 
         {
-            var dealer = _dealerRepository.GetAll()
+            var dealer= _dealerRepository.GetAll()
                 .Where(p => p.ApplicantId == applicantId)
                 .Where(p => p.FinancialYearId == FinancialYear.Id)
+                .Where(p => p.IsSubmitted == true)
                 .FirstOrDefault();
 
+            return dealer.MapTo<DealerDto>();
+        }
+
+        //get reg by applicant Id
+
+        public DealerDto GetRegByApplicantId(int applicantId, FinancialYearDto FinancialYear)
+        {
+            var dealer = (from d in _dealerRepository.GetAll()
+                          join b in _billRepository.GetAll() on d.ApplicantId equals b.ApplicantId
+                          join p in _paymentRepository.GetAll() on b.Id equals p.BillId
+                          where d.ApplicantId == applicantId
+                          where d.FinancialYearId == FinancialYear.Id
+                          select d).FirstOrDefault();
             return dealer.MapTo<DealerDto>();
         }
 
@@ -184,21 +201,23 @@ namespace Misitu.Registration
 
         public List<DealerDto> GetDealers(FinancialYearDto FinancialYear)
         {
-            var dealers = from l in _dealerRepository.GetAll()
-                          join b in _billRepository.GetAll() on l.ApplicantId equals b.ApplicantId
-                          where l.FinancialYearId == FinancialYear.Id
-                          where b.PaidAmount == 0 && b.PaidDate == null
-                          orderby l.SerialNumber
+            var dealers = from dealer in _dealerRepository.GetAll()
+                          join b in _billRepository.GetAll() on dealer.ApplicantId equals b.ApplicantId
+                          where dealer.FinancialYearId == FinancialYear.Id
+                          where dealer.IsApproved == true
+                          orderby dealer.SerialNumber
+                          group dealer by dealer.Id into l
+
                           select new DealerDto
                           {
-                              Id = l.Id,   
-                              ApplicantId = l.ApplicantId,                          
-                              Amount = l.Amount,                             
-                              BillControlNumber = l.BillControlNumber,                       
-                              FinancialYearId = l.FinancialYearId,
-                              IssuedDate = l.IssuedDate,
-                              StationId = l.StationId,
-                              SerialNumber = l.SerialNumber,                        
+                              Id = l.Key,   
+                              ApplicantId = l.Select( d => d.ApplicantId).FirstOrDefault(),                          
+                              Amount = l.Select(d => d.Amount).FirstOrDefault(),                             
+                              BillControlNumber = l.Select(d => d.BillControlNumber).FirstOrDefault(),                       
+                              FinancialYearId = l.Select(d => d.FinancialYearId).FirstOrDefault(),
+                              IssuedDate = l.Select(d => d.IssuedDate).FirstOrDefault(),
+                              StationId = l.Select(d => d.StationId).FirstOrDefault(),
+                              SerialNumber = l.Select(d => d.SerialNumber).FirstOrDefault(),                        
                           };
 
             return new List<DealerDto>(dealers.MapTo<List<DealerDto>>());
@@ -232,11 +251,10 @@ namespace Misitu.Registration
         public List<DealerDto> GetRegisteredDealers(FinancialYearDto FinancialYear)
         {
         
-
             var dealers = from l in _dealerRepository.GetAll()
                        join b in _billRepository.GetAll() on l.ApplicantId equals b.ApplicantId
-                       where l.FinancialYearId == FinancialYear.Id
-                       where b.PaidAmount > 0 && b.PaidDate != null
+                        join p in _paymentRepository.GetAll() on b.Id equals p.BillId
+                         where l.FinancialYearId == FinancialYear.Id
                        orderby l.SerialNumber
                        select new DealerDto {
                             Id = l.Id,
@@ -341,11 +359,14 @@ namespace Misitu.Registration
 
         // Print Certificate
 
-        public List<RegistrationCertDto> PrintDealer(int id)
+        public List<RegistrationCertDto> PrintDealer(int id, FinancialYearDto FinancialYear)
         {
             var dealer = from d in _dealerRepository.GetAll()
-                         join u in _userRepository.GetAll() on d.CreatorUserId equals u.Id
+                         join b in _billRepository.GetAll() on d.ApplicantId equals b.ApplicantId
+                         join p in _paymentRepository.GetAll() on b.Id equals p.BillId
+                         join u in _userRepository.GetAll() on (int)d.ApprovedUserId equals u.Id
                          where d.Id == id
+                         where d.FinancialYearId == FinancialYear.Id
                          select new RegistrationCertDto {
                                 Id = d.Id,
                                 SerialNumber = d.SerialNumber, 
@@ -353,7 +374,7 @@ namespace Misitu.Registration
                                 Address = d.Applicant.Adress,
                                 Email = d.Applicant.Email,
                                 Phone = d.Applicant.Name,                     
-                                Amount = d.Amount,
+                                Amount = p.PaidAmount,
                                 IssuedDate = d.IssuedDate,
                                 Station = d.Station.Name,
                                 ExpireYear = (d.FinancialYear.Name).Substring(0,4),

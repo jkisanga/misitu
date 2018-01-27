@@ -20,11 +20,13 @@ namespace Misitu.TransitPasses.Service
         private readonly IRepository<BillItem> billItemRepository;
         private readonly IRepository<Bill> repositoryBill;
         private readonly IRepository<Payment> paymentRepository;
+        private readonly IRepository<CheckPointTransitPass> repositoryCheckpointTransitpass;
 
         public TransitPassAppService(IRepository<Applicant> reporitaryApplicant,
             IRepository<TransitPass> repositoryTransitpass, 
             IRepository<Bill> repositoryBill,
             IRepository<Payment> paymentRepository,
+             IRepository<CheckPointTransitPass> repositoryCheckpointTransitpass,
             IRepository<BillItem> billItemRepository)
         {
             this.reporitaryApplicant = reporitaryApplicant;
@@ -32,6 +34,7 @@ namespace Misitu.TransitPasses.Service
             this.billItemRepository = billItemRepository;
             this.repositoryBill = repositoryBill;
             this.paymentRepository = paymentRepository;
+            this.repositoryCheckpointTransitpass = repositoryCheckpointTransitpass;
         }
 
         public int CreateTransitPass(CreateTransitPassInput input)
@@ -99,13 +102,10 @@ namespace Misitu.TransitPasses.Service
         }
 
         //Unpaid transit passes
-        public List<TransitPassDto> GetUnPaidTransitPasses() {
-
-            var tps = (from tp in this.repositoryTransitpass.GetAll()
-                       join b in this.repositoryBill.GetAll() on tp.BillId equals b.Id
-                       where !this.paymentRepository.GetAll().Any(f => f.BillId == tp.BillId)
+        public List<TransitPassDto> GetUnPaidTransitPasses() {         
+            var tps = (from tp in this.repositoryTransitpass.GetAll()                     
+                       where tp.BillId != (from p in this.paymentRepository.GetAll() orderby p.BillId select p.BillId).First()
                        select tp).ToList();
-
             return new List<TransitPassDto>(tps.MapTo<List<TransitPassDto>>());
         }
 
@@ -184,6 +184,7 @@ namespace Misitu.TransitPasses.Service
         {
             
             var printout = from tp in this.repositoryTransitpass.GetAll()
+                           join route in this.repositoryCheckpointTransitpass.GetAll() on tp.Id equals route.TransitPassId
                            join p in this.paymentRepository.GetAll() on tp.BillId equals p.BillId
                             join item in this.billItemRepository.GetAll() on tp.BillId equals item.BillId
                             where tp.Id == id
@@ -204,8 +205,11 @@ namespace Misitu.TransitPasses.Service
                                  HummerMaker = tp.HummerMaker,
                                  AdditionInformation = tp.AdditionInformation,
                                  CreationTime = tp.CreationTime,
+                                 ItemId = item.Id,
                                  ItemDescription = item.Description,
-                                 Quantity = item.Quantity  
+                                 Quantity = item.Quantity,
+                                 CheckpointId = route.Id,
+                                 CheckpointName = route.Station.Name
                                                                
                             };
 

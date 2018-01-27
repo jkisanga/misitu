@@ -29,8 +29,11 @@ namespace Misitu.TransitPasses.Dto
         public virtual string AdditionInformation { get; set; }
         public virtual string CreatedUser { get; set; }
         public virtual DateTime CreationTime { get; set; }
+        public virtual int ItemId { get; set; }
         public virtual string ItemDescription { get; set; }
         public virtual int Quantity { get; set; }
+        public virtual int CheckpointId { get; set; }
+        public virtual string CheckpointName { get; set; }
 
     }
 }

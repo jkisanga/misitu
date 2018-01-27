@@ -36,15 +36,19 @@ namespace Misitu.Web.Controllers
         private readonly IStationAppService stationAppService;
         private readonly IRegionAppService regionAppService;
         private readonly ICheckPointTransitPass checkPointTransitPass;
+        private readonly IUserAppService userAppService;
         // private readonly IMainRevenueSuorce mainRevenueSuorce;
 
-        public TransitPassController(ITransitPass transitPass, IBillAppService billAppService, IApplicantService applicantService, IBillItemAppService billItemAppService, 
+        public TransitPassController(ITransitPass transitPass, 
+            IBillAppService billAppService, IApplicantService applicantService, 
+            IBillItemAppService billItemAppService, 
             IActivityAppService activityAppService, 
             IRevenueSourceAppService revenueSourceAppService,
             ILicenseAppService licenseAppService,
             IFinancialYearAppService financialYearAppService,
             IStationAppService stationAppService,
             IRegionAppService regionAppService,
+            IUserAppService userAppService,
             ICheckPointTransitPass checkPointTransitPass)
         {
             this.transitPass = transitPass;
@@ -57,6 +61,7 @@ namespace Misitu.Web.Controllers
             this.financialYearAppService = financialYearAppService;
             this.stationAppService = stationAppService;
             this.regionAppService = regionAppService;
+            this.userAppService = userAppService;
             this.checkPointTransitPass = checkPointTransitPass;
            // this.mainRevenueSuorce = mainRevenueSuorce;
         }
@@ -115,11 +120,13 @@ namespace Misitu.Web.Controllers
             try
             {
                 //insert Bill details
+
                 DateTime billExpireDate = DateTime.Now;
                 billExpireDate = billExpireDate.AddDays(30);
 
                 input.ExpiredDate = billExpireDate;
                 input.BillAmount = total;
+                input.StationId = this.userAppService.GetLoggedInUser().StationId;
                 int CreatedBillId = this.billAppService.CreateBill(input);
 
                  

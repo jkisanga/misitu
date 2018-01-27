@@ -2368,6 +2368,12 @@ namespace Misitu.Web.Datasets {
             
             private global::System.Data.DataColumn columnQuantity;
             
+            private global::System.Data.DataColumn columnCheckpointName;
+            
+            private global::System.Data.DataColumn columnItemId;
+            
+            private global::System.Data.DataColumn columnCheckpointId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TransitPassDataTable() {
@@ -2587,6 +2593,30 @@ namespace Misitu.Web.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CheckpointNameColumn {
+                get {
+                    return this.columnCheckpointName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ItemIdColumn {
+                get {
+                    return this.columnItemId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CheckpointIdColumn {
+                get {
+                    return this.columnCheckpointId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2644,7 +2674,10 @@ namespace Misitu.Web.Datasets {
                         System.DateTime CreationTime, 
                         int BillId, 
                         string ItemDescription, 
-                        int Quantity) {
+                        int Quantity, 
+                        string CheckpointName, 
+                        int ItemId, 
+                        int CheckpointId) {
                 TransitPassRow rowTransitPassRow = ((TransitPassRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2669,7 +2702,10 @@ namespace Misitu.Web.Datasets {
                         CreationTime,
                         BillId,
                         ItemDescription,
-                        Quantity};
+                        Quantity,
+                        CheckpointName,
+                        ItemId,
+                        CheckpointId};
                 rowTransitPassRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTransitPassRow);
                 return rowTransitPassRow;
@@ -2722,6 +2758,9 @@ namespace Misitu.Web.Datasets {
                 this.columnBillId = base.Columns["BillId"];
                 this.columnItemDescription = base.Columns["ItemDescription"];
                 this.columnQuantity = base.Columns["Quantity"];
+                this.columnCheckpointName = base.Columns["CheckpointName"];
+                this.columnItemId = base.Columns["ItemId"];
+                this.columnCheckpointId = base.Columns["CheckpointId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2773,6 +2812,12 @@ namespace Misitu.Web.Datasets {
                 base.Columns.Add(this.columnItemDescription);
                 this.columnQuantity = new global::System.Data.DataColumn("Quantity", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnQuantity);
+                this.columnCheckpointName = new global::System.Data.DataColumn("CheckpointName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCheckpointName);
+                this.columnItemId = new global::System.Data.DataColumn("ItemId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItemId);
+                this.columnCheckpointId = new global::System.Data.DataColumn("CheckpointId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCheckpointId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -5178,6 +5223,54 @@ namespace Misitu.Web.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CheckpointName {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransitPass.CheckpointNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CheckpointName\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.CheckpointNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ItemId {
+                get {
+                    try {
+                        return ((int)(this[this.tableTransitPass.ItemIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemId\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.ItemIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int CheckpointId {
+                get {
+                    try {
+                        return ((int)(this[this.tableTransitPass.CheckpointIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CheckpointId\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.CheckpointIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsOrginalCountryNull() {
                 return this.IsNull(this.tableTransitPass.OrginalCountryColumn);
             }
@@ -5342,6 +5435,42 @@ namespace Misitu.Web.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetQuantityNull() {
                 this[this.tableTransitPass.QuantityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCheckpointNameNull() {
+                return this.IsNull(this.tableTransitPass.CheckpointNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCheckpointNameNull() {
+                this[this.tableTransitPass.CheckpointNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsItemIdNull() {
+                return this.IsNull(this.tableTransitPass.ItemIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetItemIdNull() {
+                this[this.tableTransitPass.ItemIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCheckpointIdNull() {
+                return this.IsNull(this.tableTransitPass.CheckpointIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCheckpointIdNull() {
+                this[this.tableTransitPass.CheckpointIdColumn] = global::System.Convert.DBNull;
             }
         }
         
