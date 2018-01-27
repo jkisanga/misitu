@@ -1,4 +1,5 @@
-﻿using Abp.Runtime.Validation;
+﻿using Abp.Domain.Repositories;
+using Abp.Runtime.Validation;
 using Microsoft.AspNet.Identity;
 using Microsoft.Reporting.WebForms;
 using Misitu.Activities;
@@ -36,6 +37,7 @@ namespace Misitu.Web.Controllers
         private readonly IStationAppService stationAppService;
         private readonly IRegionAppService regionAppService;
         private readonly ICheckPointTransitPass checkPointTransitPass;
+        private readonly IRepository<User, long> _userRepository;
         // private readonly IMainRevenueSuorce mainRevenueSuorce;
 
         public TransitPassController(ITransitPass transitPass, IBillAppService billAppService, IApplicantService applicantService, IBillItemAppService billItemAppService, 
@@ -45,7 +47,8 @@ namespace Misitu.Web.Controllers
             IFinancialYearAppService financialYearAppService,
             IStationAppService stationAppService,
             IRegionAppService regionAppService,
-            ICheckPointTransitPass checkPointTransitPass)
+            ICheckPointTransitPass checkPointTransitPass,
+            IRepository<User, long> userRepository)
         {
             this.transitPass = transitPass;
             this.billAppService = billAppService;
@@ -58,6 +61,7 @@ namespace Misitu.Web.Controllers
             this.stationAppService = stationAppService;
             this.regionAppService = regionAppService;
             this.checkPointTransitPass = checkPointTransitPass;
+            _userRepository = userRepository;
            // this.mainRevenueSuorce = mainRevenueSuorce;
         }
 
@@ -112,6 +116,8 @@ namespace Misitu.Web.Controllers
         [HttpPost]
         public ActionResult CreateBill(CreateBillInput input, int[] ActivityId, int[] Quantity, double[] Amount, double total)
         {
+            var loginUser = _userRepository.FirstOrDefault(Convert.ToInt32(AbpSession.UserId));
+
             try
             {
                 //insert Bill details
@@ -120,6 +126,7 @@ namespace Misitu.Web.Controllers
 
                 input.ExpiredDate = billExpireDate;
                 input.BillAmount = total;
+                input.StationId = loginUser.StationId;
                 int CreatedBillId = this.billAppService.CreateBill(input);
 
                  

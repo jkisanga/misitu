@@ -135,3 +135,4 @@ C:\Users\Dell\Documents\Visual Studio 2017\misitu\Misitu.EntityFramework\obj\Deb
 C:\Users\Dell\Documents\Visual Studio 2017\misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.csprojResolveAssemblyReference.cache
 C:\Users\Dell\Documents\Visual Studio 2017\misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.update_form_server.resources
 C:\Users\Dell\Documents\Visual Studio 2017\misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.csproj.GenerateResource.Cache
+C:\Users\Dell\Documents\Visual Studio 2017\misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.update_applicant.resources

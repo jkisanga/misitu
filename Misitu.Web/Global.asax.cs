@@ -15,7 +15,7 @@ namespace Misitu.Web
             );
 
             base.Application_Start(sender, e);
-
+            log4net.Config.XmlConfigurator.Configure();
 
         }
     }

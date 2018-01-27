@@ -125,6 +125,20 @@ namespace Misitu.Billing
             return new List<BillItemDto>(items.MapTo<List<BillItemDto>>());
         }
 
+
+
+        public List<BillItemDto> GetBillItems(int billId)
+        {
+            var items = _billItemRepository
+              
+               .GetAll()
+               .Where(p => p.BillId == billId)
+               .OrderBy(p => p.Description)
+               .ToList();
+
+            return new List<BillItemDto>(items.MapTo<List<BillItemDto>>());
+        }
+
         public async Task UpdateBillItem(BillItemDto input)
         {
             var item = _billItemRepository.FirstOrDefault(input.Id);

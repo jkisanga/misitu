@@ -21,6 +21,11 @@ using System.Web.Http.Description;
 using Misitu.Billing.Dto;
 using Misitu.TransitPasses;
 using Misitu.Stations;
+using Misitu.RevenueSources;
+using System.Collections.Generic;
+using System.Net;
+using System.IO;
+using System.Xml;
 
 namespace Misitu.Api.Controllers
 {
@@ -34,8 +39,9 @@ namespace Misitu.Api.Controllers
         private readonly ITransitPass transitPass;
         private readonly IStationAppService stationAppService;
         private readonly ICheckPointTransitPass checkPointTransitPass;
+        private readonly IRevenueSourceAppService revenueSourceAppService;
 
-        public ApplicantController(IApplicantService applicantService, IActivityAppService activityAppService, IBillAppService billAppService, IFinancialYearAppService financialYearAppService, IBillItemAppService billItemAppService, ITransitPass transitPass, IStationAppService stationAppService, ICheckPointTransitPass checkPointTransitPass)
+        public ApplicantController(IApplicantService applicantService, IActivityAppService activityAppService, IBillAppService billAppService, IFinancialYearAppService financialYearAppService, IBillItemAppService billItemAppService, ITransitPass transitPass, IStationAppService stationAppService, ICheckPointTransitPass checkPointTransitPass, IRevenueSourceAppService revenueSourceAppService)
         {
             this.applicantService = applicantService;
             this.activityAppService = activityAppService;
@@ -45,6 +51,7 @@ namespace Misitu.Api.Controllers
             this.transitPass = transitPass;
             this.stationAppService = stationAppService;
             this.checkPointTransitPass = checkPointTransitPass;
+            this.revenueSourceAppService = revenueSourceAppService;
         }
 
         [HttpGet()]
@@ -86,7 +93,7 @@ namespace Misitu.Api.Controllers
         public IHttpActionResult TPList()
         {
 
-           var obj = this.transitPass.GetTransitPasses();
+            var obj = this.transitPass.GetTransitPasses();
             return Json(obj);
         }
 
@@ -154,12 +161,18 @@ namespace Misitu.Api.Controllers
         [Route("/api/Applicant/ResponseBillItem")]
         public IHttpActionResult ResponseBillItem([FromBody] BillItem input)
         {
+            var ActivityObj = this.activityAppService.GetActivity(input.ActivityId);
+
+
+            var revenue = this.revenueSourceAppService.GetRevenueResource(ActivityObj.RevenueSourceId);
+            int code = Convert.ToInt32(revenue.MainRevenueSource.Code);
+
             var obj = new CreateBillItemInput
             {
                 BillId = input.BillId,
                 ActivityId = input.ActivityId,
                 Total = input.Total,
-                GfsCode = input.GfsCode,
+                GfsCode = code,
                 Description = input.Description
 
             };
@@ -171,19 +184,73 @@ namespace Misitu.Api.Controllers
         }
 
 
+        [HttpGet]
+       // [Route("/api/Applicant/ResponseTransitpassP")]
+        public IHttpActionResult ResponseTransitpassP()
+        {
+            string data_string = "<gepgBillSubReq>" +
+              "<BillHdr>" +
+              "<SpCode>SP128</SpCode>" +
+              "<RtrRespFlg>true</RtrRespFlg>" +
+              "</BillHdr>" +
+              "<BillTrxInf>" +
+              "<BillId>1812022009968</BillId>" +
+              "<SubSpCode>3001</SubSpCode> " +
+        "<SpSysId>TFS001</SpSysId>" +
+        "<BillAmt>1180</BillAmt>" +
+        "<MiscAmt>0</MiscAmt>" +
+        "<BillExprDt>2017-12-31T23:59:59</BillExprDt>" +
+        "<PyrId>5144AA5914</PyrId>" +
+          "<PyrName>test</PyrName>" +
+          "<BillDesc>Bill Number 5913</BillDesc>" +
+          "<BillGenDt>2017-12-21T09:39:00</BillGenDt>" +
+          "<BillGenBy>Bhstenkubo</BillGenBy>" +
+          "<BillApprBy>Joshua</BillApprBy>" +
+          "<PyrCellNum/>" +
+          " <PyrEmail/>" +
+          "<Ccy>TZS</Ccy>" +
+          "<BillEqvAmt>1180</BillEqvAmt>" +
+          "<RemFlag>false</RemFlag>" +
+          "<BillPayOpt>1</BillPayOpt>" +
+          "<BillItems>" +
+          "<BillItem>" +
+          "<BillItemRef>5144AA5914</BillItemRef>" +
+          "<UseItemRefOnPay>N</UseItemRefOnPay>" +
+          "<BillItemAmt>1180</BillItemAmt>" +
+          "<BillItemEqvAmt>1180</BillItemEqvAmt>" +
+          "<BillItemMiscAmt>0</BillItemMiscAmt>" +
+         "<GfsCode>140316</GfsCode>" +
+         "</BillItem>" +
+         "</BillItems>" +
+         "</BillTrxInf>" +
+         "</gepgBillSubReq>";
+
+
+            return Json(data_string);
+
+
+        }
+
+
 
         [HttpPost]
         [Route("/api/Applicant/ResponseTransitpass")]
         public IHttpActionResult ResponseTransitpass([FromBody] TransitPass input)
         {
+            Logger.Debug("Testing logger");
+
             var obj = new CreateTransitPassInput
             {
                 BillId = input.BillId,
                 ApplicantId = input.ApplicantId,
-                ExpireDate = input.ExpireDate,
+                SourceName = input.SourceName,
+                DestinationName = input.DestinationName,
+                VehcleNo = input.VehcleNo,
+                ExpireDate = DateTime.Now.AddDays(input.ExpireDays),
                 AdditionInformation = input.AdditionInformation,
                 HummerMaker = input.HummerMaker,
-                HummerNo = input.HummerNo
+                HummerNo = input.HummerNo,
+                ExpireDays = input.ExpireDays
 
             };
 
@@ -219,12 +286,217 @@ namespace Misitu.Api.Controllers
         [HttpGet]
         public IHttpActionResult getTPBill(int id)
         {
-            BillPrint billPrint = this.transitPass.getBillByTPId(id);
+            List<BillPrint> billPrint = this.transitPass.getBillByTp(id);
 
             return Json(billPrint);
         }
 
 
+        [HttpGet]
+        public IHttpActionResult getBillByTPId(int id)
+        {
+            BillPrint billPrint = this.transitPass.getBillByTPId(id);
+
+            return Json(billPrint);
+        }
+
+        [HttpPost]
+        [Route("/api/Applicant/sendRequestToGEPG/{Id}")]
+        public IHttpActionResult sendRequestToGEPG(int Id)
+        {
+            var valuesBillItems = "";
+            var billObj = this.billAppService.GetBill(Id);
+            var billItems = this.billItemAppService.GetBillItems(Id);
+
+
+            if (billItems != null)
+            {
+                foreach (var billItem in billItems)
+                {
+
+                    valuesBillItems = "<BillItem><BillItemRef>"+billItem.Id+"</BillItemRef><UseItemRefOnPay>N</UseItemRefOnPay><BillItemAmt>"+billItem.Total+"</BillItemAmt><BillItemEqvAmt>"+billItem.Total+"</BillItemEqvAmt><BillItemMiscAmt>0.0</BillItemMiscAmt><GfsCode>"+billItem.GfsCode+"</GfsCode></BillItem>";
+
+                }
+            }
+            else
+            {
+                valuesBillItems = "<BillItem><BillItemRef></BillItemRef><UseItemRefOnPay>N</UseItemRefOnPay><BillItemAmt></BillItemAmt><BillItemEqvAmt></BillItemEqvAmt><BillItemMiscAmt>0.0</BillItemMiscAmt><GfsCode></GfsCode></BillItem>";
+            }
+
+
+
+            Logger.Debug("Testing Debug");
+            Logger.Error("Testing Logger Error");
+
+
+
+            string data_string = "<gepgBillSubReq><BillHdr><SpCode>SP128</SpCode><RtrRespFlg>true</RtrRespFlg></BillHdr><BillTrxInf><BillId>TFS"+billObj.Id+"</BillId><SubSpCode>3001</SubSpCode> <SpSysId>TFS001</SpSysId><BillAmt>"+billObj.BillAmount+ "</BillAmt><MiscAmt>0</MiscAmt><BillExprDt>"+billObj.ExpiredDate.ToString("yyyy-MM-ddTHH:mm:ss")+"</BillExprDt><PyrId>"+billObj.Applicant.Name+ "</PyrId><PyrName>"+billObj.Applicant.Name+ "</PyrName><BillDesc>"+billObj.Description+ "</BillDesc><BillGenDt>"+billObj.IssuedDate.ToString("yyyy-MM-ddTHH:mm:ss")+"</BillGenDt><BillGenBy>TFS</BillGenBy><BillApprBy>TFS</BillApprBy><PyrCellNum/><PyrEmail/><Ccy>TZS</Ccy><BillEqvAmt>"+billObj.BillAmount+"</BillEqvAmt><RemFlag>false</RemFlag><BillPayOpt>1</BillPayOpt><BillItems>"+valuesBillItems+"</BillItems></BillTrxInf></gepgBillSubReq>";
+
+            string url = "http://154.118.230.18/api/bill/qrequest";
+
+            return Json(postXMLData(url, data_string));
+
+
+
+           // return Json(data_string);
+        }
+
+     
+
+        public string postXMLData(string destinationUrl, string requestXml)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(destinationUrl);
+            byte[] bytes;
+            string postData = "XMLData=" + requestXml;
+            bytes = System.Text.Encoding.ASCII.GetBytes(requestXml);
+            request.ContentType = "application/xml; encoding='utf-8'";
+            request.ContentLength = bytes.Length;
+            request.Method = "POST";
+            request.Headers["Gepg-Com"] = "default.sp.in";
+            request.Headers["Gepg-Code"] = "SP128";
+            Stream requestStream = request.GetRequestStream();
+            requestStream.Write(bytes, 0, bytes.Length);
+            requestStream.Close();
+            HttpWebResponse response;
+            response = (HttpWebResponse)request.GetResponse();
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                Stream responseStream = response.GetResponseStream();
+                string responseStr = new StreamReader(responseStream).ReadToEnd();
+                return responseStr;
+            }
+            return response.StatusCode.ToString();
+        }
+
+       
+ [HttpGet]
+        public IHttpActionResult GetControlNo()
+        {
+
+            BillDto billDto = this.billAppService.GetBill(92);
+            billDto.ControlNumber = "test";
+            billDto.ApplicantId = 5;
+           int id = this.billAppService.UpdateBill1(billDto);
+            //var ackResponse = "<gepgBillSubRespAck><TrxStsCode>7101</TrxStsCode></gepgBillSubRespAck>";
+            //Console.WriteLine(ackResponse);
+            //XmlDocument xmlDocument = new XmlDocument();
+
+            //StringWriter sw = new StringWriter();
+            //XmlTextWriter tx = new XmlTextWriter(sw);
+            //xmlDocument.WriteTo(tx);
+
+            //string str = sw.ToString();// 
+           
+
+            //// Manipulate curl post result
+            //var  requestBody = xmlDocument.OuterXml;
+
+            //if (string.IsNullOrEmpty(str))
+            //{
+
+            //    this.billAppService.UpdateBill(billDto);
+
+            //    foreach (var child in str)
+            //    {
+
+            //    }
+            //    //foreach ($outResult->children() as $child) {
+            //    //$curlBillId = (String) $child->BillId;
+            //    //$curlPayCntrNum = (String) $child->PayCntrNum;
+            //    //$curlTrxSts = (String) $child->TrxSts;
+            //    //$curlTrxStsCode = (String) $child->TrxStsCode;
+
+            //    //    if ($curlTrxStsCode == "7101"){
+            //    //    $obj = Bill::find($curlBillId);
+            //    //        if ($obj != null){
+            //    //        $obj->controlNo = $curlPayCntrNum;
+            //    //        $obj->status_code = $curlTrxStsCode;
+            //    //        $obj->save();
+
+            //    //            //Print bill
+            //    //        }else{
+
+
+            //    //        }
+
+            //    //    }else if ($curlTrxStsCode == "7242"){
+
+            //    //    }else{
+            //    //    $obj = Bill::find($curlBillId);
+            //    //    $obj->controlNo = $curlPayCntrNum;
+            //    //    $obj->status_code = $curlTrxStsCode;
+            //    //    $obj->save();
+
+                
+
+            //        }
+            return Json(id);
+        }
+
+
+        [HttpGet]
+        public IHttpActionResult ReceivePayment(XmlDocument xmlDocument)
+        {
+             //Acknowledge to GePG
+         var ackResponse = "<gepgPmtSpInfoAck><TrxStsCode>7101</TrxStsCode></gepgPmtSpInfoAck>";
+            Console.WriteLine(ackResponse);
+
+
+            StringWriter sw = new StringWriter();
+            XmlTextWriter tx = new XmlTextWriter(sw);
+            xmlDocument.WriteTo(tx);
+
+            string str = sw.ToString();//
+
+            //    // Manipulate curl post result
+            //    $requestBody = file_get_contents('php://input');
+            //    $outResult = simplexml_load_string($requestBody);
+
+            //        if (!empty($outResult))
+            //        {
+            //            foreach ($outResult->children() as $child) {
+            //            $TrxId = (String) $child->TrxId;
+            //            $PayRefId = (String) $child->PayRefId;
+            //            $BillId = (String) $child->BillId;
+            //            $PayCtrNum = (String) $child->PayCtrNum;
+            //            $BillAmt = (String) $child->BillAmt;
+            //            $PaidAmt = (String) $child->PaidAmt;
+            //            $BillPayOpt = (String) $child->BillPayOpt;
+            //            $CCy = (String) $child->CCy;
+            //            $TrxDtTm = (String) $child->TrxDtTm;
+            //            $UsdPayChnl = (String) $child->UsdPayChnl;
+            //            $PyrCellNum = (String) $child->PyrCellNum;
+            //            $PyrName = (String) $child->PyrName;
+            //            $PyrEmail = (String) $child->PyrEmail;
+            //            $PspReceiptNumber = (String) $child->PspReceiptNumber;
+            //            $PspName = (String) $child->PspName;
+            //            $CtrAccNum = (String) $child->CtrAccNum;
+
+            //$obj = new Payment();
+            //            $obj->bill_id = $BillId;
+            //            $obj->payment_control_no = $PayCtrNum;
+            //$obj->bill_amount = $BillAmt;
+            //            $obj->paid_amount = $PaidAmt;
+            //            $obj->pay_option = $BillPayOpt;
+            //            $obj->currency = $CCy;
+            //$transDate = date('Y-m-d', strtotime($TrxDtTm));
+            //            $obj->tranDate = $transDate;
+            //            $obj->used_pay_channel = $UsdPayChnl;
+            //            $obj->payer_cell_no = $PyrCellNum;
+            //            $obj->payer_name = $PyrName;
+            //            $obj->payer_email = $PyrEmail;
+            //            $obj->save();
+            //            }
+
+            return Json(str);
+        }
+
+            }
+
+
+
     }
-}
+
+
+
     

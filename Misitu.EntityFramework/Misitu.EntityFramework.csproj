@@ -150,6 +150,10 @@
     <Compile Include="Migrations\201801240438520_update_form_server.Designer.cs">
       <DependentUpon>201801240438520_update_form_server.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801240715026_update_applicant.cs" />
+    <Compile Include="Migrations\201801240715026_update_applicant.Designer.cs">
+      <DependentUpon>201801240715026_update_applicant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\DefaultGNCreatot.cs" />
@@ -176,6 +180,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201801240438520_update_form_server.resx">
       <DependentUpon>201801240438520_update_form_server.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801240715026_update_applicant.resx">
+      <DependentUpon>201801240715026_update_applicant.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

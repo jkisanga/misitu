@@ -179,6 +179,17 @@ namespace Misitu.Billing
             await _billRepository.UpdateAsync(bill);
         }
 
+
+
+        public int UpdateBill1(BillDto input)
+        {
+            var bill = _billRepository.FirstOrDefault(input.Id);
+            bill.ApplicantId = input.ApplicantId;
+            bill.IssuedDate = DateTime.Now;
+            bill.StationId = input.StationId;
+            return _billRepository.InsertOrUpdateAndGetId(bill);
+        }
+
         public async Task ConfirmBill(BillDto input, double PaidAmount)
         {
             var bill = _billRepository.FirstOrDefault(input.Id);
