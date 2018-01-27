@@ -30,6 +30,7 @@ namespace Misitu.Billing
         Task ConfirmBill(BillDto input, double PaidAmount);
 
         Task UpdateBill(BillDto input);
+        int UpdateBill1(BillDto input);
 
         Task DeleteBillAsync(BillDto input);
 

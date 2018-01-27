@@ -26,6 +26,7 @@ namespace Misitu.Web.Controllers
         // GET: Ranges
         public ActionResult Index()
         {
+
             var ranges = _rangeAppService.GetRanges();
             return View(ranges);
         }

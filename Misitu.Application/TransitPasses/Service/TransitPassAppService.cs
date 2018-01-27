@@ -149,30 +149,31 @@ namespace Misitu.TransitPasses.Service
             return new List<BillPrint>(bill.MapTo<List<BillPrint>>());
         }
 
+       
         public BillPrint getBillByTPId(int id)
         {
             var bill = from tp in this.repositoryTransitpass.GetAll()
-                       join b in this.repositoryBill.GetAll() on tp.BillId equals b.Id
-                       join item in this.billItemRepository.GetAll() on b.Id equals item.BillId
-                       where tp.Id == id
-                       select new BillPrint
-                       {
-                           Id = b.Id,
-                           PayerName = b.Applicant.Name,
-                           PayerAddress = b.Applicant.Adress,
-                           PayerPhone = b.Applicant.Phone,
-                           Station = b.Station.Name,
-                           StationAddress = b.Station.Address,
-                           ControlNumber = b.ControlNumber,
-                           IssuedDate = b.IssuedDate,
-                           ExpireDate = b.ExpiredDate,
-                           BilledAmount = b.BillAmount,
-                           Currency = b.Currency,
-                           Description = b.Description,
-                           BillId = item.BillId,
-                           ItemDescription = item.Description,
-                           Amount = item.Total
-                       };
+                        join b in this.repositoryBill.GetAll() on tp.BillId equals b.Id
+                        join item in this.billItemRepository.GetAll() on b.Id equals item.BillId
+                        where tp.Id == id
+                        select new BillPrint
+                        {
+                            Id = b.Id,
+                            PayerName = b.Applicant.Name,
+                            PayerAddress = b.Applicant.Adress,
+                            PayerPhone = b.Applicant.Phone,
+                            Station = b.Station.Name,
+                            StationAddress = b.Station.Address,
+                            ControlNumber = b.ControlNumber,
+                            IssuedDate = b.IssuedDate,
+                            ExpireDate = b.ExpiredDate,
+                            BilledAmount = b.BillAmount,
+                            Currency = b.Currency,
+                            Description = b.Description,
+                            BillId = item.BillId,
+                            ItemDescription = item.Description,
+                            Amount = item.Total
+                        };
 
             return bill.MapTo<BillPrint>();
         }
