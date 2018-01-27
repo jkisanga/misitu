@@ -3,14 +3,26 @@
 ##
 
 (# Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
-Misitu.Application/obj/
-Misitu.Application/bin/
-*.vs/
 
-Misitu.Application/obj/
-Misitu.Application/bin/
-App_Data/Logs
-*.vs/
+/Misitu.Application/obj
+/Misitu.Application/bin
+/Misitu.EntityFramework/obj
+/Misitu.EntityFramework/bin
+/Misitu.Core/obj
+/Misitu.Core/bin
+/Misitu.WebApi/obj
+/Misitu.WebApi/bin
+/Misitu.Web/obj
+/Misitu.Web/bin
+/Tests/obj
+/Tests/bin
+/Tools/obj
+/Tools/bin
+
+/App_Data/Logs
+/.vs
+/.vscode
+/.nuget
 
 # User-specific files
 *.suo
