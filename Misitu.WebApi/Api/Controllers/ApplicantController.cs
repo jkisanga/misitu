@@ -180,7 +180,7 @@ namespace Misitu.Api.Controllers
             int billItem = this.billItemAppService.CreateBillItemAPI(obj);
             var newBillTem = this.billItemAppService.GetBillItem(billItem);
 
-            return Json(newBillTem);
+            return Json("");
         }
 
 
