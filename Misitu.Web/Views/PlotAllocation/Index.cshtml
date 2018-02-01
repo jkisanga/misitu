@@ -22,12 +22,12 @@
             <div class="row">
 
                 <div class="col-md-6">
-                    <h4>@ViewBag.Dealer.Name</h4>
+                    <h4>@ViewBag.Dealer.Applicant.Name</h4>
                     <p>
-                       @ViewBag.Dealer.Address
+                       @ViewBag.Dealer.Applicant.Address
                     </p>
                     <p>
-                        @ViewBag.Dealer.Phone,  @ViewBag.Dealer.Email
+                        @ViewBag.Dealer.Applicant.Phone,  @ViewBag.Dealer.Applicant.Email
                     </p>
                 </div>
 
@@ -166,7 +166,7 @@
                                     <label class="control-label col-md-2">Revenue Source</label>
                                     <div class="col-md-4">
                                         <input type="hidden" name="DealerId" value="@ViewBag.Dealer.Id" />
-                                        @Html.DropDownList("RevenueSourceId", null, new { @class = "form-control col-md-6" })
+                                        @Html.DropDownList("ActivityId", null, new { @class = "form-control col-md-6" })
                                     </div>
 
                                     <label class="control-label col-md-2">Billed Amount</label>

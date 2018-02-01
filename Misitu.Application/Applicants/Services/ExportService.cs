@@ -31,8 +31,6 @@ namespace Misitu.Applicants.Services
             _exportAttachmentRepository = exportAttachmentRepository;
         }
 
-     
-
         //Create
         public int CreateAndReturnId(CreateExportDetail input)
         {

@@ -44,59 +44,31 @@
 
                                 @Html.ValidationMessage("Currency", "", new { @class = "text-danger" })
                             </div>
-                        </div>
+                            </div>
+                            <div class="form-group">   
+                                @Html.Label("Revenue Source", htmlAttributes: new { @class = "control-label col-md-2" }) 
+                                <div class="col-md-4">
+                                    <select id="source" class="form-control">
+                                        <option value="select">Select</option>
+                                    </select>
+                                    </div>
 
-
-                        <table id="myTable" class="table">
-                            <thead>
-                                <tr>
-                                    <th>Product</th>
-                                    <th>Quantity</th>
-                                    <th>Amount</th>
-                                    <th>Total</th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <select name="ActivityId[]" class="form-control">
-                                            @foreach (var item in ViewBag.activities)
-                                            {
-                                                <option value="@item.Id">@item.Description</option>
-                                            }
+                                    @Html.Label("Sub Revenue Source", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-4">
+                                        <select id="sub_source" name="ActivitySourceId" class="form-control">
+                                            <option value="select">Select</option>
                                         </select>
-                                    </td>
-                                    <td><input type="text" name="Quantity[]" class="form-control"></td>
-                                    <td><input type="text" name="Amount[]" class="form-control"></td>
-                                    <td><input type="text" class="form-control total" readonly /></td>
-                                    <td></td>
-                                </tr>
-
-                            </tbody>
-                            <tbody>
-                                <tr id="totals">
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>Total<input type="text" name="total" id="total" class="form-control" readonly /></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <button type="button" class="btn btn-success" id="addrow">Add</button>
-
-
-
+                                    </div>
+                                </div>
+                        </div>
+                     
                         <br />
                         <div class="form-group">
                             <div class="col-md-offset-0 col-md-10">
-                                <input type="submit" value="Create" class="btn btn-primary pull-right" />
+                                <input type="submit" value="Save & Continue" class="btn btn-primary pull-right" />
                             </div>
                         </div>
-                    </div>
+                 
 
                 }
                 </div>
@@ -104,70 +76,43 @@
         </div>
     </div>
 
-
-                <table id="newrow" style="display:none">
-                    <tr>
-                        <td>
-                            <select name="ActivityId[]" class="form-control">
-                                @foreach (var item in ViewBag.activities)
-                                {
-                                    <option value="@item.Id">@item.Description</option>
-                                }
-                            </select>
-                        </td>
-
-                        <td><input type="text" name="Quantity[]" class="form-control"></td>
-                        <td><input type="text" name="Amount[]" class="form-control"></td>
-                        <td><input type="text" class="form-control total" readonly /></td>
-                        <td><button type="button" class="delete btn-danger">Delete</button>
-                    </tr>
-                </table>
-
+              
  @section scripts
 {
-                    <script type="text/javascript">
+    <script type="text/javascript">
 
+        //Fetch Revenue sources
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("GetRevenueSources", "RevenueSources")',
+            dataType: "json",
+            success: function (data) {
+                $.each(data, function (i, obj) {
+                    var div_data = "<option value=" + obj.Value + ">" + obj.Text + "</option>";
+                    $('#source').append(div_data);
+                });
+            }
+        });
 
-                        var body = $('#myTable').children('tbody').first();
+        //get activities by revenue source 
+        $('#source').change(function () {
+            var RevenueSourceId = $('#source').val();
+            var div_item = '';
+            $.ajax({
+                type: "GET",
+                url: '/activities/getactivities/'+RevenueSourceId,
+                dataType: "json",
+                success: function (data) {
+                    $.each(data, function (i, item) {
+                        div_item = "<option value=" + item.Value + ">" + item.Text + "</option>";
+                        $('#sub_source').append(div_item);
 
-                        body.on('change', 'input[type="text"]', function () {
+                    });
+                }
+            });
+        });
 
-                            var cells = $(this).closest('tr').children('td');
-
-                            var value2 = cells.eq(1).find('input').val();
-                            var value3 = cells.eq(2).find('input').val();
-                            cells.eq(3).children('input[type="text"]').val(new Number(value2) * new Number(value3));
-
-                            var sum = 0;
-                            $(".total").each(function () {
-                                sum += new Number(this.value);
-                            });
-                            sum = new Number(sum);
-
-                            $('#total').val(sum);
-                        });
-
-                        $('#addrow').click(function () {
-                            var clone = $('#newrow').clone();
-                            // update indexers etc.
-                            var newrow = clone.find('tr');
-                            body.append(newrow);
-                        });
-
-                        body.on('click', '.delete', function () {
-                            var row = $(this).closest('tr');
-                            row.remove();
-                            var sum = 0;
-                            $(".total").each(function () {
-                                sum += new Number(this.value);
-                            });
-                            sum = new Number(sum);
-
-                            $('#total').val(sum);
-
-                        });
-
-
-                    </script>
+     
+    </script>
                 }
 

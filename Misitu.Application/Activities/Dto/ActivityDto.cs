@@ -20,12 +20,10 @@ namespace Misitu.Activities.Dto
         public virtual string Name { get; set; }
         public virtual string Description { get; set; }
         public virtual int RevenueSourceId { get; set; }
-
         [Required]
         public virtual double Fee { get; set; }
-
+        public string Flag { get; set; }
         public virtual double RegistrationFee { get; set; }
-
         [ForeignKey("RevenueSourceId")]
         public virtual RevenueSource Revenue { get; set; }
     }

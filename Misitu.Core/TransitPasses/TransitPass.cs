@@ -15,6 +15,9 @@ namespace Misitu.TransitPasses
         public TransitPass() { Status = false; }
         public virtual int ApplicantId { get; set; }
         public virtual int BillId { get; set; }
+        public virtual string Name { get; set; }
+        public virtual string Address { get; set; }
+        public virtual string Phone { get; set; }
         public virtual string OrginalCountry { get; set; }
         public virtual string NoOfConsignment { get; set; }
         public virtual string LisenceNo { get; set; }
@@ -24,7 +27,6 @@ namespace Misitu.TransitPasses
         public virtual DateTime ExpireDate { get; set; }
         public virtual int ExpireDays { get; set; }
         public virtual string SourceName { get; set; }
-        //Destnation pull form District
         public virtual int DestinationId { get; set; }
         public virtual string DestinationName { get; set; }
         public virtual string VehcleNo { get; set; }
@@ -35,14 +37,8 @@ namespace Misitu.TransitPasses
         public virtual string AdditionInformation { get; set; }
         public virtual bool Status { get; set; }
 
-
-
-        [ForeignKey("ApplicantId")]
-        public virtual Applicant Applicant { get; set; }
-
         [ForeignKey("BillId")]
         public virtual Bill Bill { get; set; }
-
 
     }
 }

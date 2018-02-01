@@ -1,4 +1,5 @@
 ﻿using Abp.Runtime.Validation;
+using Misitu.Activities;
 using Misitu.Billing;
 using Misitu.Billing.Dto;
 using Misitu.FinancialYears;
@@ -29,6 +30,7 @@ namespace Misitu.Web.Controllers
         private readonly IBillItemAppService _billItemAppService;
         private readonly LicenseAppService _licenseAppService;
         private readonly IRevenueSourceAppService _revenueSourceAppService;
+        private readonly IActivityAppService _activityAppService;
 
         public PlotAllocationController(
             IAllocatedPlotAppService allocatedPlotAppService,
@@ -39,7 +41,8 @@ namespace Misitu.Web.Controllers
             IFinancialYearAppService financialYearAppService,
             IBillItemAppService billItemAppService,
             LicenseAppService licenseAppService,
-             IRevenueSourceAppService revenueSourceAppService
+             IRevenueSourceAppService revenueSourceAppService,
+             IActivityAppService activityAppService
             )
         {
             _allocatedPlotAppService = allocatedPlotAppService;
@@ -51,6 +54,7 @@ namespace Misitu.Web.Controllers
             _billItemAppService = billItemAppService;
             _licenseAppService = licenseAppService;
             _revenueSourceAppService = revenueSourceAppService;
+            _activityAppService = activityAppService;
         }
 
         // GET: PlotAllocation
@@ -59,7 +63,7 @@ namespace Misitu.Web.Controllers
             var dealer = _dealerAppService.GetDealer(id);
             var allocatedPlots = _allocatedPlotAppService.GetAllocatedPlotsByDealer(dealer);
             var sources = _revenueSourceAppService.GetRevenueResources().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Description });
-            ViewBag.RevenueSourceId = sources;
+            ViewBag.ActivityId = _activityAppService.GetActivities().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Name }); 
             ViewBag.Dealer = dealer;
             ViewBag.Plots = allocatedPlots;
             return View();
@@ -74,7 +78,7 @@ namespace Misitu.Web.Controllers
 
             if (dealer != null)
             {
-                var revenue = _revenueSourceAppService.GetRevenueResource(ActivityId);
+                var revenue = _activityAppService.GetActivity(ActivityId);
                 var items = _allocatedPlotAppService.GetAllocatedPlotsByDealer(dealer);
                 var user = _userAppService.GetLoggedInUser();
                 var Fyear = _financialYearAppService.GetActiveFinancialYear();

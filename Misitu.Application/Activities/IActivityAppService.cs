@@ -12,6 +12,8 @@ namespace Misitu.Activities
     {
         List<ActivityDto> GetActivities();
 
+        List<ActivityDto> GetActivitiesByRevenueSourceId(int Id);
+
         Task CreateActivity(CreateActivityInput input);
 
         ActivityDto GetActivity(int id);

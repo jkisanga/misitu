@@ -21,13 +21,15 @@ namespace Misitu.TransitPasses.Service
         private readonly IRepository<Bill> repositoryBill;
         private readonly IRepository<Payment> paymentRepository;
         private readonly IRepository<CheckPointTransitPass> repositoryCheckpointTransitpass;
+        private readonly IRepository<TransitPassItem> transitPassItemRepository;
 
         public TransitPassAppService(IRepository<Applicant> reporitaryApplicant,
             IRepository<TransitPass> repositoryTransitpass, 
             IRepository<Bill> repositoryBill,
             IRepository<Payment> paymentRepository,
-             IRepository<CheckPointTransitPass> repositoryCheckpointTransitpass,
-            IRepository<BillItem> billItemRepository)
+            IRepository<CheckPointTransitPass> repositoryCheckpointTransitpass,
+            IRepository<BillItem> billItemRepository,
+            IRepository<TransitPassItem> transitPassItemRepository)
         {
             this.reporitaryApplicant = reporitaryApplicant;
             this.repositoryTransitpass = repositoryTransitpass;
@@ -35,6 +37,7 @@ namespace Misitu.TransitPasses.Service
             this.repositoryBill = repositoryBill;
             this.paymentRepository = paymentRepository;
             this.repositoryCheckpointTransitpass = repositoryCheckpointTransitpass;
+            this.transitPassItemRepository = transitPassItemRepository;
         }
 
         public int CreateTransitPass(CreateTransitPassInput input)
@@ -187,12 +190,11 @@ namespace Misitu.TransitPasses.Service
             var printout = from tp in this.repositoryTransitpass.GetAll()
                            join route in this.repositoryCheckpointTransitpass.GetAll() on tp.Id equals route.TransitPassId
                            join p in this.paymentRepository.GetAll() on tp.BillId equals p.BillId
-                            join item in this.billItemRepository.GetAll() on tp.BillId equals item.BillId
+                            join item in this.transitPassItemRepository.GetAll() on tp.Id equals item.TransitPassId
                             where tp.Id == id
                             select  new TransitPassPrintout
                             {
                                  Id = tp.Id,
-                                 Applicant = tp.Applicant.Name,
                                  OrginalCountry = tp.OrginalCountry,
                                  NoOfConsignment = tp.NoOfConsignment,
                                  LisenceNo  = tp.LisenceNo,
@@ -207,7 +209,7 @@ namespace Misitu.TransitPasses.Service
                                  AdditionInformation = tp.AdditionInformation,
                                  CreationTime = tp.CreationTime,
                                  ItemId = item.Id,
-                                 ItemDescription = item.Description,
+                                 ItemDescription = item.Activity.Description,
                                  Quantity = item.Quantity,
                                  CheckpointId = route.Id,
                                  CheckpointName = route.Station.Name

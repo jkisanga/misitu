@@ -14,12 +14,12 @@ namespace Misitu.Web.Controllers
     {
 
         private readonly IRevenueSourceAppService _revenueSourceAppService;
-        private readonly Interface1 _refSubRevenueSourceAppService;
 
-        public RevenueSourcesController(IRevenueSourceAppService revenueSourceAppService, Interface1 refSubRevenueSourceAppService)
+
+        public RevenueSourcesController(IRevenueSourceAppService revenueSourceAppService)
         {
             _revenueSourceAppService = revenueSourceAppService;
-            _refSubRevenueSourceAppService = refSubRevenueSourceAppService;
+
         }
         // GET: RevenueSources
         public ActionResult Index()
@@ -27,7 +27,14 @@ namespace Misitu.Web.Controllers
             var sources = _revenueSourceAppService.GetRevenueResources();
             return View(sources);
         }
-    
+
+        // GET: RevenueSources
+        public ActionResult GetRevenueSources()
+        {
+            var sources = _revenueSourceAppService.GetRevenueResources().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = "["+c.Code+"]" +c.Description });
+            return Json(sources,JsonRequestBehavior.AllowGet);
+        }
+
 
         // GET: RevenueSources/Create
         public ActionResult Create()

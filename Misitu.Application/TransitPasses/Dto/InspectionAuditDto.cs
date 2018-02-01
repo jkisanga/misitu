@@ -10,9 +10,10 @@ using System.Threading.Tasks;
 
 namespace Misitu.TransitPasses
 {
-  public  class InspectionAuditDto : FullAuditedEntityDto 
+    [AutoMapFrom(typeof(InspectionAudit))]
+    public  class InspectionAuditDto : FullAuditedEntityDto 
     {
-        [AutoMapFrom(typeof(InspectionAudit))]
+    
         public virtual int CheckPointTransitPassId { get; set; }
         public virtual string Action { get; set; }
         public virtual string AdditionInformation { get; set; }

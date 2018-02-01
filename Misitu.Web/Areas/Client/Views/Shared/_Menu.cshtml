@@ -3,14 +3,13 @@
 
 @if (Request.IsAuthenticated)
 {
-<ul class="nav navbar-nav">
-   
-    <li>@Html.ActionLink("Home", "Index", "Dashboard")</li>
-    <li>@Html.ActionLink("My Profile", "ApplicantProfile", "Applicant")</li>
 
+   
+  
+ <li><a href="@Url.Action("Index", "Dashboard")"><i class="menu-icon icon-home"></i> Home</a></li>
 
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Application for Registration <span class="caret"></span></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="menu-icon icon-inbox"></i>Application for Registration <span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
             <li><a href="@Url.Action("ApplyForRegistration","Applicant")">New Application</a></li>
             <li><a href="@Url.Action("ApplicationDetails", "Applicant")">My Application</a></li>
@@ -20,7 +19,7 @@
     </li>
 
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Harvesting <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="menu-icon icon-th"></i>Harvesting <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
                 <li><a href="@Url.Action("ForestProduceRegistration","Application")">New Application</a></li>
                 <li><a href="@Url.Action("myApplications","Application")">My Applications</a></li>
@@ -29,7 +28,7 @@
             </ul>
         </li>
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Export/Import <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="menu-icon icon-th"></i>Export/Import <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
                 <li><a href="@Url.Action("Create","Export")">New Application</a></li>
                 <li><a href="@Url.Action("Index","Export")">My Applications</a></li>
@@ -37,7 +36,8 @@
 
             </ul>
         </li>
-    
-  
-</ul>
+
+        <li><a href="@Url.Action("ApplicantProfile", "Applicant")"><i class="menu-icon icon-eye-open"></i> Profile</a></li>
+
+
 }

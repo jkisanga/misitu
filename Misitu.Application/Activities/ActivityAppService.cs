@@ -2,6 +2,7 @@
 using Abp.Domain.Repositories;
 using Abp.UI;
 using Misitu.Activities.Dto;
+using Misitu.RevenueSources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,33 +14,47 @@ namespace Misitu.Activities
     public class ActivityAppService: MisituAppServiceBase, IActivityAppService
     {
         private readonly IRepository<Activity> _activityRepository;
+        private readonly IRepository<RevenueSource> _revenueResourceRepository;
 
-        public ActivityAppService(IRepository<Activity> activityRepository)
+        public ActivityAppService(IRepository<Activity> activityRepository,
+            IRepository<RevenueSource> revenueResourceRepository)
         {
             _activityRepository = activityRepository;
+            _revenueResourceRepository = revenueResourceRepository;
         }
 
         // Activity list
         public List<ActivityDto> GetActivities()
         {
             var activities = _activityRepository
-            .GetAll()
-            .OrderBy(p => p.Description)
-            .ToList();
+                            .GetAll()
+                            .OrderBy(p => p.Description)
+                            .ToList();
+
+            return new List<ActivityDto>(activities.MapTo<List<ActivityDto>>());
+        }
+
+        //List of activities by revenue source Id
+        public List<ActivityDto> GetActivitiesByRevenueSourceId(int Id) {
+            var activities = _activityRepository
+                           .GetAll()
+                           .Where(p => p.RevenueSourceId == Id)
+                           .OrderBy(p => p.Description)
+                           .ToList();
 
             return new List<ActivityDto>(activities.MapTo<List<ActivityDto>>());
         }
 
         //create new Activity
-
         public async Task CreateActivity(CreateActivityInput input)
         {
             var activity = new Activity {
-                    RevenueSourceId = input.RevenueSourceId,
-                    Name = input.Name,
-                    Description = input.Description,
-                    Fee = input.Fee,
-                    RegistrationFee = input.RegistrationFee
+                RevenueSourceId = input.RevenueSourceId,
+                Name = input.Name,
+                Description = input.Description,
+                Fee = input.Fee,
+                RegistrationFee = input.RegistrationFee,
+                Flag = input.Flag
                     
             };
 
@@ -73,6 +88,7 @@ namespace Misitu.Activities
             activity.Description = input.Description;
             activity.Fee = input.Fee;
             activity.RegistrationFee = input.RegistrationFee;
+            activity.Flag = input.Flag;
 
             await _activityRepository.UpdateAsync(activity);
         }

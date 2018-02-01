@@ -21,7 +21,7 @@ namespace Misitu.Activities
 
         [Required]
         public virtual double Fee { get; set; }
-
+        public virtual string Flag { get; set; }//for grouping purposes
         public virtual double RegistrationFee { get; set; }
         [ForeignKey("RevenueSourceId")]
         public virtual RevenueSource RevenueSource { get; set; }

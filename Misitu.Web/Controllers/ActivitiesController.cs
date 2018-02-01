@@ -11,8 +11,8 @@ using System.Web.Mvc;
 
 namespace Misitu.Web.Controllers
 {
-    [DisableValidation]
-    public class ActivitiesController : MisituControllerBase
+   
+    public class ActivitiesController : Controller
     {
         private readonly IActivityAppService _activityAppService;
         private readonly IRevenueSourceAppService _revenueSourceAppService;
@@ -24,10 +24,18 @@ namespace Misitu.Web.Controllers
             _revenueSourceAppService = revenueSourceAppService;
         }
 
+        //List of Actitvities
         public ActionResult Index()
         {
             var activities = _activityAppService.GetActivities();
             return View(activities);
+        }
+
+        //get activities By revenue source Id
+        public ActionResult getActivities(int Id)
+        {
+            var activities = _activityAppService.GetActivitiesByRevenueSourceId(Id).Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Name }); ;
+            return Json(activities,JsonRequestBehavior.AllowGet);
         }
 
         // GET: Zone/Create

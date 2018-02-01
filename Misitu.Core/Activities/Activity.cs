@@ -15,7 +15,6 @@ namespace Misitu.Activities
     public class Activity : FullAuditedEntity
     {
         
-
         public virtual int RevenueSourceId { get; set; }
      
         public virtual string Name { get; set; }
@@ -26,6 +25,8 @@ namespace Misitu.Activities
         public virtual double Fee { get; set; }
 
         public virtual bool IsActive { get; set; }
+
+        public virtual string Flag { get; set; }
 
         public virtual double RegistrationFee { get; set; }
         [ForeignKey("RevenueSourceId")]

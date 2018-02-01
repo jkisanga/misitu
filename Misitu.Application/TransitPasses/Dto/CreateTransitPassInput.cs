@@ -12,8 +12,7 @@ namespace Misitu.TransitPasses
 {
     [AutoMapFrom(typeof(TransitPass))]
     public class CreateTransitPassInput
-   {
-       
+   {     
         public virtual int ApplicantId { get; set; }
         public virtual int BillId { get; set; }
         public virtual string OrginalCountry { get; set; }

@@ -77,6 +77,7 @@ namespace Misitu.EntityFramework
         //Table za Online Application (Cliant Applicantion/Account/Profile)
         public virtual IDbSet<RefApplicantType> RefApplicantTypes { get; set; }
         public virtual IDbSet<RefIdentityType> RefIdentityTypes { get; set; }
+        public virtual IDbSet<RefUnitMeasure> RefUnitMeasures { get; set; }
         public virtual IDbSet<District> Districts { get; set; }
 
         public virtual IDbSet<Activity> Activities { get; set; }
@@ -87,6 +88,7 @@ namespace Misitu.EntityFramework
         public virtual IDbSet<ForestProduceAppliedForest> ForestProduceAppliedForests { get; set; }
 
         public virtual IDbSet<TransitPass> TransitPasses { get; set; }
+        public virtual IDbSet<TransitPassItem> TransitPassItems { get; set; }
         public virtual IDbSet<BillTransitPass> BillTransitPasses { get; set; }
         public virtual IDbSet<CheckPointTransitPass> CheckPointTransitPass { get; set; }
         public virtual IDbSet<InspectionAudit> InspectionAudities { get; set; }
@@ -94,6 +96,10 @@ namespace Misitu.EntityFramework
         public virtual IDbSet<RevenueSource> RevenueSources { get; set; }
         public virtual IDbSet<Payment> Payments { get; set; }
 
+        //Export and Import application
+        public virtual IDbSet<ExportDetail> ExportDetails { get; set; }
+        public virtual IDbSet<ExportSpecie> ExportSpecies { get; set; }
+        public virtual IDbSet<ExportAttachment> ExportAttachments { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -115,7 +121,6 @@ namespace Misitu.EntityFramework
             modelBuilder.Entity<ForestProduceRegistration>().HasRequired(i => i.FinancialYear).WithMany().HasForeignKey(k => k.FinancialYearId).WillCascadeOnDelete(false);
             modelBuilder.Entity<ForestProduceRegistration>().HasRequired(i => i.District).WithMany().HasForeignKey(k => k.DistrictId).WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<TransitPass>().HasRequired(i => i.Applicant).WithMany().HasForeignKey(k => k.ApplicantId).WillCascadeOnDelete(false);
             modelBuilder.Entity<BillTransitPass>().HasRequired(i => i.TransitPass).WithMany().HasForeignKey(k => k.TransitPassId).WillCascadeOnDelete(false);
             modelBuilder.Entity<CheckPointTransitPass>().HasRequired(i => i.TransitPass).WithMany().HasForeignKey(k => k.TransitPassId).WillCascadeOnDelete(false);
             modelBuilder.Entity<Applicant>().HasRequired(i => i.FinancialYear).WithMany().HasForeignKey(k => k.FinancialYearId).WillCascadeOnDelete(false);

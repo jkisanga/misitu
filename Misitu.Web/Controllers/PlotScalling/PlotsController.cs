@@ -46,7 +46,7 @@ namespace Misitu.Web.Controllers.PlotScalling
         public ActionResult Tallied(int id)
         {
             var finacialYear = _financialYearAppService.GetActiveFinancialYear();
-            var dealers = _dealerAppService.GetRegisteredDealers(finacialYear).Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Applicant.Name });
+            var dealers = _dealerAppService.GetRegisteredDealers(finacialYear).Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Id.ToString() });
             var compartment = _compartmentAppService.GetCompartment(id);
             var plots = _plotAppService.GetTalliedPlotsByCompartment(id);
 
