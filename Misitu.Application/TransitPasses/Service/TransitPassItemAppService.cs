@@ -20,7 +20,7 @@ namespace Misitu.TransitPasses.Service
             _transitPassItemRepository = transitPassItemRepository;
         }
 
-        // Region list
+        // Transit Pass Item list
         public List<TransitPassItemDto> GetTransitPassItems()
         {
             var transitPassItem = _transitPassItemRepository.GetAll().ToList();
@@ -28,7 +28,17 @@ namespace Misitu.TransitPasses.Service
             return new List<TransitPassItemDto>(transitPassItem.MapTo<List<TransitPassItemDto>>());
         }
 
-        //create new Region
+        //get transit pass items by transit pass
+       public List<TransitPassItemDto> GetItemsByTransitPassId(int id)
+        {
+            var transitPassItem = _transitPassItemRepository.GetAll()
+                .Where(x => x.TransitPassId == id)
+                .ToList();
+
+            return new List<TransitPassItemDto>(transitPassItem.MapTo<List<TransitPassItemDto>>());
+        }
+
+        //create new Transit Pass Item
         public void CreateTransitPassItem(CreateTransitPassItem input)
         {         
             var IsExist = _transitPassItemRepository.FirstOrDefault(p => p.TransitPassId == input.TransitPassId && p.ActivityId == input.ActivityId);
@@ -51,7 +61,7 @@ namespace Misitu.TransitPasses.Service
 
         }
 
-        //get edit Region
+        //get edit Transit Pass Item
         public TransitPassItemDto GetTransitPassItem(int id)
         {
             var transitPassItem = _transitPassItemRepository.FirstOrDefault(id);
@@ -60,7 +70,7 @@ namespace Misitu.TransitPasses.Service
 
         }
 
-        //update Region
+        //update Transit Pass Item
         public void UpdateTransitPassItem(TransitPassItemDto input)
         {
             // here aoutomapping can be done;
@@ -75,7 +85,7 @@ namespace Misitu.TransitPasses.Service
         }
 
 
-        //delete Region
+        //delete Transit Pass Item
         public async Task DeleteTransitPassItem(TransitPassItemDto input)
         {
             var transitPassItem = _transitPassItemRepository.FirstOrDefault(input.Id);

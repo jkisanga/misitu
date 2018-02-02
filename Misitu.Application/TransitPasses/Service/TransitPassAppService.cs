@@ -105,9 +105,12 @@ namespace Misitu.TransitPasses.Service
         }
 
         //Unpaid transit passes
-        public List<TransitPassDto> GetUnPaidTransitPasses() {         
-            var tps = (from tp in this.repositoryTransitpass.GetAll()                     
-                       where tp.BillId != (from p in this.paymentRepository.GetAll() orderby p.BillId select p.BillId).First()
+        public List<TransitPassDto> GetUnPaidTransitPasses() {
+
+            var _a = this.repositoryTransitpass.GetAll();
+            var _b = this.paymentRepository.GetAll();
+            var tps = (from tp in _a
+                       where !(_b.Any( x => x.BillId == tp.BillId))                                    
                        select tp).ToList();
             return new List<TransitPassDto>(tps.MapTo<List<TransitPassDto>>());
         }
@@ -119,6 +122,17 @@ namespace Misitu.TransitPasses.Service
             var tps = (from tp in this.repositoryTransitpass.GetAll()
                       join p in this.paymentRepository.GetAll() on tp.BillId equals p.BillId
                       select tp).ToList();
+
+            return new List<TransitPassDto>(tps.MapTo<List<TransitPassDto>>());
+        }
+
+        //get list of exipired transit passes
+        public List<TransitPassDto> GetExpiredTransitPasses()
+        {
+            var tps = (from tp in this.repositoryTransitpass.GetAll()
+                       join p in this.paymentRepository.GetAll() on tp.BillId equals p.BillId
+                       where DateTime.Now > tp.ExpireDate
+                       select tp).ToList();
 
             return new List<TransitPassDto>(tps.MapTo<List<TransitPassDto>>());
         }
@@ -181,9 +195,34 @@ namespace Misitu.TransitPasses.Service
             return bill.MapTo<BillPrint>();
         }
 
-        //
+        //Get Transit Pass By Id
+        public TransitPassPrintout GetTransitPassById(int id)
+        {
+            var transitPass = (from tp in this.repositoryTransitpass.GetAll()
+                               join p in this.paymentRepository.GetAll() on tp.BillId equals p.BillId
+                               where tp.Id == id
+                               select new TransitPassPrintout
+                               {
+                                   Id = tp.Id,
+                                   OrginalCountry = tp.OrginalCountry,
+                                   NoOfConsignment = tp.NoOfConsignment,
+                                   LisenceNo = tp.LisenceNo,
+                                   TransitPassNo = tp.TransitPassNo,
+                                   IssuedDate = tp.IssuedDate,
+                                   ExpireDate = tp.ExpireDate,
+                                   SourceName = tp.SourceName,
+                                   DestinationName = tp.DestinationName,
+                                   VehcleNo = tp.VehcleNo,
+                                   HummerNo = tp.HummerNo,
+                                   HummerMaker = tp.HummerMaker,
+                                   AdditionInformation = tp.AdditionInformation,
+                                   CreationTime = tp.CreationTime,
 
+                               }).FirstOrDefault();
+            return transitPass.MapTo<TransitPassPrintout>();
+        }
 
+        //get Transit Pass By Id with associated checkpoints and Items
         public List<TransitPassPrintout> GetTransitPassPrintout(int id)
         {
             
@@ -244,5 +283,6 @@ namespace Misitu.TransitPasses.Service
             await this.repositoryTransitpass.UpdateAsync(obj);
         }
 
+     
     }
 }

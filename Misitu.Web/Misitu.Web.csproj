@@ -543,6 +543,32 @@
     <Content Include="Global.asax" />
     <Content Include="images\logo.JPG" />
     <Content Include="images\tfs.png" />
+    <Content Include="img\android-icon-144x144.png" />
+    <Content Include="img\android-icon-192x192.png" />
+    <Content Include="img\android-icon-36x36.png" />
+    <Content Include="img\android-icon-48x48.png" />
+    <Content Include="img\android-icon-72x72.png" />
+    <Content Include="img\android-icon-96x96.png" />
+    <Content Include="img\apple-icon-114x114.png" />
+    <Content Include="img\apple-icon-120x120.png" />
+    <Content Include="img\apple-icon-144x144.png" />
+    <Content Include="img\apple-icon-152x152.png" />
+    <Content Include="img\apple-icon-180x180.png" />
+    <Content Include="img\apple-icon-57x57.png" />
+    <Content Include="img\apple-icon-60x60.png" />
+    <Content Include="img\apple-icon-72x72.png" />
+    <Content Include="img\apple-icon-76x76.png" />
+    <Content Include="img\apple-icon-precomposed.png" />
+    <Content Include="img\apple-icon.png" />
+    <Content Include="img\browserconfig.xml" />
+    <Content Include="img\favicon-16x16.png" />
+    <Content Include="img\favicon-32x32.png" />
+    <Content Include="img\favicon-96x96.png" />
+    <Content Include="img\favicon.ico" />
+    <Content Include="img\ms-icon-144x144.png" />
+    <Content Include="img\ms-icon-150x150.png" />
+    <Content Include="img\ms-icon-310x310.png" />
+    <Content Include="img\ms-icon-70x70.png" />
     <Content Include="log4net.config" />
     <Content Include="Abp\Framework\styles\abp.mixings.less" />
     <Content Include="Abp\Framework\styles\abp.mixings.css.map" />
@@ -604,6 +630,7 @@
     <Content Include="Datasets\Misitu.xss">
       <DependentUpon>Misitu.xsd</DependentUpon>
     </Content>
+    <Content Include="img\manifest.json" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -870,6 +897,7 @@
     <Content Include="Views\TransitPass\getBill.cshtml" />
     <Content Include="Views\TransitPass\Pending.cshtml" />
     <Content Include="Views\TransitPass\CreateTransitPassItems.cshtml" />
+    <Content Include="Views\TransitPass\Expired.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -895,7 +923,6 @@
     <Folder Include="App_Data\Documents\" />
     <Folder Include="App_Data\Uploads\" />
     <Folder Include="Areas\Client\Models\" />
-    <Folder Include="img\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

@@ -15,6 +15,8 @@ namespace Misitu.TransitPasses
 
         List<CheckPointTransitPassDto> GetCheckPointTransitPasses();
 
+        List<CheckPointTransitPassDto> GetCheckPointsByTransitPassId(int id);
+
         int CreateCheckPointTransitPass(CreateCheckPointTransitPass input);
 
         CheckPointTransitPassDto GetCheckPointTransitPass(int id);

@@ -238,38 +238,31 @@ namespace Misitu.Web
 
                    ).AddItem(
                           new MenuItemDefinition(
-                            "Add New TP",
-                            new LocalizableString("Add New TP", "Misitu"),
+                            "Create New",
+                            new LocalizableString("CreateNew", "Misitu"),
                             url: "/TransitPass/GetApplicantList",
                             icon: "icon-plus"
                             )
                           ).AddItem(
                           new MenuItemDefinition(
-                            "Pending TP",
-                            new LocalizableString("Pending TP", "Misitu"),
+                            "Pending",
+                            new LocalizableString("Pending", "Misitu"),
                             url: "/TransitPass/Pending",
                             icon: "icon-list"
                             )
                           ).AddItem(
                           new MenuItemDefinition(
                             "Waiting Inspection",
-                            new LocalizableString("Waiting Inspection", "Misitu"),
+                            new LocalizableString("WaitingInspection", "Misitu"),
                             url: "/TransitPass/Index",
-                            icon: "icon-list"
+                            icon: "icon-th"
                             )
                           ).AddItem(
                            new MenuItemDefinition(
-                            "Exipired TP",
-                            new LocalizableString("Exipired TP", "Misitu"),
-                            url: "/TransitPass/ExipiredTPList",
-                            icon: "icon-list"
-                            )
-                          ).AddItem(
-                           new MenuItemDefinition(
-                            "Inspected",
-                            new LocalizableString("Exipired TP", "Misitu"),
-                            url: "/TransitPass/ExipiredTPList",
-                            icon: "icon-list"
+                            "Exipired",
+                            new LocalizableString("Exipired", "Misitu"),
+                            url: "/TransitPass/Expired",
+                            icon: "icon-table"
                             )
                           )
                    ).AddItem(

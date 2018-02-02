@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Misitu.TransitPasses.TransitPassDto>
+
+@{
+    ViewBag.ActiveMenu = "Transit Passes"; //The menu item will be active for this page.
+    ViewBag.Title = "Expired Transit Passes";
+}
+
+
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">Expired Transit Passes</div>
+        <div class="widget-icons pull-right">
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="widget-content">
+        <div class="padd">
+            <table class="table">
+                <thead>
+                    <tr>
+
+                        <th>
+                            @Html.DisplayName("Holder")
+                        </th>
+                        <th>
+                            @Html.DisplayName("No")
+                        </th>
+
+                        <th>
+                            @Html.DisplayName("Issued Date")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Expire Date")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Source")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Destination")
+                        </th>
+
+                        <th></th>
+                    </tr>
+                    </thead>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Applicant.Name)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TransitPassNo)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IssuedDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ExpireDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SourceName)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DestinationName)
+                            </td>
+
+
+                            <td>
+                                @Html.ActionLink("View Bill", "getBill", new { id = item.Id })|
+                                @Html.ActionLink("View Printout", "getTransitPass", new { id = item.Id })
+
+                            </td>
+                        </tr>
+                    }
+
+</table>
+            </div>
+        </div>
+    </div>
+
+

@@ -29,24 +29,23 @@ namespace Misitu.Web.Controllers
     public class TransitPassController : MisituControllerBase
     {
 
-        private readonly ITransitPass transitPass;
-        private readonly IBillAppService billAppService;
-        private readonly IApplicantService applicantService;
-        private readonly IBillItemAppService billItemAppService;
-        private readonly IActivityAppService activityAppService;
-        private readonly IRevenueSourceAppService revenueSourceAppService;
-        private readonly ILicenseAppService licenseAppService;
-        private readonly IFinancialYearAppService financialYearAppService;
-        private readonly IStationAppService stationAppService;
-        private readonly IRegionAppService regionAppService;
-        private readonly ICheckPointTransitPass checkPointTransitPass;
-        private readonly IUserAppService userAppService;
-        private readonly ISpecieAppService specieAppService;
-        private readonly ITransitPassItemAppService transitPassItemAppService;
-        private readonly IUnitMeasureAppService unitMeasureAppService;
-
-        public TransitPassController(ITransitPass transitPass, 
-            IBillAppService billAppService, IApplicantService applicantService, 
+        private readonly ITransitPass _transitPassAppService;
+        private readonly IBillAppService _billAppService;
+        private readonly IApplicantService _applicantAppService;
+        private readonly IBillItemAppService _billItemAppService;
+        private readonly IActivityAppService _activityAppService;
+        private readonly IRevenueSourceAppService _revenueSourceAppService;
+        private readonly ILicenseAppService _licenseAppService;
+        private readonly IFinancialYearAppService _financialYearAppService;
+        private readonly IStationAppService _stationAppService;
+        private readonly IRegionAppService _regionAppService;
+        private readonly ICheckPointTransitPass _checkPointTransitPassAppService;
+        private readonly IUserAppService _userAppService;
+        private readonly ISpecieAppService _specieAppService;
+        private readonly ITransitPassItemAppService _transitPassItemAppService;
+        private readonly IUnitMeasureAppService _unitMeasureAppService;
+        public TransitPassController(ITransitPass transitPassAppService, 
+            IBillAppService billAppService, IApplicantService applicantAppService, 
             IBillItemAppService billItemAppService, 
             IActivityAppService activityAppService, 
             IRevenueSourceAppService revenueSourceAppService,
@@ -55,30 +54,27 @@ namespace Misitu.Web.Controllers
             IStationAppService stationAppService,
             IRegionAppService regionAppService,
             IUserAppService userAppService,
-            ICheckPointTransitPass checkPointTransitPass,
+            ICheckPointTransitPass checkPointTransitPassAppService,
             ISpecieAppService specieAppService,
             ITransitPassItemAppService transitPassItemAppService,
             IUnitMeasureAppService unitMeasureAppService)
         {
-            this.transitPass = transitPass;
-            this.billAppService = billAppService;
-            this.applicantService = applicantService;
-            this.billItemAppService = billItemAppService;
-            this.activityAppService = activityAppService;
-            this.revenueSourceAppService = revenueSourceAppService;
-            this.licenseAppService = licenseAppService;
-            this.financialYearAppService = financialYearAppService;
-            this.stationAppService = stationAppService;
-            this.regionAppService = regionAppService;
-            this.userAppService = userAppService;
-            this.checkPointTransitPass = checkPointTransitPass;
-            this.specieAppService = specieAppService;
-            this.transitPassItemAppService = transitPassItemAppService;
-            this.unitMeasureAppService = unitMeasureAppService;
+            _transitPassAppService = transitPassAppService;
+            _billAppService = billAppService;
+            _applicantAppService = applicantAppService;
+            _billItemAppService = billItemAppService;
+            _activityAppService = activityAppService;
+            _revenueSourceAppService = revenueSourceAppService;
+            _licenseAppService = licenseAppService;
+            _financialYearAppService = financialYearAppService;
+            _stationAppService = stationAppService;
+            _regionAppService = regionAppService;
+            _userAppService = userAppService;
+            _checkPointTransitPassAppService = checkPointTransitPassAppService;
+            _specieAppService = specieAppService;
+            _transitPassItemAppService = transitPassItemAppService;
+            _unitMeasureAppService = unitMeasureAppService;
         }
-
-
-
 
         // GET: TransitPass/Dashboard
         public ActionResult Dashboard()
@@ -89,38 +85,41 @@ namespace Misitu.Web.Controllers
         // GET: TransitPass
         public ActionResult Index()
         {
-            var tps = this.transitPass.GetPaidTransitPasses();
+            var tps = this._transitPassAppService.GetPaidTransitPasses();
             return View(tps);
         }
 
-
-        // GET: TransitPass
+        // GET: Pending TransitPass
         public ActionResult Pending()
         {
-            var tps = this.transitPass.GetUnPaidTransitPasses();
+            var tps = _transitPassAppService.GetUnPaidTransitPasses();
             return View(tps);
         }
 
+        // GET:Expired TransitPass
+        public ActionResult Expired()
+        {
+            var tps = _transitPassAppService.GetExpiredTransitPasses();
+            return View(tps);
+        }
 
         // GET: TransitPass/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
-
-        
+ 
         public ActionResult GetApplicantList()
         {
-            var Applicants = this.applicantService.GetApplicantList();
+            var Applicants = _applicantAppService.GetApplicantList();
 
             return View(Applicants);
         }
 
-
         public ActionResult CreateBill(int Id)
         {
-            ViewBag.Applicant = this.applicantService.GetApplicantById(Id);        
-            ViewBag.Activities = this.activityAppService.GetActivities().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Description });
+            ViewBag.Applicant = _applicantAppService.GetApplicantById(Id);        
+            ViewBag.Activities = _activityAppService.GetActivities().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Description });
         
             return View();
         }
@@ -134,16 +133,16 @@ namespace Misitu.Web.Controllers
                 DateTime billExpireDate = DateTime.Now;
                 billExpireDate = billExpireDate.AddDays(30);
 
-                var activitySource = this.activityAppService.GetActivity(ActivitySourceId);
+                var activitySource = _activityAppService.GetActivity(ActivitySourceId);
 
                 if(activitySource != null)
                 {
                     input.BillAmount = activitySource.Fee;
                     input.ExpiredDate = billExpireDate;
-                    input.StationId = this.userAppService.GetLoggedInUser().StationId;
-                    int CreatedBillId = this.billAppService.CreateBill(input);
+                    input.StationId = _userAppService.GetLoggedInUser().StationId;
+                    int CreatedBillId = _billAppService.CreateBill(input);
 
-                    var revenue = this.revenueSourceAppService.GetRevenueResource(activitySource.RevenueSourceId);
+                    var revenue = _revenueSourceAppService.GetRevenueResource(activitySource.RevenueSourceId);
                     int code = Convert.ToInt32(revenue.MainRevenueSource.Code);
 
                     var obj = new CreateBillItemInput
@@ -155,7 +154,7 @@ namespace Misitu.Web.Controllers
                         Total = activitySource.Fee
                     };
 
-                    this.billItemAppService.CreateBillItem(obj);
+                    _billItemAppService.CreateBillItem(obj);
 
                     //redirect to Tp page
                     TempData["success"] = string.Format(@"The Bill has been Created successfully!");
@@ -171,23 +170,22 @@ namespace Misitu.Web.Controllers
             catch (Exception ex)
             {
                 TempData["danger"] = ex.Message;
-                ViewBag.Applicant = this.applicantService.GetApplicantById(input.ApplicantId);
-                ViewBag.Activities = this.activityAppService.GetActivities().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Description });
+                ViewBag.Applicant = _applicantAppService.GetApplicantById(input.ApplicantId);
+                ViewBag.Activities = _activityAppService.GetActivities().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Description });
                 return View();
-
             }
 
         }
-
+        
         //Create TP 
         public ActionResult CreateTp(int Id)
         {
             var user = User.Identity.GetUserId();
             ViewBag.IssuedDate = DateTime.Now.ToString("yyyy-MM-dd");
-            ViewBag.DestinationId = new SelectList(this.regionAppService.GetRegions(), "Id", "Name");
-            ViewBag.Applicant = this.applicantService.GetApplicantById(this.billAppService.GetBill(Id).ApplicantId);
-            ViewBag.Bill = this.billAppService.GetBill(Id);
-            ViewBag.SourceForest = new SelectList(this.stationAppService.GetStations(), "Id", "Name");
+            ViewBag.DestinationId = new SelectList(_regionAppService.GetRegions(), "Id", "Name");
+            ViewBag.Applicant = _applicantAppService.GetApplicantById(_billAppService.GetBill(Id).ApplicantId);
+            ViewBag.Bill = _billAppService.GetBill(Id);
+            ViewBag.SourceForest = new SelectList(_stationAppService.GetStations(), "Id", "Name");
 
             using (RandomNumberGenerator rng = new RNGCryptoServiceProvider())
             {
@@ -195,7 +193,7 @@ namespace Misitu.Web.Controllers
                 rng.GetBytes(tokenData);
                 ViewBag.TransitPassNo = Convert.ToString(BitConverter.ToUInt32(tokenData, 0));
             }
-            ViewBag.Checkpoints = this.stationAppService.GetStations();
+            ViewBag.Checkpoints = _stationAppService.GetStations();
             return View();
         }
 
@@ -205,7 +203,7 @@ namespace Misitu.Web.Controllers
             try
             {
                 input.ExpireDate = input.IssuedDate.AddDays(input.ExpireDays);
-                int TransitpassId = this.transitPass.CreateTransitPass(input);
+                int TransitpassId = _transitPassAppService.CreateTransitPass(input);
 
                 for (int i = 0; i < StationId.Count(); i++)
                 {
@@ -215,7 +213,7 @@ namespace Misitu.Web.Controllers
                         StationId = StationId[i]
                     };
 
-                    int checkpointTP = this.checkPointTransitPass.CreateCheckPointTransitPass(checkpointObj);
+                    int checkpointTP = _checkPointTransitPassAppService.CreateCheckPointTransitPass(checkpointObj);
                 }
             
                 return RedirectToAction("CreateTransitPassItems", new { Id = TransitpassId });
@@ -229,11 +227,11 @@ namespace Misitu.Web.Controllers
         //get Transit Pass Items
         public ActionResult CreateTransitPassItems(int Id)
         {
-            var transitPass = this.transitPass.GetTransitPass(Id);
+            var transitPass = _transitPassAppService.GetTransitPass(Id);
 
-            ViewBag.Species = this.specieAppService.GetSpecies().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.EnglishName });
-            ViewBag.UnitMeasures = this.unitMeasureAppService.GetUnitMeasures().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Name });
-            ViewBag.Activities = this.activityAppService.GetActivities().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Description });
+            ViewBag.Species = _specieAppService.GetSpecies().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.EnglishName });
+            ViewBag.UnitMeasures = _unitMeasureAppService.GetUnitMeasures().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Name });
+            ViewBag.Activities = _activityAppService.GetActivities().Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Description });
            
             return View(transitPass);
         }
@@ -254,7 +252,7 @@ namespace Misitu.Web.Controllers
                             Quantity = (int)Quantity[i]
                      };
 
-                    this.transitPassItemAppService.CreateTransitPassItem(transitPassItem);
+                    _transitPassItemAppService.CreateTransitPassItem(transitPassItem);
                 }
 
                 return RedirectToAction("getBill", new { Id = TransitPassId });
@@ -270,7 +268,7 @@ namespace Misitu.Web.Controllers
 
             try
             {
-                var tp = this.transitPass.GetTransitPass(id);
+                var tp = _transitPassAppService.GetTransitPass(id);
               
                 ReportViewer reportViewer = new ReportViewer();
                 reportViewer.Reset();
@@ -283,7 +281,7 @@ namespace Misitu.Web.Controllers
                 reportViewer.LocalReport.SetParameters(new ReportParameter[] { billId });
                 reportViewer.LocalReport.DataSources.Clear();
 
-                reportViewer.LocalReport.DataSources.Add(new ReportDataSource("DSBill", this.transitPass.getBillByTp(id)));
+                reportViewer.LocalReport.DataSources.Add(new ReportDataSource("DSBill", _transitPassAppService.getBillByTp(id)));
                 reportViewer.LocalReport.Refresh();
 
                 reportViewer.ProcessingMode = ProcessingMode.Local;
@@ -310,11 +308,10 @@ namespace Misitu.Web.Controllers
 
             try
             {              
-                var tp = this.transitPass.GetTransitPass(id);
+                var tp = _transitPassAppService.GetTransitPass(id);
 
-                if (this.transitPass.GetTransitPassPrintout(tp.Id) != null)
+                if (_transitPassAppService.GetTransitPassPrintout(tp.Id) != null)
                 {
-
                     ReportViewer reportViewer = new ReportViewer();
                     reportViewer.Reset();
                     reportViewer.ProcessingMode = ProcessingMode.Local;
@@ -326,7 +323,7 @@ namespace Misitu.Web.Controllers
                     reportViewer.LocalReport.SetParameters(new ReportParameter[] { tpId });
                     reportViewer.LocalReport.DataSources.Clear();
 
-                    reportViewer.LocalReport.DataSources.Add(new ReportDataSource("dsTransitPass", this.transitPass.GetTransitPassPrintout(tp.Id)));
+                    reportViewer.LocalReport.DataSources.Add(new ReportDataSource("dsTransitPass",_transitPassAppService.GetTransitPassPrintout(tp.Id)));
                     reportViewer.LocalReport.Refresh();
 
                     reportViewer.ProcessingMode = ProcessingMode.Local;

@@ -21,14 +21,19 @@ namespace Misitu.TransitPasses
 
         List<TransitPassDto> GetPaidTransitPasses();
 
+        List<TransitPassDto> GetExpiredTransitPasses();
+
         int CreateTransitPass(CreateTransitPassInput input);
 
         TransitPassDto GetTransitPass(int id);
 
         List<BillPrint> getBillByTp(int id);
+
         BillPrint getBillByTPId(int id);
 
         List<TransitPassPrintout>  GetTransitPassPrintout(int id);
+
+        TransitPassPrintout GetTransitPassById(int id);
 
         Task UpdateTransitPass(TransitPassDto input);
 

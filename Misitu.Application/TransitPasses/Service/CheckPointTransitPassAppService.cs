@@ -60,6 +60,15 @@ namespace Misitu.TransitPasses.Service
             return obj.MapTo<CheckPointTransitPassDto>();
         }
 
+        public async Task UpdateCheckPointTransitPass(CheckPointTransitPassDto input)
+        {
+            var obj = this.repositoryCheckpointTransitpass.FirstOrDefault(input.Id);
+            obj.AdditionInformation = input.AdditionInformation;
+            obj.InspectionStatus = input.InspectionStatus;
+            obj.InspectorId = input.InspectorId;
+            await this.repositoryCheckpointTransitpass.UpdateAsync(obj);
+        }
+
         public List<CheckPointTransitPassDto> GetCheckPointTransitPasses()
         {
             var values = this.repositoryCheckpointTransitpass
@@ -70,13 +79,14 @@ namespace Misitu.TransitPasses.Service
             return new List<CheckPointTransitPassDto>(values.MapTo<List<CheckPointTransitPassDto>>());
         }
 
-        public async Task UpdateCheckPointTransitPass(CheckPointTransitPassDto input)
-        {
-            var obj = this.repositoryCheckpointTransitpass.FirstOrDefault(input.Id);
-            obj.AdditionInformation = input.AdditionInformation;
-            obj.InspectionStatus = input.InspectionStatus;
-            obj.InspectorId = input.InspectorId;
-            await this.repositoryCheckpointTransitpass.UpdateAsync(obj);
-        }
+        public List<CheckPointTransitPassDto> GetCheckPointsByTransitPassId(int id){
+             var values = this.repositoryCheckpointTransitpass
+                .GetAll()
+                .Where(p => p.TransitPassId == id)
+                .ToList();
+             return new List<CheckPointTransitPassDto>(values.MapTo<List<CheckPointTransitPassDto>>());
+         }
+
+        
     }
 }

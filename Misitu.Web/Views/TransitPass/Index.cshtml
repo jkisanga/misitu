@@ -6,77 +6,82 @@
 }
 
 
-<table class="table">
-    <tr>
-       
-        <th>
-            @Html.DisplayName("Tp Holder")
-        </th>
- 
-        <th>
-            @Html.DisplayNameFor(model => model.NoOfConsignment)
-        </th>
-      
-        <th>
-            @Html.DisplayNameFor(model => model.TransitPassNo)
-        </th>
-      
-        <th>
-            @Html.DisplayNameFor(model => model.IssuedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ExpireDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SourceName)
-        </th>   
-        <th>
-            @Html.DisplayNameFor(model => model.DestinationName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VehcleNo)
-        </th>
-        <th></th>
-    </tr>
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">Issued Transit Passes</div>
+        <div class="widget-icons pull-right">
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="widget-content">
+        <div class="padd">
 
-@foreach (var item in Model) {
-    <tr>
-       
-        <td>
-            @Html.DisplayFor(modelItem => item.Applicant.Name)
-        </td>
-           
-        <td>
-            @Html.DisplayFor(modelItem => item.NoOfConsignment)
-        </td>
-       
-        <td>
-            @Html.DisplayFor(modelItem => item.TransitPassNo)
-        </td>
+            <table class="table">
+                <thead>
+                    <tr>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.IssuedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ExpireDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SourceName)
-        </td>
-    
-        <td>
-            @Html.DisplayFor(modelItem => item.DestinationName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VehcleNo)
-        </td>
-       
-        <td>
-            @Html.ActionLink("View Bill", "getBill", new { id = item.Id })|
-            @Html.ActionLink("View Printout", "getTransitPass", new { id=item.Id }) 
-       
-        </td>
-    </tr>
-}
+                        <th>
+                            @Html.DisplayName("Holder")
+                        </th>
+
+                        <th>
+                            @Html.DisplayName("No")
+                        </th>
+
+                        <th>
+                            @Html.DisplayName("Issued Date")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Expire Date")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Source")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Destination")
+                        </th>
+
+                        <th></th>
+                    </tr>
+                    </thead>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Applicant.Name)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TransitPassNo)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IssuedDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ExpireDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SourceName)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DestinationName)
+                            </td>
+                     
+
+                            <td>
+                                @Html.ActionLink("View Bill", "getBill", new { id = item.Id })|
+                                @Html.ActionLink("View Printout", "getTransitPass", new { id = item.Id })
+
+                            </td>
+                        </tr>
+                    }
 
 </table>
+            </div>
+        </div>
+    </div>
+

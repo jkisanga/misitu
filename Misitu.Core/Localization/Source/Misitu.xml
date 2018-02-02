@@ -29,6 +29,10 @@
     <text name="PendingBills" value="PendingBills" />
     <text name="PaidBills" value="PaidBills" />
     
+    <text name="Pending" value="Pending" />
+    <text name="WaitingInspection" value="Waiting Inspection" />
+    <text name="Exipired" value="Exipired" />
+    
     <text name="Users" value="Users" />
     <text name="Zones" value="Zones" />
     <text name="FinancialYears" value="Financial Years" />
