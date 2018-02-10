@@ -20,10 +20,6 @@ namespace Misitu.TransitPasses
         public virtual int InspectorId { get; set; }
         public virtual bool InspectionStatus { get; set; }
         public virtual string AdditionInformation { get; set; }
-
-
-
-
         [ForeignKey("TransitPassId")]
         public virtual TransitPass TransitPass { get; set; }
         [ForeignKey("StationId")]

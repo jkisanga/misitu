@@ -42,7 +42,7 @@ namespace Misitu.Web
 
 
             routes.MapRoute(
-                name: "Default",
+                name: "Staff_Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                  constraints: new
@@ -52,14 +52,11 @@ namespace Misitu.Web
             );
 
             routes.MapRoute(
-              name: "Account",
+              name: "Default",
               url: "Account/{action}/{id}",
               defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional }            
           );
           
-
-
-
         }
     }
 }

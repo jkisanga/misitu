@@ -19,13 +19,13 @@ namespace Misitu.TransitPasses
         public virtual string NoOfConsignment { get; set; }
         public virtual string LisenceNo { get; set; }
         public virtual string TransitPassNo { get; set; }
-        public virtual int SourceForest { get; set; }
+        public virtual string RegistrationNo { get; set; }
+        public virtual int StationId { get; set; }
+        public virtual int DistrictId { get; set; }
         public virtual DateTime IssuedDate { get; set; }
         public virtual DateTime ExpireDate { get; set; }
         public virtual int ExpireDays { get; set; }
         public virtual string SourceName { get; set; }
-        //Destnation pull form District
-        public virtual int DestinationId { get; set; }
         public virtual string DestinationName { get; set; }
         public virtual string VehcleNo { get; set; }
         public virtual int IssuerOfficer { get; set; }
@@ -33,10 +33,11 @@ namespace Misitu.TransitPasses
         public virtual string HummerMaker { get; set; }
         public virtual string HummerStationId { get; set; }
         public virtual string AdditionInformation { get; set; }
+        public virtual byte[] QRCode { get; set; }
 
 
 
-   
+
 
 
 

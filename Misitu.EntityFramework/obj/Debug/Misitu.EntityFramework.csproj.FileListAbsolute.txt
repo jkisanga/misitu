@@ -117,5 +117,6 @@ C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramewor
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.csproj.CoreCompileInputs.cache
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.dll
 C:\Users\Dell\Documents\Visual Studio 2017\Projects\misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.pdb
-C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.specie_foregn_transitpassitems_table.resources
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.initial.resources
 C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.EntityFramework.csproj.GenerateResource.Cache
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.EntityFramework\obj\Debug\Misitu.Migrations.tp_and_tpitems_fields_change.resources

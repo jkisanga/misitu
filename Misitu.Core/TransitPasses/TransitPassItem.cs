@@ -18,6 +18,7 @@ namespace Misitu.TransitPasses
         public virtual int UnitMeasureId { get; set; }
         public virtual int SpecieId { get; set; }
         public virtual int Quantity { get; set; }
+        public virtual string Size { get; set; }
 
         [ForeignKey("TransitPassId")]
         public virtual TransitPass TransitPass { get; set; }

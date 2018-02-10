@@ -25,6 +25,21 @@ namespace Misitu.Api.Controllers
              _checkPointTransitPassAppService = checkPointTransitPassAppService;
             _transitPassItemsAppService = transitPassItemsAppService;
          }
+        //get all issued transit passes
+        [HttpGet()]
+        public IHttpActionResult getIssuedTransitPasses()
+        {
+            var transitPasses = _transitPassAppService.GetPaidTransitPasses();
+            return Json(transitPasses);
+        }
+
+        //get all expired transit passes
+        [HttpGet()]
+        public IHttpActionResult getExpiredTransitPasses()
+        {
+            var transitPasses = _transitPassAppService.GetExpiredTransitPasses();
+            return Json(transitPasses);
+        }
 
         [HttpGet()]
         public IHttpActionResult getTransitPassById(int id) {

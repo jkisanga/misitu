@@ -4,7 +4,9 @@ using Abp.UI;
 using Misitu.Applicants;
 using Misitu.Billing;
 using Misitu.Billing.Dto;
+using Misitu.Regions;
 using Misitu.TransitPasses.Dto;
+using Misitu.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +24,8 @@ namespace Misitu.TransitPasses.Service
         private readonly IRepository<Payment> paymentRepository;
         private readonly IRepository<CheckPointTransitPass> repositoryCheckpointTransitpass;
         private readonly IRepository<TransitPassItem> transitPassItemRepository;
+        private readonly IRepository<User, long> userRepository;
+        private readonly IRepository<District> _districtRepository;
 
         public TransitPassAppService(IRepository<Applicant> reporitaryApplicant,
             IRepository<TransitPass> repositoryTransitpass, 
@@ -29,7 +33,9 @@ namespace Misitu.TransitPasses.Service
             IRepository<Payment> paymentRepository,
             IRepository<CheckPointTransitPass> repositoryCheckpointTransitpass,
             IRepository<BillItem> billItemRepository,
-            IRepository<TransitPassItem> transitPassItemRepository)
+            IRepository<TransitPassItem> transitPassItemRepository,
+            IRepository<User, long> userRepository,
+            IRepository<District> districtRepository)
         {
             this.reporitaryApplicant = reporitaryApplicant;
             this.repositoryTransitpass = repositoryTransitpass;
@@ -38,6 +44,8 @@ namespace Misitu.TransitPasses.Service
             this.paymentRepository = paymentRepository;
             this.repositoryCheckpointTransitpass = repositoryCheckpointTransitpass;
             this.transitPassItemRepository = transitPassItemRepository;
+            this.userRepository = userRepository;
+            _districtRepository = districtRepository;
         }
 
         public int CreateTransitPass(CreateTransitPassInput input)
@@ -47,34 +55,31 @@ namespace Misitu.TransitPasses.Service
                 ApplicantId = input.ApplicantId,
                 BillId = input.BillId,
                 LisenceNo = input.LisenceNo,
+                RegistrationNo = input.RegistrationNo,
                 IssuedDate = DateTime.Now,
                 OrginalCountry = input.OrginalCountry,
                 NoOfConsignment = input.NoOfConsignment,
                 TransitPassNo = input.TransitPassNo,
-                SourceForest = input.SourceForest,
+                StationId = input.StationId,
                 ExpireDate = input.ExpireDate,
                 ExpireDays = input.ExpireDays,
                 SourceName = input.SourceName,
-                DestinationId = input.DestinationId,
+                DistrictId = input.DistrictId,
                 DestinationName = input.DestinationName,
                 VehcleNo = input.VehcleNo,
                 IssuerOfficer = input.IssuerOfficer,
                 HummerNo = input.HummerNo,
                 HummerMaker = input.HummerMaker,
                 HummerStationId = input.HummerStationId,
-                AdditionInformation = input.AdditionInformation
+                AdditionInformation = input.AdditionInformation,
+                QRCode = input.QRCode
+                
             };
-           // var objExist = this.repositoryTransitpass.FirstOrDefault(a => a.TransitPassNo == input.TransitPassNo);
-            //if (objExist == null)
-            //{
-                return this.repositoryTransitpass.InsertAndGetId(obj);
-            //}
-            //else
-            //{
-            //    throw new UserFriendlyException("Item Alredy Exist");
-            //}
+         
+                return this.repositoryTransitpass.InsertAndGetId(obj);        
         }
 
+        //Delete Transit pass
         public async Task DeleteTransitPassAsync(TransitPassDto input)
         {
             var obj = this.repositoryTransitpass.FirstOrDefault(input.Id);
@@ -105,36 +110,100 @@ namespace Misitu.TransitPasses.Service
         }
 
         //Unpaid transit passes
-        public List<TransitPassDto> GetUnPaidTransitPasses() {
+        public List<TransitPassPrintout> GetUnPaidTransitPasses() {
 
             var _a = this.repositoryTransitpass.GetAll();
             var _b = this.paymentRepository.GetAll();
             var tps = (from tp in _a
-                       where !(_b.Any( x => x.BillId == tp.BillId))                                    
-                       select tp).ToList();
-            return new List<TransitPassDto>(tps.MapTo<List<TransitPassDto>>());
+                       join app in this.reporitaryApplicant.GetAll() on tp.ApplicantId equals app.Id
+                       where !(_b.Any( x => x.BillId == tp.BillId))
+                       select new TransitPassPrintout
+                       {
+                           Id = tp.Id,
+                           Applicant = app.Name,
+                           OrginalCountry = tp.OrginalCountry,
+                           NoOfConsignment = tp.NoOfConsignment,
+                           LisenceNo = tp.LisenceNo,
+                           TransitPassNo = tp.TransitPassNo,
+                           IssuedDate = tp.IssuedDate,
+                           ExpireDate = tp.ExpireDate,
+                           SourceName = tp.SourceName,
+                           DestinationName = tp.DestinationName,
+                           VehcleNo = tp.VehcleNo,
+                           HummerNo = tp.HummerNo,
+                           HummerMaker = tp.HummerMaker,
+                           AdditionInformation = tp.AdditionInformation,
+                           CreationTime = tp.CreationTime,
+    
+
+                       }).ToList();
+            return new List<TransitPassPrintout>(tps.MapTo<List<TransitPassPrintout>>());
         }
 
         //Paid Transit Passes
-        public List<TransitPassDto> GetPaidTransitPasses()
+        public List<TransitPassPrintout> GetPaidTransitPasses()
         {
 
             var tps = (from tp in this.repositoryTransitpass.GetAll()
                       join p in this.paymentRepository.GetAll() on tp.BillId equals p.BillId
-                      select tp).ToList();
+                      join app in this.reporitaryApplicant.GetAll() on tp.ApplicantId equals app.Id
+                       join user in this.userRepository.GetAll() on tp.CreatorUserId equals user.Id
+                       select new TransitPassPrintout
+                       {
+                           Id = tp.Id,
+                           Applicant = app.Name,
+                           OrginalCountry = tp.OrginalCountry,
+                           NoOfConsignment = tp.NoOfConsignment,
+                           LisenceNo = tp.LisenceNo,
+                           TransitPassNo = tp.TransitPassNo,
+                           IssuedDate = tp.IssuedDate,
+                           ExpireDate = tp.ExpireDate,
+                           SourceName = tp.SourceName,
+                           DestinationName = tp.DestinationName,
+                           VehcleNo = tp.VehcleNo,
+                           HummerNo = tp.HummerNo,
+                           HummerMaker = tp.HummerMaker,
+                           AdditionInformation = tp.AdditionInformation,
+                           CreationTime = tp.CreationTime,
+                           CreatedUser = user.Name,
+                           ControlNumber = p.PaymentControlNo,
 
-            return new List<TransitPassDto>(tps.MapTo<List<TransitPassDto>>());
+                       }).ToList();
+
+            return new List<TransitPassPrintout>(tps.MapTo<List<TransitPassPrintout>>());
         }
 
         //get list of exipired transit passes
-        public List<TransitPassDto> GetExpiredTransitPasses()
+        public List<TransitPassPrintout> GetExpiredTransitPasses()
         {
             var tps = (from tp in this.repositoryTransitpass.GetAll()
                        join p in this.paymentRepository.GetAll() on tp.BillId equals p.BillId
+                       join app in this.reporitaryApplicant.GetAll() on tp.ApplicantId equals app.Id
+                       join user in this.userRepository.GetAll() on tp.CreatorUserId equals user.Id
                        where DateTime.Now > tp.ExpireDate
-                       select tp).ToList();
+                       select new TransitPassPrintout
+                       {
+                           Id = tp.Id,
+                           Applicant = app.Name,
+                           OrginalCountry = tp.OrginalCountry,
+                           NoOfConsignment = tp.NoOfConsignment,
+                           LisenceNo = tp.LisenceNo,
+                           TransitPassNo = tp.TransitPassNo,
+                           IssuedDate = tp.IssuedDate,
+                           ExpireDate = tp.ExpireDate,
+                           SourceName = tp.SourceName,
+                           DestinationName = tp.DestinationName,
+                           VehcleNo = tp.VehcleNo,
+                           HummerNo = tp.HummerNo,
+                           HummerMaker = tp.HummerMaker,
+                           AdditionInformation = tp.AdditionInformation,
+                           CreationTime = tp.CreationTime,
+                           CreatedUser = user.Name,
+                           ControlNumber = p.PaymentControlNo,
 
-            return new List<TransitPassDto>(tps.MapTo<List<TransitPassDto>>());
+                       }).ToList();
+
+            return new List<TransitPassPrintout>(tps.MapTo<List<TransitPassPrintout>>());
         }
 
         //get bill
@@ -200,10 +269,12 @@ namespace Misitu.TransitPasses.Service
         {
             var transitPass = (from tp in this.repositoryTransitpass.GetAll()
                                join p in this.paymentRepository.GetAll() on tp.BillId equals p.BillId
+                               join app in this.reporitaryApplicant.GetAll() on tp.ApplicantId equals app.Id
                                where tp.Id == id
                                select new TransitPassPrintout
                                {
                                    Id = tp.Id,
+                                   Applicant = app.Name,
                                    OrginalCountry = tp.OrginalCountry,
                                    NoOfConsignment = tp.NoOfConsignment,
                                    LisenceNo = tp.LisenceNo,
@@ -229,27 +300,38 @@ namespace Misitu.TransitPasses.Service
             var printout = from tp in this.repositoryTransitpass.GetAll()
                            join route in this.repositoryCheckpointTransitpass.GetAll() on tp.Id equals route.TransitPassId
                            join p in this.paymentRepository.GetAll() on tp.BillId equals p.BillId
-                            join item in this.transitPassItemRepository.GetAll() on tp.Id equals item.TransitPassId
-                            where tp.Id == id
+                           join item in this.transitPassItemRepository.GetAll() on tp.Id equals item.TransitPassId
+                           join user in this.userRepository.GetAll() on tp.CreatorUserId equals user.Id
+                           join app in this.reporitaryApplicant.GetAll() on tp.ApplicantId equals app.Id
+                           join dist in _districtRepository.GetAll() on tp.DistrictId equals dist.Id
+                           where tp.Id == id
                             select  new TransitPassPrintout
                             {
                                  Id = tp.Id,
+                                 Applicant = app.Name,
                                  OrginalCountry = tp.OrginalCountry,
                                  NoOfConsignment = tp.NoOfConsignment,
                                  LisenceNo  = tp.LisenceNo,
+                                 RegistrationNo = tp.RegistrationNo,
                                  TransitPassNo = tp.TransitPassNo,
                                  IssuedDate = tp.IssuedDate,
                                  ExpireDate = tp.ExpireDate,
                                  SourceName = tp.SourceName,
+                                 DestinationDistrict = dist.Name,
                                  DestinationName = tp.DestinationName,
                                  VehcleNo = tp.VehcleNo,
                                  HummerNo = tp.HummerNo,
                                  HummerMaker = tp.HummerMaker,
                                  AdditionInformation = tp.AdditionInformation,
+                                 QRCode = tp.QRCode,
                                  CreationTime = tp.CreationTime,
+                                 CreatedUser = user.Name+" "+user.Surname,
+                                 ControlNumber = p.PaymentControlNo,
                                  ItemId = item.Id,
                                  ItemDescription = item.Activity.Description,
                                  Quantity = item.Quantity,
+                                 UnitMeasure = item.UnitMeasure.Name,
+                                 Specie = item.Specie.CommonName,
                                  CheckpointId = route.Id,
                                  CheckpointName = route.Station.Name
                                                                
@@ -265,14 +347,15 @@ namespace Misitu.TransitPasses.Service
             var obj = this.repositoryTransitpass.FirstOrDefault(input.Id);
                 obj.ApplicantId = input.ApplicantId;
                 obj.LisenceNo = input.LisenceNo;
+                obj.RegistrationNo = input.RegistrationNo;
                 obj.IssuedDate = input.IssuedDate;
                 obj.OrginalCountry = input.OrginalCountry;
                 obj.NoOfConsignment = input.NoOfConsignment;
                 obj.TransitPassNo = input.TransitPassNo;
-                obj.SourceForest = input.SourceForest;
+                obj.StationId = input.StationId;
                 obj.ExpireDate = input.ExpireDate;
                 obj.SourceName = input.SourceName;
-                obj.DestinationId = input.DestinationId;
+                obj.DistrictId = input.DistrictId;
                 obj.DestinationName = input.DestinationName;
                 obj.VehcleNo = input.VehcleNo;
                 obj.IssuerOfficer = input.IssuerOfficer;

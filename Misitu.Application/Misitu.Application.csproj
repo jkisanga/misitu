@@ -188,6 +188,10 @@
     <Compile Include="Billing\Dto\HarvestBill.cs" />
     <Compile Include="Billing\IBillAppService.cs" />
     <Compile Include="Billing\IBillItemAppService.cs" />
+    <Compile Include="Districts\Dto\CreateDistrictInput.cs" />
+    <Compile Include="Districts\Dto\DistrictDto.cs" />
+    <Compile Include="Districts\IDistrictAppService.cs" />
+    <Compile Include="Districts\DistrictAppService.cs" />
     <Compile Include="Divisions\Dto\CreateDivisionInput.cs" />
     <Compile Include="Divisions\Dto\DivisionDto.cs" />
     <Compile Include="Divisions\IDivisionAppService.cs" />
@@ -309,6 +313,8 @@
     <Compile Include="TransitPasses\Dto\CreateInspectionAudit.cs" />
     <Compile Include="TransitPasses\Dto\CreateTransitPassInput.cs" />
     <Compile Include="TransitPasses\Dto\CreateTransitPassItem.cs" />
+    <Compile Include="TransitPasses\Dto\CustomTransitPassCheckpointDto.cs" />
+    <Compile Include="TransitPasses\Dto\CustomTransitPassItemDto.cs" />
     <Compile Include="TransitPasses\Dto\InspectionAuditDto.cs" />
     <Compile Include="TransitPasses\Dto\TransitPassDto.cs" />
     <Compile Include="TransitPasses\Dto\TransitPassItemDto.cs" />

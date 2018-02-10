@@ -315,6 +315,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
     </Reference>
+    <Reference Include="zxing, Version=0.16.2.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.2\lib\net461\zxing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.2.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.2\lib\net461\zxing.presentation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
@@ -625,7 +633,6 @@
     <None Include="Datasets\Misitu.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Misitu.Designer.cs</LastGenOutput>
     </None>
     <Content Include="Datasets\Misitu.xss">
       <DependentUpon>Misitu.xsd</DependentUpon>
@@ -704,6 +711,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActivitiesController.cs" />
     <Compile Include="Controllers\Billing\BillsController.cs" />
+    <Compile Include="Controllers\DistrictsController.cs" />
     <Compile Include="Controllers\DivisionsController.cs" />
     <Compile Include="Controllers\FinancialYearsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -739,6 +747,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Misitu.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ImageExtensions.cs" />
     <Compile Include="Lang.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -898,6 +907,9 @@
     <Content Include="Views\TransitPass\Pending.cshtml" />
     <Content Include="Views\TransitPass\CreateTransitPassItems.cshtml" />
     <Content Include="Views\TransitPass\Expired.cshtml" />
+    <Content Include="Views\Districts\Index.cshtml" />
+    <Content Include="Views\Districts\Create.cshtml" />
+    <Content Include="Views\Districts\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

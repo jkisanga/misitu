@@ -309,3 +309,9 @@ C:\Users\Dell\Documents\Visual Studio 2017\misitu\Misitu.Web\bin\es\Hangfire.Cor
 C:\Users\Dell\Documents\Visual Studio 2017\misitu\Misitu.Web\bin\zh\Hangfire.Core.resources.dll
 C:\Users\Dell\Documents\Visual Studio 2017\misitu\Misitu.Web\obj\Debug\Misitu.Web.dll
 C:\Users\Dell\Documents\Visual Studio 2017\misitu\Misitu.Web\obj\Debug\Misitu.Web.pdb
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\bin\zxing.dll
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\bin\zxing.presentation.dll
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\bin\zxing.pdb
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\bin\zxing.xml
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\bin\zxing.presentation.pdb
+C:\Users\nshaba\Documents\Visual Studio 2015\Projects\Misitu\Misitu.Web\bin\zxing.presentation.xml

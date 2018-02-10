@@ -138,7 +138,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SourceForest" msprop:Generator_ColumnVarNameInTable="columnSourceForest" msprop:Generator_ColumnPropNameInRow="SourceForest" msprop:Generator_ColumnPropNameInTable="SourceForestColumn" msprop:Generator_UserColumnName="SourceForest" type="xs:int" />
+              <xs:element name="SourceForest" msprop:Generator_ColumnVarNameInTable="columnSourceForest" msprop:Generator_ColumnPropNameInRow="SourceForest" msprop:Generator_ColumnPropNameInTable="SourceForestColumn" msprop:Generator_UserColumnName="SourceForest" type="xs:string" />
               <xs:element name="IssuedDate" msprop:Generator_ColumnVarNameInTable="columnIssuedDate" msprop:Generator_ColumnPropNameInRow="IssuedDate" msprop:Generator_ColumnPropNameInTable="IssuedDateColumn" msprop:Generator_UserColumnName="IssuedDate" type="xs:dateTime" />
               <xs:element name="ExpireDate" msprop:Generator_ColumnVarNameInTable="columnExpireDate" msprop:Generator_ColumnPropNameInRow="ExpireDate" msprop:Generator_ColumnPropNameInTable="ExpireDateColumn" msprop:Generator_UserColumnName="ExpireDate" type="xs:dateTime" />
               <xs:element name="SourceName" msprop:Generator_ColumnVarNameInTable="columnSourceName" msprop:Generator_ColumnPropNameInRow="SourceName" msprop:Generator_ColumnPropNameInTable="SourceNameColumn" msprop:Generator_UserColumnName="SourceName" minOccurs="0">
@@ -199,6 +199,12 @@
               <xs:element name="CheckpointName" msprop:Generator_ColumnVarNameInTable="columnCheckpointName" msprop:Generator_ColumnPropNameInRow="CheckpointName" msprop:Generator_ColumnPropNameInTable="CheckpointNameColumn" msprop:Generator_UserColumnName="CheckpointName" type="xs:string" minOccurs="0" />
               <xs:element name="ItemId" msprop:Generator_ColumnVarNameInTable="columnItemId" msprop:Generator_ColumnPropNameInRow="ItemId" msprop:Generator_ColumnPropNameInTable="ItemIdColumn" msprop:Generator_UserColumnName="ItemId" type="xs:int" minOccurs="0" />
               <xs:element name="CheckpointId" msprop:Generator_ColumnVarNameInTable="columnCheckpointId" msprop:Generator_ColumnPropNameInRow="CheckpointId" msprop:Generator_ColumnPropNameInTable="CheckpointIdColumn" msprop:Generator_UserColumnName="CheckpointId" type="xs:int" minOccurs="0" />
+              <xs:element name="ControlNumber" msprop:Generator_ColumnVarNameInTable="columnControlNumber" msprop:Generator_ColumnPropNameInRow="ControlNumber" msprop:Generator_ColumnPropNameInTable="ControlNumberColumn" msprop:Generator_UserColumnName="ControlNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="UnitMeasure" msprop:Generator_ColumnVarNameInTable="columnUnitMeasure" msprop:Generator_ColumnPropNameInRow="UnitMeasure" msprop:Generator_ColumnPropNameInTable="UnitMeasureColumn" msprop:Generator_UserColumnName="UnitMeasure" type="xs:string" minOccurs="0" />
+              <xs:element name="Specie" msprop:Generator_ColumnVarNameInTable="columnSpecie" msprop:Generator_ColumnPropNameInRow="Specie" msprop:Generator_ColumnPropNameInTable="SpecieColumn" msprop:Generator_UserColumnName="Specie" type="xs:string" minOccurs="0" />
+              <xs:element name="QRCode" msprop:Generator_ColumnVarNameInTable="columnQRCode" msprop:Generator_ColumnPropNameInRow="QRCode" msprop:Generator_ColumnPropNameInTable="QRCodeColumn" msprop:Generator_UserColumnName="QRCode" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="RegistrationNo" msprop:Generator_ColumnVarNameInTable="columnRegistrationNo" msprop:Generator_ColumnPropNameInRow="RegistrationNo" msprop:Generator_ColumnPropNameInTable="RegistrationNoColumn" msprop:Generator_UserColumnName="RegistrationNo" type="xs:string" minOccurs="0" />
+              <xs:element name="DestinationDistrict" msprop:Generator_ColumnVarNameInTable="columnDestinationDistrict" msprop:Generator_ColumnPropNameInRow="DestinationDistrict" msprop:Generator_ColumnPropNameInTable="DestinationDistrictColumn" msprop:Generator_UserColumnName="DestinationDistrict" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

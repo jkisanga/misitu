@@ -1,5 +1,4 @@
-﻿
-@model IEnumerable<Misitu.TransitPasses.TransitPassDto>
+﻿@model IEnumerable<Misitu.TransitPasses.Dto.TransitPassPrintout>
 
 @{
     ViewBag.ActiveMenu = "Transit Passes"; //The menu item will be active for this page.
@@ -50,7 +49,7 @@
                         <tr>
 
                             <td>
-                                @Html.DisplayFor(modelItem => item.Applicant.Name)
+                                @Html.DisplayFor(modelItem => item.Applicant)
                             </td>
 
                             <td>

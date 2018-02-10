@@ -303,6 +303,13 @@ namespace Misitu.Web
                             )
                     ).AddItem(
                         new MenuItemDefinition(
+                            "Districts",
+                            new LocalizableString("Districts", "Misitu"),
+                            url: "/Districts",
+                            icon: "icon-th"
+                            )
+                    ).AddItem(
+                        new MenuItemDefinition(
                             "Stations",
                             new LocalizableString("Stations", "Misitu"),
                             url: "/Stations",

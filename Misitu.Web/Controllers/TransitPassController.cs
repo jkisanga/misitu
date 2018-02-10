@@ -1,4 +1,5 @@
 ﻿using Abp.Runtime.Validation;
+using Abp.UI;
 using Microsoft.AspNet.Identity;
 using Microsoft.Reporting.WebForms;
 using Misitu.Activities;
@@ -16,12 +17,16 @@ using Misitu.TransitPasses;
 using Misitu.TransitPasses.Dto;
 using Misitu.TransitPasses.Interface;
 using Misitu.Users;
+using Misitu.Web.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
+using ZXing;
 
 namespace Misitu.Web.Controllers
 {
@@ -182,10 +187,10 @@ namespace Misitu.Web.Controllers
         {
             var user = User.Identity.GetUserId();
             ViewBag.IssuedDate = DateTime.Now.ToString("yyyy-MM-dd");
-            ViewBag.DestinationId = new SelectList(_regionAppService.GetRegions(), "Id", "Name");
+            ViewBag.RegionId = new SelectList(_regionAppService.GetRegions(), "Id", "Name");
             ViewBag.Applicant = _applicantAppService.GetApplicantById(_billAppService.GetBill(Id).ApplicantId);
             ViewBag.Bill = _billAppService.GetBill(Id);
-            ViewBag.SourceForest = new SelectList(_stationAppService.GetStations(), "Id", "Name");
+            ViewBag.StationId = new SelectList(_stationAppService.GetStations(), "Id", "Name");
 
             using (RandomNumberGenerator rng = new RNGCryptoServiceProvider())
             {
@@ -202,6 +207,13 @@ namespace Misitu.Web.Controllers
         {
             try
             {
+                var writer = new BarcodeWriter();
+                writer.Format = BarcodeFormat.QR_CODE;
+                var result = writer.Write(input.TransitPassNo);
+                var barcodeBitmap = new Bitmap(result);
+
+                input.QRCode = ImageExtensions.ToByteArray(barcodeBitmap, ImageFormat.Png);
+               
                 input.ExpireDate = input.IssuedDate.AddDays(input.ExpireDays);
                 int TransitpassId = _transitPassAppService.CreateTransitPass(input);
 
@@ -238,7 +250,7 @@ namespace Misitu.Web.Controllers
 
         //Post transit pass items
         [HttpPost]
-        public ActionResult CreateTransitPassItems(int TransitPassId,int[] ActivityId, int[] UnitMeasureId,int[] SpecieId, int[] Quantity)
+        public ActionResult CreateTransitPassItems(int TransitPassId,int[] ActivityId, int[] UnitMeasureId,int[] SpecieId, int[] Quantity, string[] Size)
         {
             try
             {
@@ -249,17 +261,18 @@ namespace Misitu.Web.Controllers
                             ActivityId = ActivityId[i],
                             UnitMeasureId = UnitMeasureId[i],
                             SpecieId = SpecieId[i],
-                            Quantity = (int)Quantity[i]
-                     };
+                            Quantity = (int)Quantity[i],
+                            Size = Size[i]
+                    };
 
                     _transitPassItemAppService.CreateTransitPassItem(transitPassItem);
                 }
 
                 return RedirectToAction("getBill", new { Id = TransitPassId });
             }
-            catch
+            catch(UserFriendlyException ex)
             {
-                TempData["danger"] = string.Format(@"Fill all inputs");
+                TempData["danger"] = string.Format(ex.Message);
                 return RedirectToAction("CreateTransitPassItems", new { Id = TransitPassId });
             }
         }

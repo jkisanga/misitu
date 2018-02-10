@@ -29,13 +29,22 @@ namespace Misitu.TransitPasses.Service
         }
 
         //get transit pass items by transit pass
-       public List<TransitPassItemDto> GetItemsByTransitPassId(int id)
+       public List<CustomTransitPassItemDto> GetItemsByTransitPassId(int id)
         {
-            var transitPassItem = _transitPassItemRepository.GetAll()
-                .Where(x => x.TransitPassId == id)
-                .ToList();
+            var transitPassItems = (from item in _transitPassItemRepository.GetAll()
+                                   where item.TransitPassId == id
+                                   select new CustomTransitPassItemDto
+                                   {
+                                       Id = item.Id,
+                                       TransitPassId = item.TransitPassId,
+                                       Item = item.Activity.Name,
+                                       UnitMeasure = item.UnitMeasure.Name,
+                                       Specie = item.Specie.CommonName,
+                                       Quantity = item.Quantity,
+                                       Size = item.Size
+                                   }).ToList();
 
-            return new List<TransitPassItemDto>(transitPassItem.MapTo<List<TransitPassItemDto>>());
+            return transitPassItems;
         }
 
         //create new Transit Pass Item
@@ -50,7 +59,8 @@ namespace Misitu.TransitPasses.Service
                     ActivityId = input.ActivityId,
                     UnitMeasureId = input.UnitMeasureId,
                     SpecieId = input.SpecieId,
-                    Quantity = input.Quantity
+                    Quantity = input.Quantity,
+                    Size = input.Size
                 };
                 _transitPassItemRepository.Insert(transitPassItem);
             }
@@ -80,6 +90,7 @@ namespace Misitu.TransitPasses.Service
                 transitPassItem.UnitMeasureId = input.UnitMeasureId;
                 transitPassItem.SpecieId = input.SpecieId;
                 transitPassItem.Quantity = input.Quantity;
+                transitPassItem.Size = input.Size;
 
             _transitPassItemRepository.Update(transitPassItem);
         }

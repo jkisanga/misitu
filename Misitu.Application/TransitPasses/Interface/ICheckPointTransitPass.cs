@@ -1,6 +1,7 @@
 ﻿using Abp.Application.Services;
 using Abp.Domain.Entities.Auditing;
 using Misitu.Stations;
+using Misitu.TransitPasses.Dto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -15,7 +16,7 @@ namespace Misitu.TransitPasses
 
         List<CheckPointTransitPassDto> GetCheckPointTransitPasses();
 
-        List<CheckPointTransitPassDto> GetCheckPointsByTransitPassId(int id);
+        List<CustomTransitPassCheckpointDto> GetCheckPointsByTransitPassId(int id);
 
         int CreateCheckPointTransitPass(CreateCheckPointTransitPass input);
 

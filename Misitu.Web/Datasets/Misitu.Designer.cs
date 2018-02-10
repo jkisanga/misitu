@@ -2374,6 +2374,18 @@ namespace Misitu.Web.Datasets {
             
             private global::System.Data.DataColumn columnCheckpointId;
             
+            private global::System.Data.DataColumn columnControlNumber;
+            
+            private global::System.Data.DataColumn columnUnitMeasure;
+            
+            private global::System.Data.DataColumn columnSpecie;
+            
+            private global::System.Data.DataColumn columnQRCode;
+            
+            private global::System.Data.DataColumn columnRegistrationNo;
+            
+            private global::System.Data.DataColumn columnDestinationDistrict;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TransitPassDataTable() {
@@ -2617,6 +2629,54 @@ namespace Misitu.Web.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ControlNumberColumn {
+                get {
+                    return this.columnControlNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn UnitMeasureColumn {
+                get {
+                    return this.columnUnitMeasure;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SpecieColumn {
+                get {
+                    return this.columnSpecie;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn QRCodeColumn {
+                get {
+                    return this.columnQRCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RegistrationNoColumn {
+                get {
+                    return this.columnRegistrationNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DestinationDistrictColumn {
+                get {
+                    return this.columnDestinationDistrict;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2659,7 +2719,7 @@ namespace Misitu.Web.Datasets {
                         string NoOfConsignment, 
                         string LisenceNo, 
                         string TransitPassNo, 
-                        int SourceForest, 
+                        string SourceForest, 
                         System.DateTime IssuedDate, 
                         System.DateTime ExpireDate, 
                         string SourceName, 
@@ -2677,7 +2737,13 @@ namespace Misitu.Web.Datasets {
                         int Quantity, 
                         string CheckpointName, 
                         int ItemId, 
-                        int CheckpointId) {
+                        int CheckpointId, 
+                        string ControlNumber, 
+                        string UnitMeasure, 
+                        string Specie, 
+                        byte[] QRCode, 
+                        string RegistrationNo, 
+                        string DestinationDistrict) {
                 TransitPassRow rowTransitPassRow = ((TransitPassRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2705,7 +2771,13 @@ namespace Misitu.Web.Datasets {
                         Quantity,
                         CheckpointName,
                         ItemId,
-                        CheckpointId};
+                        CheckpointId,
+                        ControlNumber,
+                        UnitMeasure,
+                        Specie,
+                        QRCode,
+                        RegistrationNo,
+                        DestinationDistrict};
                 rowTransitPassRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTransitPassRow);
                 return rowTransitPassRow;
@@ -2761,6 +2833,12 @@ namespace Misitu.Web.Datasets {
                 this.columnCheckpointName = base.Columns["CheckpointName"];
                 this.columnItemId = base.Columns["ItemId"];
                 this.columnCheckpointId = base.Columns["CheckpointId"];
+                this.columnControlNumber = base.Columns["ControlNumber"];
+                this.columnUnitMeasure = base.Columns["UnitMeasure"];
+                this.columnSpecie = base.Columns["Specie"];
+                this.columnQRCode = base.Columns["QRCode"];
+                this.columnRegistrationNo = base.Columns["RegistrationNo"];
+                this.columnDestinationDistrict = base.Columns["DestinationDistrict"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2780,7 +2858,7 @@ namespace Misitu.Web.Datasets {
                 base.Columns.Add(this.columnLisenceNo);
                 this.columnTransitPassNo = new global::System.Data.DataColumn("TransitPassNo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTransitPassNo);
-                this.columnSourceForest = new global::System.Data.DataColumn("SourceForest", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnSourceForest = new global::System.Data.DataColumn("SourceForest", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSourceForest);
                 this.columnIssuedDate = new global::System.Data.DataColumn("IssuedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIssuedDate);
@@ -2818,6 +2896,18 @@ namespace Misitu.Web.Datasets {
                 base.Columns.Add(this.columnItemId);
                 this.columnCheckpointId = new global::System.Data.DataColumn("CheckpointId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCheckpointId);
+                this.columnControlNumber = new global::System.Data.DataColumn("ControlNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnControlNumber);
+                this.columnUnitMeasure = new global::System.Data.DataColumn("UnitMeasure", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUnitMeasure);
+                this.columnSpecie = new global::System.Data.DataColumn("Specie", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSpecie);
+                this.columnQRCode = new global::System.Data.DataColumn("QRCode", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQRCode);
+                this.columnRegistrationNo = new global::System.Data.DataColumn("RegistrationNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegistrationNo);
+                this.columnDestinationDistrict = new global::System.Data.DataColumn("DestinationDistrict", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDestinationDistrict);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -4997,9 +5087,9 @@ namespace Misitu.Web.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int SourceForest {
+            public string SourceForest {
                 get {
-                    return ((int)(this[this.tableTransitPass.SourceForestColumn]));
+                    return ((string)(this[this.tableTransitPass.SourceForestColumn]));
                 }
                 set {
                     this[this.tableTransitPass.SourceForestColumn] = value;
@@ -5271,6 +5361,102 @@ namespace Misitu.Web.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ControlNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransitPass.ControlNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ControlNumber\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.ControlNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string UnitMeasure {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransitPass.UnitMeasureColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'UnitMeasure\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.UnitMeasureColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Specie {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransitPass.SpecieColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Specie\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.SpecieColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public byte[] QRCode {
+                get {
+                    try {
+                        return ((byte[])(this[this.tableTransitPass.QRCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'QRCode\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.QRCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string RegistrationNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransitPass.RegistrationNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RegistrationNo\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.RegistrationNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DestinationDistrict {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransitPass.DestinationDistrictColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DestinationDistrict\' in table \'TransitPass\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransitPass.DestinationDistrictColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsOrginalCountryNull() {
                 return this.IsNull(this.tableTransitPass.OrginalCountryColumn);
             }
@@ -5471,6 +5657,78 @@ namespace Misitu.Web.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCheckpointIdNull() {
                 this[this.tableTransitPass.CheckpointIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsControlNumberNull() {
+                return this.IsNull(this.tableTransitPass.ControlNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetControlNumberNull() {
+                this[this.tableTransitPass.ControlNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUnitMeasureNull() {
+                return this.IsNull(this.tableTransitPass.UnitMeasureColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUnitMeasureNull() {
+                this[this.tableTransitPass.UnitMeasureColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSpecieNull() {
+                return this.IsNull(this.tableTransitPass.SpecieColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSpecieNull() {
+                this[this.tableTransitPass.SpecieColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsQRCodeNull() {
+                return this.IsNull(this.tableTransitPass.QRCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetQRCodeNull() {
+                this[this.tableTransitPass.QRCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRegistrationNoNull() {
+                return this.IsNull(this.tableTransitPass.RegistrationNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRegistrationNoNull() {
+                this[this.tableTransitPass.RegistrationNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDestinationDistrictNull() {
+                return this.IsNull(this.tableTransitPass.DestinationDistrictColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDestinationDistrictNull() {
+                this[this.tableTransitPass.DestinationDistrictColumn] = global::System.Convert.DBNull;
             }
         }
         

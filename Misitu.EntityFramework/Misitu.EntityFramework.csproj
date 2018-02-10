@@ -146,9 +146,13 @@
   <ItemGroup>
     <Compile Include="EntityFramework\MisituDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\MisituRepositoryBase.cs" />
-    <Compile Include="Migrations\201802010655227_specie_foregn_transitpassitems_table.cs" />
-    <Compile Include="Migrations\201802010655227_specie_foregn_transitpassitems_table.Designer.cs">
-      <DependentUpon>201802010655227_specie_foregn_transitpassitems_table.cs</DependentUpon>
+    <Compile Include="Migrations\201802100959157_initial.cs" />
+    <Compile Include="Migrations\201802100959157_initial.Designer.cs">
+      <DependentUpon>201802100959157_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802101359501_tp_and_tpitems_fields_change.cs" />
+    <Compile Include="Migrations\201802101359501_tp_and_tpitems_fields_change.Designer.cs">
+      <DependentUpon>201802101359501_tp_and_tpitems_fields_change.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -174,8 +178,11 @@
     <Content Include="ReportViewerWebForm.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201802010655227_specie_foregn_transitpassitems_table.resx">
-      <DependentUpon>201802010655227_specie_foregn_transitpassitems_table.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802100959157_initial.resx">
+      <DependentUpon>201802100959157_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802101359501_tp_and_tpitems_fields_change.resx">
+      <DependentUpon>201802101359501_tp_and_tpitems_fields_change.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

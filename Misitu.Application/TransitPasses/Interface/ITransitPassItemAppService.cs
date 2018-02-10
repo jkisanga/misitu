@@ -12,7 +12,7 @@ namespace Misitu.TransitPasses.Interface
     {
         List<TransitPassItemDto> GetTransitPassItems();
 
-        List<TransitPassItemDto> GetItemsByTransitPassId(int id);
+        List<CustomTransitPassItemDto> GetItemsByTransitPassId(int id);
 
         void CreateTransitPassItem(CreateTransitPassItem input);
 

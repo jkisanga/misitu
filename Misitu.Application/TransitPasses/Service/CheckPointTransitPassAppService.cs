@@ -1,6 +1,7 @@
 ﻿using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using Abp.UI;
+using Misitu.TransitPasses.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,10 +27,7 @@ namespace Misitu.TransitPasses.Service
             {
                 TransitPassId = input.TransitPassId,
                 StationId = input.StationId
-                //InspectionStatus = input.InspectionStatus,
-                //InspectorId = input.InspectorId,
-                //AdditionInformation = input.AdditionInformation
-
+          
             };
             var objExist = this.repositoryCheckpointTransitpass.FirstOrDefault(a => a.StationId == input.StationId && a.TransitPassId == input.TransitPassId);
             if (objExist == null)
@@ -79,12 +77,20 @@ namespace Misitu.TransitPasses.Service
             return new List<CheckPointTransitPassDto>(values.MapTo<List<CheckPointTransitPassDto>>());
         }
 
-        public List<CheckPointTransitPassDto> GetCheckPointsByTransitPassId(int id){
-             var values = this.repositoryCheckpointTransitpass
-                .GetAll()
-                .Where(p => p.TransitPassId == id)
-                .ToList();
-             return new List<CheckPointTransitPassDto>(values.MapTo<List<CheckPointTransitPassDto>>());
+        public List<CustomTransitPassCheckpointDto> GetCheckPointsByTransitPassId(int id)
+        {
+            var checkpoints = (from chk in this.repositoryCheckpointTransitpass.GetAll()
+                               where chk.TransitPassId == id
+                               select new CustomTransitPassCheckpointDto
+                               {
+                                   Id = chk.Id,
+                                   TransitPassId = chk.TransitPassId,
+                                   Checkpoint = chk.Station.Name,
+                                   InspectionStatus = chk.InspectionStatus,
+                                   AdditionInformation = chk.AdditionInformation
+                               }).ToList();
+
+            return checkpoints;
          }
 
         
