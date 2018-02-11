@@ -1,0 +1,26 @@
+﻿@model Misitu.Billing.Dto.BillDto
+
+
+@{
+    ViewBag.ActiveMenu = "Registration";
+    ViewBag.Title = "Allocated Plots";
+}
+
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">Bill Preview</div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="widget-content">
+        <div class="padd">
+
+            @Html.Action("BillReportViewer", "Bills", new { id = Model.Id })
+        </div>
+    </div>
+
+    <div class="widget-foot">
+        <a href="@Url.Action("Index", "Dealers",new { id = Model.DealerId })" class="pull-left btn btn-default"><i class="icon-backward"></i> Back</a>
+        <div class="clearfix"></div>
+    </div>
+
+</div>

@@ -1,0 +1,217 @@
+﻿@model Misitu.PlotScalling.Dto.CreateTallySheetInput
+
+@{
+    ViewBag.ActiveMenu = "Plot Scalling"; //The menu item will be active for this page.
+    ViewBag.Title = "Tally Sheet";
+}
+
+
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">New Tally Sheet</div>
+        <div class="widget-icons pull-right">
+            <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+            <a href="#" class="wclose"><i class="icon-remove"></i></a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    @using (Html.BeginForm("Create", "TallySheets", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="widget-content">
+            <div class="padd">
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.Label("Plot", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+
+                            <input type="hidden" name="PlotId" value="@ViewBag.Plot.Id" class="form-control" />
+                            <input type="text" value="@ViewBag.Plot.Name" class="form-control" readonly />
+                            @Html.ValidationMessageFor(model => model.PlotId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Tariff Number", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="text" name="TariffNumber" value="@ViewBag.Plot.Compartment.TariffNumber" class="form-control" readonly />
+                            @Html.ValidationMessageFor(model => model.TariffNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Specie Category", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+
+                            @Html.DropDownList("SpecieCategoryId", null, " ", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.SpecieCategoryId, "", new { @class = "text-danger" })
+                        </div>
+
+                        @Html.Label("Tally Sheet", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            <input class="form-control" type="file" id="file" name="file" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-foot">
+                <a href="@Url.Action("Index","Plots",new { Id = ViewBag.Plot.CompartmentId})" class="btn btn-default">Back</a>
+              
+                    <input type="submit" value="Upload" class="pull-right btn btn-primary" />
+                
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    }
+</div>
+
+@if (ViewBag.Sheets != null)
+{
+    <div class="widget">
+        <div class="widget-head">
+            <div class="pull-left">Uploaded Tally Sheet</div>
+            <div class="widget-icons pull-right">
+                <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+                <a href="#" class="wclose"><i class="icon-remove"></i></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="widget-content">
+            <div class="padd">
+
+                <table class="table">
+                    <tr>
+
+                        <th>
+                            @Html.DisplayName("DBH")
+                        </th>
+                        <th>
+                            @Html.DisplayName("No. of Trees")
+                        </th>
+
+                        <th>
+                            @Html.DisplayName("Amount")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Volume")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Loyality")
+                        </th>
+                        <th>
+                            @Html.DisplayName("TFF")
+                        </th>
+                        <th>
+                            @Html.DisplayName("LMDA")
+                        </th>
+                        <th>
+                            @Html.DisplayName("CESS")
+                        </th>
+                        <th>
+                            @Html.DisplayName("VAT")
+                        </th>
+                        <th>
+                            @Html.DisplayName("TP")
+                        </th>
+                        <th>
+                            @Html.DisplayName("TOTAL")
+                        </th>
+                        <th></th>
+                    </tr>
+                    @{
+                        int trees = 0;
+                        double total = 0;
+                        double volume = 0;
+                        double loyality = 0;
+                        double lmda = 0;
+                        double cess = 0;
+                        double vat = 0;
+                        double tff = 0;
+                        double tp = 0;
+
+
+                    }
+                    @foreach (var item in ViewBag.Sheets)
+                    {
+                        trees = trees + item.TreesNumber;
+                        total = total + item.TOTAL;
+                        volume = volume + item.Volume;
+                        loyality = loyality + item.Loyality;
+                        lmda = lmda + item.LMDA;
+                        cess = cess + item.CESS;
+                        vat = vat + item.VAT;
+                        tff = tff + item.TFF;
+                        tp = tp + item.TP;
+
+                        <tr>
+
+                            <td>
+                                @item.DBH
+                            </td>
+                            <td>
+                                @item.TreesNumber
+                            </td>
+
+                            <td>
+                                @item.GnAmount
+                            </td>
+                            <td>
+                                @item.Volume
+                            </td>
+                            <td>
+                                @item.Loyality
+                            </td>
+                            <td>
+                                @item.TFF
+                            </td>
+                            <td>
+                                @item.LMDA
+                            </td>
+                            <td>
+                                @item.CESS
+                            </td>
+                            <td>
+                                @item.VAT
+                            </td>
+                            <td>
+                                @String.Format("{0:0.00}", item.TP)
+                            </td>
+                            <td>
+                                @String.Format("{0:0.00}", item.TOTAL)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td>@String.Format("{0:0}", trees)</td>
+                            <td></td>
+                            <td>@String.Format("{0:0.00}", volume)</td>
+                            <td>@String.Format("{0:0.00}", loyality)</td>
+                            <td>@String.Format("{0:0.00}", tff)</td>
+                            <td>@String.Format("{0:0.00}", lmda)</td>
+                            <td>@String.Format("{0:0.00}", cess)</td>
+                            <td>@String.Format("{0:0.00}", vat)</td>
+                            <td>@String.Format("{0:0.00}", tp)</td>
+                            <td>@String.Format("{0:0.00}", total)</td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+
+                </table>
+
+
+                </div>
+            </div>
+        </div>
+                }
+
+

@@ -1,0 +1,25 @@
+﻿
+
+@model Misitu.Licensing.Dto.LicenseDto
+
+
+@{
+    ViewBag.ActiveMenu = "Harvest Licensing";
+    ViewBag.Title = "Licenses";
+
+}
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">Licence Preview </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="widget-content">
+        <div class="padd">
+
+            @Html.Action("LicenceReportViewer", "License", new { id = Model.Id })
+        </div>
+    </div>
+  
+</div>
+
+

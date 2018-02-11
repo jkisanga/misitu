@@ -1,0 +1,45 @@
+﻿@model Misitu.Applicants.ForestProduce.CreateForestProduceAppliedForest
+@{
+    ViewBag.Title = "Applied Forest";
+}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="pull-left"><span>Applied Forest </span></div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+        <div class="padd">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                  
+                 
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <input type="hidden" name="FinancialYearId" value="@ViewBag.FinancialYearId" />
+                    <input type="hidden" name="ForestProduceRegistrationId" value="@ViewBag.ForestProduceRegistration.Id" />
+
+                    <div class="form-group">
+                        @Html.Label("Forest / Plantation ", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.DropDownList("StationId", null,  htmlAttributes: new { @class = "form-control"  })
+                            @Html.ValidationMessageFor(model => model.StationId, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-4">
+                            <input type="submit" value="Save & Continue" class="btn btn-primary" />
+                        </div>
+                    </div>
+
+                
+                </div>
+            }
+            </div>
+        </div>
+    </div>
+
+            <div>
+                @Html.ActionLink("Back", "ForestProduceAppliedSpecieCategory", new { Id = ViewBag.ForestProduceRegistration.Id })
+            </div>
+

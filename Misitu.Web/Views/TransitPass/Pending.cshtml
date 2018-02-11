@@ -1,0 +1,83 @@
+﻿
+@model IEnumerable<Misitu.TransitPasses.TransitPassDto>
+
+@{
+    ViewBag.ActiveMenu = "Transit Passes"; //The menu item will be active for this page.
+    ViewBag.Title = "Transit Passes";
+}
+
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayName("Tp Holder")
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.NoOfConsignment)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.TransitPassNo)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.IssuedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpireDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SourceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DestinationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehcleNo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Applicant.Name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfConsignment)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.TransitPassNo)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.IssuedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpireDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SourceName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DestinationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehcleNo)
+            </td>
+
+            <td>
+                @Html.ActionLink("View Bill", "getBill", new { id = item.Id })
+
+            </td>
+        </tr>
+    }
+
+</table>

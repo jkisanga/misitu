@@ -1,0 +1,33 @@
+﻿@if (ViewData.ModelState["success"] != null || TempData["success"] != null)
+{
+    <div class="alert alert-success alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        @Html.ValidationMessage("success")
+        @TempData["success"]
+    </div>
+}
+
+@if (ViewData.ModelState["info"] != null)
+{
+    <div class="alert alert-info alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        @Html.ValidationMessage("info")
+    </div>
+}
+@if (ViewData.ModelState["warning"] != null)
+{
+    <div class="alert alert-warning alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        @Html.ValidationMessage("warning")
+    </div>
+}
+
+@if (ViewData.ModelState["danger"] != null || TempData["danger"] != null)
+{
+    <div class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        @Html.ValidationMessage("danger")
+        @TempData["danger"]
+
+    </div>
+}

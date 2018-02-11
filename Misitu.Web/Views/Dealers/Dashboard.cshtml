@@ -1,0 +1,119 @@
+﻿@model Misitu.Layout.Dto.RegistrationDashboard
+@{
+    ViewBag.ActiveMenu = "Registration"; //The menu item will be active for this page.
+    ViewBag.Title = "Dealer Registration";
+}
+
+
+
+<div class="container">
+    <div class="row">
+      
+        <div class="col-md-2">
+            <div class="well">
+                <h2>@Model.candidates</h2>
+                <p><a href="@Url.Action("Index","Candidates")"> Candidates</a></p>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="well">
+                <h2>@Model.pending</h2>
+                <p><a href="@Url.Action("Index","Dealers")"> Pending</a></p>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="well">
+                <h2>@Model.dealers</h2>
+                <p><a href="@Url.Action("Registered","Dealers")"> Registered</a></p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="well">
+                <h2>@String.Format("Tzs {0:#,###0.00}", Model.TotalCollection)</h2>
+                <p><a href="@Url.Action("Categories","Dealers")"> Collected Registration Fees</a></p>
+            </div>
+        </div>
+</div>
+
+    <div class="row">
+      
+
+        <div class="col-md-6">
+            <div class="widget">
+
+                <div class="widget-head">
+                    <div class="pull-left">Monthly Status <span class="label label-success">@DateTime.Now.ToString("MMM, yyyy")</span></div>
+                    <div class="widget-icons pull-right">
+                        <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="widget-content">
+                    <div class="padd">
+
+                        <ul class="current-status">
+                            <li>
+                                <span id="status1"></span> <span>Pending Registration : <b>@Model.pendingPerMonth</b></span>
+                            </li>
+                            <li>
+                                <span id="status2"></span> <span>Registered Dealers : <b>@Model.dealersPerMonth</b> </span>
+                            </li>
+                            <li>
+                                <span id="status3"></span> <span>Collected Fees :<b> @String.Format("Tzs {0:#,###0.00}", Model.CollectionPerMonth)</b></span>
+                            </li>
+                           
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Pie chart ends -->
+        </div>
+    </div>
+    </div>
+
+
+@section Scripts
+{
+<script type="text/javascript">
+
+$(function () {
+
+    /* Registration Pie Chart */
+
+    var data = [];
+    var series = Math.floor(Math.random() * 10) + 1;
+    for (var i = 0; i < series; i++) {
+        data[i] = { label: "Series" + (i + 1), data: Math.floor(Math.random() * 100) + 1 }
+    }
+
+    $.plot('#chart', data, {
+        series: {
+            bar: {
+                show: true,
+                radius: 1,
+                label: {
+                    show: true,
+                    radius: 3 / 4,
+                    formatter: function (label, series) {
+                        return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">' + label + '<br/>' + Math.round(series.percent) + '%</div>';
+                    },
+                    background: { opacity: 0 }
+                }
+            }
+        },
+        legend: {
+            show: false
+        }
+    });
+
+/* Pie chart ends */
+
+});
+
+
+</script>
+}

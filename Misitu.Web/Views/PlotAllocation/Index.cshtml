@@ -1,0 +1,207 @@
+﻿
+@model Misitu.Billing.Dto.CreateBillInput
+
+
+@{
+    ViewBag.ActiveMenu = "Harvest Licensing";
+    ViewBag.Title = "Allocated Plots";
+}
+
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">Bill Summary</div>
+        <div class="widget-icons pull-right">
+            <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+            <a href="#" class="wclose"><i class="icon-remove"></i></a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="widget-content">
+        <div class="padd invoice">
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <h4>@ViewBag.Dealer.Name</h4>
+                    <p>
+                       @ViewBag.Dealer.Address
+                    </p>
+                    <p>
+                        @ViewBag.Dealer.Phone,  @ViewBag.Dealer.Email
+                    </p>
+                </div>
+
+
+                <div class="col-md-4">                   
+                    <p>
+                       
+                        Date : @DateTime.Now<br>
+                        Account No : 4290293203
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <hr />
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayName("Plot")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Trees")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Volume")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Loyality")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("TFF")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("LMDA")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("CESS")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("VAT")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("TP")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("TOTAL")
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                double total = 0;
+                                double volume = 0;
+                                double trees = 0;
+                                string description;
+
+                            }
+                           @foreach (var item in ViewBag.Plots)
+                           {
+                               total = total + item.TOTAL;
+                               volume = volume + item.Volume;
+                               trees = trees + item.Trees;
+                            <tr>
+
+                                <td>
+                                    @item.Name
+                                </td>
+                                <td>
+                                    @item.Trees
+                                </td>
+                                <td>
+                                    @String.Format("{0:0.00}", item.Volume)
+                                </td>
+                                <td>
+                                    @String.Format("{0:0.00}", item.Loyality)
+                                </td>
+                                <td>
+                                    @String.Format("{0:0.00}", item.TFF)
+                                </td>
+                                <td>
+                                    @String.Format("{0:0.00}", item.LMDA)
+                                </td>
+                                <td>
+                                    @String.Format("{0:0.00}", item.CESS)
+                                </td>
+                                <td>
+                                    @String.Format("{0:0.00}", item.VAT)
+                                </td>
+                                <td>
+                                    @String.Format("{0:0.00}", item.TP)
+                                </td>
+                                <td>
+                                    @String.Format("{0:0.00}", item.TOTAL)
+                                </td>
+
+                            </tr>
+                           }
+                            @{
+                                description = "Total Volume allocated is " + volume + "cbm, with " + trees+" number of trees";
+
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+        
+    </div>
+
+    @using (Html.BeginForm("Bill", "PlotAllocation", new { id = ViewBag.Dealer.Id }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="widget">
+            <div class="widget-head">
+                <div class="pull-left">Bill Summary</div>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="widget-content">
+                <div class="padd">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Description</label>
+                            <div class="col-md-10">
+                                <input type="text" name="Description" value="@description" readonly class="form-control amount" />
+                            </div>
+                            </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Revenue Source</label>
+                                    <div class="col-md-4">
+                                        <input type="hidden" name="DealerId" value="@ViewBag.Dealer.Id" />
+                                        @Html.DropDownList("RevenueSourceId", null, new { @class = "form-control col-md-6" })
+                                    </div>
+
+                                    <label class="control-label col-md-2">Billed Amount</label>
+                                    <div class="col-md-4">
+                                        <input type="text" name="BillAmount" value="@total" readonly class="form-control amount" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.Label("Currency", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-4">
+                                        @Html.DropDownList("Currency", new List<SelectListItem>
+                                { new SelectListItem{Text="TZS", Value="TZS",Selected =true },
+                                    new SelectListItem{Text="USD", Value="USD"}}, new { @class = "form-control" })
+
+                                        @Html.ValidationMessage("Currency", "", new { @class = "text-danger" })
+                                    </div>
+                                    @Html.Label("Expired Date", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-4">
+                                        <div id="datetimepicker1" class="input-append">
+                                            @Html.TextBox("ExpiredDate", null, new { @class = "form-control dtpicker" })
+                                            <span class="add-on">
+                                                <i data-time-icon="icon-time" data-date-icon="icon-calendar" class="btn btn-info btn-lg"></i>
+                                            </span>
+                                            @Html.ValidationMessage("ExpiredDate", "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-foot">
+                            <button type="submit" id="submit" class="pull-right btn btn-primary">Create Bill</button>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+        </div>
+
+    }
+</div>  

@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Misitu.Applicants.ForestProduceRegistrationDto>
+
+@{
+    ViewBag.Title = "My Applications";
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="pull-left"><span>Application For Forest Produce Registration</span></div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+        <div class="padd">
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>
+                        @Html.DisplayName("Registration No")
+                    </th>                  
+
+                    <th>
+                        @Html.DisplayName("District")
+                    </th>            
+                    <th>
+                        @Html.DisplayName("TIN")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Bussiness LicenseNo")
+                    </th>                  
+                   
+                    <th>
+                        @Html.DisplayName("Saw mill Location")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Installation PermitNo")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Type Of Saw mill")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Saw Mill Capacity")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Date Applied")
+                    </th>                   
+                     <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RegNumber)
+                        </td> 
+                        <td>
+                            @Html.DisplayFor(modelItem => item.District.Name)
+                        </td>
+                    
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TIN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BussinessLicenseNo)
+                        </td>
+                                            
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SawmillInstalledLocation)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InstallationPermitNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TypeOfSawmill)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SawmillCapacityPerYear)
+                        </td>
+                        <td>
+                            @String.Format("{0:dd MMM yyyy}", item.CreationTime)
+                        </td>
+                      
+                        <td>
+                            @*<a href=""@Url.Action("Edit","Application", new { id = item.Id })>Edit</a> |*@
+                            <a href="@Url.Action("ApplicationDetails", "Application", new { id = item.Id })" >Details</a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            </div>
+        </div>
+    </div>
+

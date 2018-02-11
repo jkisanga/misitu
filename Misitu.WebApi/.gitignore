@@ -1,0 +1,8 @@
+bin/
+obj/Debug/
+.vs/
+*.sln
+obj/
+Migrations/
+
+

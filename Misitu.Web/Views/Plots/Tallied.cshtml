@@ -1,0 +1,199 @@
+﻿@model IEnumerable<Misitu.PlotScalling.PlotDto>
+
+@{
+    ViewBag.ActiveMenu = "Harvest Licensing"; //The menu item will be active for this page.
+    ViewBag.Title = "Plots Allocation";
+}
+
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">Tallied Plots</div>
+        <div class="widget-icons pull-right">
+            <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+            <a href="#" class="wclose"><i class="icon-remove"></i></a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    @using (Html.BeginForm("Create", "PlotAllocation", FormMethod.Post))
+    {
+        <div class="widget-content">
+            <div class="padd">
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+
+                    <div class="form-group">
+                        @Html.Label("Compartment", htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-6">
+                            <input type="text" value="@ViewBag.Compartment.Name" class="form-control" readonly />
+                            <input type="hidden" name="CompartmentId" value="@ViewBag.Compartment.Id" class="form-control" readonly />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Registered Dealers", htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-5">
+                            @Html.DropDownList("DealerId", null, " ", new { @class = "RegDealer form-control" })
+                            @Html.ValidationMessage("DealerId", "", new { @class = "text-danger" })
+                        </div>
+
+                        <label class="control-label col-md-2">Total Volume</label>
+                        <div class="col-md-2">
+                            <input type="text" id="total" class="form-control" readonly />
+                            </div>
+                        </div>
+
+                    <div class="form-group">
+                        @Html.Label("Plots", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Select</th>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Name)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Trees)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Volume)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Loyality)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.TFF)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.LMDA)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CESS)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.VAT)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.TP)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.TOTAL)
+                                        </th>
+
+                                    </tr>
+                                </thead>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="row-select">
+                                        <td>
+                                            <input type="checkbox" class="checkbox" name="PlotId[]" value="@Html.DisplayFor(modelItem => item.Id)" />
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Trees)
+                                        </td>
+                                        <td class="vol">
+                                            @Html.DisplayFor(modelItem => item.Volume)
+                                        </td>
+                                        <td>
+                                            @String.Format("{0:0.00}", item.Loyality)
+                                        </td>
+                                        <td>
+                                            @String.Format("{0:0.00}", item.TFF)
+                                        </td>
+                                        <td>
+                                            @String.Format("{0:0.00}", item.LMDA)
+                                        </td>
+                                        <td>
+                                            @String.Format("{0:0.00}", item.CESS)
+                                        </td>
+                                        <td>
+                                            @String.Format("{0:0.00}", item.VAT)
+                                        </td>
+                                        <td>
+                                            @String.Format("{0:0.00}", item.TP)
+                                        </td>
+                                        <td>
+                                            @String.Format("{0:0.00}", item.TOTAL)
+                                        </td>
+
+                                    </tr>
+                                }
+
+                            </table>
+                        </div>
+                    </div>
+                  
+                </div>
+                </div>
+            <div class="widget-foot">
+                <a href="@Url.Action("Tallied","Compartments")" class="btn btn-default">Back</a>
+                <input type="submit" value="Allocation & Continue" class="pull-right btn btn-primary" />
+                <div class="clearfix"></div>
+            </div>
+            </div>
+                }
+    </div>
+
+
+@section scripts{
+    
+<script type="text/javascript"  >
+    $(document).ready(function () {
+
+        var cbm = 0;
+
+        //get dealer volume in cubic metres (cbm)
+        $(".RegDealer").on("change", function () {
+
+            var url = '/PlotAllocation/DealerAllocatedCBM/' + $('.RegDealer').val();
+
+            $.ajax({
+                url: url,
+                dataType: 'json',
+                success: function (data) {
+
+                    cbm = data.result;
+
+                }
+            });
+        });
+
+        //get sum of volume of checked plots
+
+        $(".table input:checkbox").on("change", function () {    // <-- Only changed this line
+            var sum = 0;
+
+            $(".row-select input:checked").each(function () {
+                var value = $(this).closest('tr').find('.vol').html();
+
+                if (!isNaN(value) && value.length != 0) {
+                    sum += parseFloat(value);
+
+                    if (sum > cbm) {
+                        alert("Volume has exeeded the pre allocated volume of "+ cbm)
+                        jQuery(this).attr('checked', false);
+                    } else {
+                        $('#total').val(sum);
+                    }
+                } else {
+                    alert("Enter only numbers!")
+                }
+            });
+
+
+         
+
+        });
+
+    });
+
+    </script>
+    
+}

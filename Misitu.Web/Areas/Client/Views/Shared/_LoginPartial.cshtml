@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNet.Identity
+
+
+
+<ul class="nav navbar-nav navbar-right">
+    @if (Request.IsAuthenticated)
+    {
+
+        <li>
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "ApplicantProfile", "Applicant", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </li>
+        <li><a href="@Url.Action("Logout", "Account", new { area = "" })"><i class="fa fa-sign-out"></i> Logout</a></li>
+
+
+    }
+    else
+    {
+        <li><a href="@Url.Action("Login", "Account", new { area = "" })"><i class="fa fa-sign-out"></i> Login</a></li>
+    }
+</ul>

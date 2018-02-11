@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Misitu.Registration.Dto.DealerDto>
+
+@{
+    ViewBag.ActiveMenu = "Registration"; //The menu item will be active for this page.
+    ViewBag.Title = "Dealers";
+}
+
+<div class="widget">
+    <div class="widget-head">
+        <div class="pull-left">Pending Dealers</div>
+        <div class="widget-icons pull-right">
+            <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+         
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="widget-content">
+        <div class="padd">
+           
+
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+
+                        <th>
+                            @Html.DisplayName("S/N")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Name")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Address")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Email")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Phone")
+                        </th>
+
+                        <th>
+                            @Html.DisplayName("Registered Date")
+                        </th>
+                        
+                        <th>@Html.DisplayName("Action")</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SerialNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Applicant.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Applicant.Adress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Applicant.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Applicant.Phone)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreationTime)
+                            </td>
+                            
+
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                @Html.ActionLink("Activities", "Create", "DealerActivities", new { id = item.Id }, null)|
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+            </div>
+        </div>
+    </div>

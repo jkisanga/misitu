@@ -1,0 +1,80 @@
+﻿@model Misitu.Applicants.ApplicantDto
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="pull-left"><span>Profile</span></div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+        <div class="padd">
+            <div class="well">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#info" data-toggle="tab">Applicant Details</a></li>
+                    <li><a href="#users" data-toggle="tab">Users</a></li>
+                </ul>
+                <div  class="tab-content">
+                    <div class="tab-pane active in" id="info">
+                        <br />
+                        <form id="tab">
+
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td>Name</td><td><input type="text" class="form-control" readonly value="@Model.Name"> </td>
+                                </tr>
+                                <tr>
+                                    <td>Address</td>
+                                    <td><input type="text" class="form-control" readonly value="@Model.Adress"> </td>
+                                </tr>
+                                <tr>
+                                    <td>Phone</td>
+                                    <td><input type="text" class="form-control" readonly value="@Model.Phone"> </td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td><input type="text" class="form-control" readonly value="@Model.Email"> </td>
+                                </tr>
+                            </table>
+                                             
+                            
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="users">
+                        <br />
+                        <form id="tab2">
+                            <a href="@Url.Action("AddUser","Applicant",new { Id = Model.Id})">New User</a>
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>UserName</th>
+                                        <th>FullName</th>
+                                        <th>EmailAddress</th>
+                                        <th>IsActive</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var user in ViewBag.Users)
+                                    {
+                                        <tr>
+                                            <td>@user.UserName</td>
+                                            <td>@user.FullName</td>
+                                            <td>@user.EmailAddress</td>
+                                            <td>@(user.IsActive ? "Yes" : "No")</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
