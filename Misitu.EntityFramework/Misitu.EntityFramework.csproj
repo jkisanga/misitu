@@ -146,13 +146,9 @@
   <ItemGroup>
     <Compile Include="EntityFramework\MisituDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\MisituRepositoryBase.cs" />
-    <Compile Include="Migrations\201801240438520_update_form_server.cs" />
-    <Compile Include="Migrations\201801240438520_update_form_server.Designer.cs">
-      <DependentUpon>201801240438520_update_form_server.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801240715026_update_applicant.cs" />
-    <Compile Include="Migrations\201801240715026_update_applicant.Designer.cs">
-      <DependentUpon>201801240715026_update_applicant.cs</DependentUpon>
+    <Compile Include="Migrations\201802111641533_add_checkpoint_users.cs" />
+    <Compile Include="Migrations\201802111641533_add_checkpoint_users.Designer.cs">
+      <DependentUpon>201802111641533_add_checkpoint_users.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -178,11 +174,8 @@
     <Content Include="ReportViewerWebForm.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801240438520_update_form_server.resx">
-      <DependentUpon>201801240438520_update_form_server.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801240715026_update_applicant.resx">
-      <DependentUpon>201801240715026_update_applicant.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802111641533_add_checkpoint_users.resx">
+      <DependentUpon>201802111641533_add_checkpoint_users.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

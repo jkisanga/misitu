@@ -134,6 +134,7 @@
     <Compile Include="Billing\Bill.cs" />
     <Compile Include="Billing\BillItem.cs" />
     <Compile Include="Billing\Payment.cs" />
+    <Compile Include="TransitPasses\CheckpointUser.cs" />
     <Compile Include="Divisions\Division.cs" />
     <Compile Include="FinancialYears\FinancialYear.cs" />
     <Compile Include="GnTreeVolumeRates\GnTreeVolumeRate.cs" />

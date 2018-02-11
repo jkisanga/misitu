@@ -686,6 +686,7 @@
     <Compile Include="Controllers\PlotScalling\HarvestingPlanController.cs" />
     <Compile Include="Controllers\PlotScalling\PlotsController.cs" />
     <Compile Include="Controllers\PlotScalling\TallySheetsController.cs" />
+    <Compile Include="Controllers\POS\PosUserController.cs" />
     <Compile Include="Controllers\RangesController.cs" />
     <Compile Include="Controllers\RegionsController.cs" />
     <Compile Include="Controllers\Registration\CandidatesController.cs" />
@@ -866,6 +867,8 @@
     <Content Include="Views\TransitPass\getTransitPass.cshtml" />
     <Content Include="Views\TransitPass\getBill.cshtml" />
     <Content Include="Views\TransitPass\Pending.cshtml" />
+    <Content Include="Views\PosUser\Create.cshtml" />
+    <Content Include="Views\PosUser\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

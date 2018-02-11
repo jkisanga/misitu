@@ -93,6 +93,7 @@ namespace Misitu.EntityFramework
         public virtual IDbSet<MainRevenueSource> MainRevenueSourcees { get; set; }
         public virtual IDbSet<RevenueSource> RevenueSources { get; set; }
         public virtual IDbSet<Payment> Payments { get; set; }
+       public virtual IDbSet<CheckpointUser> CheckpointUsers { get; set; }
 
 
 
