@@ -724,6 +724,7 @@
     <Compile Include="Controllers\PlotScalling\HarvestingPlanController.cs" />
     <Compile Include="Controllers\PlotScalling\PlotsController.cs" />
     <Compile Include="Controllers\PlotScalling\TallySheetsController.cs" />
+    <Compile Include="Controllers\POS\PosUserController.cs" />
     <Compile Include="Controllers\RangesController.cs" />
     <Compile Include="Controllers\RegionsController.cs" />
     <Compile Include="Controllers\Registration\CandidatesController.cs" />
@@ -910,6 +911,8 @@
     <Content Include="Views\Districts\Index.cshtml" />
     <Content Include="Views\Districts\Create.cshtml" />
     <Content Include="Views\Districts\Edit.cshtml" />
+    <Content Include="Views\PosUser\Create.cshtml" />
+    <Content Include="Views\PosUser\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

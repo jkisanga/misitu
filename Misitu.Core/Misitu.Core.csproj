@@ -180,6 +180,7 @@
     <Compile Include="Tariffs\Tariff.cs" />
     <Compile Include="TransitPasses\BillTransitPass.cs" />
     <Compile Include="TransitPasses\CheckPointTransitPass.cs" />
+    <Compile Include="TransitPasses\CheckpointUser.cs" />
     <Compile Include="TransitPasses\InspectionAudit.cs" />
     <Compile Include="TransitPasses\TransitPass.cs" />
     <Compile Include="TransitPasses\TransitPassItem.cs" />

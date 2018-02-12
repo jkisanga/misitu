@@ -371,6 +371,13 @@ namespace Misitu.Web
                             url: "/HarvestingPlan",
                             icon: "icon-th"
                             )
+                    ).AddItem(
+                        new MenuItemDefinition(
+                            "Manage POS User",
+                            new LocalizableString("PosUser", "Misitu"),
+                            url: "/PosUser",
+                            icon: "icon-th"
+                            )
                     )
             );
         }

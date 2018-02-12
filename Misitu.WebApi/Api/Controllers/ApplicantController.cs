@@ -485,17 +485,17 @@ namespace Misitu.Api.Controllers
 
             var stream = response.Content.ReadAsStreamAsync();
 
-            string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            if (!path.EndsWith(@"\")) path += @"\";
+            //string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            //if (!path.EndsWith(@"\")) path += @"\";
 
-            if (File.Exists(Path.Combine(path, fileName)))
-                File.Delete(Path.Combine(path, fileName));
+            //if (File.Exists(Path.Combine(path, fileName)))
+            //    File.Delete(Path.Combine(path, fileName));
 
-            using (FileStream fs = new FileStream(Path.Combine(path, fileName), FileMode.CreateNew, FileAccess.Write)
-            {
-                fs.Write(stream, 0, (int)stream.Length);
-                    fs.Close();
-                }
+            //using (FileStream fs = new FileStream(Path.Combine(path, fileName), FileMode.CreateNew, FileAccess.Write)
+            //{
+            //    fs.Write(stream, 0, (int)stream.Length);
+            //        fs.Close();
+            //    }
 
     }
 

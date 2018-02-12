@@ -160,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\Controllers\ApplicantController.cs" />
+    <Compile Include="Api\Controllers\PosUserController.cs" />
     <Compile Include="Api\Controllers\RevenueSourcesController.cs" />
     <Compile Include="Api\Controllers\TransitPassController.cs" />
     <Compile Include="Api\MisituWebApiModule.cs" />

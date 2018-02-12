@@ -7,13 +7,13 @@ namespace Misitu.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class onlinetables : IMigrationMetadata
+    public sealed partial class tp_and_tpitems_fields_change : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(onlinetables));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(tp_and_tpitems_fields_change));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712190947308_onlinetables"; }
+            get { return "201802101359501_tp_and_tpitems_fields_change"; }
         }
         
         string IMigrationMetadata.Source

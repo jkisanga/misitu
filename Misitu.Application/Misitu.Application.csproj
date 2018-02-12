@@ -231,6 +231,10 @@
     <Compile Include="PlotScalling\IHarvestingPlanAppService.cs" />
     <Compile Include="PlotScalling\ITallySheetAppService.cs" />
     <Compile Include="PlotScalling\TallySheetAppService.cs" />
+    <Compile Include="POSUser\CheckpointUserAppService.cs" />
+    <Compile Include="POSUser\Dto\CheckpointUserDto.cs" />
+    <Compile Include="POSUser\Dto\CreateCheckpointUser.cs" />
+    <Compile Include="POSUser\ICheckpointUserAppService.cs" />
     <Compile Include="RefTables\Dto\CreateRefApplicationInput.cs" />
     <Compile Include="RefTables\Dto\CreateRefIdentityInput.cs" />
     <Compile Include="RefTables\Dto\CreateUnitMeasureInput.cs" />

@@ -146,13 +146,9 @@
   <ItemGroup>
     <Compile Include="EntityFramework\MisituDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\MisituRepositoryBase.cs" />
-    <Compile Include="Migrations\201802100959157_initial.cs" />
-    <Compile Include="Migrations\201802100959157_initial.Designer.cs">
-      <DependentUpon>201802100959157_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802101359501_tp_and_tpitems_fields_change.cs" />
-    <Compile Include="Migrations\201802101359501_tp_and_tpitems_fields_change.Designer.cs">
-      <DependentUpon>201802101359501_tp_and_tpitems_fields_change.cs</DependentUpon>
+    <Compile Include="Migrations\201802121257142_marge_pos_user.cs" />
+    <Compile Include="Migrations\201802121257142_marge_pos_user.Designer.cs">
+      <DependentUpon>201802121257142_marge_pos_user.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -178,11 +174,8 @@
     <Content Include="ReportViewerWebForm.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201802100959157_initial.resx">
-      <DependentUpon>201802100959157_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802101359501_tp_and_tpitems_fields_change.resx">
-      <DependentUpon>201802101359501_tp_and_tpitems_fields_change.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802121257142_marge_pos_user.resx">
+      <DependentUpon>201802121257142_marge_pos_user.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
