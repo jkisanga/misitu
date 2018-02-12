@@ -81,6 +81,21 @@ namespace Misitu.POSUser
             return new List<CheckpointUserDto>(checkpointUsers.MapTo<List<CheckpointUserDto>>());
         }
 
+        public CheckpointUserDto PosUserLogin(CheckpointUserDto input)
+        {
+            var cu = this.repositoryCheckpointUser.GetAll()
+                .Where(a => a.Username == input.Username && a.Password == input.Password)
+                .FirstOrDefault();
+            if(cu != null)
+            {
+                return cu.MapTo<CheckpointUserDto>();
+            }
+            else
+            {
+                throw new UserFriendlyException("No Information Releted to " + input.Username);
+            }
+        }
+
         public async Task UpdateCheckpointUser(CheckpointUserDto input)
         {
             var cu = this.repositoryCheckpointUser.FirstOrDefault(input.Id);

@@ -22,5 +22,7 @@ namespace Misitu.POSUser
 
 
         Task DeleteCheckpointUserAsync(CheckpointUserDto input);
+
+        CheckpointUserDto PosUserLogin(CheckpointUserDto input);
     }
 }
