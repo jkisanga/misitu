@@ -26,6 +26,13 @@ using System.Collections.Generic;
 using System.Net;
 using System.IO;
 using System.Xml;
+using System.Text;
+using System.Web;
+using Newtonsoft.Json.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Xml.Linq;
+using System.Reflection;
 
 namespace Misitu.Api.Controllers
 {
@@ -40,6 +47,8 @@ namespace Misitu.Api.Controllers
         private readonly IStationAppService stationAppService;
         private readonly ICheckPointTransitPass checkPointTransitPass;
         private readonly IRevenueSourceAppService revenueSourceAppService;
+
+        private string urlRequest = "http://154.118.230.18/api/bill/qrequest";
 
         public ApplicantController(IApplicantService applicantService, IActivityAppService activityAppService, IBillAppService billAppService, IFinancialYearAppService financialYearAppService, IBillItemAppService billItemAppService, ITransitPass transitPass, IStationAppService stationAppService, ICheckPointTransitPass checkPointTransitPass, IRevenueSourceAppService revenueSourceAppService)
         {
@@ -96,7 +105,6 @@ namespace Misitu.Api.Controllers
             var obj = this.transitPass.GetTransitPasses();
             return Json(obj);
         }
-
 
 
         [HttpGet]
@@ -231,8 +239,6 @@ namespace Misitu.Api.Controllers
 
         }
 
-
-
         [HttpPost]
         [Route("/api/Applicant/ResponseTransitpass")]
         public IHttpActionResult ResponseTransitpass([FromBody] TransitPass input)
@@ -302,46 +308,140 @@ namespace Misitu.Api.Controllers
 
         [HttpPost]
         [Route("/api/Applicant/sendRequestToGEPG/{Id}")]
-        public IHttpActionResult sendRequestToGEPG(int Id)
+        public async Task<HttpResponseMessage> send(int Id)
         {
-            var valuesBillItems = "";
+            var billItemsXml = "";
             var billObj = this.billAppService.GetBill(Id);
             var billItems = this.billItemAppService.GetBillItems(Id);
 
-
             if (billItems != null)
             {
+
                 foreach (var billItem in billItems)
                 {
-
-                    valuesBillItems = "<BillItem><BillItemRef>"+billItem.Id+"</BillItemRef><UseItemRefOnPay>N</UseItemRefOnPay><BillItemAmt>"+billItem.Total+"</BillItemAmt><BillItemEqvAmt>"+billItem.Total+"</BillItemEqvAmt><BillItemMiscAmt>0.0</BillItemMiscAmt><GfsCode>"+billItem.GfsCode+"</GfsCode></BillItem>";
-
+                    billItemsXml += "<BillItem>"
+                            + "<BillItemRef>" + billItem.Id + "</BillItemRef>"
+                            + "<UseItemRefOnPay>N</UseItemRefOnPay>"
+                            + "<BillItemAmt>" + billItem.Total + "</BillItemAmt>"
+                            + "<BillItemEqvAmt>" + billItem.Total + "</BillItemEqvAmt>"
+                            + "<BillItemMiscAmt>0.0</BillItemMiscAmt>"
+                            + "<GfsCode>" + billItem.GfsCode + "</GfsCode>"
+                        + "</BillItem>";
                 }
             }
             else
             {
-                valuesBillItems = "<BillItem><BillItemRef></BillItemRef><UseItemRefOnPay>N</UseItemRefOnPay><BillItemAmt></BillItemAmt><BillItemEqvAmt></BillItemEqvAmt><BillItemMiscAmt>0.0</BillItemMiscAmt><GfsCode></GfsCode></BillItem>";
+                billItemsXml += "<BillItem>"
+                            + "<BillItemRef></BillItemRef>"
+                            + "<UseItemRefOnPay>N</UseItemRefOnPay>"
+                            + "<BillItemAmt></BillItemAmt>"
+                            + "<BillItemEqvAmt></BillItemEqvAmt>"
+                            + "<BillItemMiscAmt>0.0</BillItemMiscAmt>"
+                            + "<GfsCode></GfsCode>"
+                        + "</BillItem>";
+
             }
 
+            string billXml = "<gepgBillSubReq>"
+                                 + "<BillHdr><SpCode>SP128</SpCode><RtrRespFlg>true</RtrRespFlg></BillHdr>"
+                                 + "<BillTrxInf>"
+                                    + "<BillId>" + billObj.Id + "</BillId>"
+                                    + "<SubSpCode>3001</SubSpCode> "
+                                    + "<SpSysId>TFS001</SpSysId>"
+                                    + "<BillAmt>" + billObj.BillAmount + "</BillAmt>"
+                                    + "<MiscAmt>0</MiscAmt>"
+                                    + "<BillExprDt>" + billObj.ExpiredDate.ToString("yyyy-MM-ddTHH:mm:ss") + "</BillExprDt>"
+                                    + "<PyrId>" + billObj.Applicant.Name + "</PyrId>"
+                                    + "<PyrName>" + billObj.Applicant.Name + "</PyrName>"
+                                    + "<BillDesc>" + billObj.Description + "</BillDesc>"
+                                    + "<BillGenDt>" + billObj.IssuedDate.ToString("yyyy-MM-ddTHH:mm:ss") + "</BillGenDt>"
+                                    + "<BillGenBy>TFS</BillGenBy>"
+                                    + "<BillApprBy>TFS</BillApprBy>"
+                                    + "<PyrCellNum/><PyrEmail/>"
+                                    + "<Ccy>TZS</Ccy>"
+                                    + "<BillEqvAmt>" + billObj.BillAmount + "</BillEqvAmt>"
+                                    + "<RemFlag>false</RemFlag>"
+                                    + "<BillPayOpt>1</BillPayOpt>"
+                                    + "<BillItems>" + billItemsXml + "</BillItems>"
+                                  + "</BillTrxInf>"
+                               + "</gepgBillSubReq>";
 
 
-            Logger.Debug("Testing Debug");
-            Logger.Error("Testing Logger Error");
+                var client = new HttpClient();
+            string _ContentType = "application/xml";
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(_ContentType));
+            client.DefaultRequestHeaders.Add("Gepg-Com", "default.sp.in");
+            client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Length", billXml.Length.ToString());
 
-
-
-            string data_string = "<gepgBillSubReq><BillHdr><SpCode>SP128</SpCode><RtrRespFlg>true</RtrRespFlg></BillHdr><BillTrxInf><BillId>TFS"+billObj.Id+"</BillId><SubSpCode>3001</SubSpCode> <SpSysId>TFS001</SpSysId><BillAmt>"+billObj.BillAmount+ "</BillAmt><MiscAmt>0</MiscAmt><BillExprDt>"+billObj.ExpiredDate.ToString("yyyy-MM-ddTHH:mm:ss")+"</BillExprDt><PyrId>"+billObj.Applicant.Name+ "</PyrId><PyrName>"+billObj.Applicant.Name+ "</PyrName><BillDesc>"+billObj.Description+ "</BillDesc><BillGenDt>"+billObj.IssuedDate.ToString("yyyy-MM-ddTHH:mm:ss")+"</BillGenDt><BillGenBy>TFS</BillGenBy><BillApprBy>TFS</BillApprBy><PyrCellNum/><PyrEmail/><Ccy>TZS</Ccy><BillEqvAmt>"+billObj.BillAmount+"</BillEqvAmt><RemFlag>false</RemFlag><BillPayOpt>1</BillPayOpt><BillItems>"+valuesBillItems+"</BillItems></BillTrxInf></gepgBillSubReq>";
-
-            string url = "http://154.118.230.18/api/bill/qrequest";
-
-            return Json(postXMLData(url, data_string));
-
-
-
-           // return Json(data_string);
+            var resp = await client.PostAsXmlAsync(urlRequest, billXml);
+            return resp;
+         
         }
 
-     
+        [HttpPost]
+        [Route("/api/Applicant/sendRequestToGEPG/{Id}")]
+        public IHttpActionResult sendRequestToGEPG(int Id)
+        {
+            var billItemsXml = "";
+            var billObj = this.billAppService.GetBill(Id);
+            var billItems = this.billItemAppService.GetBillItems(Id);
+
+            if (billItems != null)
+            {
+
+                foreach (var billItem in billItems)
+                {
+                    billItemsXml += "<BillItem>"
+                            + "<BillItemRef>" + billItem.Id + "</BillItemRef>"
+                            + "<UseItemRefOnPay>N</UseItemRefOnPay>"
+                            + "<BillItemAmt>" + billItem.Total + "</BillItemAmt>"
+                            + "<BillItemEqvAmt>" + billItem.Total + "</BillItemEqvAmt>"
+                            + "<BillItemMiscAmt>0.0</BillItemMiscAmt>"
+                            + "<GfsCode>" + billItem.GfsCode + "</GfsCode>"
+                        + "</BillItem>";
+                }
+            }
+            else
+            {
+                billItemsXml += "<BillItem>"
+                            + "<BillItemRef></BillItemRef>"
+                            + "<UseItemRefOnPay>N</UseItemRefOnPay>"
+                            + "<BillItemAmt></BillItemAmt>"
+                            + "<BillItemEqvAmt></BillItemEqvAmt>"
+                            + "<BillItemMiscAmt>0.0</BillItemMiscAmt>"
+                            + "<GfsCode></GfsCode>"
+                        + "</BillItem>";
+
+            }
+
+            string billXml = "<gepgBillSubReq>"
+                                 + "<BillHdr><SpCode>SP128</SpCode><RtrRespFlg>true</RtrRespFlg></BillHdr>"
+                                 + "<BillTrxInf>"
+                                    + "<BillId>" + billObj.Id + "</BillId>"
+                                    + "<SubSpCode>3001</SubSpCode> "
+                                    + "<SpSysId>TFS001</SpSysId>"
+                                    + "<BillAmt>" + billObj.BillAmount + "</BillAmt>"
+                                    + "<MiscAmt>0</MiscAmt>"
+                                    + "<BillExprDt>" + billObj.ExpiredDate.ToString("yyyy-MM-ddTHH:mm:ss") + "</BillExprDt>"
+                                    + "<PyrId>" + billObj.Applicant.Name + "</PyrId>"
+                                    + "<PyrName>" + billObj.Applicant.Name + "</PyrName>"
+                                    + "<BillDesc>" + billObj.Description + "</BillDesc>"
+                                    + "<BillGenDt>" + billObj.IssuedDate.ToString("yyyy-MM-ddTHH:mm:ss") + "</BillGenDt>"
+                                    + "<BillGenBy>TFS</BillGenBy>"
+                                    + "<BillApprBy>TFS</BillApprBy>"
+                                    + "<PyrCellNum/><PyrEmail/>"
+                                    + "<Ccy>TZS</Ccy>"
+                                    + "<BillEqvAmt>" + billObj.BillAmount + "</BillEqvAmt>"
+                                    + "<RemFlag>false</RemFlag>"
+                                    + "<BillPayOpt>1</BillPayOpt>"
+                                    + "<BillItems>" + billItemsXml + "</BillItems>"
+                                  + "</BillTrxInf>"
+                               + "</gepgBillSubReq>";
+
+
+            return Json(postXMLData(urlRequest, billXml));
+        }
+
 
         public string postXMLData(string destinationUrl, string requestXml)
         {
@@ -369,69 +469,35 @@ namespace Misitu.Api.Controllers
         }
 
        
- [HttpGet]
-        public IHttpActionResult GetControlNo()
+        [HttpGet]
+        public async void GetControlNo()
         {
 
-            BillDto billDto = this.billAppService.GetBill(92);
-            billDto.ControlNumber = "test";
-            billDto.ApplicantId = 5;
-           int id = this.billAppService.UpdateBill1(billDto);
-            //var ackResponse = "<gepgBillSubRespAck><TrxStsCode>7101</TrxStsCode></gepgBillSubRespAck>";
-            //Console.WriteLine(ackResponse);
-            //XmlDocument xmlDocument = new XmlDocument();
+           var ackResponse = "<gepgBillSubRespAck><TrxStsCode>7101</TrxStsCode></gepgBillSubRespAck>";
 
-            //StringWriter sw = new StringWriter();
-            //XmlTextWriter tx = new XmlTextWriter(sw);
-            //xmlDocument.WriteTo(tx);
+            postXMLData(urlRequest, ackResponse);
 
-            //string str = sw.ToString();// 
-           
+            var test = "<gepgBillSubResp> <BillTrx><BillId>2</BillId> <TrxSts>GF</TrxSts><PayCntrNum>0</PayCntrNum> <TrxStsCode>7242;7627</TrxStsCode ></BillTrx ></gepgBillSubResp> ";
 
-            //// Manipulate curl post result
-            //var  requestBody = xmlDocument.OuterXml;
+            var client = new HttpClient();
 
-            //if (string.IsNullOrEmpty(str))
-            //{
+            var response = await client.GetAsync(urlRequest);
 
-            //    this.billAppService.UpdateBill(billDto);
+            var stream = response.Content.ReadAsStreamAsync();
 
-            //    foreach (var child in str)
-            //    {
+            string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            if (!path.EndsWith(@"\")) path += @"\";
 
-            //    }
-            //    //foreach ($outResult->children() as $child) {
-            //    //$curlBillId = (String) $child->BillId;
-            //    //$curlPayCntrNum = (String) $child->PayCntrNum;
-            //    //$curlTrxSts = (String) $child->TrxSts;
-            //    //$curlTrxStsCode = (String) $child->TrxStsCode;
+            if (File.Exists(Path.Combine(path, fileName)))
+                File.Delete(Path.Combine(path, fileName));
 
-            //    //    if ($curlTrxStsCode == "7101"){
-            //    //    $obj = Bill::find($curlBillId);
-            //    //        if ($obj != null){
-            //    //        $obj->controlNo = $curlPayCntrNum;
-            //    //        $obj->status_code = $curlTrxStsCode;
-            //    //        $obj->save();
+            using (FileStream fs = new FileStream(Path.Combine(path, fileName), FileMode.CreateNew, FileAccess.Write)
+            {
+                fs.Write(stream, 0, (int)stream.Length);
+                    fs.Close();
+                }
 
-            //    //            //Print bill
-            //    //        }else{
-
-
-            //    //        }
-
-            //    //    }else if ($curlTrxStsCode == "7242"){
-
-            //    //    }else{
-            //    //    $obj = Bill::find($curlBillId);
-            //    //    $obj->controlNo = $curlPayCntrNum;
-            //    //    $obj->status_code = $curlTrxStsCode;
-            //    //    $obj->save();
-
-                
-
-            //        }
-            return Json(id);
-        }
+    }
 
 
         [HttpGet]
